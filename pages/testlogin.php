@@ -23,9 +23,7 @@
             <input type="text" name="formUser"><br>
             <input type="text" name="formPass"><br>
             <input type="submit" value="submit"><br>
-            Message: <?php echo $message."<br>";
-            echo "session: ".$_SESSION['ffld_id'];
-            ?>
+            <?php echo $message."<br>";?>
         </form>
     </body>
 </html>

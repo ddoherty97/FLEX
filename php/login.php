@@ -27,7 +27,7 @@
     $communication = new CommunicationModule("b16_21592498_FLEX");
 
     //initialize error message to user
-	$message="No data yet";
+	$message="";
 
     //name of username and password form field
     $formUsernameName = "formUser";
@@ -54,13 +54,13 @@
 		if(is_array($userRow))
 		{
 			//set session variables
-			$_SESSION["cred_id"] = $userRow['CRED_ID'];                         //id of record in database
-            $_SESSION["user_name"] = $userRow['CRED_USER'];                     //username from database
-			$_SESSION['ffld_id'] = $userRow['CRED_FFLD_ID'];                    //fairfield id used to link to user table
-			$_SESSION['last_login'] = $userRow['CRED_LAST_LOGIN'];              //last login date of user
+			$_SESSION["cred_id"] = $userRow['CRED_ID'];                     //id of record in database
+            $_SESSION["user_name"] = $userRow['CRED_USER'];                 //username from database
+			$_SESSION['ffld_id'] = $userRow['CRED_FFLD_ID'];                //fairfield id used to link to user table
+			$_SESSION['last_login'] = $userRow['CRED_LAST_LOGIN'];          //last login date of user
 			$_SESSION["last_activity"] = time();                            //last time user loaded a page
             $_SESSION["expire"] = $_SESSION['last_activity'] + (30 * 60);   //when to autologout user (30 minutes)
-            $message = "granted";
+            header("Location: home.php");                                   //once logged in, go to home page
 		}//end if
 		
 		//if no matching user, display error message
