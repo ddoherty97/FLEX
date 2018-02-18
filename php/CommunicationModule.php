@@ -27,7 +27,7 @@
         {
             //create database object
             $this->dbObject = new DatabaseModule($this->database);
-           
+
             //connect to database
             $this->dbObject->connectToServer();
         }//close constructor
@@ -41,16 +41,30 @@
          **/
         public function queryDatabase($query)
         {            
+            //////NOTE: THIS METHOD SHOULD HANDLE INPUT SANITIZING/////
+            
             //query database as long as does not contain "DELETE FROM"
             if(stripos($query, "DELETE FROM") === FALSE)
             {
-                return mysqli_query($this->dbObject->getConnection(), $query);
+                return $this->dbObject->query($query);
             }//end if
             else
             {
                 return false;
             }//end else
         }//close queryDatabase
+
+        /**
+         * getLastError()
+         * This method gives the last SQL error
+         * Parameters:  None
+         * Returns: The latest SQL error
+         * Exceptions: None
+         **/
+        public function getLastError()
+        {
+            return $this->dbObject->getSQLError();
+        }//close getLastError
 
         /**
          * endCommunication()

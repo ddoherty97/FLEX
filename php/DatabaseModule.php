@@ -68,16 +68,20 @@
         }//close connectToServer
 
         /**
-         * getConnection()
-         * This method provides access to the database connection
-         * Parameters: None
-         * Returns: The MySQLi connection
+         * query()
+         * This method queries the database connection
+         * Parameters:  $sql->SQL statement to query database
+         * Returns: The result of the MySQLi query
          * Exceptions: None
          **/
-        public function getConnection()
+        public function query($sql)
         {
-            return $this->connection;
-        }//close getConnection
+            //sanitize input
+            $query = mysqli_real_escape_string($this->connection, $sql);
+
+            //query database and return result
+            return mysqli_query($this->connection, $query);
+        }//close query
 
         /**
          * getSQLError()
