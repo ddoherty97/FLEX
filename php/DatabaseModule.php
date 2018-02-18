@@ -8,17 +8,13 @@
      **/
 
     class DatabaseModule
-    {
-        //set default values to load into object
-        static private $defaultDbHost = "localhost";
-        static private $defaultDbUser = "b16_21592418";
-        static private $defaultDbPass = "FLEX123";
-        
+    {        
         private $dbHost;        //database host
         private $dbUser;        //database username
         private $dbPass;        //database password
         private $db;            //database to use
-
+        private $connection;    //connection to mysqli server
+        
         /**
          * __construct()
          * This method loads the default database credentials into the object
@@ -28,10 +24,10 @@
          **/
         public function __construct()
         {
-            $this->$dbHost = $defaultDbHost;
-            $this->$dbUser = $defaultDbUser;
-            $this->$dbPass = $defaultDbPass;
-        }//close default constructor
+            $this->dbHost = "sql201.byethost16.com";
+            $this->dbUser = "b16_21592498";
+            $this->dbPass = "FLEX123";
+        }//close constructor
 
         /**
          * setCredentials()
@@ -44,9 +40,9 @@
          **/
         public function setCredentials($host, $user, $pass)
         {
-            $this->$dbHost = $host;
-            $this->$dbUser = $user;
-            $this->$dbPass = $pass;
+            $this->dbHost = $host;
+            $this->dbUser = $user;
+            $this->dbPass = $pass;
         }//close setCredentials
 
         /**
@@ -60,9 +56,14 @@
          **/
         public function connectToServer()
         {
-            //connect to db, store connection, and return connection
-            $this->$connection = mysqli_connect($dbHost, $dbUser, $dbPass);
-            return $this->$connection;
+            //if there's no current connection
+            if(!isset($this->connection) || $this->connection==false)
+            {
+                //connect to db server and store connection
+                $this->connection = mysqli_connect($this->dbHost, $this->dbUser, $this->dbPass);
+            }//end if
+
+            return $this->connection;
         }//close connectToServer
 
         /**
@@ -72,14 +73,13 @@
          * Returns: TRUE if the database was selected, FALSE otherwise
          * Exceptions: None
          **/
-        //select database of connected database
         public function selectDatabase($db)
         {
             //store database table
-            $this->$dbTable = $table;
+            $this->db = $db;
 
             //select database and store result
-            return mysqli_select_db($connection,$db);
+            return mysqli_select_db($this->connection,$this->db);
         }//close selectDatabase
 
         /**
@@ -91,7 +91,7 @@
          **/
         public function getSQLError()
         {
-            return mysqli_error($this->$connection);
+            return mysqli_error($this->connection);
         }//close getSQLError
         
         /**
@@ -103,7 +103,7 @@
          **/
         public function disconnectFromServer()
         {
-            return mysqli_close($this->$connection);
+            return mysqli_close($this->connection);
         }//close disconnectFromServer
     }//close DatabaseModule
 ?>
