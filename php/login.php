@@ -1,0 +1,79 @@
+<?php
+    /**
+     * login.php
+     * This file, written in procedural language (not object-oriented), should be included at the
+     *      beginning of the login webpage. It will process the username/password form fields to
+     *      validate user login.
+     * Author: Davis Doherty
+     * Last Updated: 2/17/18 DD
+     **/
+    
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+   
+    //file needs to communicate with database
+    require_once("CommunicationModule.php");
+
+    //start a new php session if one is not yet active
+	if(!isset($_SESSION)) 
+    {
+        session_start();
+    }//end if
+
+    //if user is already logged in, redirect to home page
+    if(isset($_SESSION["user_id"]))
+    {
+        header("Location: home.php");
+    }//end if
+
+    //initalize connection to communication module
+    $communication = new CommunicationModule("b16_21592498_FLEX");
+
+    //initialize error message to user
+	//$message="No data yet";
+
+    //name of username and password form field
+    $formUsernameName = "formUser";
+    $formPasswordName = "formPass";
+
+	//if user has submitted login form
+	if(count($_POST)>0)
+	{	
+		//collect supplied credentials
+		//$user = mysqli_real_escape_string($communication->get,$_POST[$formUsernameName]);
+        //$pass = mysqli_real_escape_string($dbConnection,$_POST[$formPasswordName]);
+        $user=$_POST[$formUsernameName];
+        $pass=$_POST[$formPasswordName];
+
+		//hash password to encript
+        //$password = hash("sha512", $pass);
+        $password = $pass;
+
+		//check to see if valid user credentials
+		$loginQuery = "SELECT * FROM USER_CREDENTIALS WHERE CRED_USER='$user' AND BINARY CRED_PASS='$password'";
+        $queryResult = $communication->getFromDatabase($loginQuery);
+        
+        //convert query result into array
+        $userRow = mysqli_fetch_array($queryResult);
+		
+		//if a row contains both username and password
+		if(is_array($userRow))
+		{
+			//set session variables
+			$_SESSION["cred_id"] = $userRow['CRED_ID'];                         //id of record in database
+            $_SESSION["user_name"] = $userRow['CRED_USER'];                     //username from database
+			$_SESSION['ffld_id'] = $userRow['CRED_FFLD_ID'];                    //fairfield id used to link to user table
+			$_SESSION['last_login'] = $userRow['CRED_LAST_LOGIN'];              //last login date of user
+			$_SESSION["last_activity"] = time();                            //last time user loaded a page
+            $_SESSION["expire"] = $_SESSION['last_activity'] + (30 * 60);   //when to autologout user (30 minutes)
+            echo "granted";
+		}//end if
+		
+		//if no matching user, display error message
+        else
+        {
+            echo "Incorrect Username or Password! Please Try Again.";
+        }//end else
+	}//end if
+?>
