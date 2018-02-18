@@ -6,24 +6,27 @@
      * Last Updated: 2/17/18 DD
      **/
 
+    //this class requires the database module
+    require_once("DatabaseModule.php");
+
     class CommunicationModule
     {
-        private $dbConnection;    //database connection
+        //database object to communicate with
+        private $dbObject;
 
         /**
          * __construct()
          * This method connects to the database and selects the table
-         * Parameters:  $database->database to connect to
+         * Parameters:  $databaseSelect->database to connect to
          * Exceptions: None
          **/
-        public function __construct($database)
+        public function __construct($databaseSelect)
         {
             //create database object
-            $database = new DatabaseModule();
-
-            //connect to database and select table
-            $this->dbConnection = $database->connectToServer();
-            $database->selectDatabase($database);
+            $this->dbObject = new DatabaseModule($databaseSelect);
+           
+            //connect to database
+            $this->dbObject->connectToServer();
         }//close constructor
 
         /**
@@ -39,8 +42,7 @@
             //store in database as long as does not contain "DELETE"
             if(!stripos($query, "DELETE"))
             {
-                mysqli_query($this->dbConnection, $query);
-                return true;
+                return mysqli_query($this->dbObject->getConnection(), $query);
             }//end if
             else
             {
@@ -61,8 +63,7 @@
             //store in database as long as does not contain "DELETE"
             if(!stripos($query, "DELETE"))
             {
-                mysqli_query($this->dbConnection, $query);
-                return true;
+                return mysqli_query($this->dbObject->getConnection(), $query);
             }//end if
             else
             {

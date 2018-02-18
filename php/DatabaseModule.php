@@ -19,30 +19,33 @@
          * __construct()
          * This method loads the default database credentials into the object
          *      upon object creation
-         * Parameters: None
+         * Parameters:  $database->name of the database to connect to
          * Exceptions: None
          **/
-        public function __construct()
+        public function __construct($database)
         {
             $this->dbHost = "sql201.byethost16.com";
             $this->dbUser = "b16_21592498";
             $this->dbPass = "FLEX123";
+            $this->db = $database;
         }//close constructor
 
         /**
          * setCredentials()
          * This method allows the user to override the default database credentials
-         * Parameters:  $host->host server for the database
-         *              $user->username for the database
-         *              $pass->password for the database
+         * Parameters:  $host->host address for the server
+         *              $user->username for the server
+         *              $pass->password for the server
+         *              $database->database to connect to
          * Returns: None
          * Exceptions: None
          **/
-        public function setCredentials($host, $user, $pass)
+        public function setCredentials($host, $user, $pass, $database)
         {
             $this->dbHost = $host;
             $this->dbUser = $user;
             $this->dbPass = $pass;
+            $this->db = $database;
         }//close setCredentials
 
         /**
@@ -51,7 +54,7 @@
          *      to connect to the server and then stores the connection for
          *      later use
          * Parameters: None
-         * Returns: The server connection, or FALSE if the connection failed
+         * Returns: None
          * Exceptions: None
          **/
         public function connectToServer()
@@ -60,27 +63,21 @@
             if(!isset($this->connection) || $this->connection==false)
             {
                 //connect to db server and store connection
-                $this->connection = mysqli_connect($this->dbHost, $this->dbUser, $this->dbPass);
+                $this->connection = mysqli_connect($this->dbHost, $this->dbUser, $this->dbPass, $this->db);
             }//end if
-
-            return $this->connection;
         }//close connectToServer
 
         /**
-         * selectDatabase()
-         * This method stores the default database to run queries on
-         * Parameters:  $db->database to connect to
-         * Returns: TRUE if the database was selected, FALSE otherwise
+         * getConnection()
+         * This method provides access to the database connection
+         * Parameters: None
+         * Returns: The MySQLi connection
          * Exceptions: None
          **/
-        public function selectDatabase($db)
+        public function getConnection()
         {
-            //store database table
-            $this->db = $db;
-
-            //select database and store result
-            return mysqli_select_db($this->connection,$this->db);
-        }//close selectDatabase
+            return $this->connection;
+        }//close getConnection
 
         /**
          * getSQLError()
