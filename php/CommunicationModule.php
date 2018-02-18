@@ -3,7 +3,7 @@
      * Communication Module (CommunicationModule.php)
      * This class allows communication to and from the database
      * Author: Davis Doherty
-     * Last Updated: 2/17/18 DD
+     * Last Updated: 2/18/18 DD
      **/
 
     //this class requires the database module
@@ -14,33 +14,35 @@
         //database object to communicate with
         private $dbObject;
 
+        //database to connect to
+        private $database = "b16_21592498_FLEX";
+
         /**
          * __construct()
          * This method connects to the database and selects the table
-         * Parameters:  $databaseSelect->database to connect to
+         * Parameters: None
          * Exceptions: None
          **/
-        public function __construct($databaseSelect)
+        public function __construct()
         {
             //create database object
-            $this->dbObject = new DatabaseModule($databaseSelect);
+            $this->dbObject = new DatabaseModule($this->database);
            
             //connect to database
             $this->dbObject->connectToServer();
         }//close constructor
 
         /**
-         * sendToDatabase()
-         * This method sends SQL statements to the database with the intention of updating
-         *      data (i.e. using SET, UPDATE, etc.)
+         * queryDatabase()
+         * This method sends SQL statements to the database
          * Parameters:  $query->formatted SQL statement to run on database
-         * Returns: TRUE if query completed, FALSE otherwise
+         * Returns: results of query if completed, FALSE otherwise
          * Exceptions: None
          **/
-        public function sendToDatabase($query)
+        public function queryDatabase($query)
         {            
-            //store in database as long as does not contain "DELETE"
-            if(!stripos($query, "DELETE"))
+            //query database as long as does not contain "DELETE FROM"
+            if(stripos($query, "DELETE FROM") === FALSE)
             {
                 return mysqli_query($this->dbObject->getConnection(), $query);
             }//end if
@@ -48,27 +50,19 @@
             {
                 return false;
             }//end else
-        }//close sendToDatabase
+        }//close queryDatabase
 
         /**
-         * getFromDatabase()
-         * This method sends SQL statements to the database with the intention of selecting
-         *      data (i.e. using SELECT)
-         * Parameters:  $query->formatted SQL statement to run on database
-         * Returns: TRUE if query completed, FALSE otherwise
+         * endCommunication()
+         * This method closes the database connection and prevents resource leaks. This method
+         *      should be called at the end of every file that creates a CommunicationModule
+         * Parameters: None
+         * Returns: TRUE if disconnected, FALSE otherwise
          * Exceptions: None
          **/
-        public function getFromDatabase($query)
+        public function endCommunication()
         {            
-            //store in database as long as does not contain "DELETE"
-            if(!stripos($query, "DELETE"))
-            {
-                return mysqli_query($this->dbObject->getConnection(), $query);
-            }//end if
-            else
-            {
-                return false;
-            }//end else
-        }//close getFromDatabase
+            return $this->dbObject->disconnectFromServer();
+        }//close endCommunication
     }//close CommunicationModule
 ?>
