@@ -193,7 +193,20 @@
 			<label for="res">Residence<sup>*</sup>: </label>	 
 				<select name="res" id="res">
 					<option value="-1">Select</option>
-					<option value="MDZ">Meditz Hall</option>
+					<option value="Campion">Campion</option>
+					<option value="Gonzaga">Gonzaga</option>
+					<option value="Jogues">Jogues</option>
+					<option value="Regis">Regis</option>
+					<option value="Claver">Claver</option>
+					<option value="Kostka">Kostka</option>
+					<option value="Faber">Faber</option>
+					<option value="Loyola">Loyola</option>
+					<option value="McCormick">McCormick</option>
+					<option value="Dolan">Dolan</option>
+					<option value="Mahan">Mahan</option>
+					<option value="Meditz">Meditz</option>
+					<option value="Townhouses">Townhouses</option>
+					<option value="Off-Campus">Off-Campus</option>
 			   </select> <br><br>
 				
 			<label for="major1">Major<sup>*</sup>: </label>
