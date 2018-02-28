@@ -122,6 +122,7 @@
 			<label for="dept">Department<sup>*</sup>: </label>
  				<select name="dept" id="dept">
 					 <option value="-1">Select</option>
+					 <option value="-1">---Arts and Sciences---</option>
 					 <option value="Anthropology">Anthropology</option>
 					 <option value="Applied Ethics">Applied Ethics</option>
 					 <option value="Art History">Art History</option>
@@ -165,6 +166,7 @@
 					 <option value="Studio Art">Studio Art</option>
 					 <option value="Theatre">Theatre</option>
 					 <option value="Women, Gender and Sexuality Studies">Women, Gender and Sexuality Studies</option>
+					 <option value="-1">---Business---</option>
 					 <option value="Accounting">Accounting</option>
 					 <option value="Business">Business</option>
 					 <option value="Economics">Economics</option>
@@ -173,6 +175,7 @@
 					 <option value="Management">Management</option>
 					 <option value="Marketing">Marketing</option>
 					 <option value="Operations Management">Operations Management</option>
+					 <option value="-1">---Engineering---</option>
 					 <option value="Bioengineering">Bioengineering</option>
 					 <option value="Computer Engineering">Computer Engineering</option>
 					 <option value="Computer Science">Computer Science</option>
@@ -180,6 +183,7 @@
 					 <option value="Engineering">Engineering</option>
 					 <option value="Mechanical Engineering">Mechanical Engineering</option>
 					 <option value="Software Engineering">Software Engineering</option>
+					 <option value="-1">---Nursing---</option>
 					 <option value="Health Studies">Health Studies</option>
 					 <option value="Nursing">Nursing</option>
 					 <option value="Public Health">Public Health</option>
