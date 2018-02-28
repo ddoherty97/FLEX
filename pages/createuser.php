@@ -101,6 +101,15 @@
   					<option value="1">Student</option>
 				</select> <br><br>
 				
+			<label for="year">Class Year<sup>*</sup>: </label>
+ 				<select id="year" name="year">
+					<option value="-1">Select</option>  
+					<option value="18">2018</option>
+  					<option value="19">2019</option>
+  					<option value="20">2020</option>
+  					<option value="21">2021</option>
+				</select> <br><br>
+				
 			<label for="school">School<sup>*</sup>: </label>
  				<select id="school" name="school">
 					<option value="-1">Select</option>  
