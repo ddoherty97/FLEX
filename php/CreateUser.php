@@ -10,7 +10,7 @@
      **/
 
     //include script to ensure no unauthorized access
-    require("IsLoggedIn.php");
+    //require("IsLoggedIn.php");
 
     //only run if form was submitted
     if(isset($_POST['fuID']))
@@ -30,6 +30,7 @@
         $phone = $_POST['phone'];           //phone number
         $email = $_POST['email'];           //email
         $role = $_POST['role'];             //facstaff or student
+        $class = $_POST['year'];            //student class year
         $school = $_POST['school'];         //school
         $dept = $_POST['dept'];             //department
         $residence = $_POST['res'];         //campus residence
@@ -41,13 +42,33 @@
         $min3 = $_POST['minor3'];           //other minor
         $min4 = $_POST['minor4'];           //other minor
 
+        //dump all variables
+        var_dump($ffldID);
+        var_dump($user);
+        var_dump($pass);
+        var_dump($fName);
+        var_dump($lName);
+        var_dump($dob);
+        var_dump($gender);
+        var_dump($heightft);
+        var_dump($heightin);
+        var_dump($weight);
+        var_dump($religion);
+        var_dump($phone);
+        var_dump($email);
+        var_dump($school);
+        var_dump($role);
+        var_dump($dept);
+        var_dump($residence);
+        var_dump($maj1);
+        var_dump($maj2);
+        var_dump($maj3);
+        var_dump($min1);
+        var_dump($min2);
+        var_dump($min3);
+        var_dump($min4);
 
-
-
-
-
-
-
+        exit();
     }//end if
 
     //if no form submitted
