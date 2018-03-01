@@ -86,7 +86,19 @@
  				<input type="text" name="weight" id="weight" size="10">lbs<br><br>
  				
  			<label for="religion">Religious Preference: </label>
- 				<input type="text" name="religion" id="religion"><br><br>
+			 	<select name="religion" id="religion">
+					<option value="-1">Select</option>
+					<option value="0">R0</option>
+					<option value="1">R1</option>
+					<option value="2">R2</option>
+					<option value="3">R3</option>
+					<option value="4">R4</option>
+					<option value="5">R5</option>
+					<option value="6">R6</option>
+					<option value="7">R7</option>
+					<option value="8">R8</option>
+					<option value="9">R9</option>
+				</select><br><br>
 
  			<label for="phone">Phone Number<sup>*</sup>: </label>
  				<input type="tel" name="phone" id="phone"><br><br>
