@@ -5,7 +5,7 @@
      *      beginning of the login webpage. It will process the username/password form fields to
      *      validate user login.
      * Author: Davis Doherty
-     * Last Updated: 2/17/18 DD
+     * Last Updated: 2/28/18 DD
      **/
    
     //file needs to communicate with database
@@ -45,7 +45,7 @@
 
 		//check to see if valid user credentials
 		$loginQuery = "SELECT * FROM USER_CREDENTIALS WHERE CRED_USER='$user' AND BINARY CRED_PASS='$password'";
-        $queryResult = $communication->getFromDatabase($loginQuery);
+        $queryResult = $communication->queryDatabase($loginQuery);
         
         //convert query result into array
         $userRow = mysqli_fetch_array($queryResult);

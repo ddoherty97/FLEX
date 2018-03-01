@@ -40,9 +40,7 @@
          * Exceptions: None
          **/
         public function queryDatabase($query)
-        {            
-            //////NOTE: THIS METHOD SHOULD HANDLE INPUT SANITIZING/////
-            
+        {
             //query database as long as does not contain "DELETE FROM"
             if(stripos($query, "DELETE FROM") === FALSE)
             {
@@ -66,6 +64,22 @@
             return $this->dbObject->getSQLError();
         }//close getLastError
 
+        /**
+         * sanitizeString()
+         * This method takes form input and sanitizes it to remove any harmful
+         *      code that may result, such as sql injections or html code
+         * Parameters:  $formInput->The string that needs to be sanitized
+         * Returns: A sanitized and safe version of the input
+         * Exceptions: None
+         **/
+        public function sanitizeString($formInput)
+        {            
+            //THIS FUNCTION NEEDS TO BE UPDATED//
+            
+            return $formInput;
+        }//close sanitizeString
+        
+        
         /**
          * endCommunication()
          * This method closes the database connection and prevents resource leaks. This method

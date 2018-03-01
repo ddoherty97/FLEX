@@ -15,6 +15,12 @@
     //only run if form was submitted
     if(isset($_POST['fuID']))
     {
+        //establish connection to communication module for database connection
+        $com = new CommunicationModule("b16_21592498_FLEX");
+        
+        //flag to ensure proper valudation of all fields
+        $isValid = true;
+        
         //get submitted form data
         $ffldID = $_POST['fuID'];           //fairfield id
         $user = $_POST['username'];         //new username
@@ -42,31 +48,27 @@
         $min3 = $_POST['minor3'];           //other minor
         $min4 = $_POST['minor4'];           //other minor
 
-        //dump all variables
-        var_dump($ffldID);
-        var_dump($user);
-        var_dump($pass);
-        var_dump($fName);
-        var_dump($lName);
-        var_dump($dob);
-        var_dump($gender);
-        var_dump($heightft);
-        var_dump($heightin);
-        var_dump($weight);
-        var_dump($religion);
-        var_dump($phone);
-        var_dump($email);
-        var_dump($school);
-        var_dump($role);
-        var_dump($dept);
-        var_dump($residence);
-        var_dump($maj1);
-        var_dump($maj2);
-        var_dump($maj3);
-        var_dump($min1);
-        var_dump($min2);
-        var_dump($min3);
-        var_dump($min4);
+        //ensure fairfield id is 8 characters long and only numbers
+        if(strlen($ffldID) == 8 && ctype_digit($ffldID))
+        {
+            //check to see if user with fairfield ID already exists
+            $result = mysqli_fetch_array($com->getFromDatabase("SELECT * FROM USER_CREDENTIALS WHERE CRED_FFLD_ID='$ffldID'"));
+
+            if(is_array($result))
+            {
+                $isValid = false;
+            }//end if
+        }//end if
+        
+        //if fairfield ID not 8 characters
+        else
+        {
+            $isValid = false;   //flag data as incomplete
+        }//end else
+
+        
+        
+
 
         exit();
     }//end if
