@@ -105,13 +105,6 @@
  				
  			<label for="email">Email<sup>*</sup>: </label>
  				<input type="email" name="email" id="email"><br><br>
- 				
- 			<label for="role">Role<sup>*</sup>: </label>
- 				<select id="role" name="role">
-					<option value="-1">Select</option>  
-					<option value="0">Faculty/Staff</option>
-  					<option value="1">Student</option>
-				</select> <br><br>
 				
 			<label for="year">Class Year<sup>*</sup>: </label>
  				<select id="year" name="year">
