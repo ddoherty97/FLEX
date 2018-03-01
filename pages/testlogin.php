@@ -1,4 +1,4 @@
-<?php require("login.php"); ?>
+<?php require("../php/login.php"); ?>
 
 <!doctype html>
 <html lang="en">

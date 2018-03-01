@@ -76,11 +76,8 @@
          **/
         public function query($sql)
         {
-            //sanitize input
-            $query = mysqli_real_escape_string($this->connection, $sql);
-
             //query database and return result
-            return mysqli_query($this->connection, $query);
+            return mysqli_query($this->connection, $sql);
         }//close query
 
         /**
@@ -95,6 +92,20 @@
             return mysqli_error($this->connection);
         }//close getSQLError
         
+        /**
+         * escapeSQL()
+         * This method takes form input and escapes it to remove any harmful
+         *      code that may result in sql injections
+         * Parameters:  $sqlInput->The string that needs to be escaped
+         * Returns: An escaped and safe version of the input
+         * Exceptions: None
+         **/
+        public function escapeSQL($sqlInput)
+        {            
+            $sqlOutput = mysqli_real_escape_string($this->connection, $sqlInput);
+            return $sqlOutput;
+        }//close escapeSQL
+
         /**
          * disconnectFromServer()
          * This method closes the connection from the database server

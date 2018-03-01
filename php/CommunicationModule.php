@@ -75,8 +75,8 @@
         public function sanitizeString($formInput)
         {            
             //THIS FUNCTION NEEDS TO BE UPDATED//
-            
-            return $formInput;
+            $escapedInput = $this->dbObject->escapeSQL($formInput);
+            return $escapedInput;
         }//close sanitizeString
         
         
