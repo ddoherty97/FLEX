@@ -6,6 +6,8 @@
         <title>FLEX</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../css/style.css">
+		<link rel="stylesheet" href="../css/CreateUserStyle.css">
+		<script src="../javascript/createuser.js"></script>
     </head>
     
     <body>
@@ -21,34 +23,42 @@
                 <a href="tracking.html">Tracking</a>
                 <a href="goals.html">Goals</a>
                 <a href="reports.html">Reports</a>
+				<a href="../php/logout.php">Logout</a>
                 </div>
             </li>
         </ul>
         </nav>
         </header>
         <main>
-            <form method="POST" action="../php/CreateUser.php">
+            <form method="POST" action="" onsubmit="return validateUserSubmission();">
         	<label for="fuID">Fairfield ID<sup>*</sup>: </label>
- 				<input type="text" name="fuID" id="fuID"><br><br>
+				<input type="text" name="fuID" id="fuID" maxlength="8">
+				<div class="errorMSG" id="fuID_error"></div>
  				
 			<label for="email">Email<sup>*</sup>: </label>
- 				<input type="email" name="email" id="email"><br><br>
+				<input type="email" name="email" id="email" maxlength="50">
+				<div class="errorMSG" id="email_error"></div>
 			 
 			 <label for="username">Username<sup>*</sup>: </label>
- 				<input type="text" name="username" id="username"><br><br>
+				<input type="text" name="username" id="username" maxlength="80">
+				<div class="errorMSG" id="username_error"></div>
  				
   			<label for="password">Password<sup>*</sup>: </label>
-				  <input type="password" name="password" id="password"><br><br>
+				<input type="password" name="password" id="password">
+				<div class="errorMSG" id="password_error"></div>
 				  
 			<label for="cpassword">Confirm Password<sup>*</sup>: </label>
-  				<input type="password" name="cpassword" id="cpassword"><br><br>
+				<input type="password" name="cpassword" id="cpassword">
+				<div class="errorMSG" id="confirm_error"></div>
   				
   			<label for="firstname">First Name<sup>*</sup>: </label>
- 				<input type="text" name="firstname" id="firstname"><br><br>
+				<input type="text" name="firstname" id="firstname" maxlength="50">
+				<div class="errorMSG" id="fname_error"></div>
  				
   			<label for="lastname">Last Name<sup>*</sup>: </label>
-  				<input type="text" name="lastname" id="lastname"><br><br>
-  				
+				<input type="text" name="lastname" id="lastname" maxlength="50">
+				<div class="errorMSG" id="lname_error"></div>
+				  
   			<label for="DOB">Date of Birth<sup>*</sup>: </label>
  				<input type="date" name="DOB" id="DOB"><br><br>
  				
@@ -58,7 +68,8 @@
 					<option value="M">Male</option>
   					<option value="F">Female</option>
   					<option value="O">Other</option>
-				</select> <br><br>
+				</select>
+				<div class="errorMSG" id="gender_error"></div>
 				
 			<label>Height<sup>*</sup>: </label>
 				<select name="heightft" id="heightft">
@@ -83,10 +94,11 @@
 					<option value="9">9</option>
 					<option value="10">10</option>
 					<option value="11">11</option>
-				</select>"<br><br>
+				</select>"
+				<div class="errorMSG" id="height_error"></div>
  				
  			<label for="weight">Weight: </label>
- 				<input type="text" name="weight" id="weight" size="10">lbs<br><br>
+ 				<input type="text" name="weight" id="weight" size="10" maxlength="3">lbs<br><br>
  				
  			<label for="religion">Religious Preference: </label>
 			 	<select name="religion" id="religion">
@@ -104,7 +116,8 @@
 				</select><br><br>
 
  			<label for="phone">Phone Number<sup>*</sup>: </label>
- 				<input type="tel" name="phone" id="phone"><br><br>
+				<input type="tel" name="phone" id="phone" maxlength="15">
+				<div class="errorMSG" id="phone_error"></div>
 				
 			<label for="year">Class Year<sup>*</sup>: </label>
  				<select id="year" name="year">
@@ -113,7 +126,8 @@
   					<option value="19">2019</option>
   					<option value="20">2020</option>
   					<option value="21">2021</option>
-				</select> <br><br>
+				</select>
+				<div class="errorMSG" id="class_error"></div>
 				
 			<label for="school">School<sup>*</sup>: </label>
  				<select id="school" name="school">
@@ -122,7 +136,8 @@
   					<option value="NUR">Nursing</option>
   					<option value="AaS">Arts and Sciences</option>
   					<option value="DSB">Business</option>
-				</select> <br><br>
+				</select>
+			<div class="errorMSG" id="school_error"></div>
 			
 			<label for="dept">Department<sup>*</sup>: </label>
  				<select name="dept" id="dept">
@@ -192,8 +207,8 @@
 					 <option value="Health Studies">Health Studies</option>
 					 <option value="Nursing">Nursing</option>
 					 <option value="Public Health">Public Health</option>
-					 
-				</select><br><br>	
+				</select>
+				<div class="errorMSG" id="dept_error"></div>	
  			
 			<label for="res">Residence<sup>*</sup>: </label>	 
 				<select name="res" id="res">
@@ -212,7 +227,8 @@
 					<option value="Meditz">Meditz</option>
 					<option value="Townhouses">Townhouses</option>
 					<option value="Off-Campus">Off-Campus</option>
-			   </select> <br><br>
+			   </select>
+				<div class="errorMSG" id="res_error"></div>
 				
 			<label for="major1">Major<sup>*</sup>: </label>
 				<select name="major1" id="major1">
@@ -264,7 +280,8 @@
 					<option value="Studio Art">Studio Art</option>
 					<option value="Theatre">Theatre</option>
 					<option value="Visual and Perfoming Arts">Visual and Perfoming Arts</option>
-				</select> <br><br>
+				</select>
+				<div class="errorMSG" id="maj1_error"></div>
 				
  			<label for="major2">Major: </label>
 			 <select name="major2" id="major2">
@@ -316,7 +333,7 @@
 					<option value="Studio Art">Studio Art</option>
 					<option value="Theatre">Theatre</option>
 					<option value="Visual and Perfoming Arts">Visual and Perfoming Arts</option>
-				</select> <br><br>
+				</select><br>
  				
  			<label for="major3">Major: </label>
 			 <select name="major3" id="major3">
@@ -368,7 +385,7 @@
 					<option value="Studio Art">Studio Art</option>
 					<option value="Theatre">Theatre</option>
 					<option value="Visual and Perfoming Arts">Visual and Perfoming Arts</option>
-				</select> <br><br>
+				</select><br>
 			
 			<label for="minor1">Minor: </label>
 				<select name="minor1" id="minor1">
@@ -426,7 +443,7 @@
 					<option value="Theatre">Theatre</option>
 					<option value="Visual and Perfoming Arts">Visual and Perfoming Arts</option>
 					<option value="Women, Gender and Sexuality Studies">Women, Gender and Sexuality Studies</option>
-				</select> <br><br>
+				</select><br>
  				
  			<label for="minor2">Minor: </label>
 			 <select name="minor2" id="minor2">
@@ -484,7 +501,7 @@
 					<option value="Theatre">Theatre</option>
 					<option value="Visual and Perfoming Arts">Visual and Perfoming Arts</option>
 					<option value="Women, Gender and Sexuality Studies">Women, Gender and Sexuality Studies</option>
-				</select> <br><br>
+				</select><br>
  				
  			<label for="minor3">Minor: </label>
 				<select name="minor3" id="minor3">
@@ -542,7 +559,7 @@
 					<option value="Theatre">Theatre</option>
 					<option value="Visual and Perfoming Arts">Visual and Perfoming Arts</option>
 					<option value="Women, Gender and Sexuality Studies">Women, Gender and Sexuality Studies</option>
-				</select> <br><br>
+				</select><br>
  				
  			<label for="minor4">Minor: </label>
 			 <select name="minor4" id="minor4">
@@ -600,8 +617,7 @@
 					<option value="Theatre">Theatre</option>
 					<option value="Visual and Perfoming Arts">Visual and Perfoming Arts</option>
 					<option value="Women, Gender and Sexuality Studies">Women, Gender and Sexuality Studies</option>
-				</select> <br><br>
- 				
+				</select><br>
  			<input type="submit" value="Submit">
 		</form>
         </main>
@@ -609,7 +625,7 @@
             <br>
             <div style="float:left; display: block;">&copy; 2018 <br>Fairfield University <br>School of Nursing</div>
             <div style="float: right; display: block">
-            1073 North Benson Road
+            <br>1073 North Benson Road
             <br>Fairfield, CT 06824
             </div>
         </footer>
