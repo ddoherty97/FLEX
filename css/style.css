@@ -10,6 +10,7 @@ h1	{
 body    {
     font-family: sans-serif;
 }
+
 main   {
     text-align: center;
 }
@@ -22,11 +23,16 @@ main a  {
 main a:hover    {
     color: #CCC;
 }
+
 header img, header nav {
     display: inline;
     vertical-align: middle;
 }
 
+header
+{
+    margin: 0 0 50px 0;
+}
 header img  {
     width: 12%;
 }
@@ -51,7 +57,6 @@ li a, .dropbtn {
     padding: 16px;
     text-decoration: none;
 }
-
 
 li a:hover, .dropdown:hover .dropbtn {
     background-color: #A00;
@@ -80,9 +85,7 @@ li.dropdown {
     text-align: left;
 }
 
-.dropdown-content a:hover, 
-
-.dropdown:hover .dropdown-content {
+.dropdown-content a:hover, .dropdown:hover .dropdown-content {
     display: block;
 }
 
