@@ -31,7 +31,10 @@
         	<label for="fuID">Fairfield ID<sup>*</sup>: </label>
  				<input type="text" name="fuID" id="fuID"><br><br>
  				
- 			<label for="username">Username<sup>*</sup>: </label>
+			<label for="email">Email<sup>*</sup>: </label>
+ 				<input type="email" name="email" id="email"><br><br>
+			 
+			 <label for="username">Username<sup>*</sup>: </label>
  				<input type="text" name="username" id="username"><br><br>
  				
   			<label for="password">Password<sup>*</sup>: </label>
@@ -102,9 +105,6 @@
 
  			<label for="phone">Phone Number<sup>*</sup>: </label>
  				<input type="tel" name="phone" id="phone"><br><br>
- 				
- 			<label for="email">Email<sup>*</sup>: </label>
- 				<input type="email" name="email" id="email"><br><br>
 				
 			<label for="year">Class Year<sup>*</sup>: </label>
  				<select id="year" name="year">
