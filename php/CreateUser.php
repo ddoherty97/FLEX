@@ -12,19 +12,25 @@
     //include script to ensure no unauthorized access
     //require("IsLoggedIn.php");
 
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
-   
-    echo "begin<br>";
+    //display php errors
+    $ERRORS_ON = true;
+    
+    if($ERRORS_ON)
+    {
+        ini_set('display_errors', 1);
+        ini_set('display_startup_errors', 1);
+        error_reporting(E_ALL);
+    }//end if
 
     //include access to the communication module
     require_once("CommunicationModule.php");
 
+    echo "begin scrpit<br>";
+
     //only run if form was submitted
     if(isset($_POST['fuID']))
     {
-        echo "post set<br>";
+        echo "form submitted<br>";
 
         //establish connection to communication module for database connection
         $com = new CommunicationModule("b16_21592498_FLEX");
@@ -33,38 +39,37 @@
         $isValid = true;
         
         //get submitted form data
-        $ffldID = $_POST['fuID'];           //fairfield id
-        $user = $_POST['username'];         //new username
-        $pass = $_POST['password'];         //new password
-        $fName = $_POST['firstname'];       //first name
-        $lName = $_POST['lastname'];        //last name
-        $dob = $_POST['DOB'];               //date of birth
-        $gender = $_POST['gender'];         //gender
-        $heightft = $_POST['heightft'];     //height in ft
-        $heightin = $_POST['heightin'];     //height in inches
-        $weight = $_POST['weight'];         //weight in pounds
-        $religion = $_POST['religion'];     //religious prefrence
-        $phone = $_POST['phone'];           //phone number
-        $email = $_POST['email'];           //email
-        $class = $_POST['year'];            //student class year
-        $school = $_POST['school'];         //school
-        $dept = $_POST['dept'];             //department
-        $residence = $_POST['res'];         //campus residence
-        $maj1 = $_POST['major1'];           //primary major
-        $maj2 = $_POST['major2'];           //other major
-        $maj3 = $_POST['major3'];           //other major
-        $min1 = $_POST['minor1'];           //primary minor
-        $min2 = $_POST['minor2'];           //other minor
-        $min3 = $_POST['minor3'];           //other minor
-        $min4 = $_POST['minor4'];           //other minor
+        $ffldID = trim($_POST['fuID']);           //fairfield id
+        $user = trim($_POST['username']);         //new username
+        $pass = trim($_POST['password']);         //new password
+        $fName = trim($_POST['firstname']);       //first name
+        $lName = trim($_POST['lastname']);        //last name
+        $dob = trim($_POST['DOB']);               //date of birth
+        $gender = trim($_POST['gender']);         //gender
+        $heightft = trim($_POST['heightft']);     //height in ft
+        $heightin = trim($_POST['heightin']);     //height in inches
+        $weight = trim($_POST['weight']);         //weight in pounds
+        $religion = trim($_POST['religion']);     //religious prefrence
+        $phone = trim($_POST['phone']);           //phone number
+        $email = trim($_POST['email']);           //email
+        $class = trim($_POST['year']);            //student class year
+        $school = trim($_POST['school']);         //school
+        $dept = trim($_POST['dept']);             //department
+        $residence = trim($_POST['res']);         //campus residence
+        $maj1 = trim($_POST['major1']);           //primary major
+        $maj2 = trim($_POST['major2']);           //other major
+        $maj3 = trim($_POST['major3']);           //other major
+        $min1 = trim($_POST['minor1']);           //primary minor
+        $min2 = trim($_POST['minor2']);           //other minor
+        $min3 = trim($_POST['minor3']);           //other minor
+        $min4 = trim($_POST['minor4']);           //other minor
 
         echo "all values collected<br>";
 
-        echo "analysing ffld id<br>";
+        echo "checking ID<br>";
         //ensure fairfield id is 8 characters long and only numbers
-        if(strlen($ffldID) == 8 && ctype_digit($ffldID))
+        if(strlen($ffldID)==8 && ctype_digit($ffldID))
         {
-            
             //escape ID since user inputted
             $ffldID = $com->sanitizeString($ffldID);
 
@@ -82,16 +87,51 @@
         {
             //flag data as incomplete
             $isValid = false;
-            echo "invalid: ffld is not formatted correctly<br>";
+            echo "invalid: ffld id not formatted correctly<br>";
         }//end else
 
-        echo "analysing username<br>";
+        echo "checking email<br>";
+        //ensure email submitted
+        if(!empty($email))
+        {
+            //escape email since user inputted
+            $email = $com->sanitizeString(substr($email,0,50));
 
+            //if email not formatted properly
+            if(!filter_var($email, FILTER_VALIDATE_EMAIL))
+            {
+                //flag data as incomplete
+                $isValid = false;
+                echo "invalid: email not formatted properly<br>";
+            }//end if
+
+            //if email formatted properly, check for uniqueness
+            else
+            {
+                //check to see if user with email already exists
+                $result = mysqli_fetch_array($com->queryDatabase("SELECT * FROM USER_INFORMATION WHERE USER_EMAIL='$email'"));
+
+                if(is_array($result))
+                {
+                    //flag data as incomplete
+                    $isValid = false;
+                    echo "invalid: email exists<br>";
+                }//end if
+            }//else
+        }//end if
+        else
+        {
+            //flag data as incomplete
+            $isValid = false;
+            echo "invalid: email not submitted<br>";
+        }//end else
+        
+        echo "checking username<br>";
         //check if username submitted
-        if($user != "")
+        if(!empty($user))
         {
             //trim username of new user to size, then sanitize since user input
-            $user = $com->sanitizeString(substr(trim($user),0));
+            $user = $com->sanitizeString(substr($user,0,80));
 
             //ensure new username not taken yet
             $result = mysqli_fetch_array($com->queryDatabase("SELECT * FROM USER_CREDENTIALS WHERE CRED_USER='$user'"));
@@ -106,12 +146,12 @@
         {
             //flag data as incomplete
             $isValid = false;
+            echo "invalid: no username<br>";
         }//end else
         
-        echo "analysing password<br>";
-
+        echo "checking password<br>";
         //ensure password submitted
-        if($pass != "")        
+        if(!empty($pass))        
         {
             //hash password to encript
             $pass = hash("sha512", $pass);
@@ -120,23 +160,27 @@
         {
             //flag data as incomplete
             $isValid = false;
+            echo "invalid: no password<br>";
         }//end else
 
+        echo "checking names<br>";
         //ensure first and last names submitted
-        if($fName!="" && $lName!="")
+        if(!empty($fName) && !empty($lName))
         {
             //trim first and last names of new user to size, then sanitize since user input
-            $fName = $com->sanitizeString(substr(trim($fName),0));
-            $lName = $com->sanitizeString(substr(trim($lName),0));
+            $fName = $com->sanitizeString(substr($fName,0,50));
+            $lName = $com->sanitizeString(substr($lName,0,50));
         }//end if
         else
         {
             //flag data as incomplete
             $isValid = false;
+            echo "invalid: at least one name empty<br>";
         }//end else
 
+        echo "checking dob<br>";
         //ensure date of birth submitted
-        if($dob != "")
+        if(!empty($dob))
         {
             //convert user inputted date of birth to datetime object
             $dob = date_create_from_format('Y-m-d', $dob);
@@ -146,16 +190,17 @@
             {
                 //flag data as incomplete
                 $isValid = false;
+                echo "invalid: cannot convert dob<br>";
             }//end if
         }//end if
         else
         {
             //flag data as incomplete
             $isValid = false;
+            echo "invalid: no dob submitted<br>";
         }//end else
        
         echo "analysing height<br>";
-
         //ensure height was submitted in totality
         if($heightft!="-1" && $heightin!="-1")
         {
@@ -166,52 +211,47 @@
         {
             //flag data as incomplete
             $isValid = false;
+            echo "invalid: at least one height not selected<br>";
         }//end else
 
         //check if weight submitted
-        if($weight != "")
+        if(!empty($weight))
         {
             //convert weight to integer, then sanitize since user input
-            $weight = (int) $com->sanitizeString(substr(trim($weight),0));
+            $weight = (int) $com->sanitizeString(substr($weight,0,3));
 
              //if weight cannot be converted
             if($weight==0)
             {
                 //flag data as incomplete
                 $isValid = false;
+                echo "invalid: cannot convert weight<br>";
             }//end if
         }//end if
 
         echo "analysing phone<br>";
-
         //ensure phone number submitted
-        if($phone != "")
+        if(!empty($phone))
         {
-            //NEED TO FIX PHONE
-            //var_dump($phone);
+            //sanitize phone since user submitted
+            $phone = $com->sanitizeString(substr($phone,0,15));
+
+            //validate phone is in proper format
+            if (preg_match('/^\+?(\(?[0-9]{3}\)?|[0-9]{3})[-\.\s]?[0-9]{3}[-\.\s]?[0-9]{4}$/', $phone) != 1)
+            {
+                //flag data as incomplete
+                $isValid = false;
+                echo "invalid: invalid phone number<br>";
+            }//end if
         }//end if
         else
         {
             //flag data as incomplete
             $isValid = false;
-        }//end else
-       
-        echo "analysing email<br>
-        ";
-        //ensure email submitted
-        if($email != "")
-        {
-            //NEED TO FIX EMAIL
-            //var_dump($email);
-        }//end if
-        else
-        {
-            //flag data as incomplete
-            $isValid = false;
+            echo "invalid: phone not submitted<br>";
         }//end else
 
         echo "determining role<br>";
-
         //determine user role
         if(strpos($email, '@fairfield.edu') !== false)
         {
@@ -228,17 +268,19 @@
             //not a fairfield email
             $role = "-1";
             $isValid = false;
+            echo "invalid: not ffld email<br>";
         }//end else
    
+        echo 'determining gender and school<br>';
         //ensure fields submitted that require no action
         if($gender=="-1" || $school=="-1")
         {
             //flag data as incomplete
             $isValid = false;
+            echo "invalid: gender or role not submitted<br>";
         }//end if
 
         echo "determining to proceed<br>role=".$role.", valid=".$isValid."<br>";
-        var_dump($isValid);
 
         //if role in fairfield and data is valid, begin to build sql statements
         if($isValid && $role!="-1")
