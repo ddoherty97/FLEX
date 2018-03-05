@@ -5,7 +5,7 @@
  *      when appropriate
  * 
  * Author: Davis Doherty
- * Last Updated: 3/1/18 DD
+ * Last Updated: 3/4/18 DD
  **/
 
 /**
@@ -156,8 +156,27 @@ function validateUserSubmission()
         document.getElementById("lname_error").innerHTML = "Valid Name.";
     }//end else
 
-    //////DOB/////
-
+    //ensure date submitted
+    if(dob==="")
+    {
+        //show error message and mark input invalid
+        document.getElementById("dob_error").innerHTML = "You must enter your date of birth.";
+        isValid = false;
+    }//end if
+    else
+    {
+        //check to make sure valid date
+        if(isValidDate(dob))
+        {
+            document.getElementById("dob_error").innerHTML = "Valid DOB.";
+        }//end if
+        else
+        {
+            //show error message and mark input invalid
+            document.getElementById("dob_error").innerHTML = "You must enter a valid date in the form yyyy-mm-dd.";
+            isValid = false;
+        }//end else
+    }//end else
 
     //ensure user selected gender
     if(gender=="-1")
@@ -261,16 +280,13 @@ function validateUserSubmission()
         document.getElementById("maj1_error").innerHTML = "Major Valid.";
     }//end else
 
-
-
-
-
-    return false;
+    //return validity of form fields
+    return isValid;
 }//close validateUserSubmission
 
 /**
  * isValidEmail()
- * This method checks to see if the supplied text in in the form
+ * This method checks to see if the supplied text is in the form
  *      of a valid email address
  * Parameters:  email->email address to validate
  * Returns: TRUE if valid email address, FALSE otherwise
@@ -320,7 +336,7 @@ function getRoleFromEmail(address)
 
 /**
  * isValidPhone()
- * This method checks to see if the supplied text in in the form
+ * This method checks to see if the supplied text is in the form
  *      of a valid phone number
  * Parameters:  number->phone number to validate
  * Returns: TRUE if valid phone number, FALSE otherwise
@@ -338,3 +354,108 @@ function isValidPhone(number)
          return false;
      }//end else
 }//close isValidPhoneNumber
+
+
+/**
+ * isValidDate()
+ * This method checks to see if the supplied text is in the form
+ *      of a valid date with format yyyy-mm-dd
+ * Parameters:  dateString->date to validate
+ * Returns: TRUE if valid date, FALSE otherwise
+ * Exceptions: None
+ **/
+function isValidDate(dateString)
+{
+    var regEx = /^\d{4}-\d{2}-\d{2}$/;
+    
+    //invalid date format
+    if(!dateString.match(regEx))
+    {
+        return false; 
+    }//end if
+
+    //valid date format
+    else
+    {
+        var d = new Date(dateString);
+        
+        if(!d.getTime() && d.getTime()!==0)
+        {
+            //invalid date
+            return false; 
+        }//end if
+
+        return d.toISOString().slice(0,10) === dateString;
+    }//end else
+  }//close isValidDate
+
+/**
+ * showUserSpecificFields()
+ * This method runs once the new user enters their email and will
+ *      hide/show the relavent fields
+ * Parameters:  None
+ * Returns: None
+ * Exceptions: None
+ **/
+function showUserSpecificFields()
+{
+    //get email field
+    var email = document.getElementById("email").value.trim();
+
+    //determine user role
+    var role = getRoleFromEmail(email);
+
+    //get all student fields
+    var studentFields = document.getElementsByClassName("studentRole");
+
+    //get all facstaff fields
+    var facstaffFields = document.getElementsByClassName("facstaffRole");
+
+    //if user is a student
+    if(role == 1)
+    {
+        //hide all facstaff fields
+        for(var i=0; i<facstaffFields.length; i++)
+        {
+            facstaffFields[i].style.display = "none";
+        }//end for
+
+        //show all student fields
+        for(var i=0; i<studentFields.length; i++)
+        {
+            studentFields[i].style.display = "block";
+        }//end for
+    }//end if
+
+    //if user is facstaff
+    else if(role == 0)
+    {
+        //hide all student fields
+        for(var i=0; i<studentFields.length; i++)
+        {
+            studentFields[i].style.display = "none";
+        }//end for
+
+        //show all facstaff fields
+        for(var i=0; i<facstaffFields.length; i++)
+        {
+            facstaffFields[i].style.display = "block";
+        }//end for
+    }//end if
+
+    //if not a fairfield user
+    else
+    {
+        //hide all student fields
+        for(var i=0; i<studentFields.length; i++)
+        {
+            studentFields[i].style.display = "none";
+        }//end for
+
+        //hide all facstaff fields
+        for(var i=0; i<facstaffFields.length; i++)
+        {
+            facstaffFields[i].style.display = "none";
+        }//end for
+    }//end else
+}//close showUserSpecificFields

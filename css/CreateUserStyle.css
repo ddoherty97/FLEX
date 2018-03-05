@@ -1,0 +1,35 @@
+.newUserInput
+{
+    margin-bottom: 10px;
+    text-align: center; 
+}
+.newUserInput label sup
+{
+    color: red;
+}
+.newUserInput input
+{
+    margin-left: 25px;
+}
+.newUserInput .errorMSG
+{
+    color: red;
+    padding: 5px;
+    font-size: .8em;
+}
+
+.studentRole, .facstaffRole
+{
+    display: none;
+}
+
+.errorHeader, .errorBody
+{
+    text-align: center;
+}
+.errorHeader
+{
+    font-size: 1.5em;
+    font-weight: bold;
+    padding-bottom: 20px;
+}

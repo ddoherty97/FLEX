@@ -25,13 +25,9 @@
     //include access to the communication module
     require_once("CommunicationModule.php");
 
-    echo "begin scrpit<br>";
-
     //only run if form was submitted
     if(isset($_POST['fuID']))
     {
-        echo "form submitted<br>";
-
         //establish connection to communication module for database connection
         $com = new CommunicationModule("b16_21592498_FLEX");
         
@@ -64,9 +60,6 @@
         $min3 = trim($_POST['minor3']);           //other minor
         $min4 = trim($_POST['minor4']);           //other minor
 
-        echo "all values collected<br>";
-
-        echo "checking ID<br>";
         //ensure fairfield id is 8 characters long and only numbers
         if(strlen($ffldID)==8 && ctype_digit($ffldID))
         {
@@ -80,17 +73,15 @@
             {
                 //flag data as incomplete
                 $isValid = false;
-                echo "invalid: ffld id exists<br>";
+                header("Location: ../pages/createuser.php?status=fail-id");
             }//end if
         }//end if
         else
         {
             //flag data as incomplete
             $isValid = false;
-            echo "invalid: ffld id not formatted correctly<br>";
         }//end else
 
-        echo "checking email<br>";
         //ensure email submitted
         if(!empty($email))
         {
@@ -102,7 +93,6 @@
             {
                 //flag data as incomplete
                 $isValid = false;
-                echo "invalid: email not formatted properly<br>";
             }//end if
 
             //if email formatted properly, check for uniqueness
@@ -115,7 +105,7 @@
                 {
                     //flag data as incomplete
                     $isValid = false;
-                    echo "invalid: email exists<br>";
+                    header("Location: ../pages/createuser.php?status=fail-email");
                 }//end if
             }//else
         }//end if
@@ -123,10 +113,8 @@
         {
             //flag data as incomplete
             $isValid = false;
-            echo "invalid: email not submitted<br>";
         }//end else
         
-        echo "checking username<br>";
         //check if username submitted
         if(!empty($user))
         {
@@ -139,17 +127,15 @@
             {
                 //flag data as incomplete
                 $isValid = false;
-                echo "invalid: username taken<br>";
+                header("Location: ../pages/createuser.php?status=fail-user");
             }//end if
         }//end if
         else
         {
             //flag data as incomplete
             $isValid = false;
-            echo "invalid: no username<br>";
         }//end else
         
-        echo "checking password<br>";
         //ensure password submitted
         if(!empty($pass))        
         {
@@ -160,10 +146,8 @@
         {
             //flag data as incomplete
             $isValid = false;
-            echo "invalid: no password<br>";
         }//end else
 
-        echo "checking names<br>";
         //ensure first and last names submitted
         if(!empty($fName) && !empty($lName))
         {
@@ -175,10 +159,8 @@
         {
             //flag data as incomplete
             $isValid = false;
-            echo "invalid: at least one name empty<br>";
         }//end else
 
-        echo "checking dob<br>";
         //ensure date of birth submitted
         if(!empty($dob))
         {
@@ -190,17 +172,14 @@
             {
                 //flag data as incomplete
                 $isValid = false;
-                echo "invalid: cannot convert dob<br>";
             }//end if
         }//end if
         else
         {
             //flag data as incomplete
             $isValid = false;
-            echo "invalid: no dob submitted<br>";
         }//end else
        
-        echo "analysing height<br>";
         //ensure height was submitted in totality
         if($heightft!="-1" && $heightin!="-1")
         {
@@ -211,7 +190,6 @@
         {
             //flag data as incomplete
             $isValid = false;
-            echo "invalid: at least one height not selected<br>";
         }//end else
 
         //check if weight submitted
@@ -225,11 +203,9 @@
             {
                 //flag data as incomplete
                 $isValid = false;
-                echo "invalid: cannot convert weight<br>";
             }//end if
         }//end if
 
-        echo "analysing phone<br>";
         //ensure phone number submitted
         if(!empty($phone))
         {
@@ -241,17 +217,14 @@
             {
                 //flag data as incomplete
                 $isValid = false;
-                echo "invalid: invalid phone number<br>";
             }//end if
         }//end if
         else
         {
             //flag data as incomplete
             $isValid = false;
-            echo "invalid: phone not submitted<br>";
         }//end else
 
-        echo "determining role<br>";
         //determine user role
         if(strpos($email, '@fairfield.edu') !== false)
         {
@@ -268,25 +241,18 @@
             //not a fairfield email
             $role = "-1";
             $isValid = false;
-            echo "invalid: not ffld email<br>";
         }//end else
    
-        echo 'determining gender and school<br>';
         //ensure fields submitted that require no action
         if($gender=="-1" || $school=="-1")
         {
             //flag data as incomplete
             $isValid = false;
-            echo "invalid: gender or role not submitted<br>";
         }//end if
-
-        echo "determining to proceed<br>role=".$role.", valid=".$isValid."<br>";
 
         //if role in fairfield and data is valid, begin to build sql statements
         if($isValid && $role!="-1")
         {
-            echo "building sql statements<br>";
-
             //build sql statement based on role and required fields
             $createUserSQL = "INSERT INTO USER_INFORMATION VALUES ('$ffldID', '$fName', '$lName', '".date_format($dob,"Y-m-d")."', '$gender', '$phone', '$email', '$school', '$role', NULL, '$height', ";
             $createCredSQL = "INSERT INTO USER_CREDENTIALS (CRED_USER, CRED_PASS, CRED_FFLD_ID) VALUES ('$user', '$pass', '$ffldID')";
@@ -402,25 +368,23 @@
             //if user profile and account successfully created
             if($userCreated && $credCreated)
             {
-                //redirect to home page
-                header("Location: ../pages/createuser.php?newaccount=success");
+                header("Location: ../pages/createuser.php?status=success");
             }//end if
             else
-            {
-                //reload account creation page
-                echo "userCreated=".$userCreated."<br>credCreated=".$credCreated."<br>";
-                echo "userSQL=".$createUserSQL."<br>";
-                echo "credSQL=".$createCredSQL."<br>";
-                
-                //header("Location: ../page/createuser.php?newaccount=fail");
+            {                
+                header("Location: ../pages/createuser.php?status=fail-server");
             }//end else
         }//end if
+        else
+        {
+            header("Location: ../pages/createuser.php?status=fail-unknown");
+        }//end else
     }//end if
 
     //if no form submitted
     else
     {
         //redirect to home page
-        header("Location: ../page/home.php");
+        header("Location: ../pages/home.php");
     }//end else
 ?>
