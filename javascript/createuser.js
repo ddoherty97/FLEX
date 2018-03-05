@@ -59,7 +59,7 @@ function validateUserSubmission()
     else
     {
         //hide error message
-        document.getElementById("fuID_error").innerHTML = "ID Valid.";
+        document.getElementById("fuID_error").innerHTML = "";
     }//end else
 
     //ensure email is a valid email
@@ -84,7 +84,7 @@ function validateUserSubmission()
         else
         {
             //hide error message
-            document.getElementById("email_error").innerHTML = "Email Valid.";
+            document.getElementById("email_error").innerHTML = "";
         }//end else
     }//end else
 
@@ -97,7 +97,7 @@ function validateUserSubmission()
     }//end if
     else
     {
-        document.getElementById("username_error").innerHTML = "Valid Username";
+        document.getElementById("username_error").innerHTML = "";
     }//end else
 
     //confirm that both passwords are entered and are the same
@@ -109,7 +109,7 @@ function validateUserSubmission()
     }//end if
     else
     {
-        document.getElementById("password_error").innerHTML = "Password Valid.";
+        document.getElementById("password_error").innerHTML = "";
 
         if(confirmpass==="")
         {
@@ -127,7 +127,7 @@ function validateUserSubmission()
             }//end if
             else
             {
-                document.getElementById("confirm_error").innerHTML = "Confirm Password OK";
+                document.getElementById("confirm_error").innerHTML = "";
             }//end else
         }//end else
     }//end else
@@ -141,7 +141,7 @@ function validateUserSubmission()
     }//end if
     else
     {
-        document.getElementById("fname_error").innerHTML = "Valid Name.";
+        document.getElementById("fname_error").innerHTML = "";
     }//end else
 
     //ensure last name submitted
@@ -153,7 +153,7 @@ function validateUserSubmission()
     }//end if
     else
     {
-        document.getElementById("lname_error").innerHTML = "Valid Name.";
+        document.getElementById("lname_error").innerHTML = "";
     }//end else
 
     //ensure date submitted
@@ -168,7 +168,7 @@ function validateUserSubmission()
         //check to make sure valid date
         if(isValidDate(dob))
         {
-            document.getElementById("dob_error").innerHTML = "Valid DOB.";
+            document.getElementById("dob_error").innerHTML = "";
         }//end if
         else
         {
@@ -187,7 +187,7 @@ function validateUserSubmission()
     }//end if
     else
     {
-        document.getElementById("gender_error").innerHTML = "Valid Gender.";
+        document.getElementById("gender_error").innerHTML = "";
     }//end else
 
     //ensure height is submitted
@@ -199,7 +199,7 @@ function validateUserSubmission()
     }//end if
     else
     {
-        document.getElementById("height_error").innerHTML = "Valid Height.";
+        document.getElementById("height_error").innerHTML = "";
     }//end else
 
     //ensure phone number is submitted and valid
@@ -212,7 +212,7 @@ function validateUserSubmission()
     else
     {
         //hide error message
-        document.getElementById("phone_error").innerHTML = "Phone Valid.";
+        document.getElementById("phone_error").innerHTML = "";
     }//end else
 
     //ensure user supplied school
@@ -225,7 +225,7 @@ function validateUserSubmission()
     else
     {
         //hide error message
-        document.getElementById("school_error").innerHTML = "School Valid.";
+        document.getElementById("school_error").innerHTML = "";
     }//end else
 
     //if student, ensure user suppied class year
@@ -238,7 +238,7 @@ function validateUserSubmission()
     else
     {
         //hide error message
-        document.getElementById("class_error").innerHTML = "Class Valid.";
+        document.getElementById("class_error").innerHTML = "";
     }//end else
 
     //if facstaff, ensure user supplied department
@@ -251,7 +251,7 @@ function validateUserSubmission()
     else
     {
         //hide error message
-        document.getElementById("dept_error").innerHTML = "Department Valid.";
+        document.getElementById("dept_error").innerHTML = "";
     }//end else
 
     //if student, ensure user supplied residence
@@ -264,7 +264,7 @@ function validateUserSubmission()
     else
     {
         //hide error message
-        document.getElementById("res_error").innerHTML = "Residence Valid.";
+        document.getElementById("res_error").innerHTML = "";
     }//end else
 
     //if student, ensure user suppplied at least 1 major
@@ -277,7 +277,7 @@ function validateUserSubmission()
     else
     {
         //hide error message
-        document.getElementById("maj1_error").innerHTML = "Major Valid.";
+        document.getElementById("maj1_error").innerHTML = "";
     }//end else
 
     //return validity of form fields

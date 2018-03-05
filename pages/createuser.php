@@ -45,7 +45,7 @@
 				if($status=="new")
 				{
 			?>
-			<form method="POST" action="" onsubmit="return validateUserSubmission();">
+			<form method="POST" action="../php/CreateUser.php" onsubmit="return validateUserSubmission();">
 				<div class="newUserInput">
 					<label for="fuID">Fairfield ID<sup>*</sup>:</label>
 					<input type="text" name="fuID" id="fuID" maxlength="8">
@@ -293,7 +293,11 @@
 				{
 			?>
 			<div class="errorHeader">Error: Account Not Created</div>
-			<div class="errorBody">We're sorry, but we could not create your account because the Fairfield ID you entered is already associated with an account.</div>
+			<div class="errorBody">
+				We're sorry, but we could not create your account because the Fairfield ID you entered is already associated with an account.
+					<br>
+				<a href="javascript:window.history.back();">Retry.</a>
+			</div>
 			<?php
 				}//end if
 
@@ -302,7 +306,11 @@
 				{
 			?>
 			<div class="errorHeader">Error: Account Not Created</div>
-			<div class="errorBody">We're sorry, but we could not create your account because the username you entered is already associated with an account.</div>
+			<div class="errorBody">
+				We're sorry, but we could not create your account because the username you entered is already associated with an account.
+					<br>
+				<a href="javascript:window.history.back();">Retry.</a>
+			</div>
 			<?php
 				}//end if
 
@@ -311,7 +319,11 @@
 				{
 			?>
 			<div class="errorHeader">Error: Account Not Created</div>
-			<div class="errorBody">We're sorry, but we could not create your account because the email address you entered is already associated with an account.</div>
+			<div class="errorBody">
+				We're sorry, but we could not create your account because the email address you entered is already associated with an account.
+				<br>
+				<a href="javascript:window.history.back();">Retry.</a>
+			</div>
 			<?php
 				}//end if
 
@@ -320,7 +332,11 @@
 				{
 			?>
 			<div class="errorHeader">Error: Account Not Created</div>
-			<div class="errorBody">We're sorry, but we could not create your account due to a server error. Please try again.</div>
+			<div class="errorBody">
+				We're sorry, but we could not create your account due to a server error. Please try again.
+					<br>
+				<a href="javascript:window.history.back();">Retry.</a>
+			</div>
 			<?php
 				}//end if
 
@@ -329,7 +345,11 @@
 				{
 			?>
 			<div class="errorHeader">Error: Account Not Created</div>
-			<div class="errorBody">We're sorry, but we could not create your account because an unknown error occurred.</div>
+			<div class="errorBody">
+				We're sorry, but we could not create your account because an unknown error occurred.
+					<br>
+				<a href="javascript:window.history.back();">Retry.</a>
+			</div>
 			<?php
 				}//end if
 

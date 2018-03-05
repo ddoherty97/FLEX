@@ -13,7 +13,7 @@
     //require("IsLoggedIn.php");
 
     //display php errors
-    $ERRORS_ON = true;
+    $ERRORS_ON = false;
     
     if($ERRORS_ON)
     {
@@ -74,6 +74,7 @@
                 //flag data as incomplete
                 $isValid = false;
                 header("Location: ../pages/createuser.php?status=fail-id");
+                exit();
             }//end if
         }//end if
         else
@@ -106,6 +107,7 @@
                     //flag data as incomplete
                     $isValid = false;
                     header("Location: ../pages/createuser.php?status=fail-email");
+                    exit();
                 }//end if
             }//else
         }//end if
@@ -128,6 +130,7 @@
                 //flag data as incomplete
                 $isValid = false;
                 header("Location: ../pages/createuser.php?status=fail-user");
+                exit();
             }//end if
         }//end if
         else
@@ -369,15 +372,18 @@
             if($userCreated && $credCreated)
             {
                 header("Location: ../pages/createuser.php?status=success");
+                exit();
             }//end if
             else
             {                
                 header("Location: ../pages/createuser.php?status=fail-server");
+                exit();
             }//end else
         }//end if
         else
         {
             header("Location: ../pages/createuser.php?status=fail-unknown");
+            exit();
         }//end else
     }//end if
 
