@@ -24,7 +24,7 @@
             <label for="formUser">Username: </label>
             	<input type="text" name="formUser"><br><br>
             <label for="formPass">Password: </label>
-            	<input type="text" name="formPass"><br>
+            	<input type="password" name="formPass"><br>
             <input type="submit" value="submit"><br>
             <?php echo $message."<br>";?>
         </form>
