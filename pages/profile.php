@@ -1,4 +1,6 @@
-
+<?php
+	require("../php/EditProfile.php");
+?>
 
 <!DOCTYPE html>
 <html>
