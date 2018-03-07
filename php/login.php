@@ -5,7 +5,7 @@
      *      beginning of the login webpage. It will process the username/password form fields to
      *      validate user login.
      * Author: Davis Doherty
-     * Last Updated: 2/28/18 DD
+     * Last Updated: 3/7/18 DD
      **/
    
     //file needs to communicate with database
@@ -20,7 +20,7 @@
     //if user is already logged in, redirect to home page
     if(isset($_SESSION["cred_id"]))
     {
-        header("Location: home.php");
+        header("Location: ../pages/home.html");
     }//end if
 
     //initalize connection to communication module
@@ -64,7 +64,7 @@
 			$_SESSION["last_activity"] = time();                                    //last time user loaded a page
             $_SESSION["expire"] = $_SESSION['last_activity'] + ($timeoutMin * 60);  //when to autologout user (30 minutes)
             $_SESSION["timeout"] = $timeoutMin;                                     //save timeout duration for later scripts
-            header("Location: home.php");                                           //once logged in, go to home page
+            header("Location: ../pages/home.php");                                  //once logged in, go to home page
 		}//end if
 		
 		//if no matching user, display error message

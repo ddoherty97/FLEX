@@ -9,12 +9,12 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>FLEX</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="../../css/style.css">
     </head>
     
     <body>
         <header>
-            <a href="home.html"><img src="../images/antlers.png" alt="logo" height="50px" width="50px"/></a>
+            <a href="home.html"><img src="../../images/antlers.png" alt="logo" height="50px" width="50px"/></a>
         <nav>
         <ul>
             <li class="dropdown">
@@ -31,7 +31,7 @@
         </nav>
         </header>
         <main>
-            <form method="POST" action="../php/EditProfile.php"> 
+            <form method="POST" action="../../php/EditProfile.php"> 
         	<label for="fuID">Fairfield ID<sup>*</sup>: </label>
  				<input type="text" name="fuID" id="fuID" value="<?php echo $ffldId;?>"><br><br>
  				
