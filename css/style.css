@@ -32,6 +32,7 @@ header img, header nav {
 header
 {
     margin: 0 0 50px 0;
+    background-color: #e03a3e;
 }
 header img  {
     width: 12%;
