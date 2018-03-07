@@ -32,17 +32,30 @@
         	<form method="POST" action=""> 
         	 				
 	 			<label for="goalType">Type of Goal<sup>*</sup>: </label>
-	 				<select id="goalType" name="goalType">
+	 				<select id="goalType" name="goalType" onchange="check(this);">
 						<option value="-1">Select</option>  
 						<option value="0">Weight Loss/Gain</option>
 	  					<option value="1">Strength</option>
 	  					<option value="2">Cardio</option>
 					</select> <br><br>
 					
+					<div id="ifCardio" style="display: none;">
+                    <br>
+                        <select>
+                            <option value="distance">Distance</option>
+                            <option value="speed">Speed</option>
+                            <option value="time">Time</option>
+                        </select>
 					
-					
-					
-					
+					<script>
+						function check(that) {
+                        if (that.value == 2) {
+                            document.getElementById("ifCardio").style.display = "block";
+                        } 
+                       }
+						
+						
+					</script>
 					
 				<label for="numDays">Number of Days to Achieve Goal<sup>*</sup>: </label>
  					<input type="text" name="numDays" id="numDays"><br><br>
