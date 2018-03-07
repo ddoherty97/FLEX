@@ -23,7 +23,7 @@
         <form method="POST" action="">
             <label for="formUser">Username: </label>
             	<input type="text" name="formUser"><br>
-            <label for="formPass">Username: </label>
+            <label for="formPass">Password: </label>
             	<input type="text" name="formPass"><br>
             <input type="submit" value="submit"><br>
             <?php echo $message."<br>";?>
