@@ -7,19 +7,19 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>FLEX</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="../../css/style.css">
     </head>
     
     <body>
         <header>
-            <a href="home.html"><img src="../images/antlers.png" alt="logo" height="50px" width="50px"/></a> <!-- -->
+            <a href="home.html"><img src="../../images/antlers.png" alt="logo" height="50px" width="50px"/></a> <!-- -->
         </header>
         <main>
         <h1>
             FLEX    
         </h1>
 
-	 <script src="js/scripts.js"></script>
+	 <script src="../js/scripts.js"></script>
         <form method="POST" action="">
             <label for="formUser">Username: </label>
             	<input type="text" name="formUser"><br><br>

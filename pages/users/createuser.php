@@ -5,14 +5,14 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>FLEX</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="../css/style.css">
-		<link rel="stylesheet" href="../css/CreateUserStyle.css">
-		<script src="../javascript/createuser.js"></script>
+        <link rel="stylesheet" href="../../css/style.css">
+		<link rel="stylesheet" href="../../css/CreateUserStyle.css">
+		<script src="../../javascript/createuser.js"></script>
     </head>
     
     <body>
         <header>
-            <a href="home.html"><img src="../images/antlers.png" alt="logo" height="50px" width="50px"/></a>
+            <a href="home.html"><img src="../../images/antlers.png" alt="logo" height="50px" width="50px"/></a>
 			<nav>
 				<ul>
 					<li class="dropdown">
@@ -23,7 +23,7 @@
 						<a href="tracking.html">Tracking</a>
 						<a href="goals.html">Goals</a>
 						<a href="reports.html">Reports</a>
-						<a href="../php/logout.php">Logout</a>
+						<a href="../../php/logout.php">Logout</a>
 						</div>
 					</li>
 				</ul>
@@ -45,7 +45,7 @@
 				if($status=="new")
 				{
 			?>
-			<form method="POST" action="../php/CreateUser.php" onsubmit="return validateUserSubmission();">
+			<form method="POST" action="../../php/CreateUser.php" onsubmit="return validateUserSubmission();">
 				<div class="newUserInput">
 					<label for="fuID">Fairfield ID<sup>*</sup>:</label>
 					<input type="text" name="fuID" id="fuID" maxlength="8">
@@ -358,7 +358,7 @@
 				{
 			?>
 			<div class="errorHeader">Account Successfully Created!</div>
-			<div class="errorBody">Your new FLEX account has been created! You can now <a href="testlogin.php">login</a>.</div>
+			<div class="errorBody">Your new FLEX account has been created! You can now <a href="login.php">login</a>.</div>
 			<?php
 				}//end else
 			?>
