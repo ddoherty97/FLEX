@@ -13,20 +13,7 @@
     <body>
         <header>
             <a href="home.html"><img src="../images/antlers.png" alt="logo" height="50px" width="50px"/></a>
-            <nav>
-        <ul>
-            <li class="dropdown">
-                <a href="javascript:void(0)" class="dropbtn">Menu</a>
-                <div class="dropdown-content">
-                <a href="profile.html">Profile</a>
-                <a href="synchronize.html">Synchronize</a>
-                <a href="tracking.html">Tracking</a>
-                <a href="goals.html">Goals</a>
-                <a href="reports.html">Reports</a>
-                </div>
-            </li>
-        </ul>
-        </nav>
+     
         </header>
         <main>
         <h1>
