@@ -39,6 +39,7 @@
 	  					<option value="2">Weight Gain/Loss</option>
 					</select> <br><br><br>
 					
+					<!--Cardio Types-->
 					<div id="ifCardio" style="display: none;">
                         <select id="cardioType" name="cardioType" onchange="check2(this);">
                             <option value="distance">Distance</option>
@@ -56,6 +57,20 @@
 						<div id="ifTime" style="display:none;">
 							<input type="text" name="time" id="time"> Minutes<br><br>
 						</div>
+					
+					<!--Strength Types-->
+					<div id="ifStrength" style="display: none;">
+                        <select id="strengthType" name="strengthType" onchange="check2(this);">
+                            <option value="biceps">Bicep Curls</option>
+                            <option value="chest">Chest Press</option>
+                            <option value="deadlift">Deadlifts</option>
+                            <option value="squats">Squats</option>
+                        </select>
+                        
+                        <div id="maxWeight" style="display:none;">
+							<input type="text" name="maxWeight" id="maxWeight"> lbs<br><br>
+					</div>
+					
 					
 					<script>
 						function check(that) {
