@@ -28,11 +28,13 @@
 	//connect to communicaiton module to connect with database 
 	$com = new CommunicationModule("b16_21592498_FLEX");
 	 
+	$ffldId = $_SESSION['ffld_id']; 
+	
 	//query database for all user credentials 
 	$result = mysqli_fetch_array($com->queryDatabase("SELECT * FROM USER_CREDENTIALS WHERE CRED_FFLD_ID='$ffldID'"));
 	 
 	 
-	$ffldId = $result['USER_FFLD_ID'];
+	//$ffldId = $result['USER_FFLD_ID'];
 	$fname = $result['USER_FNAME'];
 	$lname = $result['USER_LNAME'];
 	$dob = $result['USER_DOB'];
@@ -58,9 +60,4 @@
 	
 	
 	
-	
-	
-	
-	 
-	 
 ?>
