@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -33,7 +34,7 @@
  				<input type="text" name="fuID" id="fuID" value="<?php echo $ffldId;?>"><br><br>
  				
  			<label for="username">Username<sup>*</sup>: </label>
- 				<input type="text" name="username" id="username""><br><br>
+ 				<input type="text" name="username" id="username"><br><br>
  				
   			<label for="password">Password<sup>*</sup>: </label>
 				  <input type="password" name="password" id="password"><br><br>
