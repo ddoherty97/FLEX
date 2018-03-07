@@ -31,7 +31,7 @@
 	$ffldId = $_SESSION['ffld_id']; 
 	
 	//query database for all user credentials 
-	$result = mysqli_fetch_array($com->queryDatabase("SELECT * FROM USER_CREDENTIALS WHERE CRED_FFLD_ID='$ffldID'"));
+	$result = mysqli_fetch_array($com->queryDatabase("SELECT * FROM USER_CREDENTIALS WHERE CRED_FFLD_ID='$ffldId'"));
 	 
 	$fname = $result['USER_FNAME'];
 	$lname = $result['USER_LNAME'];
