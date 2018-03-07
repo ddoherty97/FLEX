@@ -30,7 +30,7 @@
         <main>
             <form method="POST" action="../php/EditProfile.php"> 
         	<label for="fuID">Fairfield ID<sup>*</sup>: </label>
- 				<input type="text" name="fuID" id="fuID" value="<?php echo $ffldId;?>"><br><br>
+ 				<input type="text" name="fuID" id="fuID" value="<?php echo "sup";?>"><br><br>
  				
  			<label for="username">Username<sup>*</sup>: </label>
  				<input type="text" name="username" id="username""><br><br>
