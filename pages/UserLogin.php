@@ -12,7 +12,7 @@
     
     <body>
         <header>
-            <a href="home.html"><img src="antlers.png" alt="logo" height="50px" width="50px"/></a>
+            <a href="home.html"><img src="../images/antlers.png" alt="logo" height="50px" width="50px"/></a>
         </header>
         <main>
         <h1>
