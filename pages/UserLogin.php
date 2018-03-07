@@ -7,7 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>FLEX</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="css/styles.css?v=1.0">
+        <link rel="stylesheet" href="../css/style.css">
     </head>
     
     <body>
@@ -21,9 +21,10 @@
 
 	 <script src="js/scripts.js"></script>
         <form method="POST" action="">
-            login test<br>
-            <input type="text" name="formUser"><br>
-            <input type="text" name="formPass"><br>
+            <label for="formUser">Username: </label>
+            	<input type="text" name="formUser"><br>
+            <label for="formPass">Username: </label>
+            	<input type="text" name="formPass"><br>
             <input type="submit" value="submit"><br>
             <?php echo $message."<br>";?>
         </form>
