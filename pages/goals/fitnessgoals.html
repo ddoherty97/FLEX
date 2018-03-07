@@ -41,6 +41,7 @@
 					
 					<!--Cardio Types-->
 					<div id="ifCardio" style="display: none;">
+						<label for="cardioType">Type of Cardio<sup>*</sup>: </label>
                         <select id="cardioType" name="cardioType" onchange="check2(this);">
                             <option value="distance">Distance</option>
                             <option value="speed">Speed</option>
@@ -49,12 +50,15 @@
 					</div>
 						
 						<div id="ifDistance" style="display:none;">
+							<label for="distance">Goal Distance<sup>*</sup>: </label>
 							<input type="text" name="distance" id="distance"> Miles<br><br>
 						</div>
 						<div id="ifSpeed" style="display:none;">
+							<label for="speed">Goal Speed<sup>*</sup>: </label>
 							<input type="text" name="speed" id="speed"> MPH<br><br>
 						</div>
 						<div id="ifTime" style="display:none;">
+							<label for="time">Goal Time<sup>*</sup>: </label>
 							<input type="text" name="time" id="time"> Minutes<br><br>
 						</div>
 					
@@ -77,10 +81,6 @@
                         {
                             document.getElementById("ifCardio").style.display = "block";
                         } 
-                        if (that.value != 0) 
-                        {
-                            document.getElementById("ifCardio").style.display = "none";
-                        } 
                         else if (that.value == 1) 
                         {
                             document.getElementById("ifStrength").style.display = "block";
@@ -94,12 +94,25 @@
                         {
                             document.getElementById("ifDistance").style.display = "block";
                         } 
+                        else if (that.value != 'distance') 
+                        {
+                            document.getElementById("ifDistance").style.display = "none";
+                        } 
                         else if (that.value == 'speed') 
                         {
                             document.getElementById("ifSpeed").style.display = "block";
-                        } else if (that.value == 'time') 
+                        } 
+                         else if (that.value != 'speed') 
+                        {
+                            document.getElementById("ifSpeed").style.display = "none";
+                        } 
+                        else if (that.value == 'time') 
                         {
                             document.getElementById("ifTime").style.display = "block";
+                        }
+                        else if (that.value != 'time') 
+                        {
+                            document.getElementById("ifTime").style.display = "none";
                         }
                        }
 					</script>
