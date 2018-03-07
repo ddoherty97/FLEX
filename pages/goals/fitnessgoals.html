@@ -64,7 +64,9 @@
 					
 					<!--Strength Types-->
 					<div id="ifStrength" style="display: none;">
-                        <select id="strengthType" name="strengthType" onchange="check2(this);">
+						<label for="strengthType">Type of Weight Training<sup>*</sup>: </label>
+                        <select id="strengthType" name="strengthType">
+                        	<option value="-1">Select</option>
                             <option value="biceps">Bicep Curls</option>
                             <option value="chest">Chest Press</option>
                             <option value="deadlift">Deadlifts</option>
@@ -74,51 +76,57 @@
 						<input type="text" name="maxWeight" id="maxWeight"> lbs<br><br><br>
 					</div>
 					
+					<div id="ifWeight" style="display: none;"> 
+						<label for="weightType">Gain or Loss<sup>*</sup>: </label>
+						<select id="weightType" name="weightType">
+                            <option value="-1">Select</option>
+                            <option value="gain">Weight Gain</option>
+                            <option value="loss">Weight Loss</option>
+                        </select>
+                        
+                        <label for="weightDif">Gain or Loss<sup>*</sup>: </label>
+						<input type="text" name="weightDif" id="weightDif"> lbs<br><br><br>
+					</div>
+					
 					
 					<script>
-						function check(that) {
-                        if (that.value == 0) 
-                        {
-                            document.getElementById("ifCardio").style.display = "block";
-                        } 
-                        else if (that.value == 1) 
-                        {
-                            document.getElementById("ifStrength").style.display = "block";
-                        } else if (that.value == 2) 
-                        {
-                            document.getElementById("ifWeight").style.display = "block";
-                        }
-                       }	
-                       function check2(that) {
+						function check(that) 
+						{
+	                        if (that.value == 0) 
+	                        {
+	                            document.getElementById("ifCardio").style.display = "block";
+	                        } 
+	                        else if (that.value == 1) 
+	                        {
+	                            document.getElementById("ifStrength").style.display = "block";
+	                        } else if (that.value == 2) 
+	                        {
+	                            document.getElementById("ifWeight").style.display = "block";
+	                        }
+                      	}//close check
+                      	
+                       function check2(that) 
+                       {
                         if (that.value == 'distance') 
                         {
                             document.getElementById("ifDistance").style.display = "block";
-                        } 
-                        else if (that.value != 'distance') 
-                        {
-                            document.getElementById("ifDistance").style.display = "none";
                         } 
                         else if (that.value == 'speed') 
                         {
                             document.getElementById("ifSpeed").style.display = "block";
                         } 
-                         else if (that.value != 'speed') 
-                        {
-                            document.getElementById("ifSpeed").style.display = "none";
-                        } 
                         else if (that.value == 'time') 
                         {
                             document.getElementById("ifTime").style.display = "block";
                         }
-                        else if (that.value != 'time') 
-                        {
-                            document.getElementById("ifTime").style.display = "none";
-                        }
-                       }
+                       } //close check2
+  
 					</script>
 					
 				<label for="numDays">Number of Days to Achieve Goal<sup>*</sup>: </label>
  					<input type="text" name="numDays" id="numDays"> Days<br><br>
+ 				
+ 				<button type="submit" name="submit" id="submit" value="Submit">Submit</button>
  				
  			</form>
         	
