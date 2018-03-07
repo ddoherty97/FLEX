@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,7 +17,7 @@
             <li class="dropdown">
                 <a href="javascript:void(0)" class="dropbtn">Menu</a>
                 <div class="dropdown-content">
-                <a href="profile.html">Profile</a>
+                <a href="profile.php">Profile</a>
                 <a href="synchronize.html">Synchronize</a>
                 <a href="tracking.html">Tracking</a>
                 <a href="goals.html">Goals</a>
@@ -27,12 +28,12 @@
         </nav>
         </header>
         <main>
-            <form method="POST" action="../php/CreateUser.php"> <!--Change php-->
+            <form method="POST" action="../php/EditProfile.php"> 
         	<label for="fuID">Fairfield ID<sup>*</sup>: </label>
- 				<input type="text" name="fuID" id="fuID"><br><br>
+ 				<input type="text" name="fuID" id="fuID" value="<?php echo $ffldId;?>"><br><br>
  				
  			<label for="username">Username<sup>*</sup>: </label>
- 				<input type="text" name="username" id="username"><br><br>
+ 				<input type="text" name="username" id="username""><br><br>
  				
   			<label for="password">Password<sup>*</sup>: </label>
 				  <input type="password" name="password" id="password"><br><br>
@@ -41,13 +42,13 @@
   				<input type="password" name="cpassword" id="cpassword"><br><br>
   				
   			<label for="firstname">First Name<sup>*</sup>: </label>
- 				<input type="text" name="firstname" id="firstname"><br><br>
+ 				<input type="text" name="firstname" id="firstname" value="<?php echo $fname;?>"><br><br>
  				
   			<label for="lastname">Last Name<sup>*</sup>: </label>
-  				<input type="text" name="lastname" id="lastname"><br><br>
+  				<input type="text" name="lastname" id="lastname" value="<?php echo $lname;?>"><br><br>
   				
   			<label for="DOB">Date of Birth<sup>*</sup>: </label>
- 				<input type="date" name="DOB" id="DOB"><br><br>
+ 				<input type="date" name="DOB" id="DOB" value="<?php echo $dob;?>"><br><br>
  				
  			<label for="gender">Gender<sup>*</sup>: </label>
  				<select id="gender" name="gender">
@@ -89,10 +90,10 @@
  				<input type="text" name="religion" id="religion"><br><br>
 
  			<label for="phone">Phone Number<sup>*</sup>: </label>
- 				<input type="tel" name="phone" id="phone"><br><br>
+ 				<input type="tel" name="phone" id="phone" value="<?php echo $phone;?>"><br><br>
  				
  			<label for="email">Email<sup>*</sup>: </label>
- 				<input type="email" name="email" id="email"><br><br>
+ 				<input type="email" name="email" id="email" value="<?php echo $email;?>"><br><br>
  				
  			<label for="role">Role<sup>*</sup>: </label>
  				<select id="role" name="role">
@@ -596,6 +597,8 @@
 					<option value="Visual and Perfoming Arts">Visual and Perfoming Arts</option>
 					<option value="Women, Gender and Sexuality Studies">Women, Gender and Sexuality Studies</option>
 				</select> <br><br>
+				
+				<input type="submit" value="Save Changes">
  				</form>
         </main>
         <footer>
