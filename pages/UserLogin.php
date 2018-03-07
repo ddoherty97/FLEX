@@ -13,7 +13,7 @@
     <body>
         <header>
             <a href="home.html"><img src="../images/antlers.png" alt="logo" height="50px" width="50px"/></a>
-     
+     		<h1>FLEX</h1>
         </header>
         <main>
         <h1>
