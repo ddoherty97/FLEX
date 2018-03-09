@@ -6,7 +6,7 @@
      * the profile.html page. Note: This is intended to be an action script
      * 
      * Author: Davis Doherty
-     * Last Updated: 2/28/18 DD
+     * Last Updated: 3/7/18 DD
      **/
 
     //include script to ensure no unauthorized access
@@ -73,7 +73,7 @@
             {
                 //flag data as incomplete
                 $isValid = false;
-                header("Location: ../pages/createuser.php?status=fail-id");
+                header("Location: ../pages/users/createuser.php?status=fail-id");
                 exit();
             }//end if
         }//end if
@@ -106,7 +106,7 @@
                 {
                     //flag data as incomplete
                     $isValid = false;
-                    header("Location: ../pages/createuser.php?status=fail-email");
+                    header("Location: ../pages/users/createuser.php?status=fail-email");
                     exit();
                 }//end if
             }//else
@@ -129,7 +129,7 @@
             {
                 //flag data as incomplete
                 $isValid = false;
-                header("Location: ../pages/createuser.php?status=fail-user");
+                header("Location: ../pages/users/createuser.php?status=fail-user");
                 exit();
             }//end if
         }//end if
@@ -371,18 +371,18 @@
             //if user profile and account successfully created
             if($userCreated && $credCreated)
             {
-                header("Location: ../pages/createuser.php?status=success");
+                header("Location: ../pages/users/createuser.php?status=success");
                 exit();
             }//end if
             else
             {                
-                header("Location: ../pages/createuser.php?status=fail-server");
+                header("Location: ../pages/users/createuser.php?status=fail-server");
                 exit();
             }//end else
         }//end if
         else
         {
-            header("Location: ../pages/createuser.php?status=fail-unknown");
+            header("Location: ../pages/users/createuser.php?status=fail-unknown");
             exit();
         }//end else
     }//end if

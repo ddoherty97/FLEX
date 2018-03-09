@@ -1,6 +1,6 @@
 <?php
     /**
-	 * Profile.php
+	 * EditProfile.php
 	 * This file is used to fill in the user profile with the data the user 
 	 * input during the inital login.  This will allow the user to make changes to 
 	 * their profile.
@@ -13,7 +13,7 @@
     //require("IsLoggedIn.php");
 
     //display php errors
-    $ERRORS_ON = false;
+    $ERRORS_ON = true;
     
     if($ERRORS_ON)
     {
@@ -31,10 +31,8 @@
 	$ffldId = $_SESSION['ffld_id']; 
 	
 	//query database for all user credentials 
-	$result = mysqli_fetch_array($com->queryDatabase("SELECT * FROM USER_CREDENTIALS WHERE CRED_FFLD_ID='$ffldID'"));
+	$result = mysqli_fetch_array($com->queryDatabase("SELECT * FROM USER_CREDENTIALS WHERE CRED_FFLD_ID='$ffldId'"));
 	 
-	 
-	//$ffldId = $result['USER_FFLD_ID'];
 	$fname = $result['USER_FNAME'];
 	$lname = $result['USER_LNAME'];
 	$dob = $result['USER_DOB'];
@@ -56,8 +54,4 @@
 	$min2 = $result['USER_MINOR2'];
 	$min3 = $result['USER_MINOR3'];
 	$min4 = $result['USER_MINOR4'];
-	
-	
-	
-	
 ?>
