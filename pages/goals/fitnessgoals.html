@@ -97,13 +97,19 @@
 	                        if (that.value == 0) 
 	                        {
 	                            document.getElementById("ifCardio").style.display = "block";
+	                            document.getElementById("ifStrength").style.display = "none";
+	                            document.getElementById("ifWeight").style.display = "none";
 	                        } 
 	                        else if (that.value == 1) 
 	                        {
 	                            document.getElementById("ifStrength").style.display = "block";
+	                             document.getElementById("ifWeight").style.display = "none";
+	                             document.getElementById("ifCardio").style.display = "none";
 	                        } else if (that.value == 2) 
 	                        {
 	                            document.getElementById("ifWeight").style.display = "block";
+	                            document.getElementById("ifCardio").style.display = "none";
+	                            document.getElementById("ifStrength").style.display = "none";
 	                        }
                       	}//close check
                       	
@@ -112,14 +118,20 @@
                         if (that.value == 'distance') 
                         {
                             document.getElementById("ifDistance").style.display = "block";
+                            document.getElementById("ifSpeed").style.display = "none";
+                            document.getElementById("ifTime").style.display = "none";
                         } 
                         else if (that.value == 'speed') 
                         {
                             document.getElementById("ifSpeed").style.display = "block";
+                            document.getElementById("ifDistance").style.display = "none";
+                            document.getElementById("ifTime").style.display = "none";
                         } 
                         else if (that.value == 'time') 
                         {
                             document.getElementById("ifTime").style.display = "block";
+                            document.getElementById("ifDistance").style.display = "none";
+                            document.getElementById("ifSpeed").style.display = "none";
                         }
                        } //close check2
   
