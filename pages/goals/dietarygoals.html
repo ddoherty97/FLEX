@@ -32,14 +32,14 @@
         	
         	<form method="POST" action=""> <!-- add php -->
         	 				
-	 			<label for="goalType">Type of Fitness<sup>*</sup>: </label>
+	 			<label for="goalType">Type of Goal<sup>*</sup>: </label>
 	 				<select id="goalType" name="goalType" onchange="check(this);">
 						<option value="-1">Select</option>  
 						<option value="0">Calorie Intake</option>
 	  					<option value="1">Water Intake</option>
 					</select> <br><br>
 					
-					<div id="ifCalorie" style="display:none;">
+					<div id="ifCalories" style="display:none;">
 							<label for="calories">Daily Calorie Intake Goal<sup>*</sup>: </label>
 							<input type="text" name="calories" id="calories"> Calories<br><br>
 					</div>
@@ -58,10 +58,11 @@
 	                  	}
 	                  	else if (that.value == 1) 
 	                	{
+	                    	document.getElementById("ifWater").style.display = "block";
 	                    	document.getElementById("ifCalories").style.display = "none";
-	                       	document.getElementById("ifWater").style.display = "block";
+	                       	
 	                  	}
-	            	} 
+	            	} //close check
 	                </script>
 	                
 	                <label for="numDays">Number of Days to Achieve Goal<sup>*</sup>: </label>
