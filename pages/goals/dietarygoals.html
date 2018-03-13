@@ -28,6 +28,47 @@
         </header>
         <main>
         	<h1>FLEX</h1>
+        	<h2>Dietary Goals</h2>
+        	
+        	<form method="POST" action=""> <!-- add php -->
+        	 				
+	 			<label for="goalType">Type of Fitness<sup>*</sup>: </label>
+	 				<select id="goalType" name="goalType" onchange="check(this);">
+						<option value="-1">Select</option>  
+						<option value="0">Calorie Intake</option>
+	  					<option value="1">Water Intake</option>
+					</select> <br><br>
+					
+					<div id="ifCalorie" style="display:none;">
+							<label for="calories">Daily Calorie Intake Goal<sup>*</sup>: </label>
+							<input type="text" name="calories" id="calories"> Calories<br><br>
+					</div>
+					
+					<div id="ifWater" style="display:none;">
+							<label for="water">Daily Water Intake Goal<sup>*</sup>: </label>
+							<input type="text" name="water" id="water"> Ounces<br><br>
+					</div>
+					<script>
+					function check(that) 
+					{
+	                	if (that.value == 0) 
+	                	{
+	                    	document.getElementById("ifCalories").style.display = "block";
+	                       	document.getElementById("ifWater").style.display = "none";
+	                  	}
+	                  	else if (that.value == 1) 
+	                	{
+	                    	document.getElementById("ifCalories").style.display = "none";
+	                       	document.getElementById("ifWater").style.display = "block";
+	                  	}
+	            	} 
+	                </script>
+	                
+	                <label for="numDays">Number of Days to Achieve Goal<sup>*</sup>: </label>
+ 						<input type="text" name="numDays" id="numDays"> Day(s)<br><br>
+ 						
+ 					<button type="submit"  value="Submit">Submit</button>
+				</form>
         </main>
         <footer>
             <br>
