@@ -30,6 +30,7 @@
         	<h1>FLEX</h1>
         	<h2>Spiritual Goals</h2>
         	
+        	<form method="POST" action=""> <!-- add php -->
 				<label for="spiritualGoalType">Spiritual Goal Type<sup>*</sup>: </label>
 	 				<select id="spiritualGoalType" name="spiritualGoalType" onchange="check(this);">
 						<option value="-1">Select</option>  
@@ -69,6 +70,12 @@
 	              	}
 					
 				</script>
+				
+				<label for="numDays">Number of Days to Achieve Goal<sup>*</sup>: </label>
+ 						<input type="text" name="numDays" id="numDays"> Day(s)<br><br>
+ 						
+ 					<button type="submit"  value="Submit">Submit</button>
+ 			</form>
 				
         <footer>
             <br>
