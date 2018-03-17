@@ -28,7 +28,48 @@
         </header>
         <main>
         	<h1>FLEX</h1>
-        </main>
+        	<h2>Spiritual Goals</h2>
+        	
+				<label for="spiritualGoalType">Spiritual Goal Type<sup>*</sup>: </label>
+	 				<select id="spiritualGoalType" name="spiritualGoalType" onchange="check(this);">
+						<option value="-1">Select</option>  
+			  			<option value="0">Duration</option>
+						<option value="1">Events</option>
+					</select> <br><br>
+        	
+        		<div id="ifDuration" style="display:none;">
+					<label for="durationGoal">Spiritual Duration Goal<sup>*</sup>: </label>
+						<p><i>A Spiritual Duration Goal sets a goal based on spending a certain amount of time 
+							on spiritual activities.  For example, a goal could be that you want to spend 3 hours 
+							a week at the chapel.</i></p>
+						<input type="text" name="durationGoal" id="durationGoal"> Hours<br><br>
+				</div>
+
+				<div id="ifEvents" style="display:none;">
+					<label for="eventGoal">Spiritual Events Goal<sup>*</sup>: </label>
+						<input type="text" name="eventGoal" id="eventGoal"> Events<br><br>
+						<p><i>A Spiritual Events Goal sets a goal based on attending a certain amount of spiritual events.
+							  For example, a goal could be that you want to attend 2 masses a week.</i></p>
+				</div>
+				
+				<script>
+					
+					function check(that) 
+					{
+	                	if (that.value == 0) 
+	                	{
+	                    	document.getElementById("ifDuration").style.display = "block";
+	                       	document.getElementById("ifEvents").style.display = "none";
+						}
+	                  	else if (that.value == 1) 
+	                	{
+	                    	document.getElementById("ifEvents").style.display = "block";
+	                    	document.getElementById("ifDuration").style.display = "none";
+	                  	}
+	              	}
+					
+				</script>
+				
         <footer>
             <br>
             <div style="float:left; display: inline;">&copy; 2018 <br>Fairfield University <br>School of Nursing</div>
