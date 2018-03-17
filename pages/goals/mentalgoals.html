@@ -28,6 +28,91 @@
         </header>
         <main>
         	<h1>FLEX</h1>
+        	<h2>Mental Health Goals</h2>
+        	
+        	<form method="POST" action=""> <!-- add php -->
+        	 				
+	 			<label for="goalType">Type of Goal<sup>*</sup>: </label>
+	 				<select id="goalType" name="goalType" onchange="check(this);">
+						<option value="-1">Select</option>  
+						<option value="0">Counseling</option>
+	  					<option value="1">Stress Level</option>
+	  					<option value="2">Meditation</option>
+	  					<option value="3">Other</option>
+					</select> <br><br>
+					
+					<div id="ifCounseling" style="display:none;">
+							<label for="counselingTimeGoal">Counseling Time Goal<sup>*</sup>: </label>
+							<input type="text" name="counselingTimeGoal" id="counselingTimeGoal"> Hours<br><br>
+					</div>
+					
+					<div id="ifStress" style="display:none;">
+						<label for="stressLevelGoal">Goal Stress Level<sup>*</sup>: </label>
+	 						<select id="stressLevelGoal" name="stressLevelGoal" onchange="check(this);">
+								<option value="-1">Select</option>  
+			  					<option value="1">1</option>
+			  					<option value="2">2</option>
+			  					<option value="3">3</option>
+			  					<option value="4">4</option>
+			  					<option value="5">5</option>
+			  					<option value="6">6</option>
+			  					<option value="7">7</option>
+			  					<option value="8">8</option>
+			  					<option value="9">9</option>
+			  					<option value="10">10</option>
+							</select> <br><br>
+					</div>
+					
+					<div id="ifMeditation" style="display:none;">
+						<label for="meditationTimeGoal">Meditation Time Goal<sup>*</sup>: </label>
+							<input type="text" name="meditationTimeGoal" id="meditationTimeGoal"> Hours<br><br>
+					</div>
+					
+					<div id="ifOther" style="display:none;">
+						<label for="otherGoal">Mental Health Acitivity Type<sup>*</sup>: </label>
+							<input type="text" name="otherGoal" id="otherGoal"> Hours<br><br>
+					</div>
+					
+					<script>
+					function check(that) 
+					{
+	                	if (that.value == 0) 
+	                	{
+	                    	document.getElementById("ifCounseling").style.display = "block";
+	                       	document.getElementById("ifStress").style.display = "none";
+	                       	document.getElementById("ifMeditation").style.display = "none";
+	                       	document.getElementById("ifOther").style.display = "none";
+	                  	}
+	                  	else if (that.value == 1) 
+	                	{
+	                    	document.getElementById("ifStress").style.display = "block";
+	                    	document.getElementById("ifCounseling").style.display = "none";
+	                    	document.getElementById("ifMeditation").style.display = "none";
+	                       	document.getElementById("ifOther").style.display = "none";
+	                  	}
+	                  	else if (that.value == 2) 
+	                	{
+	                    	document.getElementById("ifMeditation").style.display = "block";
+	                    	document.getElementById("ifCounseling").style.display = "none";
+	                    	document.getElementById("ifStress").style.display = "none";
+	                       	document.getElementById("ifOther").style.display = "none";
+	                  	}
+	                  	else if (that.value == 3) 
+	                	{
+	                    	document.getElementById("ifOther").style.display = "block";
+	                    	document.getElementById("ifCounseling").style.display = "none";
+	                       	document.getElementById("ifStress").style.display = "none";
+	                       	document.getElementById("ifMeditation").style.display = "none";
+	                  	}
+	            	} //close check
+	                </script>
+	                
+	                <label for="numDays">Number of Days to Achieve Goal<sup>*</sup>: </label>
+ 						<input type="text" name="numDays" id="numDays"> Day(s)<br><br>
+ 						
+ 					<button type="submit"  value="Submit">Submit</button>
+				</form>
+        	
         </main>
         <footer>
             <br>
