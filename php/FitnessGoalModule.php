@@ -3,11 +3,13 @@
      * Fitness Goal Module (FitnessGoalModule.php)
      * This class allows the user to create goals based on their personal and desired fitness level
      * Author: Davis Doherty
-     * Last Updated: 3/18/18 DD
+     * Last Updated: 3/19/18 DD
      **/
 
     require_once("CommunicationModule.php");
     require_once("WeightGoal.php");
+    require_once("CardioGoal.php");
+    require_once("StrengthGoal.php");
 
     class FitnessGoalModule
     {
@@ -26,8 +28,16 @@
             //create communication object
             $this->comMod = new CommunicationModule();
 
-            //get owner of goal
-            $this->goalOwner = $_SESSION["ffld_id"];
+            //get owner of goal if logged in
+            if(isset($_POST['ffld_id']))
+            {
+                $this->goalOwner = $_SESSION["ffld_id"];
+            }//end if
+            else
+            {
+                echo "ERROR: This resource cannot be accessed unless logged in.<br>";
+                exit();
+            }//end else            
         }//close constructor
 
         /**
@@ -109,16 +119,16 @@
         }//close setStrengthGoal
 
          /**
-         * getWeightGoal()
+         * getWeightGoals()
          * This method gets the weight goal(s) that the user has set
          * Parameters: none
          * Returns: array of WeightGoal objects containing all weight goal data
          * Exceptions: none
          **/
-        function getWeightGoal()
+        function getWeightGoals()
         {
             //query to get all weight goals of logged in user
-            $sql = "SELECT * FROM FITNESS_GOALS WHERE FITNESS_GOAL_OWNER='$this->goalOwner' AND FITNESS_GOAL_TYPE='WEIGHT' AND FITNESS_GOAL_ACTIVE='1'";
+            $sql = "SELECT FITNESS_GOAL_DURATION,FITNESS_GOAL_WEIGHT,FITNESS_GOAL_ID FROM FITNESS_GOALS WHERE FITNESS_GOAL_OWNER='$this->goalOwner' AND FITNESS_GOAL_TYPE='WEIGHT' AND FITNESS_GOAL_ACTIVE='1'";
             $query = $this->comMod->queryDatabase($sql);
 
             //make array of all goals
@@ -143,31 +153,125 @@
 
             //return array of goals
             return $weightGoals;
-        }//close getWeightGoal
+        }//close getWeightGoals
 
         /**
-         * getCardioGoal()
+         * getCardioGoals()
          * This method gets the cardio goal(s) that the user has set
          * Parameters: none
          * Returns: array of CardioGoal objects containing all weight goal data
          * Exceptions: none
          **/
-        function getCardioGoal()
+        function getCardioGoals()
         {
+            //make array of all cardio goals and index to iterate through
+            $cardioGoals = [];
+            $index = 0;
 
-        }//close getCardioGoal
+            //query database to get all cardio distance goals
+            $cardioSQL = "SELECT FITNESS_GOAL_ID,FITNESS_GOAL_DURATION,FITNESS_GOAL_TYPE,FITNESS_GOAL_DISTANCE FROM FITNESS_GOALS WHERE FITNESS_GOAL_OWNER='$this->goalOwner' AND FITNESS_GOAL_TYPE='CARDIO-DISTANCE' AND FITNESS_GOAL_ACTIVE='1'";
+            $cardioQuery = $this->comMod->queryDatabase($cardioSQL);
+
+            //add distance goals to array
+            while($currGoal = mysqli_fetch_array($cardioQuery))
+            {
+                //get goal details from database
+                $days = $currGoal['FITNESS_GOAL_DURATION'];
+                $type = $currGoal['FITNESS_GOAL_TYPE'];
+                $milestone = $currGoal['FITNESS_GOAL_DISTANCE'];
+                $id = $currGoal['FITNESS_GOAL_ID'];
+
+                //create new goal object and add to array
+                $goal = new CardioGoal($days, $type, $milestone, $id);
+                $cardioGoals[$index] = $goal;
+
+                //increase array index
+                $index++;
+            }//close while
+
+            //query database to get all cardio speed goals
+            $speedSQL = "SELECT FITNESS_GOAL_ID,FITNESS_GOAL_DURATION,FITNESS_GOAL_TYPE,FITNESS_GOAL_SPEED FROM FITNESS_GOALS WHERE FITNESS_GOAL_OWNER='$this->goalOwner' AND FITNESS_GOAL_TYPE='CARDIO-SPEED' AND FITNESS_GOAL_ACTIVE='1'";
+            $speedQuery = $this->comMod->queryDatabase($speedSQL);
+
+            //add speed goals to array
+            while($currGoal = mysqli_fetch_array($speedQuery))
+            {
+                //get goal details from database
+                $days = $currGoal['FITNESS_GOAL_DURATION'];
+                $type = $currGoal['FITNESS_GOAL_TYPE'];
+                $milestone = $currGoal['FITNESS_GOAL_SPEED'];
+                $id = $currGoal['FITNESS_GOAL_ID'];
+
+                //create new goal object and add to array
+                $goal = new CardioGoal($days, $type, $milestone, $id);
+                $cardioGoals[$index] = $goal;
+
+                //increase array index
+                $index++;
+            }//close while
+
+            //query database to get all cardio time goals
+            $timeSQL = "SELECT FITNESS_GOAL_ID,FITNESS_GOAL_DURATION,FITNESS_GOAL_TYPE,FITNESS_GOAL_TIME FROM FITNESS_GOALS WHERE FITNESS_GOAL_OWNER='$this->goalOwner' AND FITNESS_GOAL_TYPE='CARDIO-TIME' AND FITNESS_GOAL_ACTIVE='1'";
+            $timeQuery = $this->comMod->queryDatabase($timeSQL);
+
+            //add time goals to array
+            while($currGoal = mysqli_fetch_array($timeQuery))
+            {
+                //get goal details from database
+                $days = $currGoal['FITNESS_GOAL_DURATION'];
+                $type = $currGoal['FITNESS_GOAL_TYPE'];
+                $milestone = $currGoal['FITNESS_GOAL_TIME'];
+                $id = $currGoal['FITNESS_GOAL_ID'];
+
+                //create new goal object and add to array
+                $goal = new CardioGoal($days, $type, $milestone, $id);
+                $cardioGoals[$index] = $goal;
+
+                //increase array index
+                $index++;
+            }//close while
+
+            //return array of all three cardio goal types
+            return $cardioGoals;
+        }//close getCardioGoals
 
         /**
-         * getStrengthGoal()
+         * getStrengthGoals()
          * This method gets the strength goal(s) that the user has set
          * Parameters: none
          * Returns: array of StrengthGoal objects containing all weight goal data
          * Exceptions: none
          **/
-        function getStrengthGoal()
+        function getStrengthGoals()
         {
+            //query to get all strength goals of logged in user
+            $sql = "SELECT FITNESS_GOAL_ID,FITNESS_GOAL_TYPE,FITNESS_GOAL_DURATION,FITNESS_GOAL_MAXWEIGHT FROM FITNESS_GOALS WHERE FITNESS_GOAL_OWNER='$this->goalOwner' AND FITNESS_GOAL_TYPE LIKE 'STRENGTH-%' AND FITNESS_GOAL_ACTIVE='1'";
+            $query = $this->comMod->queryDatabase($sql);
 
-        }//close getStrengthGoal
+            //make array of all goals
+            $strengthGoals = [];
+            $index = 0;
+
+            //create goal objects and add into array
+            while($currGoal = mysqli_fetch_array($query))
+            {
+                //get goal details from database
+                $days = $currGoal['FITNESS_GOAL_DURATION'];
+                $type = $currGoal['FITNESS_GOAL_TYPE'];
+                $maxWeight = $currGoal['FITNESS_GOAL_MAXWEIGHT'];
+                $id = $currGoal['FITNESS_GOAL_ID'];
+
+                //create new goal object and add to array
+                $goal = new StrengthGoal($days, $type, $maxWeight, $id);
+                $strengthGoals[$index] = $goal;
+
+                //increase array index
+                $index++;
+            }//end while
+
+            //return array of goals
+            return $strengthGoals;
+        }//close getStrengthGoals
 
         /**
          * removeGoal()
