@@ -21,7 +21,7 @@
          * This method initializes the tunnel between the communication module
          *      and the fitness goal module
          * Parameters: none
-         * Exceptions: none
+         * Exceptions: user is not logged in
          **/
         function __construct()
         {
@@ -29,7 +29,7 @@
             $this->comMod = new CommunicationModule();
 
             //get owner of goal if logged in
-            if(isset($_POST['ffld_id']))
+            if(isset($_SESSION['ffld_id']))
             {
                 $this->goalOwner = $_SESSION["ffld_id"];
             }//end if
@@ -286,7 +286,7 @@
             $sql = "UPDATE FITNESS_GOALS SET FITNESS_GOAL_ACTIVE='0' WHERE FITNESS_GOAL_ID='$goalID'";
 
             //query database
-            $this->comMod->queryDatabase($sql);
+            return $this->comMod->queryDatabase($sql);
         }//close removeGoal
     }//close FitnessGoalModule
 ?>
