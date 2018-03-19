@@ -6,8 +6,8 @@
      * Last Updated: 3/18/18 DD
      **/
 
-    //this class requires the communication module
     require_once("CommunicationModule.php");
+    require_once("WeightGoal.php");
 
     class FitnessGoalModule
     {
@@ -98,11 +98,11 @@
          * Returns: void
          * Exceptions: $type is not in predefined list
          **/
-        function setStrengthGoal($numDays, $maxWeight, $type)
+        function setStrengthGoal($numDays, $type, $maxWeight)
         {
             //build SQL to insert goal into database
             $sql = "INSERT INTO FITNESS_GOALS 	(FITNESS_GOAL_OWNER, FITNESS_GOAL_DURATION, FITNESS_GOAL_TYPE, FITNESS_GOAL_MAXWEIGHT, FITNESS_GOAL_ACTIVE)
-                    VALUES 					    ('$this->goalOwner', '$numDays', 'STRENGTH', '$maxWeight', '1')";
+                    VALUES 					    ('$this->goalOwner', '$numDays', '$type', '$maxWeight', '1')";
 
             //query database
             $this->comMod->queryDatabase($sql);
@@ -117,7 +117,32 @@
          **/
         function getWeightGoal()
         {
+            //query to get all weight goals of logged in user
+            $sql = "SELECT * FROM FITNESS_GOALS WHERE FITNESS_GOAL_OWNER='$this->goalOwner' AND FITNESS_GOAL_TYPE='WEIGHT' AND FITNESS_GOAL_ACTIVE='1'";
+            $query = $this->comMod->queryDatabase($sql);
 
+            //make array of all goals
+            $weightGoals = [];
+            $index = 0;
+
+            //create goal objects and add into array
+            while($currGoal = mysqli_fetch_array($query))
+            {
+                //get goal details from database
+                $days = $currGoal['FITNESS_GOAL_DURATION'];
+                $weight = $currGoal['FITNESS_GOAL_WEIGHT'];
+                $id = $currGoal['FITNESS_GOAL_ID'];
+
+                //create new goal object and add to array
+                $goal = new WeightGoal($days, $weight, $id);
+                $weightGoals[$index] = $goal;
+
+                //increase array index
+                $index++;
+            }//end while
+
+            //return array of goals
+            return $weightGoals;
         }//close getWeightGoal
 
         /**
