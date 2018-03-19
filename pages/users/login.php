@@ -1,4 +1,4 @@
-<?php require("../php/login.php"); ?>
+<?php require("../../php/login.php"); ?>
 
 <!DOCTYPE html>
 <html>
@@ -12,7 +12,7 @@
     
     <body>
         <header>
-            <a href="home.html"><img src="../../images/antlers.png" alt="logo" height="50px" width="50px"/></a> <!-- -->
+            <a href="home.html"><img src="../../images/antlers.png" alt="logo" height="50px" width="50px"/></a>
         </header>
         <main>
         <h1>
