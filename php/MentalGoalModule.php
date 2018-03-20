@@ -164,36 +164,4 @@
             return $this->comMod->queryDatabase($sql);
         }//close removeGoal
     }//close MentalGoalModule
-
-    session_start();
-    echo "session started<br>";
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
-
-    $mod = new MentalGoalModule();
-    echo "module created<br>";
-
-    $mod->removeGoal(3);
-    echo "goal removed<br>";
-
-    $cGoals = $mod->getCounselingGoals();
-    echo "counseling goals received<br>";
-    $sGoals = $mod->getStressGoals();
-    echo "stress goals received<br>";
-
-    for($i=0; $i<count($cGoals); $i++)
-    {
-        echo "id: ".$cGoals[$i]->getID()."<br>";
-        echo "type: counseling<br>";
-        echo "duration: ".$cGoals[$i]->getNumDays()."<br>";
-        echo "minutes: ".$cGoals[$i]->getMinutes()."<br><br>";
-    }
-    for($i=0; $i<count($sGoals); $i++)
-    {
-        echo "id: ".$sGoals[$i]->getID()."<br>";
-        echo "type: stress<br>";
-        echo "duration: ".$sGoals[$i]->getNumDays()."<br>";
-        echo "minutes: ".$sGoals[$i]->getLevel()."<br><br>";
-    }
 ?>
