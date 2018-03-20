@@ -8,14 +8,11 @@
      * every php page to avoid the unauthorized running of scripts.
      * 
      * Author: Davis Doherty
-     * Last Updated: 3/7/18 DD
+     * Last Updated: 3/20/18 DD
      **/
 
     //get current time
     $now = time();
-    
-    //get relative path of logout file
-    $logoutFile = $_GET['lo'];
 
 	//if no session is active (i.e. no session variables set yet),
 	//OR last activity was greater than timeout time, logout of app
