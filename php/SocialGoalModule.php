@@ -42,15 +42,16 @@
          * setSocialActivityGoal()
          * This method sets goals relative to how social the user should to be over a certain time
          * Parameters:  $numDays->number of days the user has set to achieve the goal
-         *              $numActivities->number of activities the user would like to participate in
+         *              $minutes->number of minutes the user would like to participate in
+         *              $type->type of social activity
          * Returns: void
          * Exceptions: None
          **/
-        function setSocialActivityGoal($numDays, $numActivities)
+        function setSocialActivityGoal($numDays, $minutes, $type)
         {
             //build SQL to insert goal into database
-            $sql = "INSERT INTO SOCIAL_GOALS 	(SOCIAL_GOAL_OWNER, SOCIAL_GOAL_DURATION, SOCIAL_GOAL_TIME, SOCIAL_GOAL_ACTIVE)
-                    VALUES 					    ('$this->goalOwner', '$numDays', '$numActivities', '1')";
+            $sql = "INSERT INTO SOCIAL_GOALS 	(SOCIAL_GOAL_OWNER, SOCIAL_GOAL_DURATION, SOCIAL_GOAL_TIME, SOCIAL_GOAL_TYPE, SOCIAL_GOAL_ACTIVE)
+                    VALUES 					    ('$this->goalOwner', '$numDays', '$minutes', '$type', '1')";
 
             //query database
             $this->comMod->queryDatabase($sql);
@@ -66,7 +67,7 @@
         function getSocialActivityGoals()
         {
             //query to get all social goals of logged in user
-            $sql = "SELECT SOCIAL_GOAL_DURATION,SOCIAL_GOAL_TIME,SOCIAL_GOAL_ID FROM SOCIAL_GOALS WHERE SOCIAL_GOAL_OWNER='$this->goalOwner' AND SOCIAL_GOAL_ACTIVE='1'";
+            $sql = "SELECT SOCIAL_GOAL_DURATION,SOCIAL_GOAL_TIME,SOCIAL_GOAL_ID,SOCIAL_GOAL_TYPE FROM SOCIAL_GOALS WHERE SOCIAL_GOAL_OWNER='$this->goalOwner' AND SOCIAL_GOAL_ACTIVE='1'";
             $query = $this->comMod->queryDatabase($sql);
 
             //make array of all goals
@@ -78,11 +79,12 @@
             {
                 //get goal details from database
                 $days = $currGoal['SOCIAL_GOAL_DURATION'];
-                $numEvents = $currGoal['SOCIAL_GOAL_TIME'];
+                $minutes = $currGoal['SOCIAL_GOAL_TIME'];
+                $type = $currGoal['SOCIAL_GOAL_TYPE'];
                 $id = $currGoal['SOCIAL_GOAL_ID'];
 
                 //create new goal object and add to array
-                $goal = new SocialActivityGoal($days, $numEvents, $id);
+                $goal = new SocialActivityGoal($days, $minutes, $type, $id);
                 $socialGoals[$index] = $goal;
 
                 //increase array index

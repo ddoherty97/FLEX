@@ -9,7 +9,8 @@
     class SocialActivityGoal
     {
         private $numDays;       //number of days to acheive goal
-        private $numActivities; //number of activities to complete in alloted time
+        private $minutes;       //number of minnutes to complete in alloted time
+        private $type;          //social event type
         private $goalID;        //ID of social goal in database
 
         /**
@@ -17,14 +18,16 @@
          * This method initializes the parameters of the goal into the object
          *      and the social goal module
          * Parameters:  $numDays->number of days to acheive goal
-         *              $numActivities->number of activities to complete in alloted time
+         *              $minutes->number of minutes to complete in alloted time
+         *              $type->social event type
          *              $id->ID of goal in database
          * Exceptions: none
          **/
-        function __construct($numDays, $numActivities, $id)
+        function __construct($numDays, $minutes, $type, $id)
         {
             $this->numDays = $numDays;
-            $this->numActivities = $numActivities;
+            $this->minutes = $minutes;
+            $this->type = $type;
             $this->goalID = $id;
         }//close constructor
 
@@ -41,16 +44,28 @@
         }//close getNumDays
 
         /**
-         * getActivities()
-         * This method gets the number of social activities for the goal type
+         * getMinutes()
+         * This method gets the number of minutes for the goal type
          * Parameters: none
-         * Returns: number of social activities for the goal
+         * Returns: number of minutes for the social goal
          * Exceptions: None
          **/
-        function getActivities()
+        function getMinutes()
         {
-            return $this->numActivities;
-        }//close getActivities
+            return $this->minutes;
+        }//close getMinutes
+
+        /**
+         * getType()
+         * This method gets the goal type
+         * Parameters: none
+         * Returns: social goal type
+         * Exceptions: None
+         **/
+        function getType()
+        {
+            return $this->type;
+        }//close getType
 
         /**
          * getID()
