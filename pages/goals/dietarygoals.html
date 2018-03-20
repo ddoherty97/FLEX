@@ -6,11 +6,28 @@
         <title>FLEX</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../../css/style.css">
+
+        <script>
+            function check(that) 
+            {
+                if (that.value == 0) 
+                {
+                    document.getElementById("ifCalories").style.display = "block";
+                       document.getElementById("ifWater").style.display = "none";
+                  }
+                  else if (that.value == 1) 
+                {
+                    document.getElementById("ifWater").style.display = "block";
+                    document.getElementById("ifCalories").style.display = "none";
+                       
+                  }
+            }//close check
+        </script>
     </head>
     
     <body>
         <header>
-            <a href="home.html"><img src="../../images/antlers.png" alt="logo" height="50px" width="50px"/></a> <!--  -->
+            <a href="../home.html"><img src="../../images/antlers.png" alt="logo" height="50px" width="50px"/></a>
         <nav>
         <ul>
             <li class="dropdown">
@@ -21,6 +38,7 @@
                 <a href="../tracking/tracking.html">Tracking</a>
                 <a href="goals.html">Goals</a>
                 <a href="../reports/reports.html">Reports</a>
+                <a href="../../php/logout.php">Logout</a>
                 </div>
             </li>
         </ul>
@@ -37,39 +55,28 @@
 						<option value="-1">Select</option>  
 						<option value="0">Calorie Intake</option>
 	  					<option value="1">Water Intake</option>
-					</select> <br><br>
+                    </select>
+                
+                <br><br>
 					
-					<div id="ifCalories" style="display:none;">
-							<label for="calories">Daily Calorie Intake Goal<sup>*</sup>: </label>
-							<input type="text" name="calories" id="calories" size="6"> Calories<br><br>
-					</div>
+                <div id="ifCalories" style="display:none;">
+                        <label for="calories">Daily Calorie Intake Goal<sup>*</sup>: </label>
+                        <input type="text" name="calories" id="calories" size="6"> Calories<br><br>
+                </div>
 					
-					<div id="ifWater" style="display:none;">
-							<label for="water">Daily Water Intake Goal<sup>*</sup>: </label>
-							<input type="text" name="water" id="water" size="6"> Ounces<br><br>
-					</div>
-					<script>
-					function check(that) 
-					{
-	                	if (that.value == 0) 
-	                	{
-	                    	document.getElementById("ifCalories").style.display = "block";
-	                       	document.getElementById("ifWater").style.display = "none";
-	                  	}
-	                  	else if (that.value == 1) 
-	                	{
-	                    	document.getElementById("ifWater").style.display = "block";
-	                    	document.getElementById("ifCalories").style.display = "none";
-	                       	
-	                  	}
-	            	} //close check
-	                </script>
+                <div id="ifWater" style="display:none;">
+                        <label for="water">Daily Water Intake Goal<sup>*</sup>: </label>
+                        <input type="text" name="water" id="water" size="6"> Ounces<br><br>
+                </div>
+					
 	                
-	                <label for="numDays">Number of Days to Achieve Goal<sup>*</sup>: </label>
- 						<input type="text" name="numDays" id="numDays" size="5"> Day(s)<br><br>
+                <label for="numDays">Number of Days to Achieve Goal<sup>*</sup>: </label>
+                    <input type="text" name="numDays" id="numDays" size="5"> Day(s)
+                
+                <br><br>
  						
- 					<button type="submit"  value="Submit">Submit</button>
-				</form>
+ 				<button type="submit"  value="Submit">Submit</button>
+			</form>
         </main>
         <footer>
             <br>
@@ -78,7 +85,6 @@
             1073 North Benson Road
             <br>Fairfield, CT 06824
             </div>
-        </footer>
-            
+        </footer>         
     </body>
 </html>
