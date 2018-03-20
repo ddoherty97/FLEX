@@ -95,6 +95,7 @@
                         <a href="../tracking/tracking.html">Tracking</a>
                         <a href="goals.html">Goals</a>
                         <a href="../reports/reports.html">Reports</a>
+                        <a href="../../php/logout.php">Logout</a>
                         </div>
                     </li>
                 </ul>
