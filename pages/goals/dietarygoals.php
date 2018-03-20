@@ -69,7 +69,6 @@
                         <input type="text" name="water" id="water" size="6"> Ounces<br><br>
                 </div>
 					
-	                
                 <label for="numDays">Number of Days to Achieve Goal<sup>*</sup>: </label>
                     <input type="text" name="numDays" id="numDays" size="5"> Day(s)
                 
