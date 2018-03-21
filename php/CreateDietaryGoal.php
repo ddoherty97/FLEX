@@ -16,8 +16,9 @@
     }//end if
 	
 	//if no session is active, redirect to login page
-    $logoutFile = "logout.php";
-    require("IsLoggedIn.php");
+    $phpFolderPath = "";
+    $logoutFile = $phpFolderPath."logout.php";
+    require($phpFolderPath."IsLoggedIn.php");
 
     //include access to the dietary goal module
     require_once("DietaryGoalModule.php");
@@ -102,5 +103,6 @@
     {
         //redirect to home page
         header("Location: ../pages/home.php");
+        exit();
     }//end else
 ?>
