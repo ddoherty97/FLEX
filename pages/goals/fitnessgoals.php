@@ -92,7 +92,7 @@
                         <div class="dropdown-content">
                         <a href="../users/profile.php">Profile</a>
                         <a href="../tracking/tracking.php">Tracking</a>
-                        <a href="goals.html">Goals</a>
+                        <a href="goals.php">Goals</a>
                         <a href="../reports/reports.php">Reports</a>
                         <a href="../../php/logout.php">Logout</a>
                         </div>
