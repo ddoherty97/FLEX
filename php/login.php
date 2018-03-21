@@ -20,7 +20,7 @@
     //if user is already logged in, redirect to home page
     if(isset($_SESSION["cred_id"]))
     {
-        header("Location: ../home.html");
+        header("Location: ../home.php");
     }//end if
 
     //initalize connection to communication module

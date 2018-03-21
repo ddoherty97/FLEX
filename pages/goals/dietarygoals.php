@@ -6,8 +6,9 @@
     }//end if
 	
 	//if no session is active, redirect to login page
-    $logoutFile = "../../php/logout.php";
-    require("../../php/IsLoggedIn.php");
+    $phpFolderPath = "../../php/";
+    $logoutFile = $phpFolderPath."logout.php";
+    require($phpFolderPath."IsLoggedIn.php");
 
     //get result of last goal creation
     if(isset($_GET['s']))
