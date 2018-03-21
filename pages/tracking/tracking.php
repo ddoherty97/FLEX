@@ -10,17 +10,17 @@
     
     <body>
         <header>
-            <a href="home.html"><img src="../../images/antlers.png" alt="logo" height="50px" width="50px"/></a>
+            <a href="../home.php"><img src="../../images/antlers.png" alt="logo" height="50px" width="50px"/></a>
         <nav>
         <ul>
             <li class="dropdown">
                 <a href="javascript:void(0)" class="dropbtn">Menu</a>
                 <div class="dropdown-content">
-                <a href="../users/profile.html">Profile</a>
-                <a href="synchronize.html">Synchronize</a>
-                <a href="tracking.html">Tracking</a>
-                <a href="../goals/goals.html">Goals</a>
-                <a href="../reports/reports.html">Reports</a>
+                <a href="../users/profile.php">Profile</a>
+                <a href="tracking.php">Tracking</a>
+                <a href="../goals/goals.php">Goals</a>
+                <a href="../reports/reports.php">Reports</a>
+                <a href="../../php/logout.php">Logout</a>
                 </div>
             </li>
         </ul>
@@ -29,17 +29,17 @@
         <br>
         <main style="font-size: 20px; font-weight: bold;">
             <img src="../../images/stag.png" alt="Stag" height="100px" width="100px"><br><br>
-            <a href="fitnesstracking.html" style="text-decoration: none; ">Fitness Tracking</a><br><br>
-            <a href="dietarytracking.html" style="text-decoration: none; ">Dietary Tracking</a><br><br>
-            <a href="socialtracking.html" style="text-decoration: none; ">Social Tracking</a><br><br>
-            <a href="mentaltracking.html" style="text-decoration: none; ">Mental Tracking</a><br><br>
-            <a href="spiritualtracking.html" style="text-decoration: none; ">Spiritual Tracking</a><br><br>
-            <a href="screentimetracking.html" style="text-decoration: none; ">Screen Time Tracking</a><br><br>
+            <a href="fitnesstracking.php" style="text-decoration: none; ">Fitness Tracking</a><br><br>
+            <a href="dietarytracking.php" style="text-decoration: none; ">Dietary Tracking</a><br><br>
+            <a href="socialtracking.php" style="text-decoration: none; ">Social Tracking</a><br><br>
+            <a href="mentaltracking.php" style="text-decoration: none; ">Mental Tracking</a><br><br>
+            <a href="spiritualtracking.php" style="text-decoration: none; ">Spiritual Tracking</a><br><br>
+            <a href="screentimetracking.php" style="text-decoration: none; ">Screen Time Tracking</a><br><br>
         </main>
                 <footer>
             <br>
-            <div style="float:left; display: inline;">&copy; 2018 <br>Fairfield University <br>School of Nursing</div>
-            <div style="float: right; display: inline">
+            <div style="float:left; display: block;">&copy; 2018 <br>Fairfield University <br>School of Nursing</div>
+            <div style="float: right; display: block">
             1073 North Benson Road
             <br>Fairfield, CT 06824
             </div>
