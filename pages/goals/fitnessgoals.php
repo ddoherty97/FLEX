@@ -6,8 +6,9 @@
     }//end if
 	
 	//if no session is active, redirect to login page
-    $logoutFile = "../../php/logout.php";
-    require("../../php/IsLoggedIn.php");
+    $phpFolderPath = "../../php/";
+    $logoutFile = $phpFolderPath."logout.php";
+    require($phpFolderPath."IsLoggedIn.php");
 
     //get result of last goal creation
     if(isset($_GET['s']))
@@ -33,13 +34,13 @@
         <script>
             function check(that) 
             {
-                if (that.value == 0) 
+                if (that.value == "CARDIO") 
                 {
                     document.getElementById("ifCardio").style.display = "block";
                     document.getElementById("ifStrength").style.display = "none";
                     document.getElementById("ifWeight").style.display = "none";
                 } 
-                else if (that.value == 1) 
+                else if (that.value == "STRENGTH") 
                 {
                     document.getElementById("ifStrength").style.display = "block";
                     document.getElementById("ifWeight").style.display = "none";
@@ -47,7 +48,7 @@
                     document.getElementById("ifDistance").style.display = "none";
                     document.getElementById("ifSpeed").style.display = "none";
                     document.getElementById("ifTime").style.display = "none";
-                } else if (that.value == 2) 
+                } else if (that.value == "WEIGHT") 
                 {
                     document.getElementById("ifWeight").style.display = "block";
                     document.getElementById("ifCardio").style.display = "none";
@@ -60,19 +61,19 @@
             
             function check2(that) 
             {
-                if (that.value == 'distance') 
+                if (that.value == 'DISTANCE') 
                 {
                     document.getElementById("ifDistance").style.display = "block";
                     document.getElementById("ifSpeed").style.display = "none";
                     document.getElementById("ifTime").style.display = "none";
                 } 
-                else if (that.value == 'speed') 
+                else if (that.value == 'SPEED') 
                 {
                     document.getElementById("ifSpeed").style.display = "block";
                     document.getElementById("ifDistance").style.display = "none";
                     document.getElementById("ifTime").style.display = "none";
                 } 
-                else if (that.value == 'time') 
+                else if (that.value == 'TIME') 
                 {
                     document.getElementById("ifTime").style.display = "block";
                     document.getElementById("ifDistance").style.display = "none";
@@ -121,13 +122,13 @@
                 }//end if
             ?>
         	
-        	<form method="POST" action=""> <!-- add php -->				
+        	<form method="POST" action="../../php/CreateFitnessGoal.php">				
 	 			<label for="goalType">Type of Fitness<sup>*</sup>: </label>
 	 				<select id="goalType" name="goalType" onchange="check(this);">
 						<option value="-1">Select</option>  
-						<option value="0">Cardio</option>
-	  					<option value="1">Strength</option>
-	  					<option value="2">Weight Gain/Loss</option>
+						<option value="CARDIO">Cardio</option>
+	  					<option value="STRENGTH">Strength</option>
+	  					<option value="WEIGHT">Weight Gain/Loss</option>
                     </select>
                 
                 <br><br>
@@ -137,9 +138,9 @@
 						<label for="cardioType">Type of Cardio<sup>*</sup>: </label>
                         <select id="cardioType" name="cardioType" onchange="check2(this);">
                         	<option value="-1">Select</option>
-                            <option value="distance">Distance</option>
-                            <option value="speed">Speed</option>
-                            <option value="time">Time</option>
+                            <option value="DISTANCE">Distance</option>
+                            <option value="SPEED">Speed</option>
+                            <option value="TIME">Time</option>
                         </select>
                     </div>
                     
@@ -163,10 +164,10 @@
 						<label for="strengthType">Type of Weight Training<sup>*</sup>: </label>
                         <select id="strengthType" name="strengthType">
                         	<option value="-1">Select</option>
-                            <option value="biceps">Bicep Curl</option>
-                            <option value="chest">Chest Press</option>
-                            <option value="deadlift">Deadlift</option>
-                            <option value="squats">Squat</option>
+                            <option value="BICEP">Bicep Curl</option>
+                            <option value="CHEST">Chest Press</option>
+                            <option value="DEADLIFT">Deadlift</option>
+                            <option value="SQUAT">Squat</option>
                         </select>
 						
 						<input type="text" name="maxWeight" id="maxWeight" size="5"> lbs<br><br><br>
@@ -176,8 +177,8 @@
 						<label for="weightType">Gain or Loss<sup>*</sup>: </label>
 						<select id="weightType" name="weightType">
                             <option value="-1">Select</option>
-                            <option value="gain">Weight Gain</option>
-                            <option value="loss">Weight Loss</option>
+                            <option value="GAIN">Weight Gain</option>
+                            <option value="LOSS">Weight Loss</option>
                         </select><br>
                         
                         <label for="weightDif">Weight Difference<sup>*</sup>: </label>

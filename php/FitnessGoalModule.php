@@ -44,15 +44,23 @@
          * setWeightGoal()
          * This method sets the goal weight for the user to achieve in a designated period of time
          * Parameters:  $numDays->number of days the user has set to achieve the goal weight
-         *              $weight->goal weight in pounds the user would like to reach
+         *              $weightChange->change in weight, in pounds, the user would like to reach
          * Returns: void
-         * Exceptions: None
+         * Exceptions: user weight not set
          **/
-        function setWeightGoal($numDays, $weight)
+        function setWeightGoal($numDays, $weightChange)
         {
+            //get current weight
+            $weightSQL = "SELECT USER_WEIGHT FROM USER_INFORMATION WHERE USER_FFLD_ID='$this->goalOwner'";
+            $result = $this->comMod->queryDatabase($weightSQL);
+            $currentWeight = $result['USER_WEIGHT'];
+
+            //calc new weight
+            $newWeight = $currentWeight + $weightChange;
+            
             //build SQL to insert goal into database
             $sql = "INSERT INTO FITNESS_GOALS 	(FITNESS_GOAL_OWNER, FITNESS_GOAL_DURATION, FITNESS_GOAL_TYPE, FITNESS_GOAL_WEIGHT, FITNESS_GOAL_ACTIVE)
-                    VALUES 					    ('$this->goalOwner', '$numDays', 'WEIGHT', '$weight', '1')";
+                    VALUES 					    ('$this->goalOwner', '$numDays', 'WEIGHT', '$newWeight', '1')";
 
             //query database
             $this->comMod->queryDatabase($sql);
