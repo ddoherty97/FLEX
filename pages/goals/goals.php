@@ -29,12 +29,12 @@
         <br>
         <main style="font-size: 20px; font-weight: bold;">
             <img src="../../images/stag.png" alt="Stag" height="100px" width="100px"><br><br>
-            <a href="goals/fitnessgoals.html" style="text-decoration: none; ">Fitness Goals</a><br><br>
-            <a href="goals/dietarygoals.html" style="text-decoration: none; ">Dietary Goals</a><br><br>
-            <a href="goals/socialgoals.html" style="text-decoration: none; ">Social Goals</a><br><br>
-            <a href="goals/mentalgoals.html" style="text-decoration: none; ">Mental Goals</a><br><br>
-            <a href="goals/spiritualgoals.html" style="text-decoration: none; ">Spiritual Goals</a><br><br>
-            <a href="goals/screentimegoals.html" style="text-decoration: none; ">Screen Time Goals</a><br><br>
+            <a href="fitnessgoals.html" style="text-decoration: none; ">Fitness Goals</a><br><br>
+            <a href="dietarygoals.html" style="text-decoration: none; ">Dietary Goals</a><br><br>
+            <a href="socialgoals.html" style="text-decoration: none; ">Social Goals</a><br><br>
+            <a href="mentalgoals.html" style="text-decoration: none; ">Mental Goals</a><br><br>
+            <a href="spiritualgoals.html" style="text-decoration: none; ">Spiritual Goals</a><br><br>
+            <a href="screentimegoals.html" style="text-decoration: none; ">Screen Time Goals</a><br><br>
         </main>
                 <footer>
             <br>
