@@ -26,6 +26,7 @@ body
 main 
 {
     text-align: center;
+    padding: 50px;
 }
 
 main a 
@@ -86,7 +87,7 @@ li a:hover, .dropdown:hover .dropbtn
 
 li.dropdown 
 {
-    display: inline;
+    display: block;
 	float: right;
 }
 
@@ -113,6 +114,11 @@ li.dropdown
 .dropdown-content a:hover, .dropdown:hover .dropdown-content 
 {
     display: block;
+}
+
+.userText
+{
+    color: #e03a3e;
 }
 
 footer  

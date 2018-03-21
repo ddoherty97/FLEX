@@ -1,5 +1,5 @@
 <?php
-	require("../php/EditProfile.php");
+	require("../../php/EditProfile.php");
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +14,7 @@
     
     <body>
         <header>
-            <a href="home.html"><img src="../../images/antlers.png" alt="logo" height="50px" width="50px"/></a>
+            <a href="../home.html"><img src="../../images/antlers.png" alt="logo" height="50px" width="50px"/></a>
         <nav>
         <ul>
             <li class="dropdown">
@@ -31,60 +31,28 @@
         </nav>
         </header>
         <main>
-            <form method="POST" action="../../php/EditProfile.php"> 
-        	<label for="fuID">Fairfield ID<sup>*</sup>: </label>
- 				<input type="text" name="fuID" id="fuID" value="<?php echo $ffldId;?>"><br><br>
+        	Fairfield ID: <span class="userText"><?php echo $ffldId;?><br><br></span>
  				
- 			<label for="username">Username<sup>*</sup>: </label>
- 				<input type="text" name="username" id="username"><br><br>
- 				
-  			<label for="password">Password<sup>*</sup>: </label>
-				  <input type="password" name="password" id="password"><br><br>
-				  
-			<label for="cpassword">Confirm Password<sup>*</sup>: </label>
-  				<input type="password" name="cpassword" id="cpassword"><br><br>
+ 			Username: <span class="userText"><?php echo $username;?><br><br></span>
   				
-  			<label for="firstname">First Name<sup>*</sup>: </label>
- 				<input type="text" name="firstname" id="firstname" value="<?php echo $fname;?>"><br><br>
+  			Name: <span class="userText"><?php echo $fname." ".$lname;?><br><br></span>
  				
-  			<label for="lastname">Last Name<sup>*</sup>: </label>
-  				<input type="text" name="lastname" id="lastname" value="<?php echo $lname;?>"><br><br>
-  				
-  			<label for="DOB">Date of Birth<sup>*</sup>: </label>
- 				<input type="date" name="DOB" id="DOB" value="<?php echo $dob;?>"><br><br>
+  			Date of Birth: <span class="userText"><?php echo $dob;?><br><br></span>
  				
- 			<label for="gender">Gender<sup>*</sup>: </label>
- 				<select id="gender" name="gender">
-					<option value="-1">Select</option>  
-					<option value="M">Male</option>
-  					<option value="F">Female</option>
-  					<option value="O">Other</option>
-				</select> <br><br>
+ 			Gender: 
+			<span class="userText">
+				<?php
+					if($gender=="M")
+						echo "Male";
+					else if($gender=="F")
+						echo "Female";
+					else
+						echo "Other";
+				?>
+				<br><br>
+			</span>
 				
-			<label>Height<sup>*</sup>: </label>
-				<select name="heightft" id="heightft">
-					<option value="-1">Select</option>
-					<option value="3">3</option>
-					<option value="4">4</option>
-					<option value="5">5</option>
-					<option value="6">6</option>
-					<option value="7">7</option>
-				</select>'
-				<select name="heightin" id="heightin">
-					<option value="-1">Select</option>
-					<option value="0">0</option>
-					<option value="1">1</option>
-					<option value="2">2</option>
-					<option value="3">3</option>
-					<option value="4">4</option>
-					<option value="5">5</option>
-					<option value="6">6</option>
-					<option value="7">7</option>
-					<option value="8">8</option>
-					<option value="9">9</option>
-					<option value="10">10</option>
-					<option value="11">11</option>
-				</select>"<br><br>
+			Height: <span class="userText"><?php echo $heightft."' ".$heightin."\"";?><br><br></span>
  				
  			<label for="weight">Weight: </label>
  				<input type="text" name="weight" id="weight" size="10">lbs<br><br>
