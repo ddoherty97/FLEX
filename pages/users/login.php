@@ -24,11 +24,15 @@
             <label for="formUser">Username: </label>
             	<input type="text" name="formUser"><br><br>
             <label for="formPass">Password: </label>
-            	<input type="password" name="formPass"><br>
-            <input type="submit" value="submit"><br>
+            	<input type="password" name="formPass"><br><br>
+            <input type="submit" value="Login"><br>
             <?php echo $message."<br>";?>
         </form>
         
+        <div>
+            <a href="createuser.php" alt="Create Account">Create Account</a> |
+            <a href="forgotpassword.php" alt="Forgot Password">Forgot Password</a>
+        </div>
         
         </main>
         <footer>

@@ -1,3 +1,9 @@
+<?php
+	ini_set('display_errors', 1);
+	ini_set('display_startup_errors', 1);
+	error_reporting(E_ALL);
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -145,7 +151,7 @@
 					<select name="religion" id="religion">
 						<?php
 							//load all religions from php file
-							require("../php/loadReligionSelect.php");
+							require("../../php/loadReligionSelect.php");
 						?>
 					</select>
 					<div class="errorMSG"></div>
@@ -189,7 +195,7 @@
 					<select name="dept" id="dept">
 						<?php
 							//load all departments from php file
-							require("../php/loadDeptSelect.php");
+							require("../../php/loadDeptSelect.php");
 						?>
 					</select>
 					<div class="errorMSG" id="dept_error"></div>
@@ -200,7 +206,7 @@
 					<select name="res" id="res">
 						<?php
 							//load all residencies from php file
-							require("../php/loadResSelect.php");
+							require("../../php/loadResSelect.php");
 						?>
 					</select>
 					<div class="errorMSG" id="res_error"></div>
@@ -211,7 +217,7 @@
 					<select name="major1" id="major1">
 						<?php
 							//load all majors from php file
-							require("../php/loadMajorSelect.php");
+							require("../../php/loadMajorSelect.php");
 						?>
 					</select>
 					<div class="errorMSG" id="maj1_error"></div>
@@ -222,7 +228,7 @@
 					<select name="major2" id="major2">
 						<?php
 							//load all majors from php file
-							require("../php/loadMajorSelect.php");
+							require("../../php/loadMajorSelect.php");
 						?>
 					</select>
 					<div class="errorMSG"></div>
@@ -233,7 +239,7 @@
 					<select name="major3" id="major3">
 						<?php
 							//load all majors from php file
-							require("../php/loadMajorSelect.php");
+							require("../../php/loadMajorSelect.php");
 						?>
 					</select>
 					<div class="errorMSG"></div>
@@ -244,7 +250,7 @@
 					<select name="minor1" id="minor1">
 						<?php
 							//load all minors from php file
-							require("../php/loadMinorSelect.php");
+							require("../../php/loadMinorSelect.php");
 						?>
 					</select>
 					<div class="errorMSG"></div>
@@ -255,7 +261,7 @@
 					<select name="minor2" id="minor2">
 						<?php
 							//load all minors from php file
-							require("../php/loadMinorSelect.php");
+							require("../../php/loadMinorSelect.php");
 						?>
 					</select>
 					<div class="errorMSG"></div>
@@ -266,7 +272,7 @@
 					<select name="minor3" id="minor3">
 						<?php
 							//load all minors from php file
-							require("../php/loadMinorSelect.php");
+							require("../../php/loadMinorSelect.php");
 						?>
 					</select>
 					<div class="errorMSG"></div>
@@ -277,7 +283,7 @@
 					<select name="minor4" id="minor4">
 						<?php
 							//load all minors from php file
-							require("../php/loadMinorSelect.php");
+							require("../../php/loadMinorSelect.php");
 						?>
 					</select>
 					<div class="errorMSG"></div>
