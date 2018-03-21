@@ -11,7 +11,7 @@
     
     <body>
         <header>
-            <a href="home.php"><img src="../images/antlers.png" alt="logo" height="50px" width="50px"/></a> <!-- -->
+            <a href="home.php"><img src="../images/antlers.png" alt="logo" height="50px" width="50px"/></a>
         <nav>
         <ul>
             <li class="dropdown">
@@ -39,18 +39,13 @@
             <br><br><a href="https://www.fairfield.edu/museum/" style="text-decoration: none;">Bellarmine Museum</a>
             <br><br><a href="https://www.fairfield.edu/undergraduate/student-life-and-services/student-  services/dining/" style="text-decoration: none;">Dining</a>
             <br><br><a href="https://www.fairfield.edu/undergraduate/student-life-and-services/health-and-wellness/counseling-and-psychological-services/" style="text-decoration: none;">Counseling</a>
-        
-        <!--Logout button?-->
-        <form method="POST" action="../php/logout.php"> 
-        <input type="submit" value="Logout">
-        </form>
         </main>
        
         <footer>
             <br>
             <div style="float:left; display: block;">&copy; 2018 <br>Fairfield University <br>School of Nursing</div>
-            <div style="float: right; display: inline">
-            1073 North Benson Road
+            <div style="float: right; display: block">
+            <br>1073 North Benson Road
             <br>Fairfield, CT 06824
             </div>
         </footer>
