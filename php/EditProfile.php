@@ -20,16 +20,6 @@
     $logoutFile = $phpFolderPath."logout.php";
     require($phpFolderPath."IsLoggedIn.php");
 
-    //display php errors
-    $ERRORS_ON = true;
-    
-    if($ERRORS_ON)
-    {
-        ini_set('display_errors', 1);
-        ini_set('display_startup_errors', 1);
-        error_reporting(E_ALL);
-    }//end if
-
     //include access to the communication module
     require_once("CommunicationModule.php");
 	 
