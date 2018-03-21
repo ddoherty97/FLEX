@@ -16,7 +16,7 @@
     }//end if
 	
 	//if no session is active, redirect to login page
-    $phpFolderPath = "";
+    $phpFolderPath = "../../php/";
     $logoutFile = $phpFolderPath."logout.php";
     require($phpFolderPath."IsLoggedIn.php");
 
@@ -63,4 +63,5 @@
 	$min2 = $result['USER_MINOR2'];
 	$min3 = $result['USER_MINOR3'];
 	$min4 = $result['USER_MINOR4'];
+	$role = $result['USER_ROLE'];
 ?>

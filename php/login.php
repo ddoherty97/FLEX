@@ -70,7 +70,7 @@
 		//if no matching user, display error message
         else
         {
-            $message = "Incorrect Username or Password! Please Try Again.";
+            $message = "<br>Incorrect Username or Password! Please Try Again.<br>";
         }//end else
 	}//end if
 ?>
