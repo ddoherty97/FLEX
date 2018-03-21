@@ -1,3 +1,16 @@
+<?php
+    //check if session is already running
+	if(!isset($_SESSION)) 
+    { 
+        session_start();
+    }//end if
+	
+	//if no session is active, redirect to login page
+    $phpFolderPath = "../../php/";
+    $logoutFile = $phpFolderPath."logout.php";
+    require($phpFolderPath."IsLoggedIn.php");
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -10,17 +23,17 @@
     
     <body>
         <header>
-            <a href="home.html"><img src="../../images/antlers.png" alt="logo" height="50px" width="50px"/></a>
+            <a href="../home.php"><img src="../../images/antlers.png" alt="logo" height="50px" width="50px"/></a>
         <nav>
         <ul>
             <li class="dropdown">
                 <a href="javascript:void(0)" class="dropbtn">Menu</a>
                 <div class="dropdown-content">
-                <a href="../users/profile.html">Profile</a>
-                <a href="synchronize.html">Synchronize</a>
-                <a href="tracking.html">Tracking</a>
-                <a href="../goals/goals.html">Goals</a>
-                <a href="../reports/reports.html">Reports</a>
+                <a href="../users/profile.php">Profile</a>
+                <a href="tracking.php">Tracking</a>
+                <a href="../goals/goals.php">Goals</a>
+                <a href="../reports/reports.php">Reports</a>
+                <a href="../../php/logout.php">Logout</a>
                 </div>
             </li>
         </ul>
@@ -61,12 +74,11 @@
         </main>
         <footer>
             <br>
-            <div style="float:left; display: inline;">&copy; 2018 <br>Fairfield University <br>School of Nursing</div>
-            <div style="float: right; display: inline">
-            1073 North Benson Road
+            <div style="float: left; display: block;">&copy; 2018 <br>Fairfield University <br>School of Nursing</div>
+            <div style="float: right; display: block">
+            <br>1073 North Benson Road
             <br>Fairfield, CT 06824
             </div>
         </footer>
-            
     </body>
 </html>
