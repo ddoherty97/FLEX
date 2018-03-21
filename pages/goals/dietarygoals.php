@@ -56,7 +56,6 @@
                         <a href="javascript:void(0)" class="dropbtn">Menu</a>
                         <div class="dropdown-content">
                         <a href="../users/profile.php">Profile</a>
-                        <a href="synchronize.php">Synchronize</a>
                         <a href="../tracking/tracking.php">Tracking</a>
                         <a href="goals.php">Goals</a>
                         <a href="../reports/reports.php">Reports</a>
