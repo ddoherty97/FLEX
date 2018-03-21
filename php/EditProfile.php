@@ -6,11 +6,19 @@
 	 * their profile.
 	 * 
 	 * Author: Jaclyn Cuevas
-	 * Last Updated: 3/7/18 JC 
+	 * Last Updated: 3/21/18 DD 
 	 **/
-	 
-	 //include script to ensure no unauthorized access
-    //require("IsLoggedIn.php");
+
+    //check if session is already running
+	if(!isset($_SESSION)) 
+    { 
+        session_start();
+    }//end if
+	
+	//if no session is active, redirect to login page
+    $phpFolderPath = "";
+    $logoutFile = $phpFolderPath."logout.php";
+    require($phpFolderPath."IsLoggedIn.php");
 
     //display php errors
     $ERRORS_ON = true;
@@ -31,13 +39,14 @@
 	$ffldId = $_SESSION['ffld_id']; 
 	
 	//query database for all user credentials 
-	$result = mysqli_fetch_array($com->queryDatabase("SELECT * FROM USER_CREDENTIALS WHERE CRED_FFLD_ID='$ffldId'"));
+	$result = mysqli_fetch_array($com->queryDatabase("SELECT * FROM USER_INFORMATION,USER_CREDENTIALS WHERE USER_FFLD_ID=CRED_FFLD_ID AND USER_FFLD_ID='$ffldId'"));
 	 
+	$username = $result['CRED_USER'];
 	$fname = $result['USER_FNAME'];
 	$lname = $result['USER_LNAME'];
 	$dob = $result['USER_DOB'];
 	$gender = $result['USER_GENDER'];
-	$heightft = $result['USER_HEIGHT'] / 12;
+	$heightft = intval($result['USER_HEIGHT'] / 12);
 	$heightin = $result['USER_HEIGHT'] % 12;
 	$weight = $result['USER_WEIGHT']; //may be null
 	$religion = $result['USER_RELIGIOUS_PREFERENCE']; //may be null
@@ -46,7 +55,7 @@
 	$class = $result['USER_CLASS_YEAR'];
 	$school = $result['USER_SCHOOL'];
 	$dept = $result['USER_DEPARTMENT'];
-	$residence = $result['USER_RESIDENCE'];
+	$residence = $result['USER_RESIDENCY'];
 	$maj1 = $result['USER_MAJOR1'];
 	$maj2 = $result['USER_MAJOR2'];
 	$maj3 = $result['USER_MAJOR3'];
