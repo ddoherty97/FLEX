@@ -12,7 +12,7 @@
     
     <body>
         <header>
-            <a href="home.html"><img src="../../images/antlers.png" alt="logo" height="50px" width="50px"/></a>
+            <a href="../home.php"><img src="../../images/antlers.png" alt="logo" height="50px" width="50px"/></a>
         </header>
         <main>
         <h1>
@@ -37,8 +37,8 @@
         </main>
         <footer>
             <br>
-            <div style="float:left; display: inline;">&copy; 2018 <br>Fairfield University <br>School of Nursing</div>
-            <div style="float: right; display: inline">
+            <div style="float:left; display: block;">&copy; 2018 <br>Fairfield University <br>School of Nursing</div>
+            <div style="float: right; display: block">
             1073 North Benson Road
             <br>Fairfield, CT 06824
             </div>

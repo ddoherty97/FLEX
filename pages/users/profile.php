@@ -21,10 +21,9 @@
                 <a href="javascript:void(0)" class="dropbtn">Menu</a>
                 <div class="dropdown-content">
                 <a href="profile.php">Profile</a>
-                <a href="synchronize.html">Synchronize</a>
-                <a href="tracking.html">Tracking</a>
-                <a href="goals.html">Goals</a>
-                <a href="reports.html">Reports</a>
+                <a href="tracking.php">Tracking</a>
+                <a href="goals.php">Goals</a>
+                <a href="reports.php">Reports</a>
                 </div>
             </li>
         </ul>

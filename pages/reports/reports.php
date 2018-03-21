@@ -11,17 +11,17 @@
     
     <body>
         <header>
-            <a href="home.html"><img src="../../images/antlers.png" alt="logo" height="50px" width="50px"/></a>
+            <a href="../home.php"><img src="../../images/antlers.png" alt="logo" height="50px" width="50px"/></a>
         <nav>
         <ul>
             <li class="dropdown">
                 <a href="javascript:void(0)" class="dropbtn">Menu</a>
                 <div class="dropdown-content">
-                <a href="../users/profile.html">Profile</a>
-                <a href="synchronize.html">Synchronize</a>
-                <a href="../tracking/tracking.html">Tracking</a>
-                <a href="../goals/goals.html">Goals</a>
-                <a href="reports.html">Reports</a>
+                <a href="../users/profile.php">Profile</a>
+                <a href="../tracking/tracking.php">Tracking</a>
+                <a href="../goals/goals.php">Goals</a>
+                <a href="reports.php">Reports</a>
+                <a href="../../php/logout.php">Logout</a>
                 </div>
             </li>
         </ul>
@@ -157,8 +157,8 @@
         </main>
         <footer>
             <br>
-            <div style="float:left; display: inline;">&copy; 2018 <br>Fairfield University <br>School of Nursing</div>
-            <div style="float: right; display: inline">
+            <div style="float:left; display: block;">&copy; 2018 <br>Fairfield University <br>School of Nursing</div>
+            <div style="float: right; display: block">
             1073 North Benson Road
             <br>Fairfield, CT 06824
             </div>
