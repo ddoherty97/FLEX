@@ -1,3 +1,26 @@
+<?php
+    //check if session is already running
+	if(!isset($_SESSION)) 
+    { 
+        session_start();
+    }//end if
+	
+	//if no session is active, redirect to login page
+    $phpFolderPath = "../../php/";
+    $logoutFile = $phpFolderPath."logout.php";
+    require($phpFolderPath."IsLoggedIn.php");
+
+    //get result of last goal creation
+    if(isset($_GET['s']))
+    {
+        $result = $_GET['s'];
+    }//end if
+    else
+    {
+        $result = "none";
+    }//end else
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -28,10 +51,26 @@
         </header>
         <main>
         	<h1>FLEX</h1>
-        	<h2>Social Goals</h2>
+        	<br>
+            <h2>Social Goals</h2>
+
+            <?php
+                //display status of last goal creation result
+                if($result=="f")
+                {
+            ?>
+                    <div style="color: red; padding: 20px;">THERE WAS AN ERROR CREATING YOUR GOAL.</div>
+            <?php
+                }//end if
+                else if($result=="s")
+                {
+            ?>
+                    <div style="color: green; padding: 20px;">Social Goal Created!</div>
+            <?php
+                }//end if
+            ?>
         	
-        	<form method="POST" action=""> <!-- add php -->
-        	 				
+        	<form method="POST" action=""> <!-- add php -->				
 	 			<label for="eventType">Type of Social Event<sup>*</sup>: </label>
 	 				<select id="eventType" name="eventType" onchange="check(this);">
 						<option value="-1">Select</option>  
@@ -65,16 +104,14 @@
  						
  					<button type="submit"  value="Submit">Submit</button>
 				</form>
-        	
         </main>
         <footer>
             <br>
             <div style="float:left; display: block;">&copy; 2018 <br>Fairfield University <br>School of Nursing</div>
             <div style="float: right; display: block">
-            1073 North Benson Road
+            <br>1073 North Benson Road
             <br>Fairfield, CT 06824
             </div>
-        </footer>
-            
+        </footer>  
     </body>
 </html>
