@@ -87,7 +87,7 @@
             else if($cardioType=="TIME")
             {
                 $cardioDataType = "CARDIO-TIME";
-                $cardioMilestone = $cardioType;
+                $cardioMilestone = $cardioTime;
 
                 //ensure time is provided and positive
                 if($cardioTime=="" || $cardioTime<=0)
@@ -176,8 +176,9 @@
                 {
                     $weightChange *= -1;
                 }//end if
-
+                echo "weightChange: ".$weightChange."<br>tring to add<br>";
                 $fitMod->setWeightGoal($days,$weightChange);
+                echo "added<br>";
             }//end if
 
             //redirect to fitness goals page with creation success

@@ -52,18 +52,22 @@
         {
             //get current weight
             $weightSQL = "SELECT USER_WEIGHT FROM USER_INFORMATION WHERE USER_FFLD_ID='$this->goalOwner'";
-            $result = $this->comMod->queryDatabase($weightSQL);
+            $result = mysqli_fetch_array($this->comMod->queryDatabase($weightSQL));
             $currentWeight = $result['USER_WEIGHT'];
 
-            //calc new weight
-            $newWeight = $currentWeight + $weightChange;
-            
-            //build SQL to insert goal into database
-            $sql = "INSERT INTO FITNESS_GOALS 	(FITNESS_GOAL_OWNER, FITNESS_GOAL_DURATION, FITNESS_GOAL_TYPE, FITNESS_GOAL_WEIGHT, FITNESS_GOAL_ACTIVE)
-                    VALUES 					    ('$this->goalOwner', '$numDays', 'WEIGHT', '$newWeight', '1')";
+            //set goal as long as weight exists
+            if($currentWeight!="")
+            {
+                //calc new weight
+                $newWeight = $currentWeight + $weightChange;
+                
+                //build SQL to insert goal into database
+                $sql = "INSERT INTO FITNESS_GOALS 	(FITNESS_GOAL_OWNER, FITNESS_GOAL_DURATION, FITNESS_GOAL_TYPE, FITNESS_GOAL_WEIGHT, FITNESS_GOAL_ACTIVE)
+                        VALUES 					    ('$this->goalOwner', '$numDays', 'WEIGHT', '$newWeight', '1')";
 
-            //query database
-            $this->comMod->queryDatabase($sql);
+                //query database
+                $this->comMod->queryDatabase($sql);
+            }//end if
         }//close setWeightGoal
 
         /**
