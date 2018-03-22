@@ -33,7 +33,7 @@
         $isValid = true;
         
         //get submitted form data
-        $goalType = $_POST['goalType'];                         //type of fitness goal
+        $goalType = $_POST['goalType'];                         //type of mental goal
         $timeGoal = intval(trim($_POST['counselingTimeGoal'])); //goal amount of time to spend at counseling
         $stressGoal = $_POST['stressLevelGoal'];                //goal stress level
         $days = intval(trim($_POST['numDays']));                //number of days to acheive goal
