@@ -70,7 +70,7 @@
 			<br>
         	<h2>Mental Health Goals</h2>
 
-			 <?php
+			<?php
                 //display status of last goal creation result
                 if($result=="f")
                 {
