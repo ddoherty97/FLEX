@@ -69,7 +69,7 @@
         	<h1>FLEX</h1>
         	<h2>Mental Health Goals</h2>
         	
-        	<form method="POST" action=""> <!-- add php -->
+        	<form method="POST" action="../../php/CreateMentalGoal.php">
         	 				
 	 			<label for="goalType">Type of Goal<sup>*</sup>: </label>
 	 				<select id="goalType" name="goalType" onchange="check(this);">
