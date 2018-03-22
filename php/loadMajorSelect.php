@@ -6,9 +6,6 @@
      * Author: Davis Doherty
      * Last Updated: 3/4/18 DD
      **/
-
-    //include script to ensure no unauthorized access
-    //require("IsLoggedIn.php");
 ?>
 
 <option value="-1">Select</option>

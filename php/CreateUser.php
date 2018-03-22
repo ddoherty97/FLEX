@@ -9,18 +9,16 @@
      * Last Updated: 3/7/18 DD
      **/
 
-    //include script to ensure no unauthorized access
-    //require("IsLoggedIn.php");
-
-    //display php errors
-    $ERRORS_ON = false;
-    
-    if($ERRORS_ON)
-    {
-        ini_set('display_errors', 1);
-        ini_set('display_startup_errors', 1);
-        error_reporting(E_ALL);
+    //check if session is already running
+	if(!isset($_SESSION)) 
+    { 
+        session_start();
     }//end if
+	
+	//if no session is active, redirect to login page
+    $phpFolderPath = "";
+    $logoutFile = $phpFolderPath."logout.php";
+    require($phpFolderPath."IsLoggedIn.php");
 
     //include access to the communication module
     require_once("CommunicationModule.php");
