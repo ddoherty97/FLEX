@@ -29,6 +29,20 @@
         <title>FLEX</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../../css/style.css">
+
+        <script>
+            function check(that) 
+            {
+                if (that.value == 4) 
+                {
+                    document.getElementById("ifOther").style.display = "block";
+                }//end if
+                else
+                {
+                    document.getElementById("ifOther").style.display = "none";
+                }//end else
+            }//close check
+        </script>
     </head>
     
     <body>
@@ -51,7 +65,6 @@
         </header>
         <main>
         	<h1>FLEX</h1>
-        	<br>
             <h2>Social Goals</h2>
 
             <?php
@@ -70,40 +83,30 @@
                 }//end if
             ?>
         	
-        	<form method="POST" action=""> <!-- add php -->				
+        	<form method="POST" action="../../php/CreateSocialGoal.php">			
 	 			<label for="eventType">Type of Social Event<sup>*</sup>: </label>
 	 				<select id="eventType" name="eventType" onchange="check(this);">
 						<option value="-1">Select</option>  
-						<option value="0">Club Meeting</option>
-	  					<option value="1">Fairfield at Night Event</option>
-	  					<option value="2">RA Event</option>
-	  					<option value="3">Sports Game/Event</option>
+						<option value="CLUB MEETING">Club Meeting</option>
+	  					<option value="F@N">Fairfield at Night Event</option>
+	  					<option value="RA EVENT">RA Event</option>
+	  					<option value="SPORTS EVENT">Sports Game/Event</option>
 	  					<option value="4">Other</option>
 					</select> <br><br>
 					
-					<div id="ifOther" style="display:none;">
-						<label for="other">Event Type<sup>*</sup>: </label>
-							<input type="text" name="other" id="other"><br><br>
-					</div>
-					
-					<script>
-					function check(that) 
-					{
-	                	if (that.value == 4) 
-	                	{
-	                    	document.getElementById("ifOther").style.display = "block";
-	                  	}
-	            	} //close check
-	                </script>
+                <div id="ifOther" style="display:none;">
+                    <label for="other">Event Type<sup>*</sup>: </label>
+                        <input type="text" name="other" id="other"><br><br>
+                </div>
 	                
-	                <label for="numDays">Goal Time to Spend on Activity<sup>*</sup>: </label>
- 						<input type="text" name="numDays" id="numDays" size="5"> Hours<br><br>
+                <label for="numDays">Goal Time to Spend on Activity<sup>*</sup>: </label>
+                    <input type="text" name="numDays" id="numDays" size="5"> Hours<br><br>
 	                
-	                <label for="numDays">Number of Days to Achieve Goal<sup>*</sup>: </label>
- 						<input type="text" name="numDays" id="numDays" size="5"> Day(s)<br><br>
- 						
- 					<button type="submit"  value="Submit">Submit</button>
-				</form>
+                <label for="numDays">Number of Days to Achieve Goal<sup>*</sup>: </label>
+                    <input type="text" name="numDays" id="numDays" size="5"> Day(s)<br><br>
+                    
+                <button type="submit"  value="Submit">Submit</button>
+			</form>
         </main>
         <footer>
             <br>
