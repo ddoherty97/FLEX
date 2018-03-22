@@ -33,7 +33,7 @@
         <script>
             function check(that) 
             {
-                if (that.value == 4) 
+                if (that.value == 0) 
                 {
                     document.getElementById("ifOther").style.display = "block";
                 }//end if
@@ -91,7 +91,7 @@
 	  					<option value="F@N">Fairfield at Night Event</option>
 	  					<option value="RA EVENT">RA Event</option>
 	  					<option value="SPORTS EVENT">Sports Game/Event</option>
-	  					<option value="4">Other</option>
+	  					<option value="0">Other</option>
 					</select> <br><br>
 					
                 <div id="ifOther" style="display:none;">
@@ -100,7 +100,7 @@
                 </div>
 	                
                 <label for="numDays">Goal Time to Spend on Activity<sup>*</sup>: </label>
-                    <input type="text" name="numDays" id="numDays" size="5"> Hours<br><br>
+                    <input type="text" name="time" id="time" size="5"> Hours<br><br>
 	                
                 <label for="numDays">Number of Days to Achieve Goal<sup>*</sup>: </label>
                     <input type="text" name="numDays" id="numDays" size="5"> Day(s)<br><br>
