@@ -121,7 +121,7 @@
 				<label for="numDays">Number of Days to Achieve Goal<sup>*</sup>: </label>
  					<input type="text" name="numDays" id="numDays" size="5"> Day(s)<br><br>
  						
- 				<button type="submit"  value="Submit">Submit</button>
+ 				<input type="submit"  value="Add Goal">
  			</form>
 		</main>
         <footer>

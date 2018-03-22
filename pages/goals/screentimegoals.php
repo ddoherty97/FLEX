@@ -51,8 +51,8 @@
         </header>
         <main>
         	<h1>FLEX</h1>
-        	<br>
             <h2>Screen Time Goal</h2>
+            <br>
 
             <?php
                 //display status of last goal creation result
@@ -71,10 +71,10 @@
             ?>
         	
         	<form method="POST" action="../../php/CreateScreenTimeGoal.php">
-                <br><label for="screenTimeGoal">Daily Screen Time Goal<sup>*</sup>: </label>
+                <label for="screenTimeGoal">Daily Screen Time Goal<sup>*</sup>: </label>
                     <input type="text" name="screenTimeGoal" id="screenTimeGoal" size="5"> Minutes<br><br>
                 
-                <button type="submit"  value="Submit">Submit</button>
+                <input type="submit"  value="Add Goal">
 			</form>						
         </main>
         <footer>

@@ -66,6 +66,7 @@
         <main>
         	<h1>FLEX</h1>
             <h2>Social Goals</h2>
+            <br>
 
             <?php
                 //display status of last goal creation result
@@ -105,7 +106,7 @@
                 <label for="numDays">Number of Days to Achieve Goal<sup>*</sup>: </label>
                     <input type="text" name="numDays" id="numDays" size="5"> Day(s)<br><br>
                     
-                <button type="submit"  value="Submit">Submit</button>
+                <input type="submit"  value="Add Goal">
 			</form>
         </main>
         <footer>

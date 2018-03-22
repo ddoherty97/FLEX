@@ -67,8 +67,8 @@
         </header>
         <main>
         	<h1>FLEX</h1>
-			<br>
         	<h2>Mental Health Goals</h2>
+            <br>
 
 			<?php
                 //display status of last goal creation result
@@ -120,7 +120,7 @@
 						</select> <br><br>
 				</div>
  						
- 				<button type="submit"  value="Submit">Submit</button>
+ 				<input type="submit"  value="Add Goal">
 			</form>
         </main>
         <footer>
