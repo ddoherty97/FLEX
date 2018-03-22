@@ -1,9 +1,3 @@
-<?php
-	ini_set('display_errors', 1);
-	ini_set('display_startup_errors', 1);
-	error_reporting(E_ALL);
-?>
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -28,8 +22,7 @@
 						<a href="tracking.php">Tracking</a>
 						<a href="goals.php">Goals</a>
 						<a href="reports.php">Reports</a>
-						<a href="../../php/logout.php">Logout</a>
-						
+						<a href="../../php/logout.php">Logout</a>			
 						</div>
 					</li>
 				</ul>

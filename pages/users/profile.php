@@ -1,4 +1,15 @@
 <?php
+	//check if session is already running
+	if(!isset($_SESSION)) 
+    { 
+        session_start();
+    }//end if
+	
+	//if no session is active, redirect to login page
+    $phpFolderPath = "../../php/";
+    $logoutFile = $phpFolderPath."logout.php";
+    require($phpFolderPath."IsLoggedIn.php");
+	
 	require("../../php/EditProfile.php");
 ?>
 
@@ -135,7 +146,6 @@
             <br>1073 North Benson Road
             <br>Fairfield, CT 06824
             </div>
-        </footer>
-            
+        </footer>       
     </body>
 </html>
