@@ -71,7 +71,7 @@
             ?>
         	
         	<form method="POST" action="../../php/CreateScreenTimeGoal.php">
-                <label for="screenTimeGoal">Daily Screen Time Goal<sup>*</sup>: </label>
+                <br><label for="screenTimeGoal">Daily Screen Time Goal<sup>*</sup>: </label>
                     <input type="text" name="screenTimeGoal" id="screenTimeGoal" size="5"> Minutes<br><br>
                 
                 <button type="submit"  value="Submit">Submit</button>
