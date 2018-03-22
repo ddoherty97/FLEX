@@ -67,7 +67,24 @@
         </header>
         <main>
         	<h1>FLEX</h1>
+			<br>
         	<h2>Mental Health Goals</h2>
+
+			 <?php
+                //display status of last goal creation result
+                if($result=="f")
+                {
+            ?>
+                    <div style="color: red; padding: 20px;">THERE WAS AN ERROR CREATING YOUR GOAL.</div>
+            <?php
+                }//end if
+                else if($result=="s")
+                {
+            ?>
+                    <div style="color: green; padding: 20px;">Mental Goal Created!</div>
+            <?php
+                }//end if
+            ?>
         	
         	<form method="POST" action="../../php/CreateMentalGoal.php">
         	 				
@@ -81,10 +98,12 @@
 				<div id="ifCounseling" style="display:none;">
 					<label for="counselingTimeGoal">Counseling Time Goal<sup>*</sup>: </label>
 						<input type="text" name="counselingTimeGoal" id="counselingTimeGoal" size="5"> Hours<br><br>
+					<label for="numDays">Number of Days to Achieve Goal<sup>*</sup>: </label>
+ 						<input type="text" name="numDays" id="numDays" size="5"> Day(s)<br><br>
 				</div>
 					
 				<div id="ifStress" style="display:none;">
-					<label for="stressLevelGoal">Goal Stress Level<sup>*</sup>: </label>
+					<label for="stressLevelGoal">Daily Goal Stress Level<sup>*</sup>: </label>
 						<select id="stressLevelGoal" name="stressLevelGoal" onchange="check(this);">
 							<option value="-1">Select</option>  
 							<option value="0">0</option>
@@ -100,9 +119,6 @@
 							<option value="10">10</option>
 						</select> <br><br>
 				</div>
-	                
-	            <label for="numDays">Number of Days to Achieve Goal<sup>*</sup>: </label>
- 					<input type="text" name="numDays" id="numDays" size="5"> Day(s)<br><br>
  						
  				<button type="submit"  value="Submit">Submit</button>
 			</form>
