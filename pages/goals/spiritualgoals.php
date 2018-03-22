@@ -91,7 +91,7 @@
                 }//end if
             ?>
         	
-        	<form method="POST" action=""> <!-- add php -->
+        	<form method="POST" action="../../php/CreateSpiritualGoal.php">
 				<label for="spiritualGoalType">Spiritual Goal Type<sup>*</sup>: </label>
 	 				<select id="spiritualGoalType" name="spiritualGoalType" onchange="check(this);">
 						<option value="-1">Select</option>  
@@ -101,10 +101,10 @@
         	
         		<div id="ifDuration" style="display:none;">
 					<label for="durationGoal">Spiritual Duration Goal<sup>*</sup>: </label>
-						<input type="text" name="durationGoal" id="durationGoal" size="5"> Hours<br>
+						<input type="text" name="durationGoal" id="durationGoal" size="5"> Minutes<br>
 						<p>
 							<i>A Spiritual Duration Goal sets a goal based on spending a certain amount of time 
-							on spiritual activities.  For example, a goal could be that you want to spend 3 hours 
+							on spiritual activities. For example, a goal could be that you want to spend 3 hours 
 							a week at the chapel.</i>
 						</p>
 				</div>
