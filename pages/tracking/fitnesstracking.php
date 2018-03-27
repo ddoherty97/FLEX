@@ -48,7 +48,7 @@
                
 			</p>
 
-			<form action="/action_page.php">
+			<form action="../../php/CreateFitnessData.php">
 
 
 				
