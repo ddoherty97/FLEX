@@ -47,53 +47,43 @@
 			</p>
 
 			<form action="/action_page.php">
-
-
-				
-				<label for = "date">Date </label>
-				<br>
-				<input type="date" id = "date" name="date" >
+				<label for = "date">Date </label> : 
+					<input type="date" id = "date" name="date" >
 				<br>
 				<br>
 				<label for="type">Start Time : </label>
-				<input type="time" id = "sTime" name="sTime">
+					<input type="time" id = "sTime" name="sTime">
 				<br>
 				<br>
 				<label for="type">End Time : </label>
-				<input type="time" id = "eTime" name="eTime">
+					<input type="time" id = "eTime" name="eTime">
 				<br>
 				<br>
 				<label for="type">What was the purpose of this activity? : </label>
-				<textarea rows="4" id="textarea1" cols="20">
-				</textarea>
+					<textarea rows="4" id="textarea1" cols="20"></textarea>
 				<br>
 				<br>
 				<label for="type">Set current Stress level : </label>
-				<select>
-  				<option value="1">1</option>
-  				<option value="2">2</option>
-  				<option value="3">3</option>
-  				<option value="4">4</option>
-  				<option value="5">5</option>
-  				<option value="6">6</option>
-  				<option value="7">7</option>
-  				<option value="8">8</option>
-  				<option value="9">9</option>
-  				<option value="10">10</option>
-  				
-</select>
-<br>
-<br>
-		<label for="type">Please list factors for given stress level : </label>
-				<textarea rows="4" id="textarea1" cols="20">
-				</textarea>
+					<select>
+		  				<option value="1">1</option>
+		  				<option value="2">2</option>
+		  				<option value="3">3</option>
+		  				<option value="4">4</option>
+		  				<option value="5">5</option>
+		  				<option value="6">6</option>
+		  				<option value="7">7</option>
+		  				<option value="8">8</option>
+		  				<option value="9">9</option>
+		  				<option value="10">10</option>		
+					</select>
+				<br>
+				<br>
+				<label for="type">Please list factors for given stress level : </label>
+					<textarea rows="4" id="textarea1" cols="20"></textarea>
 				<br>
 				<br>	
-				
 				<label for="textarea">Any other notes you have about this activity : </label>
-				<textarea rows="4" id="textarea" cols="20">
-
-				</textarea>
+					<textarea rows="4" id="textarea" name="notes" cols="20"></textarea>
 				<br>
 				<br>
 				<input type="submit" value="Submit">

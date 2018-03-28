@@ -42,33 +42,26 @@
         <main>
         	<h1> FLEX </h1>
 			<h2>Dietary Tracking</h2>
-			<p>
-                Lets track your Diet!
-                    <br>
-               
-			</p>
+			<p>Lets track your Diet!<br></p>
 
 			<form action="/action_page.php">
-
-
 				<label for="type">Type of food consumed : </label>
-				<input type="text" id = "title" name="title">
+					<input type="text" id = "title" name="title">
 				<br>
 				<br>
 				<label for="type">Time of consumption : </label>
-				<input type="time" id = "Time" name="Time">
+					<input type="time" id = "Time" name="Time">
 				<br>
 				<br>
 				<label for="type">Calories Consumed : </label>
-				<input type="text" id = "title" name="title">
+					<input type="text" id = "title" name="title">
 				<br>
 				<br>
 				<label for="type">Ounces of Water Consumed : </label>
-				<input type="text" id = "title" name="title">
+					<input type="text" id = "title" name="title">
 				<br>
 				<br>
-			
-  				<input type="submit" value="Submit">
+				<input type="submit" value="Submit">
 			</form>
 
         </main>

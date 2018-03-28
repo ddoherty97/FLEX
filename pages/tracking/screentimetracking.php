@@ -42,24 +42,15 @@
         <main>
         		<h1> FLEX </h1>
 			<h2>Screen Time Tracking</h2>
-			<p>
-                Lets track your Device Usage!
-                    <br>
-               
-			</p>
+			<p>Lets track your Device Usage!<br></p>
 
 			<form action="/action_page.php">
-
-
-				
-				<label for = "date">Date </label>
-				<br>
-					<input type="date" id = "date" name="date" >
+				<label for = "date">Date </label> : 
+					<input type="date" id = "date" name="date">
 				<br>
 				<br>
-				
 				<label for="speed">Time Spent on Device<sup>*</sup>: </label>
-							<input type="text" name="time" id="time" size="7"> minutes<br><br>
+					<input type="text" name="time" id="time" size="7"> minutes<br><br>
 				
 				<label for="type">What type of device did you use : </label>
 					<select>

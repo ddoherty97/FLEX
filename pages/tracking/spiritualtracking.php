@@ -43,43 +43,35 @@
         	
         	<h1> FLEX </h1>
 			<h2>Spiritual Tracking</h2>
-			<p>
-                Lets track your Spiritual Activity!
-                    <br>
-               
-			</p>
+			<p>Lets track your Spiritual Activity!<br></p>
 
 			<form action="/action_page.php">
-
-
 				<label for="type">Name of event : </label>
-				<input type="text" id = "title" name="title">
+					<input type="text" id = "title" name="title">
 				<br>
 				<br>
-				<label for = "date">Date </label>
-				<br>
-				<input type="date" id = "date" name="date" >
+				<label for = "date">Date </label> : 
+					<input type="date" id = "date" name="date" >
 				<br>
 				<br>
 				<label for="type">Start Time : </label>
-				<input type="time" id = "sTime" name="sTime">
+					<input type="time" id = "sTime" name="sTime">
 				<br>
 				<br>
 				<label for="type">End Time : </label>
-				<input type="time" id = "eTime" name="eTime">
+					<input type="time" id = "eTime" name="eTime">
 				<br>
 				<br>
 				<label for="type">Where did this event take place : </label>
-				<input type="text" id = "location" name="location">
+					<input type="text" id = "location" name="location">
 				<br>
 				<br>
 				<label for="type">What type of event did you attend? : </label>
-				<input type="text" id = "type" name="type">
+					<input type="text" id = "type" name="type">
 				<br>
 				<br>
 				<label for="textarea">Any other notes you have about this activity : </label>
-				<textarea rows="3" id="textarea" cols="20">
-					</textarea>
+					<textarea rows="3" id="textarea" name="notes" cols="20"></textarea>
 				<br>
 				<br>
   				<input type="submit" value="Submit">
