@@ -54,25 +54,21 @@
 				
 				<label for = "date">Date </label>
 				<br>
-				<input type="date" id = "date" name="date" >
+					<input type="date" id = "date" name="date" >
 				<br>
 				<br>
-				<label for="type">Start Time : </label>
-				<input type="time" id = "sTime" name="sTime">
-				<br>
-				<br>
-				<label for="type">End Time : </label>
-				<input type="time" id = "eTime" name="eTime">
-				<br>
-				<br>
+				
+				<label for="speed">Time Spent on Device<sup>*</sup>: </label>
+							<input type="text" name="time" id="time" size="7"> minutes<br><br>
+				
 				<label for="type">What type of device did you use : </label>
-				<select>
-  				<option value="1">Phone</option>
-  				<option value="2">Computer/Laptop</option>
-  				<option value="3">Tablet</option>
-  				<option value="4">TV</option>
-  				<option value="4">Gaming System</option>
-  				</select>
+					<select>
+		  				<option value="1">Phone</option>
+		  				<option value="2">Computer/Laptop</option>
+		  				<option value="3">Tablet</option>
+		  				<option value="4">TV</option>
+		  				<option value="4">Gaming System</option>
+  					</select>
   				<input type="submit" value="Submit">
 			</form>
         </main>
