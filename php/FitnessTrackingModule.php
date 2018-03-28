@@ -1,5 +1,5 @@
 <?php
-	  /**
+	/**
      * Fitness Tracking Module (FitnessTrackingModule.php)
      * This class allows the user to track their fitness based activities
      * Author: Jaclyn Cuevas
@@ -50,17 +50,33 @@
 		function addFitnessData($date, $startTime, $endTime, $type, $notes)
 		{
 			//calculate activity duration from start and end times
-			$time = $startTime->diff($endTime);
+            $time = $startTime->diff($endTime);
 			$hours = $time->format('%h');
 			$minutes = $time->format('%i');
-			$duration = ($hours * 60) + $minutes;
+            $duration = ($hours * 60) + $minutes;
+            
+            date_default_timezone_set('America/New_York');
+            $submitted = date("Y-m-d H:i:s");
 			
-			//build SQL to insert data into database
-			$sql = "INSERT INTO table_name  (FITNESS_DATA_OWNER, FITNESS_ACTIVITY_DATE, FITNESS_ACTIVITY_DURATION, FITNESS_ACTIVITY_TYPE, FITNESS_ACTIVITY_OTHER)
-					VALUES 					('$this->dataOwner', '$date', '$duration', '$type', '$notes')";
+            //build SQL to insert data into database
+			$sql = "INSERT INTO FITNESS_DATA    (FITNESS_DATA_OWNER, FITNESS_ACTIVITY_DATE, FITNESS_ACTIVITY_DURATION, FITNESS_ACTIVITY_TYPE, FITNESS_ACTIVITY_OTHER, FITNESS_ACTIVITY_SUBMITTED_TIME)
+					VALUES 					    ('$this->dataOwner', '$date', '$duration', '$type', '$notes', '$submitted')";
 					
 			//query database
             $this->comMod->queryDatabase($sql);
 		}//close addFitnessData
-	}//close FitnessTrackingModule	
+    }//close FitnessTrackingModule	
+    
+    session_start();
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+    $mod = new FitnessTrackingModule();
+    $date = date("2018-03-15");
+    $start = new DateTime("14:15");
+    $end = new DateTime("15:20");
+    $type = "test data";
+    $notes = "test data notes here";
+
+    // $mod->addFitnessData($date, $start, $end, $type, $notes);
 ?>

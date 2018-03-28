@@ -5,7 +5,7 @@
      * a fitness data to the FLEX application. It will process the form fields on
      * the tracking/fitnesstracking.php page. Note: This is intended to be an action script
      * Author: Jaclyn Cuevas
-     * Last Updated: 3/27/18 JC
+     * Last Updated: 3/28/18 DD
      **/
 
 	//check if session is already running
@@ -38,7 +38,6 @@
 		$type = trim($_POST['type']);			//type of fitness activity
 		$notes = trim($_POST['textarea']);		//notes about fitness activity
 		
-		
 		//validate all inputs
 		//ensure date is provided 
 		if($date == "")
@@ -67,7 +66,11 @@
 		//if data is valid, add to database through FitnessDataModule
 		if($isValid)
 		{
-			$fitMod->addFitnessData($date, $startTime, $endTime, $type, $notes);
+			$date = date($date);					//convert text date to DateTime object
+    		$start = new DateTime($startTime);		//convert text start time to DateTime object
+    		$end = new DateTime($endTime);			//convert text end time to DateTime object
+			
+			$fitMod->addFitnessData($date, $start, $end, $type, $notes);
 
 			//redirect to fitness tracking page with creation success
             header("Location: ../pages/tracking/fitnesstracking.php?s=s");

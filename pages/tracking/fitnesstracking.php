@@ -79,24 +79,24 @@
 
 			<p>Lets track some of your fitness activities!<br></p>
 
-			<form action="../../php/CreateFitnessData.php">
-				<label for = "date">Date </label> : 
+			<form action="../../php/CreateFitnessData.php" method="POST">
+				<label for = "date">Date</label><sup>*</sup>: 
 					<input type="date" id = "date" name="date" >
 				<br>
 				<br>
-				<label for="type">Start Time : </label>
+				<label for="type">Start Time</label><sup>*</sup>:
 					<input type="time" id = "sTime" name="sTime">
 				<br>
 				<br>
-				<label for="type">End Time : </label>
+				<label for="type">End Time</label><sup>*</sup>:
 					<input type="time" id = "eTime" name="eTime">
 				<br>
 				<br>
-				<label for="type">What type of activity did you participate in? : </label>
+				<label for="type">What type of activity did you participate in?</label><sup>*</sup>
 					<input type="text" id = "type" name="type">
 				<br>
 				<br>
-				<label for="textarea">Any other notes you have about this activity : </label>
+				<label for="textarea">Any other notes you have about this activity</label>:
 					<textarea rows="4" id="textarea" name="notes" cols="30"></textarea>
 				<br>
 				<br>
@@ -107,7 +107,7 @@
             <br>
             <div style="float:left; display: block;">&copy; 2018 <br>Fairfield University <br>School of Nursing</div>
             <div style="float: right; display: block">
-            1073 North Benson Road
+            <br>1073 North Benson Road
             <br>Fairfield, CT 06824
             </div>
         </footer>
