@@ -70,7 +70,7 @@
 				<br>
 				<br>
 				<label for="textarea">Any other notes you have about this activity : </label>
-				<textarea rows="4" id="textarea" cols="30">
+				<textarea rows="4" id="textarea" name="notes" cols="30">
 
 				</textarea>
 				<br>
