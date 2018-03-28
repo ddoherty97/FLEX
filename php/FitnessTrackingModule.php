@@ -50,7 +50,7 @@
 		function addFitnessData($date, $startTime, $endTime, $type, $notes)
 		{
 			//calculate activity duration from start and end times
-			$time = $startTime>diff($endTime); 
+			$time = $startTime->diff($endTime);
 			$hours = $time->format('%h');
 			$minutes = $time->format('%i');
 			$duration = ($hours * 60) + $minutes;
@@ -62,6 +62,5 @@
 			//query database
             $this->comMod->queryDatabase($sql);
 		}//close addFitnessData
-	}//close FitnessTrackingModule
-	
+	}//close FitnessTrackingModule	
 ?>

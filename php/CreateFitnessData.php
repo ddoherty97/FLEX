@@ -68,8 +68,19 @@
 		if($isValid)
 		{
 			$fitMod->addFitnessData($date, $startTime, $endTime, $type, $notes);
+
+			//redirect to fitness tracking page with creation success
+            header("Location: ../pages/tracking/fitnesstracking.php?s=s");
+            exit();
 		}//end if
-		
+
+		//if data is not valid
+		else
+		{
+			//redirect to fitness tracking page with creation error
+			header("Location: ../pages/tracking/fitnesstracking.php?s=f");
+			exit();
+		}//end else
     }//end if
     
     //if no form submitted
@@ -79,8 +90,4 @@
         header("Location: ../pages/home.php");
         exit();
     }//end else
-
-
-
-
 ?>
