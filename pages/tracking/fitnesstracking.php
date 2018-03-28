@@ -40,39 +40,29 @@
         </nav>
         </header>
         <main>
-            	<h1> FLEX </h1>
+        	<h1> FLEX </h1>
 			<h2>Fitness Tracking</h2>
-			<p>
-                Lets track some of your fitness activities!
-                    <br>
-               
-			</p>
+			<p>Lets track some of your fitness activities!<br></p>
 
 			<form action="../../php/CreateFitnessData.php">
-
-
-				
-				<label for = "date">Date </label>
-				<br>
-				<input type="date" id = "date" name="date" >
+				<label for = "date">Date </label> : 
+					<input type="date" id = "date" name="date" >
 				<br>
 				<br>
 				<label for="type">Start Time : </label>
-				<input type="time" id = "sTime" name="sTime">
+					<input type="time" id = "sTime" name="sTime">
 				<br>
 				<br>
 				<label for="type">End Time : </label>
-				<input type="time" id = "eTime" name="eTime">
+					<input type="time" id = "eTime" name="eTime">
 				<br>
 				<br>
 				<label for="type">What type of activity did you participate in? : </label>
-				<input type="text" id = "type" name="type">
+					<input type="text" id = "type" name="type">
 				<br>
 				<br>
 				<label for="textarea">Any other notes you have about this activity : </label>
-				<textarea rows="4" id="textarea" name="notes" cols="30">
-
-				</textarea>
+					<textarea rows="4" id="textarea" name="notes" cols="30"></textarea>
 				<br>
 				<br>
 				<input type="submit" value="Submit">
