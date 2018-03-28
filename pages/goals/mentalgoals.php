@@ -1,4 +1,12 @@
 <?php
+	/**
+     * Mental Goals Front End (mentalgoals.php)
+     * This creates the user interface to record the user's mental health goals
+	 * Initially assigned to Muhammad Mubasit
+     * Author: Jaclyn Cuevas
+     * Last Updated: 3/28/18 JC
+     **/
+
     //check if session is already running
 	if(!isset($_SESSION)) 
     { 

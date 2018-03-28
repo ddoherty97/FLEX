@@ -1,4 +1,12 @@
 <?php
+	/**
+     * Social Goals Front End (socialgoals.php)
+     * This creates the user interface to record the user's social goals
+	 * Initially assigned to Muhammad Mubasit
+     * Author: Jaclyn Cuevas
+     * Last Updated: 3/28/18 JC
+     **/
+
     //check if session is already running
 	if(!isset($_SESSION)) 
     { 

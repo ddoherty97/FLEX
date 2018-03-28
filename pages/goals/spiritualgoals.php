@@ -1,4 +1,12 @@
 <?php
+	/**
+     * Spiritual Goals Front End (dietarygoals.php)
+     * This creates the user interface to record the user's spirutual goals
+	 * Initially assigned to Muhammad Mubasit
+     * Author: Jaclyn Cuevas
+     * Last Updated: 3/28/18 JC
+     **/
+
     //check if session is already running
 	if(!isset($_SESSION)) 
     { 

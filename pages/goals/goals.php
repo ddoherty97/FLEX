@@ -1,4 +1,13 @@
 <?php
+	/**
+     * Goals Front End (goals.php)
+     * This creates the user interface of the main goals page.  
+	 * Links direct the user to a specific goal page.
+	 * Initially assigned to Muhammad Mubasit
+     * Author: Jaclyn Cuevas
+     * Last Updated: 3/28/18 JC
+     **/
+
     //check if session is already running
 	if(!isset($_SESSION)) 
     { 

@@ -1,4 +1,12 @@
 <?php
+	/**
+     * Screen Time Goals Front End (screentimegoals.php)
+     * This creates the user interface to record the user's screen time goals
+	 * Initially assigned to Muhammad Mubasit
+     * Author: Jaclyn Cuevas
+     * Last Updated: 3/28/18 JC
+     **/
+
     //check if session is already running
 	if(!isset($_SESSION)) 
     { 

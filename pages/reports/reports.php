@@ -1,3 +1,25 @@
+<?php
+	/**
+     * Reports Front End (reports.php)
+     * This creates the user interface of the main reports page.
+	 * The user specifies which report to create and is brought 
+	 * to that specific report page.  
+     * Author: Sarah Kurtz
+     * Last Updated: 3/28/18 JC
+     **/
+
+    //check if session is already running
+	if(!isset($_SESSION)) 
+    { 
+        session_start();
+    }//end if
+	
+	//if no session is active, redirect to login page
+    $phpFolderPath = "../../php/";
+    $logoutFile = $phpFolderPath."logout.php";
+    require($phpFolderPath."IsLoggedIn.php");
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
