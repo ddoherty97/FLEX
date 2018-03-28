@@ -9,6 +9,16 @@
     $phpFolderPath = "../../php/";
     $logoutFile = $phpFolderPath."logout.php";
     require($phpFolderPath."IsLoggedIn.php");
+
+    //get result of last goal creation
+    if(isset($_GET['s']))
+    {
+        $result = $_GET['s'];
+    }//end if
+    else
+    {
+        $result = "none";
+    }//end else
 ?>
 
 <!DOCTYPE html>
@@ -42,6 +52,24 @@
         <main>
         	<h1> FLEX </h1>
 			<h2>Fitness Tracking</h2>
+            <br>
+
+            <?php
+                //display status of last goal creation result
+                if($result=="f")
+                {
+            ?>
+                    <div style="color: red; padding: 20px;">THERE WAS AN ERROR CREATING YOUR GOAL.</div>
+            <?php
+                }//end if
+                else if($result=="s")
+                {
+            ?>
+                    <div style="color: green; padding: 20px;">Dietary Goal Created!</div>
+            <?php
+                }//end if
+            ?>
+
 			<p>Lets track some of your fitness activities!<br></p>
 
 			<form action="../../php/CreateFitnessData.php">
