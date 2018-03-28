@@ -10,7 +10,7 @@
     $logoutFile = $phpFolderPath."logout.php";
     require($phpFolderPath."IsLoggedIn.php");
 
-    //get result of last goal creation
+    //get result of last data recorded
     if(isset($_GET['s']))
     {
         $result = $_GET['s'];
@@ -55,17 +55,17 @@
             <br>
 
             <?php
-                //display status of last goal creation result
+                //display status of last data recording result
                 if($result=="f")
                 {
             ?>
-                    <div style="color: red; padding: 20px;">THERE WAS AN ERROR CREATING YOUR GOAL.</div>
+                    <div style="color: red; padding: 20px;">THERE WAS AN ERROR RECORDING YOUR ACTIVITY.</div>
             <?php
                 }//end if
                 else if($result=="s")
                 {
             ?>
-                    <div style="color: green; padding: 20px;">Dietary Goal Created!</div>
+                    <div style="color: green; padding: 20px;">Fitness Activity Recorded</div>
             <?php
                 }//end if
             ?>

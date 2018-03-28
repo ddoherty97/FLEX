@@ -9,6 +9,16 @@
     $phpFolderPath = "../../php/";
     $logoutFile = $phpFolderPath."logout.php";
     require($phpFolderPath."IsLoggedIn.php");
+	
+	//get result of last data recorded
+    if(isset($_GET['s']))
+    {
+        $result = $_GET['s'];
+    }//end if
+    else
+    {
+        $result = "none";
+    }//end else
 ?>
 
 <!DOCTYPE html>
@@ -42,6 +52,22 @@
         <main>
         		<h1> FLEX </h1>
 			<h2>Screen Time Tracking</h2>
+			
+			 <?php
+                //display status of last data recording result
+                if($result=="f")
+                {
+            ?>
+                    <div style="color: red; padding: 20px;">THERE WAS AN ERROR RECORDING YOUR INFORMATION.</div>
+            <?php
+                }//end if
+                else if($result=="s")
+                {
+            ?>
+                    <div style="color: green; padding: 20px;">Screen Time Information Recorded</div>
+            <?php
+                }//end if
+            ?>
 			<p>Lets track your Device Usage!<br></p>
 
 			<form action="/action_page.php">
