@@ -32,11 +32,11 @@
         $isValid = true;
         
         //get submitted form data
-        $date = $_POST['date'];				//date of fitness activity
-        $startTime = $_POST['sTime'];		//start time of fitness activity
-		$endTime = $_POST['eTime'];			//end time of fitness activity
-		$type = $_POST['type'];				//type of fitness activity
-		$notes = $_POST['textarea'];		//notes about fitness activity
+        $date = $_POST['date'];					//date of fitness activity
+        $startTime = $_POST['sTime'];			//start time of fitness activity
+		$endTime = $_POST['eTime'];				//end time of fitness activity
+		$type = trim($_POST['type']);			//type of fitness activity
+		$notes = trim($_POST['textarea']);		//notes about fitness activity
 		
 		
 		//validate all inputs
