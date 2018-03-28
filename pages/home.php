@@ -1,4 +1,12 @@
 <?php
+	/**
+     * Home Page (home.php)
+     * This creates the user interface of the home page.
+	 * The page has quick links to university websites and 
+	 * the menu to allow the user to navigate the application.
+     * Author: Sarah Kurtz
+     * Last Updated: 3/1/18 DD
+     **/
     //check if session is already running
 	if(!isset($_SESSION)) 
     { 

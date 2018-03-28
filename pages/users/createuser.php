@@ -1,5 +1,13 @@
+<!--**
+     * Create User Front End (createuser.php)
+     * This creates the user interface of the create user page.
+	 * This allows a new user to create an account and enter their information.  
+     * Author: Jaclyn Cuevas
+     * Last Updated: 3/1/18 DD
+     **/-->
 <!DOCTYPE html>
 <html>
+
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">

@@ -1,4 +1,12 @@
-<?php require("../../php/login.php"); ?>
+<?php require("../../php/login.php"); 
+	/**
+     * Login Front End (reports.php)
+     * This creates the user interface of the login page.
+	 * The user is able to login, create an account or change their password.  
+     * Author: Jaclyn Cuevas
+     * Last Updated: 3/7/18 DD
+     **/
+ ?>
 
 <!DOCTYPE html>
 <html>

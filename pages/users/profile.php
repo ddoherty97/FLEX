@@ -1,4 +1,11 @@
 <?php
+	/**
+     * Profile Front End (profile.php)
+     * This creates the user interface of the user's profile page.
+     * Author: Jaclyn Cuevas
+     * Last Updated: 3/21/18 DD
+     **/
+     
 	//check if session is already running
 	if(!isset($_SESSION)) 
     { 
