@@ -1,4 +1,11 @@
 <?php
+	/**
+     * Mental Tracking Front End (mentaltracking.php)
+     * This creates the user interface to record the user's mental health activities
+     * Author: John Wiley
+     * Last Updated: 3/28/18 JC
+     **/
+     
     //check if session is already running
 	if(!isset($_SESSION)) 
     { 

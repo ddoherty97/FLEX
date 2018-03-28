@@ -1,4 +1,11 @@
 <?php
+	 /**
+     * Social Tracking Front End (socialtracking.php)
+     * This creates the user interface to record the user's social activities
+     * Author: John Wiley
+     * Last Updated: 3/28/18 JC
+     **/
+
     //check if session is already running
 	if(!isset($_SESSION)) 
     { 

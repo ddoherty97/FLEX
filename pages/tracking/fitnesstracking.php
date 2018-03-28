@@ -1,4 +1,11 @@
 <?php
+ 	/**
+     * Fitness Tracking Front End (fitnesstracking.php)
+     * This creates the user interface to record the user's fitness activities
+     * Author: John Wiley
+     * Last Updated: 3/28/18 JC
+     **/
+     
     //check if session is already running
 	if(!isset($_SESSION)) 
     { 
