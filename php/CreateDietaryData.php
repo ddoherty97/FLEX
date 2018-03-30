@@ -54,10 +54,10 @@
 		//if data is valid, add to database through DietaryDataModule
 		if($isValid)
 		{
-			$date = date($date);					//convert text date to DateTime object
+			$dietDate = date($date);					//convert text date to DateTime object
     		$dietTime = new DateTime($time);		//convert text time to DateTime object
 			
-			$dietMod->addDietaryData($date, $dietTime, $typeOfFood, $calories, $ounces);
+			$dietMod->addDietaryData($dietDate, $dietTime, $typeOfFood, $calories, $ounces);
 
 			//redirect to dietary tracking page with creation success
             header("Location: ../pages/tracking/dietarytracking.php?s=s");
