@@ -77,24 +77,24 @@
             ?>
 			<p>Lets track your Diet!<br></p>
 
-			<form action="/action_page.php">
-				<label for = "date">Date</label><sup>*</sup> : 
+			<form action="../../php/CreateDietaryData.php" method="POST">
+				<label for = "date">Date</label><sup>*</sup>: 
 					<input type="date" id = "date" name="date" >
 				<br>
 				<br>
-				<label for="type">Time of consumption : </label>
+				<label for="type">Time of consumption</label><sup>*</sup>: 
 					<input type="time" id = "time" name="time">
 				<br>
 				<br>
-				<label for="type">Type of food consumed : </label>
+				<label for="type">Type of food consumed: </label>
 					<input type="text" id = "type" name="type">
 				<br>
 				<br>
-				<label for="type">Calories Consumed : </label>
+				<label for="type">Calories Consumed: </label>
 					<input type="text" id = "calories" name="calories">
 				<br>
 				<br>
-				<label for="type">Ounces of Water Consumed : </label>
+				<label for="type">Ounces of Water Consumed: </label>
 					<input type="text" id = "ounces" name="ounces">
 				<br>
 				<br>
