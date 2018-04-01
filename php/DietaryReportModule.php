@@ -50,7 +50,42 @@
          **/
         function getCalorieProgress()
         {
-           
+           //get all active calorie goals
+           $goals = $this->dietMod->getCalorieGoals();
+
+           //array to store goal completions
+           $progresses = Array();
+
+           //get progress for all goals
+           for($i=0; $i<count($goals); $i++)
+           {
+               //get current calorie goal data
+               $calories = $goals[$i]->getCalorieIntake();
+               $days = $goals[$i]->getNumDays();
+               
+               //find out dates in goal range
+               $dateStr = strtotime("-".$days." days");
+               $startDate = new DateTime("-".$days." days");
+               $start = $startDate->format('Y-m-d');
+
+               //query database to get calorie intake logs in date range
+               $calSQL = "SELECT * FROM DIETARY_DATA WHERE DIET_DATA_OWNER='$this->dataOwner' AND DIET_DATE>='$start 00:00:00' AND DIET_CALORIES IS NOT NULL";
+               $calQuery = $this->comMod->queryDatabase($calSQL);
+              
+               //count number of calories in selected date range
+               $totalCals = 0;
+               while($currEntry = mysqli_fetch_array($calQuery))
+               {                    
+                   $totalCals += $currEntry['DIET_CALORIES'];
+               }//end while
+
+               //get percent of goal completion
+               $progress = $totalCals / $calories;
+               $progresses[$i] = round($progress,2);
+           }//end for
+
+           //return all progresses
+           return $progresses;
         }//close getCalorieProgress
 
         /**
@@ -74,8 +109,6 @@
                 //get current water goal data
                 $water = $goals[$i]->getWaterIntake();
                 $days = $goals[$i]->getNumDays();
-
-                echo "goal ".($i+1).": ".$water." ounces in ".$days." days<br>";
 
                 //find out dates in goal range
                 $dateStr = strtotime("-".$days." days");
@@ -122,7 +155,7 @@
     error_reporting(E_ALL);
 
     $mod = new DietaryReportModule();
-    $results = $mod->getWaterProgress();
+    $results = $mod->getCalorieProgress();
 
     for($i=0; $i<count($results); $i++)
     {
