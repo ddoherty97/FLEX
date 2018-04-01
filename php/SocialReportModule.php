@@ -64,8 +64,6 @@
                 $days = $goals[$i]->getNumDays();
                 $type = $goals[$i]->getType();
 
-                echo "goal ".($i+1).": ".$duration." minutes of ".$type." in ".$days." days<br>";
-
                 //find out dates in goal range
                 $dateStr = strtotime("-".$days." days");
                 $startDate = new DateTime("-".$days." days");
@@ -104,17 +102,4 @@
 
         }//close getSocialReport
     }//close SocialReportModule
-
-    session_start();
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
-
-    $mod = new SocialReportModule();
-    $results = $mod->getSocialProgress();
-
-    for($i=0; $i<count($results); $i++)
-    {
-        echo "goal ".($i+1)." is ".($results[$i]*100)."% complete.<br>";
-    }//end for
 ?>
