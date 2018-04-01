@@ -149,17 +149,4 @@
 
         }//close getMentalReport
     }//close MentalReportModule
-
-    session_start();
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
-
-    $mod = new MentalReportModule();
-    $results = $mod->getStressLevelProgress();
-
-    for($i=0; $i<count($results); $i++)
-    {
-        echo "goal ".($i+1)." is ".($results[$i]*100)."% complete.<br>";
-    }//end for
 ?>
