@@ -1,7 +1,7 @@
 <?php
 	/**
      * Spiritual Report Module (SpiritualReportModule.php)
-     * The purpose of the Screen Time Report Module is to display the user’s screen time progress,
+     * The purpose of the Spiritual Report Module is to display the user’s spiritual progress,
      *      as it relates to their goals, in a clean report that is easily interpreted.
      * Author: Davis Doherty
      * Last Updated: 3/31/18 DD
