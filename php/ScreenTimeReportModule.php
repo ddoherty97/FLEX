@@ -63,8 +63,6 @@
                 $duration = $goals[$i]->getMinutes();
                 $days = $goals[$i]->getNumDays();
 
-                echo "goal ".($i+1).": ".$duration." minutes in ".$days." days<br>";
-                
                 //find out dates in goal range
                 $dateStr = strtotime("-".$days." days");
                 $startDate = new DateTime("-".$days." days");
@@ -103,17 +101,4 @@
 
         }//close getScreenTimeReport
     }//close ScreenTimeReportModule
-
-    session_start();
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
-
-    $mod = new ScreenTimeReportModule();
-    $results = $mod->getScreenTimeProgress();
-
-    for($i=0; $i<count($results); $i++)
-    {
-        echo "goal ".($i+1)." is ".($results[$i]*100)."% complete.<br>";
-    }//end for
 ?>
