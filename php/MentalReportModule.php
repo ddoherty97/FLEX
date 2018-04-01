@@ -92,13 +92,13 @@
          * getStressLevelProgress()
          * This method gets the user's stress level progress based on their goals
          * Parameters:  none
-         * Returns: double representing the percent of goal completion
+         * Returns: double representing the percent of goal completion (max=100%)
          * Exceptions: a stress level goal must be set
          **/
         function getStressLevelProgress()
         {
-            //get all active spiritual goals
-            $goals = $this->spiritMod->getSpiritualEventGoals();
+            //get all active stress level goals
+            $goals = $this->mentalMod->getStressGoals();
 
             //array to store goal completions
             $progresses = Array();
@@ -106,8 +106,8 @@
             //get progress for all goals
             for($i=0; $i<count($goals); $i++)
             {
-                //get current spiritual event goal data
-                $events = $goals[$i]->getEvents();
+                //get current stress goal data
+                $level = $goals[$i]->getLevel();
                 $days = $goals[$i]->getNumDays();
 
                 //find out dates in goal range
@@ -115,13 +115,20 @@
                 $startDate = new DateTime("-".$days." days");
                 $start = $startDate->format('Y-m-d');
 
-                //query database to count number of events in given time
-                $eventSQL = "SELECT COUNT(*) AS NUM_EVENTS FROM SPIRITUAL_DATA WHERE SPIRITUAL_DATA_OWNER='$this->dataOwner' AND SPIRITUAL_ACTIVITY_DATE>='$start 00:00:00'";
-                $eventsDB = mysqli_fetch_array($this->comMod->queryDatabase($eventSQL));
-                $numEvents = $eventsDB['NUM_EVENTS'];
+                //query database to get minimum stress level in date range
+                $stressSQL = "SELECT MIN(MENTAL_STRESS_LEVEL) AS MOST_RECENT_LEVEL FROM MENTAL_DATA WHERE MENTAL_DATA_OWNER='$this->dataOwner' AND MENTAL_DATA_TIMESTAMP>='$start 00:00:00'";
+                $stressDB = mysqli_fetch_array($this->comMod->queryDatabase($stressSQL));
+                $minLevel = $stressDB['MOST_RECENT_LEVEL'];
 
                 //get percent of goal completion
-                $progress = $numEvents / $events;
+                $progress = $level / $minLevel;
+
+                //if goal is complete, set to 100%
+                if($progress>1)
+                {
+                    $progress = 1;
+                }//end if
+
                 $progresses[$i] = round($progress,2);
             }//end for
 
@@ -149,7 +156,7 @@
     error_reporting(E_ALL);
 
     $mod = new MentalReportModule();
-    $results = $mod->getCounselingSessionProgress();
+    $results = $mod->getStressLevelProgress();
 
     for($i=0; $i<count($results); $i++)
     {
