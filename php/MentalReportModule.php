@@ -59,12 +59,9 @@
             //get progress for all goals
             for($i=0; $i<count($goals); $i++)
             {
-                echo "goal ".($i+1).":<br>";
-
                 //get current counseling session goal data
                 $duration = $goals[$i]->getMinutes();
                 $days = $goals[$i]->getNumDays();
-                echo $duration." minutes in ".$days." days<br>";
 
                 //find out dates in goal range
                 $dateStr = strtotime("-".$days." days");
@@ -79,17 +76,12 @@
                 $minutes = 0;
                 while($event = mysqli_fetch_array($counselingQuery))
                 {
-                    echo "event took ".$event['MENTAL_COUNSELING_DURATION']." minutes<br>";
-                    
                     $minutes += $event['MENTAL_COUNSELING_DURATION'];
-
-                    echo "total minutes so far: ".$minutes."<br>";
                 }//end while
 
                 //get percent of goal completion
                 $progress = $minutes / $duration;
                 $progresses[$i] = round($progress,2);
-                echo "total minutes: ".$minutes."<br><br>";
             }//end for
 
             //return all progresses
