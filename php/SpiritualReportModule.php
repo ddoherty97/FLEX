@@ -4,7 +4,7 @@
      * The purpose of the Screen Time Report Module is to display the user’s screen time progress,
      *      as it relates to their goals, in a clean report that is easily interpreted.
      * Author: Davis Doherty
-     * Last Updated: 3/28/18 DD
+     * Last Updated: 3/31/18 DD
      **/
 
     require_once("CommunicationModule.php");
@@ -91,7 +91,50 @@
          **/
         function getSpiritualDurationProgress()
         {
+            //get all active spiritual goals
+            $goals = $this->spiritMod->getSpiritualDurationGoals();
 
+            //array to store goal completions
+            $progresses = Array();
+
+            //get progress for all goals
+            for($i=0; $i<count($goals); $i++)
+            {
+                echo "goal ".($i+1).":<br>";
+
+                //get current spiritual duration goal data
+                $duration = $goals[$i]->getMinutes();
+                $days = $goals[$i]->getNumDays();
+                echo $duration." minutes in ".$days." days<br>";
+
+                //find out dates in goal range
+                $dateStr = strtotime("-".$days." days");
+                $startDate = new DateTime("-".$days." days");
+                $start = $startDate->format('Y-m-d');
+
+                //query database to get events in goal range time
+                $durationSQL = "SELECT * FROM SPIRITUAL_DATA WHERE SPIRITUAL_DATA_OWNER='$this->dataOwner' AND SPIRITUAL_ACTIVITY_DATE>='$start 00:00:00'";
+                $durationQuery = $this->comMod->queryDatabase($durationSQL);
+               
+                //count number of total minutes in selected events
+                $minutes = 0;
+                while($event = mysqli_fetch_array($durationQuery))
+                {
+                    echo "event took ".$event['SPIRITUAL_ACTIVITY_DURATION']." minutes<br>";
+                    
+                    $minutes += $event['SPIRITUAL_ACTIVITY_DURATION'];
+
+                    echo "total minutes so far: ".$minutes."<br>";
+                }//end while
+
+                //get percent of goal completion
+                $progress = $minutes / $duration;
+                $progresses[$i] = round($progress,2);
+                echo "total minutes: ".$minutes."<br><br>";
+            }//end for
+
+            //return all progresses
+            return $progresses;
         }//close getSpiritualDurationProgress
 
         /**
@@ -114,7 +157,7 @@
     error_reporting(E_ALL);
 
     $mod = new SpiritualReportModule();
-    $results = $mod->getSpiritualEventProgress();
+    $results = $mod->getSpiritualDurationProgress();
 
     for($i=0; $i<count($results); $i++)
     {
