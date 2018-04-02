@@ -63,14 +63,10 @@
                 $goalWeight = $goals[$i]->getWeight();
                 $flag = $goals[$i]->getChange();
 
-                echo "goal ".($i+1).": target: ".$goalWeight.", ";
-
                 //query database and get current user weight
                 $weightSQL = "SELECT USER_WEIGHT FROM USER_INFORMATION WHERE USER_FFLD_ID='$this->dataOwner'";
                 $weightDB = mysqli_fetch_array($this->comMod->queryDatabase($weightSQL));
                 $weight = $weightDB['USER_WEIGHT'];
-
-                echo "current: ".$weight."<br>";
 
                 //check if weight exists
                 if($weight=="" || is_null($weight))
