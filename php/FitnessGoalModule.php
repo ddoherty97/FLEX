@@ -58,12 +58,22 @@
             //set goal as long as weight exists
             if($currentWeight!="")
             {
+                //determine if weight gain or loss
+                if($weightChange<1)
+                {
+                    $flagGainLoss = -1;
+                }//end if
+                else
+                {
+                    $flagGainLoss = 1;
+                }//end else
+                
                 //calc new weight
                 $newWeight = $currentWeight + $weightChange;
                 
                 //build SQL to insert goal into database
-                $sql = "INSERT INTO FITNESS_GOALS 	(FITNESS_GOAL_OWNER, FITNESS_GOAL_DURATION, FITNESS_GOAL_TYPE, FITNESS_GOAL_WEIGHT, FITNESS_GOAL_ACTIVE)
-                        VALUES 					    ('$this->goalOwner', '$numDays', 'WEIGHT', '$newWeight', '1')";
+                $sql = "INSERT INTO FITNESS_GOALS 	(FITNESS_GOAL_OWNER, FITNESS_GOAL_DURATION, FITNESS_GOAL_TYPE, FITNESS_GOAL_WEIGHT, FITNESS_GOAL_WEIGHT_CHANGE, FITNESS_GOAL_ACTIVE)
+                        VALUES 					    ('$this->goalOwner', '$numDays', 'WEIGHT', '$newWeight', '$flagGainLoss', '1')";
 
                 //query database
                 $this->comMod->queryDatabase($sql);
@@ -140,7 +150,7 @@
         function getWeightGoals()
         {
             //query to get all weight goals of logged in user
-            $sql = "SELECT FITNESS_GOAL_DURATION,FITNESS_GOAL_WEIGHT,FITNESS_GOAL_ID FROM FITNESS_GOALS WHERE FITNESS_GOAL_OWNER='$this->goalOwner' AND FITNESS_GOAL_TYPE='WEIGHT' AND FITNESS_GOAL_ACTIVE='1'";
+            $sql = "SELECT FITNESS_GOAL_DURATION,FITNESS_GOAL_WEIGHT,FITNESS_GOAL_WEIGHT_CHANGE,FITNESS_GOAL_ID FROM FITNESS_GOALS WHERE FITNESS_GOAL_OWNER='$this->goalOwner' AND FITNESS_GOAL_TYPE='WEIGHT' AND FITNESS_GOAL_ACTIVE='1'";
             $query = $this->comMod->queryDatabase($sql);
 
             //make array of all goals
@@ -153,10 +163,11 @@
                 //get goal details from database
                 $days = $currGoal['FITNESS_GOAL_DURATION'];
                 $weight = $currGoal['FITNESS_GOAL_WEIGHT'];
+                $change = $currGoal['FITNESS_GOAL_WEIGHT_CHANGE'];
                 $id = $currGoal['FITNESS_GOAL_ID'];
 
                 //create new goal object and add to array
-                $goal = new WeightGoal($days, $weight, $id);
+                $goal = new WeightGoal($days, $weight, $change, $id);
                 $weightGoals[$index] = $goal;
 
                 //increase array index
