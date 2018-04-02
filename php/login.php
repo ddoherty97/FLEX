@@ -55,15 +55,27 @@
 		{
             //set default logout time
             $timeoutMin = 30;
-            
+
+            //get current time
+            date_default_timezone_set('America/New_York');
+            $now = date("Y-m-d H:i:s");
+
+            //get user ID
+            $uID = $userRow['CRED_ID'];
+
             //set session variables
-			$_SESSION["cred_id"] = $userRow['CRED_ID'];                             //id of record in database
+			$_SESSION["cred_id"] = $uID;                                            //id of record in database
             $_SESSION["user_name"] = $userRow['CRED_USER'];                         //username from database
 			$_SESSION['ffld_id'] = $userRow['CRED_FFLD_ID'];                        //fairfield id used to link to user table
 			$_SESSION['last_login'] = $userRow['CRED_LAST_LOGIN'];                  //last login date of user
 			$_SESSION["last_activity"] = time();                                    //last time user loaded a page
             $_SESSION["expire"] = $_SESSION['last_activity'] + ($timeoutMin * 60);  //when to autologout user (30 minutes)
             $_SESSION["timeout"] = $timeoutMin;                                     //save timeout duration for later scripts
+            
+            //update last logged in time
+            $updateSQL = "UPDATE USER_CREDENTIALS SET CRED_LAST_LOGIN='$now' WHERE CRED_ID='$uID'";
+            $communication->queryDatabase($updateSQL);
+
             header("Location: ../home.php");                                        //once logged in, go to home page
 		}//end if
 		
