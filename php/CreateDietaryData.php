@@ -54,7 +54,7 @@
 		//if data is valid, add to database through DietaryDataModule
 		if($isValid)
 		{
-			$dietDate = date($date);					//convert text date to DateTime object
+			$dietDate = date($date);				//convert text date to DateTime object
     		$dietTime = new DateTime($time);		//convert text time to DateTime object
 			
 			$dietMod->addDietaryData($dietDate, $dietTime, $typeOfFood, $calories, $ounces);
