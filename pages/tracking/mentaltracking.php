@@ -77,7 +77,7 @@
             ?>
 			<p>Lets track some of your Mental Health Activities!</p>
 
-			<form action="../../php/CreateDietaryData.php" method="POST">
+			<form action="../../php/CreateMentalData.php" method="POST">
 				<label for = "date">Date</label><sup>*</sup>: 
 					<input type="date" id = "date" name="date" >
 				<br>
