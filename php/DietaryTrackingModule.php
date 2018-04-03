@@ -53,8 +53,28 @@
             $submitted = date("Y-m-d H:i:s");
 			
             //build SQL to insert data into database
-			$sql = "INSERT INTO DIETARY_DATA    (DIET_DATA_OWNER, DIET_DATE, DIET_TITLE, DIET_CALORIES, DIET_WATER, DIET_TIMESTAMP)
-					VALUES 					    ('$this->dataOwner', '$date', '$typeOfFood', '$calories', '$ounces', '$submitted')";
+			$sql = "INSERT INTO DIETARY_DATA    (DIET_DATA_OWNER, DIET_DATE, DIET_TITLE, DIET_TIMESTAMP, DIET_CALORIES, DIET_WATER,)
+                    VALUES 					    ('$this->dataOwner', '$date', '$typeOfFood', '$submitted', ";
+                    
+                    //if no calories consumed
+                    if($calories = 0)
+                    {
+                        $sql .= "NULL, ";
+                    }//end if
+                    else
+                    {
+                        $sql .= "'$calories', ";
+                    }//end else
+
+                    //if no water consumed
+                    if($water = 0)
+                    {
+                        $sql .= "NULL)";
+                    }//end if
+                    else
+                    {
+                        $sql .= "'$ounces')";
+                    }//end else
 					
 			//query database
             $this->comMod->queryDatabase($sql);
