@@ -36,6 +36,33 @@
         <title>FLEX</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../../css/style.css">
+        
+        
+        <script>
+            function check(that) 
+            {
+                if (that.value == "CALORIES") 
+                {
+                    document.getElementById("ifCalories").style.display = "block";
+                    document.getElementById("ifOunces").style.display = "none";
+                } //end if
+                else if (that.value == "WATER") 
+                {
+                    document.getElementById("ifOunces").style.display = "block";
+                    document.getElementById("ifCalories").style.display = "none";
+                }//end if
+                else if (that.value == "BOTH") 
+                {
+                    document.getElementById("ifCalories").style.display = "block";
+                    document.getElementById("ifOunces").style.display = "block";
+                }//end if
+                else
+                {
+                    document.getElementById("ifCardio").style.display = "none";
+                    document.getElementById("ifStrength").style.display = "none";
+                }//end else
+            }//close check
+        </script>
     </head>
     
     <body>
@@ -86,16 +113,27 @@
 					<input type="time" id = "time" name="time">
 				<br>
 				<br>
-				<label for="type">Food Consumed: </label>
-					<input type="text" id = "type" name="type">
+				<label for="dataType">Type of Consumption<sup>*</sup>: </label>
+	 				<select id="dataType" name="dataType" onchange="check(this);">
+						<option value="-1">Select</option>  
+						<option value="CALORIES">Calories</option>
+	  					<option value="WATER">Water</option>
+	  					<option value="BOTH">Both</option>
+                    </select>
+                <div id="ifCalories" style="display: none;">
+					<label for="type">Food Consumed: </label>
+						<input type="text" id = "type" name="type">
+					<br>
+					<br>
+					<label for="calories">Calories Consumed: </label>
+						<input type="text" id = "calories" name="calories">
+				</div>
 				<br>
 				<br>
-				<label for="type">Calories Consumed: </label>
-					<input type="text" id = "calories" name="calories">
-				<br>
-				<br>
-				<label for="type">Ounces of Water Consumed: </label>
-					<input type="text" id = "ounces" name="ounces">
+				<div id="ifOunces" style="display: none;">
+					<label for="ounces">Ounces of Water Consumed: </label>
+						<input type="text" id = "ounces" name="ounces">
+				</div>
 				<br>
 				<br>
 				<input type="submit" value="Submit">
