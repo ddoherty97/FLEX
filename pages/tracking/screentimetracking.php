@@ -84,7 +84,7 @@
 				<label for="speed">Time Spent on Device<sup>*</sup>: </label>
 					<input type="text" name="time" id="time" size="7"> minutes<br><br>
 				
-				<label for="type">What type of device did you use : </label>
+				<label for="type">Type of device Used: </label>
 					<select>
 		  				<option value="1">Phone</option>
 		  				<option value="2">Computer/Laptop</option>

@@ -82,11 +82,11 @@
 					<input type="date" id = "date" name="date" >
 				<br>
 				<br>
-				<label for="type">Time of consumption</label><sup>*</sup>: 
+				<label for="type">Time of Consumption</label><sup>*</sup>: 
 					<input type="time" id = "time" name="time">
 				<br>
 				<br>
-				<label for="type">Type of food consumed: </label>
+				<label for="type">Food Consumed: </label>
 					<input type="text" id = "type" name="type">
 				<br>
 				<br>
