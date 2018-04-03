@@ -3,7 +3,7 @@
      * Spiritual Tracking Module (SpiritualTrackingModule.php)
      * This class allows the user to track their spiritual based activities
      * Author: Jaclyn Cuevas
-     * Last Updated: 4/2/18 JC
+     * Last Updated: 4/3/18 DD
      **/
 
 	require_once("CommunicationModule.php");
@@ -59,24 +59,11 @@
             $submitted = date("Y-m-d H:i:s");
 			
             //build SQL to insert data into database
-			$sql = "INSERT INTO SPIRITUAL_DATA  (SPIRITUAL_DATA_OWNER, SPIRITUAL_ACTIVITY_DATE, SPIRITUAL_ACTIVITY_TITLE, SPIRITUAL_ACTIVITY_LOCATION, SPIRITUAL_ACTIVITY_DURATION, SPIRITUAL_ACTIVITY_TYPE, SPIRITUAL_ACTIVITY_NOTES, SPIRITUAL_ACTIVITY_TIMESTAMP)
+			$sql = "INSERT INTO SPIRITUAL_DATA  (SPIRITUAL_DATA_OWNER, SPIRITUAL_ACTIVITY_DATE, SPIRITUAL_ACTIVITY_TITLE, SPIRITUAL_ACTIVITY_LOCATION, SPIRITUAL_ACTIVITY_DURATION, SPIRITUAL_ACTIVITY_TYPE, SPIRITUAL_ACTIVITY_NOTES, SPIRITUAL_DATA_TIMESTAMP)
 					VALUES 					    ('$this->dataOwner', '$date', '$name', '$location', '$duration', '$type', '$notes', '$submitted')";
 					
-			//query database
+            //query database
             $this->comMod->queryDatabase($sql);
 		}//close addSpiritualData
-    }//close SpiritualTrackingModule	
-    
-    session_start();
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
-    /*$mod = new FitnessTrackingModule();
-    $date = date("2018-03-15");
-    $start = new DateTime("14:15");
-    $end = new DateTime("15:20");
-    $type = "test data";
-    $notes = "test data notes here";*/
-
-    // $mod->addFitnessData($date, $start, $end, $type, $notes);
+    }//close SpiritualTrackingModule
 ?>
