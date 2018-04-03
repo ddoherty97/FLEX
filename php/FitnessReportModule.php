@@ -137,6 +137,50 @@
             return $progresses;
         }//close getCardioProgress
 
+        /**
+         * getStrengthProgress()
+         * This method gets the user’s strength progress in relation to their strength goals
+         * Parameters:  none
+         * Returns: array of doubles representing the percent of goal completion
+         * Exceptions: a strength goal must be set
+         **/
+        function getStrengthProgress()
+        {
+            //get all active strength goals
+            $goals = $this->fitMod->getStrengthGoals();
+
+            //array to store goal completions
+            $progresses = Array();
+
+            //get progress for all goals
+            for($i=0; $i<count($goals); $i++)
+            {                
+                //get current strength goal data
+                $strengthType = $goals[$i]->getType();
+                $strengthWeight = $goals[$i]->getMaxWeight();
+
+                //query database and get most recent max weight for current strength type
+                $strengthSQL = "SELECT FITNESS_ACTIVITY_MILESTONE FROM FITNESS_DATA WHERE FITNESS_DATA_OWNER='$this->dataOwner' AND FITNESS_ACTIVITY_TYPE='$strengthType' ORDER BY FITNESS_ACTIVITY_DATE DESC";
+                $strengthDB = mysqli_fetch_array($this->comMod->queryDatabase($strengthSQL));
+                $currMilestone = $strengthDB['FITNESS_ACTIVITY_MILESTONE'];
+
+                //check if milestone exists for goal type
+                if($currMilestone=="" || is_null($currMilestone))
+                {
+                    $progress = 0;
+                }//end if
+                else
+                {
+                    $progress = $currMilestone / $strengthWeight;  
+                }//end else
+                
+                $progresses[$i] = round($progress,2);
+            }//end for
+
+            //return all progresses
+            return $progresses;
+        }//close getStrengthProgress
+
 
 
 
@@ -212,7 +256,7 @@
     error_reporting(E_ALL);
 
     $mod = new FitnessReportModule();
-    $results = $mod->getCardioProgress();
+    $results = $mod->getStrengthProgress();
 
     for($i=0; $i<count($results); $i++)
     {
