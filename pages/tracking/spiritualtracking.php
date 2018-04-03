@@ -77,7 +77,7 @@
             ?>
 			<p>Lets track your Spiritual Activity!<br></p>
 
-			<form action="/action_page.php">
+			<form action="../../php/CreateSpiritualData.php" method="POST">
 				<label for="type">Name of Event<sup>*</sup>: </label>
 					<input type="text" id = "title" name="title">
 				<br>
