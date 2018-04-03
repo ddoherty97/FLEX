@@ -81,6 +81,10 @@
 					<input type="text" id = "title" name="title">
 				<br>
 				<br>
+				<label for="type">Type of Event<sup>*</sup>: </label>
+					<input type="text" id = "type" name="type">
+				<br>
+				<br>
 				<label for = "date">Date</label><sup>*</sup> : 
 					<input type="date" id = "date" name="date" >
 				<br>
@@ -95,10 +99,6 @@
 				<br>
 				<label for="type">Location of Event<sup>*</sup>: </label>
 					<input type="text" id = "location" name="location">
-				<br>
-				<br>
-				<label for="type">Type of Event<sup>*</sup>: </label>
-					<input type="text" id = "type" name="type">
 				<br>
 				<br>
 				<label for="textarea">Other Notes: </label>

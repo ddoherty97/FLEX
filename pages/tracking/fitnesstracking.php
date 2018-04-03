@@ -143,7 +143,7 @@
                         </select>
 					</div>
 				<br>
-				<label for="textarea">Any other notes you have about this activity</label>:
+				<label for="textarea">Other Notes</label>:
 					<textarea rows="4" id="textarea" name="notes" cols="30"></textarea>
 				<br>
 				<br>

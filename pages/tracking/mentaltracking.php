@@ -90,8 +90,12 @@
 					<input type="time" id = "eTime" name="eTime">
 				<br>
 				<br>
-				<label for="type">Type of Activity: </label>
-					<textarea rows="4" id="textarea1" name="notes" cols="20"></textarea>
+				<label for="type">Type of Counseling: </label>
+					<input type="text" id="notes" name="notes">
+				<br>
+				<br>
+				<label for="textarea">Counseling Notes: </label>
+					<textarea rows="4" id="textarea" name="other" cols="20"></textarea>
 				<br>
 				<br>
 				<label for="type">Current Stress Level: </label>
@@ -113,10 +117,6 @@
 					<textarea rows="4" id="textarea1" name="factors" cols="20"></textarea>
 				<br>
 				<br>	
-				<label for="textarea">Other notes: </label>
-					<textarea rows="4" id="textarea" name="other" cols="20"></textarea>
-				<br>
-				<br>
 				<input type="submit" value="Submit">
 			</form>
         </main>
