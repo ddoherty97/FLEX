@@ -115,14 +115,10 @@
                 $cardioType = $goals[$i]->getType();
                 $cardioMilestone = $goals[$i]->getMilestone();
 
-                echo "goal ".($i+1).":<br>type: ".$cardioType."<br>milestone: ".$cardioMilestone."<br>";
-
                 //query database and get most recent milestone for current cardio type
                 $cardioSQL = "SELECT FITNESS_ACTIVITY_MILESTONE FROM FITNESS_DATA WHERE FITNESS_DATA_OWNER='$this->dataOwner' AND FITNESS_ACTIVITY_TYPE='$cardioType' ORDER BY FITNESS_ACTIVITY_DATE DESC";
                 $cardioDB = mysqli_fetch_array($this->comMod->queryDatabase($cardioSQL));
                 $currMilestone = $cardioDB['FITNESS_ACTIVITY_MILESTONE'];
-
-                echo "currMilestone: ".$currMilestone."<br>";
 
                 //check if milestone exists for goal type
                 if($currMilestone=="" || is_null($currMilestone))
@@ -134,7 +130,6 @@
                     $progress = $currMilestone / $cardioMilestone;  
                 }//end else
                 
-                echo "progress: ".$progress."<br><br>";
                 $progresses[$i] = round($progress,2);
             }//end for
 
