@@ -3,7 +3,7 @@
      * Dietary Tracking Module (DietaryTrackingModule.php)
      * This class allows the user to track their dietary based information
      * Author: Jaclyn Cuevas
-     * Last Updated: 3/30/18 JC
+     * Last Updated: 4/3/18 DD
      **/
 
 	require_once("CommunicationModule.php");
@@ -53,11 +53,11 @@
             $submitted = date("Y-m-d H:i:s");
 			
             //build SQL to insert data into database
-			$sql = "INSERT INTO DIETARY_DATA    (DIET_DATA_OWNER, DIET_DATE, DIET_TITLE, DIET_TIMESTAMP, DIET_CALORIES, DIET_WATER,)
+			$sql = "INSERT INTO DIETARY_DATA    (DIET_DATA_OWNER, DIET_DATE, DIET_TITLE, DIET_TIMESTAMP, DIET_CALORIES, DIET_WATER)
                     VALUES 					    ('$this->dataOwner', '$date', '$typeOfFood', '$submitted', ";
                     
                     //if no calories consumed
-                    if($calories = 0)
+                    if($calories == 0)
                     {
                         $sql .= "NULL, ";
                     }//end if
@@ -67,7 +67,7 @@
                     }//end else
 
                     //if no water consumed
-                    if($water = 0)
+                    if($ounces == 0)
                     {
                         $sql .= "NULL)";
                     }//end if
@@ -75,21 +75,8 @@
                     {
                         $sql .= "'$ounces')";
                     }//end else
-					
 			//query database
             $this->comMod->queryDatabase($sql);
 		}//close addDietaryData
     }//close DietaryTrackingModule	
-    
-    session_start();
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
-    $mod = new DietaryTrackingModule();
-    $date = date("2018-03-15 10:30AM");
-    $type = "apples";
-    $cal = "100";
-    $water = "3";
-
-    $mod->addDietaryData($date, $type, $cal, $water);
 ?>
