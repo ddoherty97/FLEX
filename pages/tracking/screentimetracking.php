@@ -76,7 +76,7 @@
             ?>
 			<p>Lets track your Device Usage!<br></p>
 
-			<form action="/action_page.php">
+			<form action="../../php/CreateScreenTimeData.php" method="POST">
 				<label for = "date">Date </label> : 
 					<input type="date" id = "date" name="date">
 				<br>
@@ -85,7 +85,7 @@
 					<input type="text" name="time" id="time" size="7"> minutes<br><br>
 				
 				<label for="type">Type of device Used: </label>
-					<select>
+					<select name="device">
 		  				<option value="1">Phone</option>
 		  				<option value="2">Computer/Laptop</option>
 		  				<option value="3">Tablet</option>
