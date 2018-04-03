@@ -53,7 +53,7 @@
             $submitted = date("Y-m-d H:i:s");
 			
             //build SQL to insert data into database
-			$sql = "INSERT INTO FITNESS_DATA    (SCREEN_DATA_OWNER, SCREEN_DATA_DATE, SCREEN_DATA_DURATION, SCREEN_DATA_TYPE, SCREEN_DATA_TIMESTAMP)
+			$sql = "INSERT INTO SCREEN_TIME_DATA    (SCREEN_DATA_OWNER, SCREEN_DATA_DATE, SCREEN_DATA_DURATION, SCREEN_DATA_TYPE, SCREEN_DATA_TIMESTAMP)
 					VALUES 					    ('$this->dataOwner', '$date', '$time', '$device', '$submitted')";
 					
 			//query database
