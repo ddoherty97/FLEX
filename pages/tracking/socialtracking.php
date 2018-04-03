@@ -77,16 +77,17 @@
 			<p>Lets track your Social Activity!<br></p>
 
 			<form action="../../php/CreateSocialData.php" method="POST">
+				
+				<label for = "date">Date</label><sup>*</sup> : 
+					<input type="date" id = "date" name="date" >
+				<br>
+				<br>
 				<label for="type">Name of Event : </label>
 					<input type="text" id = "title" name="title">
 				<br>
 				<br>
 				<label for="type">Type of Event<sup>*</sup>: </label>
 					<input type="text" id = "type" name="type">
-				<br>
-				<br>
-				<label for = "date">Date</label><sup>*</sup> : 
-					<input type="date" id = "date" name="date" >
 				<br>
 				<br>
 				<label for="type">Start Time<sup>*</sup>: </label>
