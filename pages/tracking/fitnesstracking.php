@@ -36,6 +36,27 @@
         <title>FLEX</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../../css/style.css">
+
+        <script>
+            function check(that) 
+            {
+                if (that.value == "CARDIO") 
+                {
+                    document.getElementById("ifCardio").style.display = "block";
+                    document.getElementById("ifStrength").style.display = "none";
+                } //end if
+                else if (that.value == "STRENGTH") 
+                {
+                    document.getElementById("ifStrength").style.display = "block";
+                    document.getElementById("ifCardio").style.display = "none";
+                }//end if
+                else
+                {
+                    document.getElementById("ifCardio").style.display = "none";
+                    document.getElementById("ifStrength").style.display = "none";
+                }//end else
+            }//close check
+        </script>
     </head>
     
     <body>
@@ -92,9 +113,35 @@
 					<input type="time" id = "eTime" name="eTime">
 				<br>
 				<br>
-				<label for="type">What type of activity did you participate in?</label><sup>*</sup>
-					<input type="text" id = "type" name="type">
-				<br>
+				<label for="goalType">Type of Fitness<sup>*</sup>: </label>
+	 				<select id="goalType" name="goalType" onchange="check(this);">
+						<option value="-1">Select</option>  
+						<option value="CARDIO">Cardio</option>
+	  					<option value="STRENGTH">Strength</option>
+                    </select>
+                <br>
+                <br>	
+					<!--Cardio Types-->
+					<div id="ifCardio" style="display: none;">
+						<label for="cardioType">Type of Cardio<sup>*</sup>: </label>
+                        <select id="cardioType" name="cardioType">
+                        	<option value="-1">Select</option>
+                            <option value="DISTANCE">Distance</option>
+                            <option value="SPEED">Speed</option>
+                            <option value="TIME">Time</option>
+                        </select>
+                    </div>    	
+					<!--Strength Types-->
+					<div id="ifStrength" style="display: none;">
+						<label for="strengthType">Type of Weight Training<sup>*</sup>: </label>
+                        <select id="strengthType" name="strengthType">
+                        	<option value="-1">Select</option>
+                            <option value="BICEP">Bicep Curl</option>
+                            <option value="CHEST">Chest Press</option>
+                            <option value="DEADLIFT">Deadlift</option>
+                            <option value="SQUAT">Squat</option>
+                        </select>
+					</div>
 				<br>
 				<label for="textarea">Any other notes you have about this activity</label>:
 					<textarea rows="4" id="textarea" name="notes" cols="30"></textarea>
