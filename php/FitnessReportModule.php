@@ -181,85 +181,17 @@
             return $progresses;
         }//close getStrengthProgress
 
+        /**
+         * getFitnessReport()
+         * This method builds a report of all the fitness activities logged
+         * Parameters:  $startDate->date to start selecting to add in the report
+         *              $endDate->date to stop selecting to add in the report
+         * Returns: FitnessReport object of user’s fitness data
+         * Exceptions: none
+         **/
+        function getFitnessReport($startDate, $endDate)
+        {
 
-
-
-
-
-
-
-
-
-        // /**
-        //  * getSpiritualDurationProgress()
-        //  * This method gets the progress of spiritual duration based on the user’s goals
-        //  * Parameters:  none
-        //  * Returns: double representing the percent of goal completion
-        //  * Exceptions: a spiritual goal must be set
-        //  **/
-        // function getSpiritualDurationProgress()
-        // {
-        //     //get all active spiritual goals
-        //     $goals = $this->spiritMod->getSpiritualDurationGoals();
-
-        //     //array to store goal completions
-        //     $progresses = Array();
-
-        //     //get progress for all goals
-        //     for($i=0; $i<count($goals); $i++)
-        //     {
-        //         //get current spiritual duration goal data
-        //         $duration = $goals[$i]->getMinutes();
-        //         $days = $goals[$i]->getNumDays();
-
-        //         //find out dates in goal range
-        //         $dateStr = strtotime("-".$days." days");
-        //         $startDate = new DateTime("-".$days." days");
-        //         $start = $startDate->format('Y-m-d');
-
-        //         //query database to get events in goal range time
-        //         $durationSQL = "SELECT * FROM SPIRITUAL_DATA WHERE SPIRITUAL_DATA_OWNER='$this->dataOwner' AND SPIRITUAL_ACTIVITY_DATE>='$start 00:00:00'";
-        //         $durationQuery = $this->comMod->queryDatabase($durationSQL);
-               
-        //         //count number of total minutes in selected events
-        //         $minutes = 0;
-        //         while($event = mysqli_fetch_array($durationQuery))
-        //         {                    
-        //             $minutes += $event['SPIRITUAL_ACTIVITY_DURATION'];
-        //         }//end while
-
-        //         $progress = $minutes / $duration;
-        //         $progresses[$i] = round($progress,2);
-        //     }//end for
-
-        //     //return all progresses
-        //     return $progresses;
-        // }//close getSpiritualDurationProgress
-
-        // /**
-        //  * getSpiritualReport()
-        //  * This method builds a report of all the spiritual events attended
-        //  * Parameters:  $startDate->date to start selecting to add in the report
-        //  *              $endDate->date to stop selecting to add in the report
-        //  * Returns: SpiritualReport object of user’s spiritual data
-        //  * Exceptions: none
-        //  **/
-        // function getSpiritualReport($startDate, $endDate)
-        // {
-
-        // }//close getSpiritualReport
-    }//close SpiritualReportModule
-
-    session_start();
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
-
-    $mod = new FitnessReportModule();
-    $results = $mod->getStrengthProgress();
-
-    for($i=0; $i<count($results); $i++)
-    {
-        echo "goal ".($i+1)." is ".($results[$i]*100)."% complete.<br>";
-    }//end for
+        }//close getFitnessReport
+    }//close FitnessReportModule
 ?>
