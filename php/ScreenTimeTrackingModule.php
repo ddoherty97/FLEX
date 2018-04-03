@@ -47,18 +47,14 @@
          **/
 		function addScreenTimeData($date, $time, $device)
 		{
-			//calculate activity duration from start and end times
-            $time = $startTime->diff($endTime);
-			$hours = $time->format('%h');
-			$minutes = $time->format('%i');
-            $duration = ($hours * 60) + $minutes;
+			
             
             date_default_timezone_set('America/New_York');
             $submitted = date("Y-m-d H:i:s");
 			
             //build SQL to insert data into database
 			$sql = "INSERT INTO FITNESS_DATA    (SCREEN_DATA_OWNER, SCREEN_DATA_DATE, SCREEN_DATA_DURATION, SCREEN_DATA_TYPE, SCREEN_DATA_TIMESTAMP)
-					VALUES 					    ('$this->dataOwner', '$date', '$duration', '$device', '$submitted')";
+					VALUES 					    ('$this->dataOwner', '$date', '$time', '$device', '$submitted')";
 					
 			//query database
             $this->comMod->queryDatabase($sql);
