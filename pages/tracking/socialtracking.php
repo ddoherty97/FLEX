@@ -76,32 +76,32 @@
             ?>
 			<p>Lets track your Social Activity!<br></p>
 
-			<form action="/action_page.php">
-				<label for="type">Name of event : </label>
+			<form action="../../php/CreateSocialData.php" method="POST">
+				<label for="type">Name of Event : </label>
 					<input type="text" id = "title" name="title">
 				<br>
 				<br>
-				<label for = "date">Date </label> : 
+				<label for = "date">Date</label><sup>*</sup> : 
 					<input type="date" id = "date" name="date" >
 				<br>
 				<br>
-				<label for="type">Start Time : </label>
+				<label for="type">Start Time<sup>*</sup>: </label>
 					<input type="time" id = "sTime" name="sTime">
 				<br>
 				<br>
-				<label for="type">End Time : </label>
+				<label for="type">End Time<sup>*</sup>: </label>
 					<input type="time" id = "eTime" name="eTime">
 				<br>
 				<br>
-				<label for="type">Where did this event take place : </label>
+				<label for="type">Location of Event<sup>*</sup>: </label>
 					<input type="text" id = "location" name="location">
 				<br>
 				<br>
-				<label for="type">What type of event did you attend? : </label>
+				<label for="type">Type of Event<sup>*</sup>: </label>
 					<input type="text" id = "type" name="type">
 				<br>
 				<br>
-				<label for="textarea">Any other notes you have about this activity : </label>
+				<label for="textarea">Other Notes: </label>
 					<textarea rows="4" id="textarea" name="notes" cols="20"></textarea>
 				<br>
 				<br>

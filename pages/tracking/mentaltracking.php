@@ -77,25 +77,25 @@
             ?>
 			<p>Lets track some of your Mental Health Activities!</p>
 
-			<form action="/action_page.php">
-				<label for = "date">Date </label> : 
+			<form action="../../php/CreateDietaryData.php" method="POST">
+				<label for = "date">Date</label><sup>*</sup>: 
 					<input type="date" id = "date" name="date" >
 				<br>
 				<br>
-				<label for="type">Start Time : </label>
+				<label for="type">Start Time: </label>
 					<input type="time" id = "sTime" name="sTime">
 				<br>
 				<br>
-				<label for="type">End Time : </label>
+				<label for="type">End Time: </label>
 					<input type="time" id = "eTime" name="eTime">
 				<br>
 				<br>
-				<label for="type">What was the purpose of this activity? : </label>
-					<textarea rows="4" id="textarea1" cols="20"></textarea>
+				<label for="type">Type of Activity: </label>
+					<textarea rows="4" id="textarea1" name="notes" cols="20"></textarea>
 				<br>
 				<br>
-				<label for="type">Set current Stress level : </label>
-					<select>
+				<label for="type">Current Stress Level: </label>
+					<select name="level">
 		  				<option value="1">1</option>
 		  				<option value="2">2</option>
 		  				<option value="3">3</option>
@@ -109,12 +109,12 @@
 					</select>
 				<br>
 				<br>
-				<label for="type">Please list factors for given stress level : </label>
-					<textarea rows="4" id="textarea1" cols="20"></textarea>
+				<label for="type">Factors Contributing to Stress Level: </label>
+					<textarea rows="4" id="textarea1" name="factors" cols="20"></textarea>
 				<br>
 				<br>	
-				<label for="textarea">Any other notes you have about this activity : </label>
-					<textarea rows="4" id="textarea" name="notes" cols="20"></textarea>
+				<label for="textarea">Other notes: </label>
+					<textarea rows="4" id="textarea" name="other" cols="20"></textarea>
 				<br>
 				<br>
 				<input type="submit" value="Submit">
