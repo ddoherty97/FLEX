@@ -45,7 +45,7 @@
 		  * 			$device->device used
          * Exceptions: user is not logged in
          **/
-		function addFitnessData($date, $time, $device)
+		function addScreenTimeData($date, $time, $device)
 		{
 			//calculate activity duration from start and end times
             $time = $startTime->diff($endTime);
