@@ -91,11 +91,11 @@
 				<br>
 				<br>
 				<label for="type">What was the purpose of this activity? : </label>
-					<textarea rows="4" id="textarea1" cols="20"></textarea>
+					<textarea rows="4" id="textarea1" name="notes" cols="20"></textarea>
 				<br>
 				<br>
 				<label for="type">Set current Stress level : </label>
-					<select>
+					<select name="level">
 		  				<option value="1">1</option>
 		  				<option value="2">2</option>
 		  				<option value="3">3</option>
@@ -110,11 +110,11 @@
 				<br>
 				<br>
 				<label for="type">Please list factors for given stress level : </label>
-					<textarea rows="4" id="textarea1" cols="20"></textarea>
+					<textarea rows="4" id="textarea1" name="factors" cols="20"></textarea>
 				<br>
 				<br>	
 				<label for="textarea">Any other notes you have about this activity : </label>
-					<textarea rows="4" id="textarea" name="notes" cols="20"></textarea>
+					<textarea rows="4" id="textarea" name="other" cols="20"></textarea>
 				<br>
 				<br>
 				<input type="submit" value="Submit">

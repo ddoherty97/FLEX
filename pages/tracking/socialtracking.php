@@ -76,7 +76,7 @@
             ?>
 			<p>Lets track your Social Activity!<br></p>
 
-			<form action="/action_page.php">
+			<form action="../../php/CreateSocialData.php" method="POST">
 				<label for="type">Name of event : </label>
 					<input type="text" id = "title" name="title">
 				<br>
