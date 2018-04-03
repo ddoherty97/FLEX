@@ -47,31 +47,29 @@
 		  * 			$ouncesOfWater->number of ounces of water user drank
          * Exceptions: user is not logged in
          **/
-		function addDietaryData($date, $time, $typeOfFood, $calories, $ounces)
+		function addDietaryData($date, $typeOfFood, $calories, $ounces)
 		{
-            
             date_default_timezone_set('America/New_York');
             $submitted = date("Y-m-d H:i:s");
 			
             //build SQL to insert data into database
-			$sql = "INSERT INTO DIETARY_DATA    (DIET_DATA_OWNER, DIET_DATE, DIET_TIME, DIET_TITLE, DIET_CALORIES, DIET_WATER, DIET_TIMESTAMP)
-					VALUES 					    ('$this->dataOwner', '$date', '$time', '$typeOfFood', '$calories', '$ounces', '$submitted')";
+			$sql = "INSERT INTO DIETARY_DATA    (DIET_DATA_OWNER, DIET_DATE, DIET_TITLE, DIET_CALORIES, DIET_WATER, DIET_TIMESTAMP)
+					VALUES 					    ('$this->dataOwner', '$date', '$typeOfFood', '$calories', '$ounces', '$submitted')";
 					
 			//query database
             $this->comMod->queryDatabase($sql);
 		}//close addDietaryData
     }//close DietaryTrackingModule	
     
-    /*session_start();
+    session_start();
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
     $mod = new DietaryTrackingModule();
-    $date = date("2018-03-15");
-    $start = new DateTime("14:15");
-    $end = new DateTime("15:20");
-    $type = "test data";
-    $notes = "test data notes here";*/
+    $date = date("2018-03-15 10:30AM");
+    $type = "apples";
+    $cal = "100";
+    $water = "3";
 
-    // $mod->addDietaryData($date, $start, $end, $type, $notes);
+    $mod->addDietaryData($date, $type, $cal, $water);
 ?>
