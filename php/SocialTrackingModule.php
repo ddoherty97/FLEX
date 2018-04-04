@@ -3,7 +3,7 @@
      * Social Tracking Module (SocialTrackingModule.php)
      * This class allows the user to track their social activities
      * Author: Jaclyn Cuevas
-     * Last Updated: 4/2/18 JC
+     * Last Updated: 4/4/18 JC
      **/
 
 	require_once("CommunicationModule.php");
@@ -68,19 +68,4 @@
             $this->comMod->queryDatabase($sql);
 		}//close addSocialData
     }//close SocialTrackingModule	
-    
-    session_start();
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
-    $mod = new SocialTrackingModule();
-    $date = date("2018-04-04");
-    $start = new DateTime("15:15");
-    $end = new DateTime("17:20");
-	$location = "llbcc";
-	$name = "name of event";
-    $type = "test data";
-    $notes = "test data notes here";
-
-    $mod->addSocialData($date, $name, $location, $start, $end, $type, $notes);
 ?>

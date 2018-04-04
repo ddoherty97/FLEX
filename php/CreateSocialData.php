@@ -5,7 +5,7 @@
      * a social activity data to the FLEX application. It will process the form fields on
      * the tracking/socialtracking.php page. Note: This is intended to be an action script
      * Author: Jaclyn Cuevas
-     * Last Updated: 4/2/18 JC
+     * Last Updated: 4/4/18 JC
      **/
 
 	//check if session is already running
