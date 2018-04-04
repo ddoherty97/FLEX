@@ -32,12 +32,12 @@
         $isValid = true;
         
         //get submitted form data
-        $date = $_POST['date'];					//date of fitness activity
-        $startTime = $_POST['sTime'];			//start time of fitness activity
-		$endTime = $_POST['eTime'];				//end time of fitness activity
-		$type = trim($_POST['type']);			//type of fitness activity
+        $date = $_POST['date'];								//date of fitness activity
+        $startTime = $_POST['sTime'];						//start time of fitness activity
+		$endTime = $_POST['eTime'];							//end time of fitness activity
+		$type = $_POST['type'];								//type of fitness activity
 		$milestone = floatval(trim($_POST['milestone']));	//fitness activity milestone
-		$notes = trim($_POST['notes']);			//notes about fitness activity
+		$notes = trim($_POST['notes']);						//notes about fitness activity
 		
 		//validate all inputs
 		//ensure date is provided 
@@ -88,7 +88,12 @@
 		else
 		{
 			//redirect to fitness tracking page with creation error
-			header("Location: ../pages/tracking/fitnesstracking.php?s=f");
+			echo "$date<br>";
+			echo "$startTime<br>";
+			echo "$endTime<br>";
+			echo "$type<br>";
+			echo "$milestone<br>";
+			//header("Location: ../pages/tracking/fitnesstracking.php?s=f");
 			exit();
 		}//end else
     }//end if
