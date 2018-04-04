@@ -51,29 +51,29 @@
 		{
             date_default_timezone_set('America/New_York');
             $submitted = date("Y-m-d H:i:s");
-			
+
             //build SQL to insert data into database
 			$sql = "INSERT INTO DIETARY_DATA    (DIET_DATA_OWNER, DIET_DATE, DIET_TITLE, DIET_TIMESTAMP, DIET_CALORIES, DIET_WATER)
                     VALUES 					    ('$this->dataOwner', '$date', '$typeOfFood', '$submitted', ";
                     
                     //if no calories consumed
-                    if($calories == 0)
+                    if($calories == "0")
                     {
-                        $sql .= "NULL, ";
+                        $sql = $sql."NULL, ";
                     }//end if
                     else
                     {
-                        $sql .= "'$calories', ";
+                        $sql = $sql."'$calories', ";
                     }//end else
 
                     //if no water consumed
-                    if($ounces == 0)
+                    if($ounces == "0")
                     {
-                        $sql .= "NULL)";
+                        $sql = $sql."NULL)";
                     }//end if
                     else
                     {
-                        $sql .= "'$ounces')";
+                        $sql = $sql."'$ounces')";
                     }//end else
 			//query database
             $this->comMod->queryDatabase($sql);
