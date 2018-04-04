@@ -92,6 +92,8 @@
 		  				<option value="TV">TV</option>
 		  				<option value="Gaming System">Gaming System</option>
   					</select>
+  				<br>
+  				<br>
   				<input type="submit" value="Submit">
 			</form>
         </main>
