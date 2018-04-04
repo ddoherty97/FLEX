@@ -44,16 +44,20 @@
                 {
                     document.getElementById("ifCardio").style.display = "block";
                     document.getElementById("ifStrength").style.display = "none";
+                    document.getElementById("milestone").style.display = "block";
                 } //end if
                 else if (that.value == "STRENGTH") 
                 {
                     document.getElementById("ifStrength").style.display = "block";
                     document.getElementById("ifCardio").style.display = "none";
+					document.getElementById("milestone").style.display = "block";
+
                 }//end if
                 else
                 {
                     document.getElementById("ifCardio").style.display = "none";
                     document.getElementById("ifStrength").style.display = "none";
+                    document.getElementById("milestone").style.display = "block";
                 }//end else
             }//close check
         </script>
@@ -143,11 +147,12 @@
                         </select>
 					</div>
 				<br>
-				<br>
+				<div id="milestone" style="display: none;">
 				<label for="milestone">Milestone<sup>*</sup>:</label>
 					<input type="text" id="milestone" name="milestone">
 				<br>
 				<br>
+				</div>
 				<label for="textarea">Other Notes</label>:
 					<textarea rows="4" id="textarea" name="notes" cols="30"></textarea>
 				<br>
