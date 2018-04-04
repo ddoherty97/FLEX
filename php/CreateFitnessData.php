@@ -19,7 +19,7 @@
     $logoutFile = $phpFolderPath."logout.php";
     require($phpFolderPath."IsLoggedIn.php");
 
-    //include access to the fitness goal module
+    //include access to the fitness data module
     require_once("FitnessTrackingModule.php");
 	
 	//only run if form was submitted
