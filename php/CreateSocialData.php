@@ -38,7 +38,7 @@
 		$name = trim($_POST['title']);			//name of social activity
         $location = trim($_POST['location']);	//location of social activity
 		$type = trim($_POST['type']);			//type of social activity
-		$notes = trim($_POST['textarea']);		//notes about social activity
+		$notes = trim($_POST['notes']);		//notes about social activity
 		
 		//validate all inputs
 		//ensure date is provided 

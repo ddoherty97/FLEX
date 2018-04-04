@@ -62,7 +62,6 @@
 			$sql = "INSERT INTO FITNESS_DATA    (FITNESS_DATA_OWNER, FITNESS_ACTIVITY_DATE, FITNESS_ACTIVITY_DURATION, FITNESS_ACTIVITY_TYPE, FITNESS_ACTIVITY_MILESTONE, FITNESS_ACTIVITY_NOTES, FITNESS_ACTIVITY_SUBMITTED_TIME)
 					VALUES 					    ('$this->dataOwner', '$date', '$duration', '$type', '$milestone', '$notes', '$submitted')";
 				
-			
 			//query database
             $this->comMod->queryDatabase($sql);
 		}//close addFitnessData

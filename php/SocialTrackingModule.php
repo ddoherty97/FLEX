@@ -61,7 +61,7 @@
             $submitted = date("Y-m-d H:i:s");
 			
             //build SQL to insert data into database
-			$sql = "INSERT INTO SOCIAL_DATA    (SOCIAL_DATA_OWNER, SOCIAL_ACTIVITY_DATE, SOCIAL_ACTIVITY_DURATION, SOCIAL_ACTIVITY_NAME, SOCIAL_ACTIVITY_LOCATION, SOCIAL_ACTIVITY_TYPE, SOCIAL_ACTIVITY_OTHER, SOCIAL_ACTIVITY_TIMESTAMP)
+			$sql = "INSERT INTO SOCIAL_DATA    (SOCIAL_DATA_OWNER, SOCIAL_ACTIVITY_DATE, SOCIAL_ACTIVITY_DURATION, SOCIAL_ACTIVITY_TITLE, SOCIAL_ACTIVITY_LOCATION, SOCIAL_ACTIVITY_TYPE, SOCIAL_ACTIVITY_NOTES, SOCIAL_DATA_TIMESTAMP)
 					VALUES 					   ('$this->dataOwner', '$date', '$duration', '$name', '$location', '$type', '$notes', '$submitted')";
 					
 			//query database
@@ -69,16 +69,18 @@
 		}//close addSocialData
     }//close SocialTrackingModule	
     
-    /*session_start();
+    session_start();
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
-    $mod = new FitnessTrackingModule();
-    $date = date("2018-03-15");
-    $start = new DateTime("14:15");
-    $end = new DateTime("15:20");
+    $mod = new SocialTrackingModule();
+    $date = date("2018-04-04");
+    $start = new DateTime("15:15");
+    $end = new DateTime("17:20");
+	$location = "llbcc";
+	$name = "name of event";
     $type = "test data";
-    $notes = "test data notes here";*/
+    $notes = "test data notes here";
 
-    // $mod->addSocialData($date, $start, $end, $type, $notes);
+    $mod->addSocialData($date, $name, $location, $start, $end, $type, $notes);
 ?>
