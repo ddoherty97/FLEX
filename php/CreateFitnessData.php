@@ -87,7 +87,7 @@
 		}//end if
 		
 		//ensure milestone is provided
-		if($milestone == "" || milestone == 0)
+		if($milestone == "" || $milestone == 0)
 		{
 			$isValid = false;			
 		}//end if
