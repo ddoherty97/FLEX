@@ -47,7 +47,7 @@
 		  * 			$notes->other notes about fitness activity
          * Exceptions: user is not logged in
          **/
-		function addFitnessData($date, $startTime, $endTime, $type, $notes)
+		function addFitnessData($date, $startTime, $endTime, $type, $milestone, $notes)
 		{
 			//calculate activity duration from start and end times
             $time = $startTime->diff($endTime);
@@ -59,8 +59,8 @@
             $submitted = date("Y-m-d H:i:s");
 			
             //build SQL to insert data into database
-			$sql = "INSERT INTO FITNESS_DATA    (FITNESS_DATA_OWNER, FITNESS_ACTIVITY_DATE, FITNESS_ACTIVITY_DURATION, FITNESS_ACTIVITY_TYPE, FITNESS_ACTIVITY_OTHER, FITNESS_ACTIVITY_SUBMITTED_TIME)
-					VALUES 					    ('$this->dataOwner', '$date', '$duration', '$type', '$notes', '$submitted')";
+			$sql = "INSERT INTO FITNESS_DATA    (FITNESS_DATA_OWNER, FITNESS_ACTIVITY_DATE, FITNESS_ACTIVITY_DURATION, FITNESS_ACTIVITY_TYPE, FITNESS_ACTIVITY_MILESTONE, FITNESS_ACTIVITY_OTHER, FITNESS_ACTIVITY_SUBMITTED_TIME)
+					VALUES 					    ('$this->dataOwner', '$date', '$duration', '$type', '$milestone', '$notes', '$submitted')";
 					
 			//query database
             $this->comMod->queryDatabase($sql);
@@ -78,5 +78,5 @@
     $type = "test data";
     $notes = "test data notes here";
 
-     $mod->addFitnessData($date, $start, $end, $type, $notes);
+    // $mod->addFitnessData($date, $start, $end, $type, $notes);
 ?>

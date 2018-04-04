@@ -36,6 +36,7 @@
         $startTime = $_POST['sTime'];			//start time of fitness activity
 		$endTime = $_POST['eTime'];				//end time of fitness activity
 		$type = trim($_POST['type']);			//type of fitness activity
+		$milestone = trim($_POST['milestone']);	//fitness activity milestone
 		$notes = trim($_POST['textarea']);		//notes about fitness activity
 		
 		//validate all inputs
@@ -63,6 +64,12 @@
 			$isValid = false;			
 		}//end if
 		
+		//ensure milestone is provided
+		if($milestone == "")
+		{
+			$isValid = false;			
+		}//end if
+		
 		//if data is valid, add to database through FitnessDataModule
 		if($isValid)
 		{
@@ -70,7 +77,7 @@
     		$start = new DateTime($startTime);		//convert text start time to DateTime object
     		$end = new DateTime($endTime);			//convert text end time to DateTime object
 			
-			$fitMod->addFitnessData($date, $start, $end, $type, $notes);
+			$fitMod->addFitnessData($date, $start, $end, $type, $milestone, $notes);
 
 			//redirect to fitness tracking page with creation success
             header("Location: ../pages/tracking/fitnesstracking.php?s=s");
