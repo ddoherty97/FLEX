@@ -45,12 +45,6 @@
 			$isValid = false;
 		}//end if
 		
-		//ensure type is provided
-		if($typeOfFood == "")
-		{
-			$isValid = false;			
-		}//end if
-		
 		//if data is valid, add to database through DietaryDataModule
 		if($isValid)
 		{
