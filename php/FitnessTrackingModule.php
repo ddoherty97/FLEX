@@ -78,5 +78,5 @@
     $type = "test data";
     $notes = "test data notes here";
 
-    // $mod->addFitnessData($date, $start, $end, $type, $notes);
+     $mod->addFitnessData($date, $start, $end, $type, $notes);
 ?>
