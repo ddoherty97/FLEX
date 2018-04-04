@@ -125,12 +125,7 @@
 		else
 		{
 			//redirect to fitness tracking page with creation error
-			echo "$date<br>";
-			echo "$startTime<br>";
-			echo "$endTime<br>";
-			echo "$type<br>";
-			echo "$milestone<br>";
-			//header("Location: ../pages/tracking/fitnesstracking.php?s=f");
+			header("Location: ../pages/tracking/fitnesstracking.php?s=f");
 			exit();
 		}//end else
     }//end if
