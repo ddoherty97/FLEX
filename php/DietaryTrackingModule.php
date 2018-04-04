@@ -53,9 +53,11 @@
             $submitted = date("Y-m-d H:i:s");
 
             //build SQL to insert data into database
-			$sql = "INSERT INTO DIETARY_DATA    (DIET_DATA_OWNER, DIET_DATE, DIET_TITLE, DIET_TIMESTAMP, DIET_CALORIES, DIET_WATER)
-                    VALUES 					    ('$this->dataOwner', '$date', '$typeOfFood', '$submitted', ";
-                    
+			$sql = "INSERT INTO DIETARY_DATA    (DIET_DATA_OWNER, DIET_DATE, DIET_TITLE, DIET_TIMESTAMP, DIET_CALORIES, DIET_WATER)";
+			echo "between";
+			exit();
+            $sql = $sql."VALUES 					    ('$this->dataOwner', '$date', '$typeOfFood', '$submitted', ";
+			
                     //if no calories consumed
                     if($calories == "0")
                     {
