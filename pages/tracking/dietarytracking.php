@@ -123,7 +123,7 @@
                 <br>
                 <br>
                 <div id="ifCalories" style="display: none;">
-					<label for="type">Food Consumed: </label>
+					<label for="type">Item(s) Consumed: </label>
 						<input type="text" id = "type" name="type">
 					<br>
 					<br>
