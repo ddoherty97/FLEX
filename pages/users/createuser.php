@@ -54,7 +54,7 @@
 			?>
 			<form method="POST" action="../../php/CreateUser.php" onsubmit="return validateUserSubmission();">
 				<div class="newUserInput">
-					<label for="fuID">Fairfield ID<sup>*</sup>:</label>
+					<label for="fuID">Fairfield ID #<sup>*</sup>:</label>
 					<input type="text" name="fuID" id="fuID" maxlength="8">
 					<div class="errorMSG" id="fuID_error"></div>
 				</div>
