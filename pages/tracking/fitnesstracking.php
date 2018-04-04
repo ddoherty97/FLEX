@@ -150,6 +150,13 @@
 				<div id="milestone" style="display: none;">
 				<label for="milestone">Milestone<sup>*</sup>:</label>
 					<input type="text" id="milestone" name="milestone">
+					<select id="milestoneType" name="milestoneType" onchange="check(this);">
+						<option value="">Select</option> 
+						<option value="">Lbs</option> 
+						<option value="">Miles</option>
+						<option value="">Minutes</option>
+	  					<option value="">MPH</option>
+                    </select>
 				<br>
 				<br>
 				</div>
