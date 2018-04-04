@@ -120,6 +120,8 @@
 	  					<option value="WATER">Water</option>
 	  					<option value="BOTH">Both</option>
                     </select>
+                <br>
+                <br>
                 <div id="ifCalories" style="display: none;">
 					<label for="type">Food Consumed: </label>
 						<input type="text" id = "type" name="type">
