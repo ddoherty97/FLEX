@@ -35,7 +35,9 @@
         $date = $_POST['date'];								//date of fitness activity
         $startTime = $_POST['sTime'];						//start time of fitness activity
 		$endTime = $_POST['eTime'];							//end time of fitness activity
-		$type = $_POST['type'];								//type of fitness activity
+		$fitnessType = $_POST['goalType'];					//type of fitness activity
+		$cardioType = $_POST['cardioType'];					//type of cardio activity
+		$strengthType = $_POST['strengthType'];				//type of strength activity
 		$milestone = floatval(trim($_POST['milestone']));	//fitness activity milestone
 		$notes = trim($_POST['notes']);						//notes about fitness activity
 		
@@ -58,14 +60,34 @@
 			$isValid = false;			
 		}//end if
 		
-		//ensure type is provided
-		if($type == "")
+		//ensure fitness type is provided
+		if($fitnessType == "-1")
 		{
 			$isValid = false;			
 		}//end if
 		
+		//if cardio activity
+		else if($fitnessType == "CARDIO")
+		{
+			//ensure cardio type provided
+			if($cardioType == "-1")
+			{
+				$isValid = false;
+			}//end if
+		}//end if
+
+		//if strength activity
+		else if($fitnessType == "STRENGTH")
+		{
+			//ensure strength type provided
+			if($strengthType == "-1")
+			{
+				$isValid = false;
+			}//end if
+		}//end if
+		
 		//ensure milestone is provided
-		if($milestone == "" || milestone == 0)
+		if($milestone == "" || $milestone == 0)
 		{
 			$isValid = false;			
 		}//end if
@@ -77,6 +99,21 @@
     		$start = new DateTime($startTime);		//convert text start time to DateTime object
     		$end = new DateTime($endTime);			//convert text end time to DateTime object
 			
+			//build fitness type
+			if($fitnessType=="CARDIO")
+			{
+				$type = $fitnessType."-".$cardioType;
+			}//end if
+			else if($fitnessType=="STRENGTH")
+			{
+				$type = $fitnessType."-".$strengthType;
+			}//end if
+			else
+			{
+				$type = "UNKNOWN";
+			}//end else
+
+			//add fitness data
 			$fitMod->addFitnessData($date, $start, $end, $type, $milestone, $notes);
 
 			//redirect to fitness tracking page with creation success
@@ -88,12 +125,7 @@
 		else
 		{
 			//redirect to fitness tracking page with creation error
-			echo "$date<br>";
-			echo "$startTime<br>";
-			echo "$endTime<br>";
-			echo "$type<br>";
-			echo "$milestone<br>";
-			//header("Location: ../pages/tracking/fitnesstracking.php?s=f");
+			header("Location: ../pages/tracking/fitnesstracking.php?s=f");
 			exit();
 		}//end else
     }//end if

@@ -65,7 +65,7 @@
 			}//end if
 			
 			//add to database
-			$dietMod->addDietaryData($dietDate, $dietTime, $typeOfFood, $calories, $ounces);
+			$dietMod->addDietaryData($dietDate, $typeOfFood, $calories, $ounces);
 
 			//redirect to dietary tracking page with creation success
             header("Location: ../pages/tracking/dietarytracking.php?s=s");
