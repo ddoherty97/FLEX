@@ -86,11 +86,11 @@
 				
 				<label for="type">Type of device Used: </label>
 					<select name="device">
-		  				<option value="1">Phone</option>
-		  				<option value="2">Computer/Laptop</option>
-		  				<option value="3">Tablet</option>
-		  				<option value="4">TV</option>
-		  				<option value="4">Gaming System</option>
+		  				<option value="Phone">Phone</option>
+		  				<option value="Computer">Computer/Laptop</option>
+		  				<option value="Tablet">Tablet</option>
+		  				<option value="TV">TV</option>
+		  				<option value="Gaming System">Gaming System</option>
   					</select>
   				<input type="submit" value="Submit">
 			</form>
