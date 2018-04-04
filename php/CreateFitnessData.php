@@ -36,7 +36,7 @@
         $startTime = $_POST['sTime'];			//start time of fitness activity
 		$endTime = $_POST['eTime'];				//end time of fitness activity
 		$type = trim($_POST['type']);			//type of fitness activity
-		$milestone = trim($_POST['milestone']);	//fitness activity milestone
+		$milestone = floatval(trim($_POST['milestone']));	//fitness activity milestone
 		$notes = trim($_POST['notes']);			//notes about fitness activity
 		
 		//validate all inputs
@@ -65,7 +65,7 @@
 		}//end if
 		
 		//ensure milestone is provided
-		if($milestone == "")
+		if($milestone == "" || milestone == 0)
 		{
 			$isValid = false;			
 		}//end if
