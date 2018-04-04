@@ -36,6 +36,33 @@
         <title>FLEX</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../../css/style.css">
+        
+         <script>
+            function check(that) 
+            {
+                if (that.value == "COUNSELING") 
+                {
+                    document.getElementById("ifCounseling").style.display = "block";
+                    document.getElementById("ifStress").style.display = "none";
+                } //end if
+                else if (that.value == "STRESS") 
+                {
+                    document.getElementById("ifStress").style.display = "block";
+                    document.getElementById("ifCounseling").style.display = "none";
+                }//end if
+                else if (that.value == "BOTH") 
+                {
+                    document.getElementById("ifCounseling").style.display = "block";
+                    document.getElementById("ifStress").style.display = "block";
+                }//end if
+                else
+                {
+                    document.getElementById("ifCounseling").style.display = "none";
+                    document.getElementById("ifStress").style.display = "none";
+                }//end else
+            }//close check
+        </script>
+        
     </head>
     
     <body>
@@ -90,33 +117,45 @@
 					<input type="time" id = "eTime" name="eTime">
 				<br>
 				<br>
-				<label for="type">Type of Counseling: </label>
-					<input type="text" id="notes" name="notes">
-				<br>
-				<br>
-				<label for="textarea">Counseling Notes: </label>
-					<textarea rows="4" id="textarea" name="other" cols="20"></textarea>
-				<br>
-				<br>
-				<label for="type">Current Stress Level: </label>
-					<select name="level">
-		  				<option value="1">1</option>
-		  				<option value="2">2</option>
-		  				<option value="3">3</option>
-		  				<option value="4">4</option>
-		  				<option value="5">5</option>
-		  				<option value="6">6</option>
-		  				<option value="7">7</option>
-		  				<option value="8">8</option>
-		  				<option value="9">9</option>
-		  				<option value="10">10</option>		
-					</select>
-				<br>
-				<br>
-				<label for="type">Factors Contributing to Stress Level: </label>
-					<textarea rows="4" id="textarea1" name="factors" cols="20"></textarea>
-				<br>
-				<br>	
+	 			<select id="dataType" name="dataType" onchange="check(this);">
+					<option value="-1">Select</option>  
+					<option value="COUNSELING">Enter Counseling Information</option>
+	  				<option value="STRESS">Enter Stress Level</option>
+	  				<option value="BOTH">Enter Both</option>
+                </select>
+                <br>
+                <br>
+                <div id="ifCounseling" style="display: none;">
+					<label for="type">Type of Counseling: </label>
+						<input type="text" id="notes" name="notes">
+					<br>
+					<br>
+					<label for="textarea">Counseling Notes: </label>
+						<textarea rows="4" id="textarea" name="other" cols="20"></textarea>
+					<br>
+					<br>
+				</div>
+				<div id="ifStress" style="display: none;">
+					<label for="type">Current Stress Level: </label>
+						<select name="level">
+			  				<option value="1">1</option>
+			  				<option value="2">2</option>
+			  				<option value="3">3</option>
+			  				<option value="4">4</option>
+			  				<option value="5">5</option>
+			  				<option value="6">6</option>
+			  				<option value="7">7</option>
+			  				<option value="8">8</option>
+			  				<option value="9">9</option>
+			  				<option value="10">10</option>		
+						</select>
+					<br>
+					<br>
+					<label for="type">Factors Contributing to Stress Level: </label>
+						<textarea rows="4" id="textarea1" name="factors" cols="20"></textarea>
+					<br>
+					<br>	
+				</div>
 				<input type="submit" value="Submit">
 			</form>
         </main>

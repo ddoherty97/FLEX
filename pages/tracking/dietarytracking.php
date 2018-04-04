@@ -129,8 +129,8 @@
 					<br>
 					<label for="calories">Calories Consumed: </label>
 						<input type="text" id = "calories" name="calories">
-				<br>
-				<br>
+					<br>
+					<br>
 				</div>
 				
 				<div id="ifOunces" style="display: none;">
