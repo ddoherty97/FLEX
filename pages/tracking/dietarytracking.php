@@ -58,8 +58,8 @@
                 }//end if
                 else
                 {
-                    document.getElementById("ifCardio").style.display = "none";
-                    document.getElementById("ifStrength").style.display = "none";
+                    document.getElementById("ifCalories").style.display = "none";
+                    document.getElementById("ifOunces").style.display = "none";
                 }//end else
             }//close check
         </script>
@@ -129,9 +129,10 @@
 					<br>
 					<label for="calories">Calories Consumed: </label>
 						<input type="text" id = "calories" name="calories">
+				<br>
+				<br>
 				</div>
-				<br>
-				<br>
+				
 				<div id="ifOunces" style="display: none;">
 					<label for="ounces">Ounces of Water Consumed: </label>
 						<input type="text" id = "ounces" name="ounces">
