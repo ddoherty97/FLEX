@@ -5,7 +5,7 @@
      * a dietary data to the FLEX application. It will process the form fields on
      * the tracking/dietarytracking.php page. Note: This is intended to be an action script
      * Author: Jaclyn Cuevas
-     * Last Updated: 3/30/18 JC
+     * Last Updated: 4/3/18 DD
      **/
 
 	//check if session is already running
@@ -57,6 +57,19 @@
 			$dietDate = date($date);				//convert text date to DateTime object
     		$dietTime = new DateTime($time);		//convert text time to DateTime object
 			
+			//if no calories provided
+			if(is_null($calories) || $calories=="")
+			{
+				$calories = 0;
+			}//end if
+
+			//if no water provided
+			if(is_null($ounces) || $ounces=="")
+			{
+				$ounces = 0;
+			}//end if
+
+			//add to database
 			$dietMod->addDietaryData($dietDate, $dietTime, $typeOfFood, $calories, $ounces);
 
 			//redirect to dietary tracking page with creation success
