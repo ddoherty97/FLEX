@@ -9,11 +9,13 @@
 
     class DietaryReport
     {
-        private $goals;         //all dietary goals
-        private $progresses;    //completion progress of all the goals
-        private $entries;       //all dietary entries
-        private $startDate;     //start date of the report
-        private $endDate;       //end date of the report
+        private $calGoals;          //all dietary calorie goals
+        private $waterGoals;        //all dietary water goals
+        private $calProgresses;     //completion progress of all calorie goals
+        private $waterProgresses;   //completion progress of all water goals
+        private $entries;           //all dietary entries
+        private $startDate;         //start date of the report
+        private $endDate;           //end date of the report
 
         /**
          * __construct()
@@ -36,28 +38,52 @@
         }//close constructor
 
         /**
-         * getGoals()
-         * This method gets the active dietary goals
+         * getCalorieGoals()
+         * This method gets the active calorie goals
          * Parameters:  none
-         * Returns: active dietary goals
+         * Returns: active calorie goals
          * Exceptions: none
          **/
-        function getGoals()
+        function getCalorieGoals()
         {
-            return $this->goals;
-        }//close getGoals
+            return $this->calGoals;
+        }//close getCalorieGoals
 
         /**
-         * getGoalProgresses()
-         * This method gets the progress of all active dietary goals
+         * getWaterGoals()
+         * This method gets the active water goals
          * Parameters:  none
-         * Returns: progress of all active dietary goals
+         * Returns: active water goals
          * Exceptions: none
          **/
-        function getProgresses()
+        function getWaterGoals()
         {
-            return $this->progresses;
-        }//close getProgresses
+            return $this->waterGoals;
+        }//close getWaterGoals
+
+        /**
+         * getCalorieProgresses()
+         * This method gets the progress of all active calorie goals
+         * Parameters:  none
+         * Returns: progress of all active calorie goals
+         * Exceptions: none
+         **/
+        function getCalorieProgresses()
+        {
+            return $this->calProgresses;
+        }//close getCalorieProgresses
+
+        /**
+         * getWaterProgresses()
+         * This method gets the progress of all active water goals
+         * Parameters:  none
+         * Returns: progress of all active water goals
+         * Exceptions: none
+         **/
+        function getWaterProgresses()
+        {
+            return $this->waterProgresses;
+        }//close getWaterProgresses
 
         /**
          * getDietaryEntries()
