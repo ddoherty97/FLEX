@@ -42,22 +42,36 @@
             {
                 if (that.value == "CARDIO") 
                 {
+                	document.getElementById("timeOption").style.display = "block";
                     document.getElementById("ifCardio").style.display = "block";
                     document.getElementById("ifStrength").style.display = "none";
+                    document.getElementById("ifWeightChange").style.display = "none";
                     document.getElementById("milestone").style.display = "block";
                 } //end if
                 else if (that.value == "STRENGTH") 
                 {
+                	document.getElementById("timeOption").style.display = "block";
                     document.getElementById("ifStrength").style.display = "block";
                     document.getElementById("ifCardio").style.display = "none";
+                    document.getElementById("ifWeightChange").style.display = "none";
 					document.getElementById("milestone").style.display = "block";
+
+                }//end if
+                else if (that.value == "WEIGHT") 
+                {
+                	document.getElementById("timeOption").style.display = "none";
+                	document.getElementById("ifWeightChange").style.display = "block";
+                    document.getElementById("ifStrength").style.display = "none";
+                    document.getElementById("ifCardio").style.display = "none";
+					document.getElementById("milestone").style.display = "none";
 
                 }//end if
                 else
                 {
                     document.getElementById("ifCardio").style.display = "none";
                     document.getElementById("ifStrength").style.display = "none";
-                    document.getElementById("milestone").style.display = "block";
+                    document.getElementById("ifWeightChange").style.display = "none";
+                    document.getElementById("milestone").style.display = "none";
                 }//end else
             }//close check
         </script>
@@ -109,6 +123,7 @@
 					<input type="date" id = "date" name="date" >
 				<br>
 				<br>
+				<div id="timeOption" style="display: none;">
 				<label for="type">Start Time</label><sup>*</sup>:
 					<input type="time" id = "sTime" name="sTime">
 				<br>
@@ -117,11 +132,13 @@
 					<input type="time" id = "eTime" name="eTime">
 				<br>
 				<br>
+				</div>
 				<label for="goalType">Type of Fitness<sup>*</sup>: </label>
 	 				<select id="goalType" name="goalType" onchange="check(this);">
 						<option value="-1">Select</option>  
 						<option value="CARDIO">Cardio</option>
 	  					<option value="STRENGTH">Strength</option>
+	  					<option value="WEIGHT">Weight</option>
                     </select>
                 <br>
                 <br>	
@@ -145,6 +162,10 @@
                             <option value="DEADLIFT">Deadlift</option>
                             <option value="SQUAT">Squat</option>
                         </select>
+					</div>
+					<div id="ifWeightChange" style="display: none;">
+						<label for="milestone">New Weight<sup>*</sup></label>
+						<input type="text" id="weight" name="weight"> lbs
 					</div>
 				<br>
 				<div id="milestone" style="display: none;">

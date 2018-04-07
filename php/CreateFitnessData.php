@@ -38,6 +38,7 @@
 		$fitnessType = $_POST['goalType'];					//type of fitness activity
 		$cardioType = $_POST['cardioType'];					//type of cardio activity
 		$strengthType = $_POST['strengthType'];				//type of strength activity
+		$weight = floatval($_POST['weight']);				//new weight of user
 		$milestone = floatval(trim($_POST['milestone']));	//fitness activity milestone
 		$notes = trim($_POST['notes']);						//notes about fitness activity
 		
@@ -86,6 +87,16 @@
 			}//end if
 		}//end if
 		
+		//if weight change
+		else if($fitnessType == "WEIGHT")
+		{
+			//ensure strength type provided
+			if($weight == "")
+			{
+				$isValid = false;
+			}//end if
+		}//end if
+		
 		//ensure milestone is provided
 		if($milestone == "" || $milestone == 0)
 		{
@@ -107,6 +118,11 @@
 			else if($fitnessType=="STRENGTH")
 			{
 				$type = $fitnessType."-".$strengthType;
+			}//end if
+			else if($fitnessType=="WEIGHT")
+			{
+				$type = "WEIGHT";
+				$milestone = $weight;
 			}//end if
 			else
 			{

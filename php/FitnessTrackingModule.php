@@ -59,9 +59,16 @@
             $submitted = date("Y-m-d H:i:s");
 			
             //build SQL to insert data into database
-			$sql = "INSERT INTO FITNESS_DATA    (FITNESS_DATA_OWNER, FITNESS_ACTIVITY_DATE, FITNESS_ACTIVITY_DURATION, FITNESS_ACTIVITY_TYPE, FITNESS_ACTIVITY_MILESTONE, FITNESS_ACTIVITY_NOTES, FITNESS_ACTIVITY_SUBMITTED_TIME)
-					VALUES 					    ('$this->dataOwner', '$date', '$duration', '$type', '$milestone', '$notes', '$submitted')";
-				
+            if($type == "WEIGHT")
+            {
+            	$sql = "UPDATE USER_INFORMATION 
+            			SET USER_WEIGHT = $milestone 
+            			WHERE USER_FFLD_ID='$this->dataOwner'";
+            }
+			else{
+				$sql = "INSERT INTO FITNESS_DATA    (FITNESS_DATA_OWNER, FITNESS_ACTIVITY_DATE, FITNESS_ACTIVITY_DURATION, FITNESS_ACTIVITY_TYPE, FITNESS_ACTIVITY_MILESTONE, FITNESS_ACTIVITY_NOTES, FITNESS_ACTIVITY_SUBMITTED_TIME)
+						VALUES 					    ('$this->dataOwner', '$date', '$duration', '$type', '$milestone', '$notes', '$submitted')";
+			}
 			//query database
             $this->comMod->queryDatabase($sql);
 		}//close addFitnessData
@@ -71,7 +78,7 @@
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
-    /*$mod = new FitnessTrackingModule();
+    $mod = new FitnessTrackingModule();
     $date = date("2018-03-15");
     $start = new DateTime("14:15");
     $end = new DateTime("15:20");
@@ -79,5 +86,5 @@
 	$milestone = "3";
     $notes = "test data notes here";
 
-    $mod->addFitnessData($date, $start, $end, $type, $milestone, $notes);*/
+    $mod->addFitnessData($date, $start, $end, $type, $milestone, $notes);
 ?>
