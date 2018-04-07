@@ -9,6 +9,7 @@
 
     require_once("CommunicationModule.php");
     require_once("DietaryGoalModule.php");
+    require_once("DietaryEntry.php");
 	
 	class DietaryReportModule
 	{
@@ -136,6 +137,54 @@
         }//close getWaterProgress
 
         /**
+         * getDietaryEntries()
+         * This method builds an array of all dietary entried
+         * Parameters:  $startDate->date to start selecting entries
+         *              $endDate->date to stop selecting entries
+         * Returns: array of DietaryEntry objects
+         * Exceptions: none
+         **/
+        function getDietaryEntries($startDate, $endDate)
+        {
+            //array to contain all dietary entries
+            $dietaryEntries = [];
+            $entryIndex = 0;
+            
+            //format date objects for use in SQL
+            $startDateDisplay = date_format($startDate,'Y-m-d H:i:s');
+            $endDateDisplay = date_format($endDate,'Y-m-d H:i:s');
+
+            //get all dietary data points in data range
+            $dietSQL =  "SELECT *
+                         FROM DIETARY_DATA
+                         WHERE DIET_DATA_OWNER='$this->dataOwner'
+                         AND DIET_DATE BETWEEN '$startDateDisplay' AND '$endDateDisplay'";
+            $entries = $this->comMod->queryDatabase($dietSQL);
+
+            //read all dietary entries, create objects, and add to array
+            while($currEntry = mysqli_fetch_array($entries))
+            {
+                //get details from database
+                $id = $currEntry['DIET_DATA_ID'];
+                $date = $currEntry['DIET_DATE'];
+                $desc = $currEntry['DIET_TITLE'];
+                $cals = $currEntry['DIET_CALORIES'];
+                $water = $currEntry['DIET_WATER'];
+                $timestamp = $currEntry['DIET_TIMESTAMP'];
+
+                //create dietary object
+                $entry = new DietaryEntry($id, $date, $desc, $cals, $water, $timestamp);
+
+                //add object to array
+                $dietaryEntries[$entryIndex] = $entry;
+                $entryIndex++;
+            }//end while
+
+            //return array of entries
+            return $dietaryEntries;
+        }//close getDietaryEntries
+
+        /**
          * getDietaryReport()
          * This method builds a report of all dietary data
          * Parameters:  $startDate->date to start selecting to add in the report
@@ -145,7 +194,34 @@
          **/
         function getDietaryReport($startDate, $endDate)
         {
-
+            
         }//close getDietaryReport
     }//close DietaryReportModule
+
+    echo "starting...<br>";
+    session_start();
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+    echo "errors on<br>";
+
+    $mod = new DietaryReportModule();
+    echo "mod created<br>";
+    
+    $start = date_create("2018-3-15 00:00:00");
+    $end = date_create("2018-4-15 00:00:00");
+    echo "dates created<br>";
+
+    $entries = $mod->getDietaryEntries($start, $end);
+    
+    for($i=0; $i<count($entries); $i++)
+    {
+        echo "<br>entry ".($i+1).":<br>";
+        echo "id: ".$entries[$i]->getEntryID()."<br>";
+        echo "date: ".$entries[$i]->getEntryDate()."<br>";
+        echo "Description: ".$entries[$i]->getDescription()."<br>";
+        echo "cals: ".$entries[$i]->getCalories()."<br>";
+        echo "water: ".$entries[$i]->getWater()."<br>";
+        echo "timestamp: ".$entries[$i]->getTimestamp()."<br>";
+    }
 ?>

@@ -31,6 +31,25 @@
          **/
         function __construct($ID, $date, $desc, $cals, $ounces, $submitted)
         {
+            //if no calories provided
+            if($cals=="")
+            {
+                $cals = "0";
+            }//end if
+
+            //if no description provided and no calories consumed
+            if($desc=="" && $cals=="0")
+            {
+                //assign new title
+                $desc = "Only Liquid Consumed";
+            }//end if
+
+            //if no water submitted
+            if($ounces=="")
+            {
+                $ounces = "0";
+            }//end if            
+            
             //assign constructor params to member variables
             $this->entryID = $ID;
             $this->entryDate = $date;
