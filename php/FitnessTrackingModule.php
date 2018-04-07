@@ -73,6 +73,7 @@
             $this->comMod->queryDatabase($sql);
 		}//close addFitnessData
     }//close FitnessTrackingModule	
+<<<<<<< HEAD
     
     session_start();
     ini_set('display_errors', 1);
@@ -87,4 +88,6 @@
     $notes = "test data notes here";
 
     $mod->addFitnessData($date, $start, $end, $type, $milestone, $notes);
+=======
+>>>>>>> 5862366b8f2b531e8d0bc102a3a7b1c5701afb86
 ?>

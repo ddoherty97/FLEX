@@ -10,6 +10,7 @@
     require_once("CommunicationModule.php");
     require_once("DietaryGoalModule.php");
     require_once("DietaryEntry.php");
+    require_once("DietaryReport.php");
 	
 	class DietaryReportModule
 	{
@@ -77,7 +78,7 @@
                $totalCals = 0;
                while($currEntry = mysqli_fetch_array($calQuery))
                {                    
-                   $totalCals += $currEntry['DIET_CALORIES'];
+                    $totalCals += $currEntry['DIET_CALORIES'];
                }//end while
 
                //get percent of goal completion
@@ -118,6 +119,7 @@
 
                 //query database to get water logs in date range
                 $waterSQL = "SELECT * FROM DIETARY_DATA WHERE DIET_DATA_OWNER='$this->dataOwner' AND DIET_DATE>='$start 00:00:00' AND DIET_WATER IS NOT NULL";
+
                 $waterQuery = $this->comMod->queryDatabase($waterSQL);
                
                 //count number of ounces in selected date range
@@ -173,7 +175,7 @@
                 $timestamp = $currEntry['DIET_TIMESTAMP'];
 
                 //create dietary object
-                $entry = new DietaryEntry($id, $date, $desc, $cals, $water, $timestamp);
+                $entry = new DietaryEntry($id, date_create($date), $desc, $cals, $water, $timestamp);
 
                 //add object to array
                 $dietaryEntries[$entryIndex] = $entry;
@@ -194,7 +196,24 @@
          **/
         function getDietaryReport($startDate, $endDate)
         {
-            
+            //get all calorie goals
+            $calGoals = $this->dietMod->getCalorieGoals();
+
+            //get all calorie goal progresses
+            $calProgress = $this->getCalorieProgress();
+
+            //get all water goals
+            $waterGoals = $this->dietMod->getWaterGoals();
+
+            //get all water goal progresses
+            $waterProgress = $this->getWaterProgress();
+
+            //get all dietary entries
+            $entries = $this->getDietaryEntries($startDate, $endDate);
+
+            //build and return dietary report object
+            $report = new DietaryReport($calGoals, $waterGoals, $calProgress, $waterProgress, $entries, $startDate, $endDate);
+            return $report;
         }//close getDietaryReport
     }//close DietaryReportModule
 
@@ -212,16 +231,42 @@
     $end = date_create("2018-4-15 00:00:00");
     echo "dates created<br>";
 
-    $entries = $mod->getDietaryEntries($start, $end);
+    $report = $mod->getDietaryReport($start, $end);
     
+    echo "report built successfully. collecting data...<br>";
+
+    $gCal = $report->getCalorieGoals();
+    $gWater = $report->getWaterGoals();
+    $pCal = $report->getCalorieProgresses();
+    $pWater = $report->getWaterProgresses();
+    $entries = $report->getDietaryEntries();
+    $s = $report->getStartDate();
+    $e = $report->getEndDate();
+
+    echo "data all collected. showing data...<br>";
+
+    echo "REPORT FROM ".date_format($s,"m/d/Y H:i:s")." TO ".date_format($e,"m/d/Y H:i:s")."<br><br>";
+
+    for($i=0; $i<count($gCal); $i++)
+    {
+        echo "cal goal ".($i+1)."<br>";
+        echo "desc: ".$gCal[$i]->getCalorieIntake()." calories in ".$gCal[$i]->getNumDays()." days<br>";
+        echo "progress: ".($pCal[$i]*100)."%<br><br>";
+    }
+
+    for($i=0; $i<count($gWater); $i++)
+    {
+        echo "water goal ".($i+1)."<br>";
+        echo "desc: ".$gWater[$i]->getWaterIntake()." ounces in ".$gWater[$i]->getNumDays()." days<br>";
+        echo "progress: ".($pWater[$i]*100)."%<br><br>";
+    }
+
     for($i=0; $i<count($entries); $i++)
     {
-        echo "<br>entry ".($i+1).":<br>";
-        echo "id: ".$entries[$i]->getEntryID()."<br>";
-        echo "date: ".$entries[$i]->getEntryDate()."<br>";
-        echo "Description: ".$entries[$i]->getDescription()."<br>";
-        echo "cals: ".$entries[$i]->getCalories()."<br>";
-        echo "water: ".$entries[$i]->getWater()."<br>";
-        echo "timestamp: ".$entries[$i]->getTimestamp()."<br>";
+        echo "entry ".($i+1)."<br>";
+        echo "date: ".date_format($entries[$i]->getEntryDate(),"m/d/Y")."<br>";
+        echo "title/description: ".$entries[$i]->getDescription()."<br>";
+        echo "calories consumed: ".$entries[$i]->getCalories()."<br>";
+        echo "water consumed: ".$entries[$i]->getWater()."<br><br>";
     }
 ?>

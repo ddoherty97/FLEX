@@ -27,7 +27,7 @@
          *              $cals->number of calories consumed
          *              $ounces->ounces of water consumed
          *              $submitted->submitted date of entry
-         * Exceptions: user is not logged in
+         * Exceptions: none
          **/
         function __construct($ID, $date, $desc, $cals, $ounces, $submitted)
         {
