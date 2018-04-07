@@ -195,7 +195,23 @@
          **/
         function getDietaryReport($startDate, $endDate)
         {
-            
+            //get all calorie goals
+            $calGoals = $this->dietMod->getCalorieGoals();
+
+            //get all calorie goal progresses
+            $calProgress = $this->getCalorieProgress();
+
+            //get all water goals
+            $waterGoals = $this->dietMod->getWaterGoals();
+
+            //get all water goal progresses
+            $waterProgress = $this->getWaterProgress();
+
+            //get all dietary entries
+            $entries = $this->getDietaryEntries($startDate, $endDate);
+
+            //build and return dietary report object
+            $report = new DietaryReport($calGoals, $waterGoals, $calProgress, $waterProgress, $entries, $startDate, $endDate);
         }//close getDietaryReport
     }//close DietaryReportModule
 
@@ -213,16 +229,18 @@
     $end = date_create("2018-4-15 00:00:00");
     echo "dates created<br>";
 
-    $entries = $mod->getDietaryEntries($start, $end);
+    $entries = $mod->getDietaryReport($start, $end);
     
-    for($i=0; $i<count($entries); $i++)
-    {
-        echo "<br>entry ".($i+1).":<br>";
-        echo "id: ".$entries[$i]->getEntryID()."<br>";
-        echo "date: ".$entries[$i]->getEntryDate()."<br>";
-        echo "Description: ".$entries[$i]->getDescription()."<br>";
-        echo "cals: ".$entries[$i]->getCalories()."<br>";
-        echo "water: ".$entries[$i]->getWater()."<br>";
-        echo "timestamp: ".$entries[$i]->getTimestamp()."<br>";
-    }
+    echo "completed successfully<br>";
+
+    // for($i=0; $i<count($entries); $i++)
+    // {
+    //     echo "<br>entry ".($i+1).":<br>";
+    //     echo "id: ".$entries[$i]->getEntryID()."<br>";
+    //     echo "date: ".$entries[$i]->getEntryDate()."<br>";
+    //     echo "Description: ".$entries[$i]->getDescription()."<br>";
+    //     echo "cals: ".$entries[$i]->getCalories()."<br>";
+    //     echo "water: ".$entries[$i]->getWater()."<br>";
+    //     echo "timestamp: ".$entries[$i]->getTimestamp()."<br>";
+    // }
 ?>
