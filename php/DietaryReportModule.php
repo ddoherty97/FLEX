@@ -174,7 +174,7 @@
                 $timestamp = $currEntry['DIET_TIMESTAMP'];
 
                 //create dietary object
-                $entry = new DietaryEntry($id, $date, $desc, $cals, $water, $timestamp);
+                $entry = new DietaryEntry($id, date_create($date), $desc, $cals, $water, $timestamp);
 
                 //add object to array
                 $dietaryEntries[$entryIndex] = $entry;
@@ -250,13 +250,22 @@
     {
         echo "cal goal ".($i+1)."<br>";
         echo "desc: ".$gCal[$i]->getCalorieIntake()." calories in ".$gCal[$i]->getNumDays()." days<br>";
-        echo "progress: ".$pCal[$i]."<br><br>";
+        echo "progress: ".($pCal[$i]*100)."%<br><br>";
     }
 
     for($i=0; $i<count($gWater); $i++)
     {
         echo "water goal ".($i+1)."<br>";
         echo "desc: ".$gWater[$i]->getWaterIntake()." ouncesg in ".$gWater[$i]->getNumDays()." days<br>";
-        echo "progress: ".$pWater[$i]."<br><br>";
+        echo "progress: ".($pWater[$i]*100)."%<br><br>";
+    }
+
+    for($i=0; $i<count($entries); $i++)
+    {
+        echo "entry ".($i+1)."<br>";
+        echo "date: ".date_format($entries[$i]->getEntryDate(),"m/d/Y")."<br>";
+        echo "title/description: ".$entries[$i]->getDescription()."<br>";
+        echo "calories consumed: ".$entries[$i]->getCalories()."<br>";
+        echo "water consumed: ".$entries[$i]->getWater()."<br><br>";
     }
 ?>
