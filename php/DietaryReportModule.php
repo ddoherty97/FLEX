@@ -78,7 +78,7 @@
                $totalCals = 0;
                while($currEntry = mysqli_fetch_array($calQuery))
                {                    
-                   $totalCals += $currEntry['DIET_CALORIES'];
+                    $totalCals += $currEntry['DIET_CALORIES'];
                }//end while
 
                //get percent of goal completion
@@ -119,6 +119,7 @@
 
                 //query database to get water logs in date range
                 $waterSQL = "SELECT * FROM DIETARY_DATA WHERE DIET_DATA_OWNER='$this->dataOwner' AND DIET_DATE>='$start 00:00:00' AND DIET_WATER IS NOT NULL";
+
                 $waterQuery = $this->comMod->queryDatabase($waterSQL);
                
                 //count number of ounces in selected date range
@@ -256,7 +257,7 @@
     for($i=0; $i<count($gWater); $i++)
     {
         echo "water goal ".($i+1)."<br>";
-        echo "desc: ".$gWater[$i]->getWaterIntake()." ouncesg in ".$gWater[$i]->getNumDays()." days<br>";
+        echo "desc: ".$gWater[$i]->getWaterIntake()." ounces in ".$gWater[$i]->getNumDays()." days<br>";
         echo "progress: ".($pWater[$i]*100)."%<br><br>";
     }
 
