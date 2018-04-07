@@ -20,18 +20,22 @@
         /**
          * __construct()
          * This method creates a dietary report with immutable attributes
-         * Parameters:  $goalArray->all dietary goals
-         *              $progressArray->completion progress of all the goals
+         * Parameters:  $calGoalArray->all calorie goals
+         *              $waterGoalArray->all water goals
+         *              $calProgressArray->completion progress of all calorie goals
+         *              $waterProgressArray->completion progress of all water goals
          *              $entryArray->all dietary entries
          *              $startDate->start date of the report
          *              $endDate->end date of the report
          * Exceptions: none
          **/
-        function __construct($goalArray, $progressArray, $entryArray, $startDate, $endDate)
+        function __construct($calGoalArray, $waterGoalArray, $calProgressArray, $waterProgressArray, $entryArray, $startDate, $endDate)
         {
             //assign constructor params to member variables
-            $this->goals = $goalArray;
-            $this->progresses = $progressArray;
+            $this->calGoals = $calGoalArray;
+            $this->waterGoals = $waterGoalArray;
+            $this->calProgresses = $calProgressArray;
+            $this->waterProgresses = $waterProgressArray;
             $this->entries = $entryArray;
             $this->startDate = $startDate;
             $this->endDate = $endDate;
