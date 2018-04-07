@@ -10,6 +10,7 @@
     require_once("CommunicationModule.php");
     require_once("DietaryGoalModule.php");
     require_once("DietaryEntry.php");
+    require_once("DietaryReport.php");
 	
 	class DietaryReportModule
 	{
