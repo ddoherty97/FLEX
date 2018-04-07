@@ -39,6 +39,49 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
        <link rel="stylesheet" href="../../css/style.css">
         <!--<link rel="stylesheet" href="../../css/reportstyle.css">-->
+        
+              <script>
+                    function check(that) {
+                        if (that.value == "Fitness") {
+                            document.getElementById("ifFitness").style.display = "block";
+                            document.getElementById("ifSocial").style.display = "none";
+                            document.getElementById("ifSpiritual").style.display = "none";
+                            document.getElementById("ifMental").style.display = "none";
+                            document.getElementById("ifDietary").style.display = "none";
+                        } else if (that.value == "Dietary") {
+                            document.getElementById("ifDietary").style.display = "block";
+                            document.getElementById("ifFitness").style.display = "none";
+                            document.getElementById("ifSocial").style.display = "none";
+                            document.getElementById("ifSpiritual").style.display = "none";
+                            document.getElementById("ifMental").style.display = "none";
+                        } else if (that.value == "Social") {
+                            document.getElementById("ifSocial").style.display = "block";
+                            document.getElementById("ifFitness").style.display = "none";
+                            document.getElementById("ifDietary").style.display = "none";
+                            document.getElementById("ifSpiritual").style.display = "none";
+                            document.getElementById("ifMental").style.display = "none";
+                        } else if (that.value == "Mental") {
+                            document.getElementById("ifMental").style.display = "block";
+                            document.getElementById("ifFitness").style.display = "none";
+                            document.getElementById("ifSocial").style.display = "none";
+                            document.getElementById("ifSpiritual").style.display = "none";
+                            document.getElementById("ifDietary").style.display = "none";
+                        } else if (that.value == "Spiritual") {
+                            document.getElementById("ifSpiritual").style.display = "block";
+                            document.getElementById("ifFitness").style.display = "none";
+                            document.getElementById("ifSocial").style.display = "none";
+                            document.getElementById("ifDietary").style.display = "none";
+                            document.getElementById("ifMental").style.display = "none";
+                        } else if (that.value == "Screen Time") {
+                            document.getElementById("ifScreenTime").style.display = "block";
+                            document.getElementById("ifSpiritual").style.display = "none";
+                            document.getElementById("ifFitness").style.display = "none";
+                            document.getElementById("ifSocial").style.display = "none";
+                            document.getElementById("ifDietary").style.display = "none";
+                            document.getElementById("ifMental").style.display = "none";
+                        }
+                    }
+                    </script>
     </head>
     
     <body>
@@ -62,6 +105,7 @@
         <main>
             <h1>FLEX</h1>
             <h2>Generate a Report</h2>
+            <br>
             
                 <?php
                 //display status of last report creation result
@@ -79,130 +123,75 @@
                 }//end if
             ?>
             
-			<div><br>
-                <fieldset>
-                    <legend>Select which type of report you would like to generate:</legend>
-                    <select onchange="check(this);">
+				<label for="reportType">Type of report to generate:</label>
+                    <select id="reportType" name="reportType" onchange="check(this);">
                         <option value="" disabled selected>Select</option>
-                        <option value="fitness">Fitness</option>
-                        <option value="dietary">Dietary</option>
-                        <option value="social">Social</option>
-                        <option value="mental">Mental</option>
-                        <option value="spiritual">Spiritual</option>
-                        <option value="screentime">Screen Time</option>
+                        <option value="Fitness">Fitness</option>
+                        <option value="Dietary">Dietary</option>
+                        <option value="Social">Social</option>
+                        <option value="Mental">Mental</option>
+                        <option value="Spiritual">Spiritual</option>
+                        <option value="Screen Time">Screen Time</option>
                     </select>
+                    <br>
                     <div id="ifFitness" style="display: none;">
                     <br>
-                        <select>
-                            <option value="aerobic">1 - Aerobic</option>
-                            <option value="stretching">2 - Stretching</option>
-                            <option value="high">3 - High Impact</option>
-                            <option value="low">4 - Low Impact</option>
-                            <option value="other">0 - Other</option>
-                        </select>
-                        
-                        <!--
-                        <select>
-                            <option value="cardio">Cardio</option>
-                            <option value="strength">Strength</option>
-                            <option value="weight">Weight Gain/Loss</option>
-                        </select>
-                        -->
+                    	<label for="type">Type of Fitness Report: </label>
+	                        <select if="fitness" name="fitness">
+	                            <option value="CARDIO">Cardio</option>
+	                            <option value="STRENGTH">Strength</option>
+	                            <option value="WEIGHT">Weight Gain/Loss</option>
+	                        </select>
                     </div>   
                     <div id="ifDietary" style="display: none;">
                     <br>
-                        <select>
-                            <option value="water">1 - Water</option>
-                            <option value="calories">2 - Calories</option>
-                            <option value="other">0 - Other</option>
-                        </select>
+                    	<label for="type">Type of Dietary Report: </label>
+	                        <select id="dietary" name="dietary">
+	                            <option value="CALORIES">Calorie Intake</option>
+	                            <option value="WATER">Water Intake</option>
+	                        </select>
                     </div>
                     <div id="ifSocial" style="display: none;">
                     <br>
-                        <select>
-                            <option value="fusa">1 - FUSA</option>
-                            <option value="ra">2 - RA</option>
-                            <option value="night">3 - Fairfield @ Night</option>
-                            <option value="family">4 - Family</option>
-                            <option value="other">0 - Other</option>
-                        </select>
+                    	<label for="type">Type of Social Report: </label>
+	                        <select id="social" name="social">
+	                            <option value="CLUB">Club Meeting</option>
+	                            <option value="F@N">Fairfield at Night Event</option>
+	                            <option value="RA">RA Event</option>
+	                            <option value="SPROT">Sports Game/Event</option>
+	                            <option value="OTHER">Other</option>
+	                        </select>
                     </div>
                     <div id="ifMental" style="display: none;">
                     <br>
-                        <select>
-                            <option value="meditation">1 - Meditation</option>
-                            <option value="formal">2 - Formal Counseling</option>
-                            <option value="informal">3 - Informal Counseling</option>
-                            <option value="mind">4 - Mindfulness Practice</option>
-                            <option value="other">0 - Other</option>
-                        </select>
+                    	<label for="type">Type of Mental Report: </label>
+	                        <select id="mental" name="mental">
+	                            <option value="COUNSELING">Counseling</option>
+	                            <option value="STRESS">Stress Level</option>
+	                        </select>
                     </div>
                     <div id="ifSpiritual" style="display: none;">
                     <br>
-                        <select>
-                            <option value="mass">1 - Mass</option>
-                            <option value="adoration">2 - Adoration</option>
-                            <option value="reflection">3 - Reflection</option>
-                            <option value="other">0 - Other</option>
-                        </select>
+                    	<label for="type">Type of Spiritual Report: </label>
+	                        <select id="spiritual" name="spiritual">
+	                            <option value="DURATION">Duration</option>
+	                            <option value="EVENTS">Events</option>
+	                        </select>
                     </div>
                     <div id="ifScreenTime" style="display: none;">
                     <br>
                     </div>
-                    <script>
-                    function check(that) {
-                        if (that.value == "fitness") {
-                            document.getElementById("ifFitness").style.display = "block";
-                            document.getElementById("ifSocial").style.display = "none";
-                            document.getElementById("ifSpiritual").style.display = "none";
-                            document.getElementById("ifMental").style.display = "none";
-                            document.getElementById("ifDietary").style.display = "none";
-                        } else if (that.value == "dietary") {
-                            document.getElementById("ifDietary").style.display = "block";
-                            document.getElementById("ifFitness").style.display = "none";
-                            document.getElementById("ifSocial").style.display = "none";
-                            document.getElementById("ifSpiritual").style.display = "none";
-                            document.getElementById("ifMental").style.display = "none";
-                        } else if (that.value == "social") {
-                            document.getElementById("ifSocial").style.display = "block";
-                            document.getElementById("ifFitness").style.display = "none";
-                            document.getElementById("ifDietary").style.display = "none";
-                            document.getElementById("ifSpiritual").style.display = "none";
-                            document.getElementById("ifMental").style.display = "none";
-                        } else if (that.value == "mental") {
-                            document.getElementById("ifMental").style.display = "block";
-                            document.getElementById("ifFitness").style.display = "none";
-                            document.getElementById("ifSocial").style.display = "none";
-                            document.getElementById("ifSpiritual").style.display = "none";
-                            document.getElementById("ifDietary").style.display = "none";
-                        } else if (that.value == "spiritual") {
-                            document.getElementById("ifSpiritual").style.display = "block";
-                            document.getElementById("ifFitness").style.display = "none";
-                            document.getElementById("ifSocial").style.display = "none";
-                            document.getElementById("ifDietary").style.display = "none";
-                            document.getElementById("ifMental").style.display = "none";
-                        } else if (that.value == "screentime") {
-                            document.getElementById("ifScreenTime").style.display = "block";
-                            document.getElementById("ifSpiritual").style.display = "none";
-                            document.getElementById("ifFitness").style.display = "none";
-                            document.getElementById("ifSocial").style.display = "none";
-                            document.getElementById("ifDietary").style.display = "none";
-                            document.getElementById("ifMental").style.display = "none";
-                        }
-                    }
-                    </script>
-                </fieldset>
-				<br><br>
-                <fieldset>
-				    <legend>Select the time range for the report:</legend>
-                    Start Date: <input type="date" id = "date" name="date" >
-                    <br><br>End Date: <input type="date" id = "date" name="date" >
-				</fieldset>
+					<br><br>
+				    <label for="timeRange">Time range for report:</label>
+				    <br><br>
+                    	<label>Start Date: </label>
+                    		<input type="date" id = "sDate" name="sDate">
                     <br><br>
-                <div id="container">
+                    	<label>End Date: </label>
+                    		<input type="date" id = "eDate" name="eDate">
+                    <br><br>
 					<button type="submit" name="submit" id="submit" value="Submit">Submit</button>
-                </div>
-			</div>
+
         </main>
         <footer>
             <br>
