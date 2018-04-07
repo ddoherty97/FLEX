@@ -5,7 +5,7 @@
      * a fitness data to the FLEX application. It will process the form fields on
      * the tracking/fitnesstracking.php page. Note: This is intended to be an action script
      * Author: Jaclyn Cuevas
-     * Last Updated: 3/28/18 DD
+     * Last Updated: 4/7/18 JC
      **/
 
 	//check if session is already running
@@ -38,9 +38,19 @@
 		$fitnessType = $_POST['goalType'];					//type of fitness activity
 		$cardioType = $_POST['cardioType'];					//type of cardio activity
 		$strengthType = $_POST['strengthType'];				//type of strength activity
-		$weight = floatval($_POST['weight']);				//new weight of user
+		$weight = floatval(trim($_POST['weightChange']));	//new weight of user
 		$milestone = floatval(trim($_POST['milestone']));	//fitness activity milestone
 		$notes = trim($_POST['notes']);						//notes about fitness activity
+	
+		//if fitness type is weight change
+		//set start and end times to 00:00
+		//set milestone to weight change
+		if($fitnessType == "WEIGHT")
+		{
+			$startTime = "00:00";
+			$endTime = "00:00";
+			$milestone = $weight;
+		}
 		
 		//validate all inputs
 		//ensure date is provided 
@@ -86,11 +96,11 @@
 				$isValid = false;
 			}//end if
 		}//end if
-		
+	
 		//if weight change
 		else if($fitnessType == "WEIGHT")
 		{
-			//ensure strength type provided
+			//ensure weight provided
 			if($weight == "")
 			{
 				$isValid = false;
@@ -122,7 +132,6 @@
 			else if($fitnessType=="WEIGHT")
 			{
 				$type = "WEIGHT";
-				$milestone = $weight;
 			}//end if
 			else
 			{

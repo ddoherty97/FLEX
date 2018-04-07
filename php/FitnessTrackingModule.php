@@ -61,6 +61,7 @@
             //build SQL to insert data into database
             if($type == "WEIGHT")
             {
+            	
             	$sql = "UPDATE USER_INFORMATION 
             			SET USER_WEIGHT = $milestone 
             			WHERE USER_FFLD_ID='$this->dataOwner'";
@@ -73,9 +74,9 @@
             $this->comMod->queryDatabase($sql);
 		}//close addFitnessData
     }//close FitnessTrackingModule	
-<<<<<<< HEAD
+
     
-    session_start();
+    /*session_start();
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
@@ -85,9 +86,8 @@
     $end = new DateTime("15:20");
     $type = "test data";
 	$milestone = "3";
-    $notes = "test data notes here";
+    $notes = "test data notes here";*/
 
-    $mod->addFitnessData($date, $start, $end, $type, $milestone, $notes);
-=======
->>>>>>> 5862366b8f2b531e8d0bc102a3a7b1c5701afb86
+    //$mod->addFitnessData($date, $start, $end, $type, $milestone, $notes);
+
 ?>

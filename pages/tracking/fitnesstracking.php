@@ -165,7 +165,7 @@
 					</div>
 					<div id="ifWeightChange" style="display: none;">
 						<label for="milestone">New Weight<sup>*</sup></label>
-						<input type="text" id="weight" name="weight"> lbs
+						<input type="text" id="weightChange" name="weightChange"> lbs
 					</div>
 				<br>
 				<div id="milestone" style="display: none;">
