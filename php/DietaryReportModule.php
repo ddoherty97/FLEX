@@ -212,6 +212,7 @@
 
             //build and return dietary report object
             $report = new DietaryReport($calGoals, $waterGoals, $calProgress, $waterProgress, $entries, $startDate, $endDate);
+            return $report;
         }//close getDietaryReport
     }//close DietaryReportModule
 
@@ -229,18 +230,31 @@
     $end = date_create("2018-4-15 00:00:00");
     echo "dates created<br>";
 
-    $entries = $mod->getDietaryReport($start, $end);
+    $report = $mod->getDietaryReport($start, $end);
     
-    echo "completed successfully<br>";
+    echo "report built successfully. collecting data...<br>";
 
-    // for($i=0; $i<count($entries); $i++)
-    // {
-    //     echo "<br>entry ".($i+1).":<br>";
-    //     echo "id: ".$entries[$i]->getEntryID()."<br>";
-    //     echo "date: ".$entries[$i]->getEntryDate()."<br>";
-    //     echo "Description: ".$entries[$i]->getDescription()."<br>";
-    //     echo "cals: ".$entries[$i]->getCalories()."<br>";
-    //     echo "water: ".$entries[$i]->getWater()."<br>";
-    //     echo "timestamp: ".$entries[$i]->getTimestamp()."<br>";
-    // }
+    $gCal = $report->getCalorieGoals();
+    $gWater = $report->getWaterGoals();
+    $pCal = $report->getCalorieProgresses();
+    $pWater = $report->getWaterProgresses();
+    $entries = $report->getDietaryEntries();
+    $s = $report->getStartDate();
+    $e = $report->getEndDate();
+
+    echo "data all collected. showing data...<br><br>";
+
+    for($i=0; $i<count($gCal); $i++)
+    {
+        echo "cal goal ".($i+1)."<br>";
+        echo "desc: ".$gCal[$i]->getCalorieIntake()." calories in ".$gCal[$i]->getNumDays()." days<br>";
+        echo "progress: ".$pCal[$i]."<br><br>";
+    }
+
+    for($i=0; $i<count($gWater); $i++)
+    {
+        echo "water goal ".($i+1)."<br>";
+        echo "desc: ".$gWater[$i]->getWaterIntake()." ounces in ".$gWater[$i]->getNumDays()." days<br>";
+        echo "progress: ".$pWater[$i]."<br><br>";
+    }
 ?>
