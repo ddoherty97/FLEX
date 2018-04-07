@@ -67,18 +67,5 @@
 			//query database
             $this->comMod->queryDatabase($sql);
 		}//close addMentalData
-    }//close MentalTrackingModule	
-    
-    session_start();
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
-    /*$mod = new FitnessTrackingModule();
-    $date = date("2018-03-15");
-    $start = new DateTime("14:15");
-    $end = new DateTime("15:20");
-    $type = "test data";
-    $notes = "test data notes here";*/
-
-    // $mod->addFitnessData($date, $start, $end, $type, $notes);
+    }//close MentalTrackingModule
 ?>
