@@ -16,6 +16,7 @@
         <title>FLEX</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../../css/style.css">
+        <script src="../../javascript/login.js"></script>
     </head>
     
     <body>
@@ -30,7 +31,7 @@
 	 <script src="../js/scripts.js"></script>
         <form method="POST" action="">
             <label for="formUser">Username: </label>
-            	<input type="text" name="formUser"><br><br>
+            	<input type="text" id="formUser" name="formUser"><br><br>
             <label for="formPass">Password: </label>
             	<input type="password" name="formPass"><br><br>
             <input type="submit" value="Login"><br>
@@ -39,7 +40,7 @@
         
         <div>
             <a href="createuser.php" alt="Create Account">Create Account</a> |
-            <a href="forgotpassword.php" alt="Forgot Password">Forgot Password</a>
+            <a href="javascript:resetPassword();" alt="Forgot Password">Forgot Password</a>
         </div>
         
         </main>
