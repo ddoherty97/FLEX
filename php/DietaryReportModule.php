@@ -242,7 +242,9 @@
     $s = $report->getStartDate();
     $e = $report->getEndDate();
 
-    echo "data all collected. showing data...<br><br>";
+    echo "data all collected. showing data...<br>";
+
+    echo "REPORT FROM ".date_format($s,"m/d/Y H:i:s")." TO ".date_format($e,"m/d/Y H:i:s")."<br><br>";
 
     for($i=0; $i<count($gCal); $i++)
     {
@@ -254,7 +256,7 @@
     for($i=0; $i<count($gWater); $i++)
     {
         echo "water goal ".($i+1)."<br>";
-        echo "desc: ".$gWater[$i]->getWaterIntake()." ounces in ".$gWater[$i]->getNumDays()." days<br>";
+        echo "desc: ".$gWater[$i]->getWaterIntake()." ouncesg in ".$gWater[$i]->getNumDays()." days<br>";
         echo "progress: ".$pWater[$i]."<br><br>";
     }
 ?>
