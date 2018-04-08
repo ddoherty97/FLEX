@@ -63,23 +63,39 @@
 
 			<h3>Data Entries</h3>
 			<div style="float: clear; width: 100%; height: 100px; margin: 15px; border: 3px solid #e03a3e; overflow:scroll">
-				This will include data entires for dietary information. 
+				Entry 1 <br>
+				Date: 03/14/2018<br>
+				Description: Fruit<br>
+				Calories Consumed: 250<br>
+				Water Consumed: 10<br>
 				<hr>
-				How many words until i can see the scroll bar.
+				Entry 2<br>
+				Date: 03/14/2018<br>
+				Description: Only Liquid Consumed<br>
+				Calories Consumed: 0<br>
+				Water Consumed: 20 <br>
 				<hr>
-				i hope this works but idk if it looks good.
+				Entry 3<br>
+				Date: 03/15/2018<br>
+				Description: Cereal<br>
+				Calories Consumed: 200<br>
+				Water Consumed: 15 <br>
 			</div>
 			
-			<h3>Goals</h3>
+			<h3>Goals & Progress</h3>
 			<div style="float: clear; width: 100%; height: 100px; margin: 15px; border: 3px solid #e03a3e; overflow:scroll">
-				This will include goals
+				Calorie Goal 1<br>
+				Description: 3500 calories in 1 day(s)<br>
+				Progress: 30%<br>
+				<hr>
+				Calorie Goal 2<br>
+				Description: 2500 calories in 1 day(s)<br>
+				Progress: 90%<br>
+				<hr>
+				Water Goal 1<br>
+				Description: 60 ounces in 1 day(s)<br>
+				Progress: 50%<br>
 			</div>
-			
-			<h3>Progress</h3>
-			<div style="float: clear; width: 100%; height: 100px; margin: 15px; border: 3px solid #e03a3e; overflow:scroll">
-				This will include progress
-			</div>
-			
 			
 			
         </main>
