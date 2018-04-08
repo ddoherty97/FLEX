@@ -47,11 +47,11 @@
             <li class="dropdown">
                 <a href="javascript:void(0)" class="dropbtn">Menu</a>
                 <div class="dropdown-content">
-                <a href="../users/profile.html">Profile</a>
-                <a href="synchronize.html">Synchronize</a>
-                <a href="tracking.html">Tracking</a>
-                <a href="../goals/goals.html">Goals</a>
-                <a href="../reports/reports.html">Reports</a>
+	                <a href="../users/profile.php">Profile</a>
+	                <a href="../tracking/tracking.php">Tracking</a>
+	                <a href="../goals/goals.php">Goals</a>
+	                <a href="reports.php">Reports</a>
+	                <a href="../../php/logout.php">Logout</a>
                 </div>
             </li>
         </ul>
@@ -62,19 +62,21 @@
         	<h2>Dietary Report</h2><br>
 
 			<h3>Data Entries</h3>
-			<div style="float: left; width: 95%; height: 75px; margin: 15px; border: 3px solid #e03a3e; overflow:scroll">
+			<div style="float: clear; width: 100%; height: 100px; margin: 15px; border: 3px solid #e03a3e; overflow:scroll">
 				This will include data entires for dietary information. 
+				<hr>
 				How many words until i can see the scroll bar.
+				<hr>
 				i hope this works but idk if it looks good.
 			</div>
 			
 			<h3>Goals</h3>
-			<div style="float: left; width: 95%; height: 75px; margin: 15px; border: 3px solid #e03a3e; overflow:scroll">
+			<div style="float: clear; width: 100%; height: 100px; margin: 15px; border: 3px solid #e03a3e; overflow:scroll">
 				This will include goals
 			</div>
 			
 			<h3>Progress</h3>
-			<div style="float: left; width: 95%; height: 75px; margin: 15px; border: 3px solid #e03a3e; overflow:scroll">
+			<div style="float: clear; width: 100%; height: 100px; margin: 15px; border: 3px solid #e03a3e; overflow:scroll">
 				This will include progress
 			</div>
 			
@@ -84,7 +86,7 @@
         <footer>
             <br>
             <div style="float:left; display: block;">&copy; 2018 <br>Fairfield University <br>School of Nursing</div>
-            <div style="float: right; display: block">1073 North Benson Road<br>Fairfield, CT 06824</div>
+            <div style="float: right; display: block"><br>1073 North Benson Road<br>Fairfield, CT 06824</div>
         </footer>
         </body>
 </html>

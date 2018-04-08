@@ -197,9 +197,7 @@
         <footer>
             <br>
             <div style="float:left; display: block;">&copy; 2018 <br>Fairfield University <br>School of Nursing</div>
-            <div style="float: right; display: block">
-            1073 North Benson Road
-            <br>Fairfield, CT 06824
+            <div style="float: right; display: block"><br>1073 North Benson Road<br>Fairfield, CT 06824
             </div>
         </footer>
     </body>

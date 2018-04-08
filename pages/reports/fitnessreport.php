@@ -1,3 +1,33 @@
+<?php
+	/**
+     * Fitness Report (fitnessreport.php)
+     * This creates the user interface of the user's fitness report.
+	 * Initally assigned to Sarah Kurtz
+     * Author: Jaclyn Cuevas
+     * Last Updated: 4/8/18 JC
+     **/
+
+    //check if session is already running
+	if(!isset($_SESSION)) 
+    { 
+        session_start();
+    }//end if
+	
+	//if no session is active, redirect to login page
+    $phpFolderPath = "../../php/";
+    $logoutFile = $phpFolderPath."logout.php";
+    require($phpFolderPath."IsLoggedIn.php");
+	
+	//get result of last report creation
+    if(isset($_GET['s']))
+    {
+        $result = $_GET['s'];
+    }//end if
+    else
+    {
+        $result = "none";
+    }//end else
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,11 +46,11 @@
             <li class="dropdown">
                 <a href="javascript:void(0)" class="dropbtn">Menu</a>
                 <div class="dropdown-content">
-                <a href="../users/profile.html">Profile</a>
-                <a href="synchronize.html">Synchronize</a>
-                <a href="tracking.html">Tracking</a>
-                <a href="../goals/goals.html">Goals</a>
-                <a href="../reports/reports.html">Reports</a>
+	                <a href="../users/profile.php">Profile</a>
+	                <a href="../tracking/tracking.php">Tracking</a>
+	                <a href="../goals/goals.php">Goals</a>
+	                <a href="reports.php">Reports</a>
+	                <a href="../../php/logout.php">Logout</a>
                 </div>
             </li>
         </ul>
@@ -33,9 +63,7 @@
         <footer>
             <br>
             <div style="float:left; display: block;">&copy; 2018 <br>Fairfield University <br>School of Nursing</div>
-            <div style="float: right; display: block">
-            1073 North Benson Road
-            <br>Fairfield, CT 06824
+            <div style="float: right; display: block"><br>1073 North Benson Road<br>Fairfield, CT 06824
             </div>
         </footer>
         </body>
