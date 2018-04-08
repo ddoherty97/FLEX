@@ -62,7 +62,7 @@
         	<h2>Dietary Report</h2><br>
 
 			<h3>Data Entries</h3>
-			<div style="float: clear; width: 100%; height: 100px; margin: 15px; border: 3px solid #e03a3e; overflow:scroll">
+			<div style="display: block; width: 100%; height: 100px; margin: 15px; border: 3px solid #e03a3e; overflow:scroll">
 				Entry 1 <br>
 				Date: 03/14/2018<br>
 				Description: Fruit<br>
@@ -83,7 +83,7 @@
 			</div>
 			
 			<h3>Goals & Progress</h3>
-			<div style="float: clear; width: 100%; height: 100px; margin: 15px; border: 3px solid #e03a3e; overflow:scroll">
+			<div style="display: block; width: 100%; height: 100px; margin: 15px; border: 3px solid #e03a3e; overflow:scroll">
 				Calorie Goal 1<br>
 				Description: 3500 calories in 1 day(s)<br>
 				Progress: 30%<br>
