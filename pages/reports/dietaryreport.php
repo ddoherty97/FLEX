@@ -1,3 +1,34 @@
+<?php
+	/**
+     * Dietary Report (dietaryreport.php)
+     * This creates the user interface of the user's dietary report.
+	 * Initally assigned to Sarah Kurtz
+     * Author: Jaclyn Cuevas
+     * Last Updated: 4/8/18 JC
+     **/
+
+    //check if session is already running
+	if(!isset($_SESSION)) 
+    { 
+        session_start();
+    }//end if
+	
+	//if no session is active, redirect to login page
+    $phpFolderPath = "../../php/";
+    $logoutFile = $phpFolderPath."logout.php";
+    require($phpFolderPath."IsLoggedIn.php");
+	
+	//get result of last report creation
+    if(isset($_GET['s']))
+    {
+        $result = $_GET['s'];
+    }//end if
+    else
+    {
+        $result = "none";
+    }//end else
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -6,6 +37,7 @@
         <title>FLEX</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
          <link rel="stylesheet" href="../../css/style.css">
+         <link rel="stylesheet" href="../../css/reportstyle.css">
     </head>
     
     <body>
@@ -28,6 +60,11 @@
         </header>
         <br>
         <main>
+			<h1>FLEX</h1>
+        	<h2>Dietary Report</h2><br>
+
+
+
 
         </main>
         <footer>

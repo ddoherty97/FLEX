@@ -5,7 +5,7 @@
 	 * The user specifies which report to create and is brought 
 	 * to that specific report page.  
      * Author: Sarah Kurtz
-     * Last Updated: 3/28/18 JC
+     * Last Updated: 4/8/18 JC
      **/
 
     //check if session is already running
@@ -122,7 +122,7 @@
             <?php
                 }//end if
             ?>
-            
+            `<form method="POST" action="">
 				<label for="reportType">Type of report to generate:</label>
                     <select id="reportType" name="reportType" onchange="check(this);">
                         <option value="" disabled selected>Select</option>
@@ -191,6 +191,7 @@
                     		<input type="date" id = "eDate" name="eDate">
                     <br><br>
 					<button type="submit" name="submit" id="submit" value="Submit">Submit</button>
+				</form>
 
         </main>
         <footer>

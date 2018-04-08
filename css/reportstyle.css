@@ -1,37 +1,28 @@
-h1	{
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-    color:#e03a3e;
-    text-align:center;
-    font-size: 40px;
-}
-h2  {
-    text-align: center;
-}
-body    {
-    font-family: sans-serif;
-}
-legend, label, p	{
-    font-weight:bold;
-    text-align: left;
+.entries
+{
+	float: left;
+    width: 150px;
+    height: 75px;
+    margin: 10px;
+    border: 3px solid #e03a3e; 
 }
 
-button	{
-    background-color: #e03a3e;
-    font-size: 20px;
-    color: #FFFFFF;
-    width: 100px;
-    height:30px;
-    display: inline-block;
-    border-radius: 6px;
+.goals
+{
+	float: left;
+    width: 150px;
+    height: 75px;
+    margin: 10px;
+    border: 3px solid #e03a3e; 	
 }
-#container  {
-    text-align: center;
-}
-select  {
-    font-size: 20px;
-}
-input   {
-    font-size: 20px;
+.progress
+{
+	float: left;
+    width: 150px;
+    height: 75px;
+    margin: 10px;
+    border: 3px solid #e03a3e; 
+
+
+	
 }
