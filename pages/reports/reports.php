@@ -122,7 +122,7 @@
             <?php
                 }//end if
             ?>
-            `<form method="POST" action="">
+            <form method="POST" action="">
 				<label for="reportType">Type of report to generate:</label>
                     <select id="reportType" name="reportType" onchange="check(this);">
                         <option value="" disabled selected>Select</option>

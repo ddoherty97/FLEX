@@ -37,7 +37,6 @@
         <title>FLEX</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
          <link rel="stylesheet" href="../../css/style.css">
-         <link rel="stylesheet" href="../../css/reportstyle.css">
     </head>
     
     <body>
@@ -58,22 +57,34 @@
         </ul>
         </nav>
         </header>
-        <br>
         <main>
 			<h1>FLEX</h1>
         	<h2>Dietary Report</h2><br>
 
-
-
-
+			<h3>Data Entries</h3>
+			<div style="float: left; width: 95%; height: 75px; margin: 15px; border: 3px solid #e03a3e; overflow:scroll">
+				This will include data entires for dietary information. 
+				How many words until i can see the scroll bar.
+				i hope this works but idk if it looks good.
+			</div>
+			
+			<h3>Goals</h3>
+			<div style="float: left; width: 95%; height: 75px; margin: 15px; border: 3px solid #e03a3e; overflow:scroll">
+				This will include goals
+			</div>
+			
+			<h3>Progress</h3>
+			<div style="float: left; width: 95%; height: 75px; margin: 15px; border: 3px solid #e03a3e; overflow:scroll">
+				This will include progress
+			</div>
+			
+			
+			
         </main>
         <footer>
             <br>
             <div style="float:left; display: block;">&copy; 2018 <br>Fairfield University <br>School of Nursing</div>
-            <div style="float: right; display: block">
-            1073 North Benson Road
-            <br>Fairfield, CT 06824
-            </div>
+            <div style="float: right; display: block">1073 North Benson Road<br>Fairfield, CT 06824</div>
         </footer>
         </body>
 </html>
