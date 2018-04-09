@@ -108,25 +108,20 @@
             <h2>Generate a Report</h2>
             <br>
             
-                <?php
-                //display status of last report creation result
+            <?php
+                //display status of last report result
                 if($result=="f")
                 {
             ?>
-                    <div style="color: red; padding: 20px;">THERE WAS AN ERROR CREATING YOUR REPORT.</div>
-            <?php
-                }//end if
-                else if($result=="s")
-                {
-            ?>
-                    <div style="color: green; padding: 20px;">Report Created!</div>
+                    <div style="color: red; padding: 20px;">THERE WAS AN ERROR GENERATING YOUR REPORT.</div>
             <?php
                 }//end if
             ?>
-            <form method="POST" action="">
+
+            <form method="POST" action="../../php/GenerateReport.php">
 				<label for="reportType">Type of report to generate:</label>
                     <select id="reportType" name="reportType" onchange="check(this);">
-                        <option value="" disabled selected>Select</option>
+                        <option value="-1" selected>Select</option>
                         <option value="Fitness">Fitness</option>
                         <option value="Dietary">Dietary</option>
                         <option value="Social">Social</option>
@@ -194,7 +189,6 @@
                     <br><br>
 					<button type="submit" name="submit" id="submit" value="Submit">Submit</button>
 				</form>
-
         </main>
         <footer>
             <br>

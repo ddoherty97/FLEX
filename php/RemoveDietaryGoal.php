@@ -1,6 +1,6 @@
 <?php
     /**
-     * CreateDietaryGoal.php
+     * RemoveDietaryGoal.php
      * This file, written in procedural language (not object-oriented), is used to remove
      * a dietary goal from the FLEX application. It will react to user interaction on
      * the reports/dietaryreport.php page. Note: This is intended to be an action script
