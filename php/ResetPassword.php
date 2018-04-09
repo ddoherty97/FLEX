@@ -45,11 +45,13 @@
             $headers = "MIME-Version: 1.0"."\r\n";
             $headers .= "Content-type:text/html;charset=UTF-8"."\r\n";
             $headers .= "From: web@flex.com"."\r\n";
-            $message = "Dear ".$name.",<br><br>";
+            $message = "<html><body>";
+            $message .= "Dear ".$name.",<br><br>";
             $message .= "You recently requested a new password for your FLEX user account. To reset your password, please click the link below.<br>";
             $message .= "<a href=''>Reset Password</a> (token=".$token.")<br><br>";
             $message .= "Best Regards,<br>";
             $message .= "The FLEX Team";
+            $message .= "</body></html>";
 
             //send reset email to user
             if(!mail($email,$subject,$message,$headers))
