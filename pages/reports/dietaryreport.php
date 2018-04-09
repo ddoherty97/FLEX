@@ -36,7 +36,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>FLEX</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-         <link rel="stylesheet" href="../../css/style.css">
+        <link rel="stylesheet" href="../../css/style.css">
+		<link rel="stylesheet" href="../../css/reportstyle.css">
     </head>
     
     <body>
@@ -62,13 +63,12 @@
         	<h2>Dietary Report</h2><br>
 
 			<h3>Data Entries</h3>
-			<div style="display: block; width: 100%; height: 100px; margin: 15px; border: 3px solid #e03a3e; overflow:scroll">
-				Entry 1 <br>
-				Date: 03/14/2018<br>
-				Description: Fruit<br>
-				Calories Consumed: 250<br>
-				Water Consumed: 10<br>
-				<hr> <!--Seperates entries with line-->
+			<div class="entries">
+				Entry on 03/14/2018<br><br>
+				<em>Fruit</em><br>
+				<strong>250</strong> Calories Consumed<br>
+				<strong>10</strong> Ounces of Water Consumed<br>
+				<hr>
 				Entry 2<br>
 				Date: 03/14/2018<br>
 				Description: Only Liquid Consumed<br>
@@ -82,11 +82,12 @@
 				Water Consumed: 15 <br>
 			</div>
 			
-			<h3>Goals & Progress</h3>
-			<div style="display: block; width: 100%; height: 100px; margin: 15px; border: 3px solid #e03a3e; overflow:scroll">
-				Calorie Goal 1<br>
-				Description: 3500 calories in 1 day(s)<br>
-				Progress: 30%<br>
+			<br>
+			<h3>Goals &amp; Progress</h3>
+			<div class="goals">
+				3500 calories in 1 day(s)<br>
+				<progress value="30" max="100"></progress><br>
+				30% Complete<br><br>
 				<button type="submit" name="submit" id="submit" value="delete">Delete Goal</button><br>
 				<hr>
 				Calorie Goal 2<br>
@@ -98,10 +99,7 @@
 				Description: 60 ounces in 1 day(s)<br>
 				Progress: 50%<br>
 				<button type="submit" name="submit" id="submit" value="delete">Delete Goal</button><br>
-			</div>
-			
-			
-			
+			</div>	
         </main>
         <footer>
             <br>

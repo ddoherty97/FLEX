@@ -41,7 +41,7 @@
             if($desc=="" && $cals=="0")
             {
                 //assign new title
-                $desc = "Only Liquid Consumed";
+                $desc = "Only Water Consumed";
             }//end if
 
             //if no water submitted
