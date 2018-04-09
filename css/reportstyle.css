@@ -1,10 +1,18 @@
-.entries, .goals
+.entries, .goals, .reportError
 {
     border: 3px solid #e03a3e;
     padding: 20px;
 }
+
 .entries hr, .goals hr
 {
     margin: 20px 5px;
     border-color: #e03a3e;
+}
+
+.reportError
+{
+    margin: 20px;
+    font-style: italic;
+    font-weight: bold;
 }

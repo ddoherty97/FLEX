@@ -217,56 +217,56 @@
         }//close getDietaryReport
     }//close DietaryReportModule
 
-    echo "starting...<br>";
-    session_start();
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
-    echo "errors on<br>";
+    // echo "starting...<br>";
+    // session_start();
+    // ini_set('display_errors', 1);
+    // ini_set('display_startup_errors', 1);
+    // error_reporting(E_ALL);
+    // echo "errors on<br>";
 
-    $mod = new DietaryReportModule();
-    echo "mod created<br>";
+    // $mod = new DietaryReportModule();
+    // echo "mod created<br>";
     
-    $start = date_create("2018-3-15 00:00:00");
-    $end = date_create("2018-4-15 00:00:00");
-    echo "dates created<br>";
+    // $start = date_create("2018-3-15 00:00:00");
+    // $end = date_create("2018-4-15 00:00:00");
+    // echo "dates created<br>";
 
-    $report = $mod->getDietaryReport($start, $end);
+    // $report = $mod->getDietaryReport($start, $end);
     
-    echo "report built successfully. collecting data...<br>";
+    // echo "report built successfully. collecting data...<br>";
 
-    $gCal = $report->getCalorieGoals();
-    $gWater = $report->getWaterGoals();
-    $pCal = $report->getCalorieProgresses();
-    $pWater = $report->getWaterProgresses();
-    $entries = $report->getDietaryEntries();
-    $s = $report->getStartDate();
-    $e = $report->getEndDate();
+    // $gCal = $report->getCalorieGoals();
+    // $gWater = $report->getWaterGoals();
+    // $pCal = $report->getCalorieProgresses();
+    // $pWater = $report->getWaterProgresses();
+    // $entries = $report->getDietaryEntries();
+    // $s = $report->getStartDate();
+    // $e = $report->getEndDate();
 
-    echo "data all collected. showing data...<br>";
+    // echo "data all collected. showing data...<br>";
 
-    echo "REPORT FROM ".date_format($s,"m/d/Y H:i:s")." TO ".date_format($e,"m/d/Y H:i:s")."<br><br>";
+    // echo "REPORT FROM ".date_format($s,"m/d/Y H:i:s")." TO ".date_format($e,"m/d/Y H:i:s")."<br><br>";
 
-    for($i=0; $i<count($gCal); $i++)
-    {
-        echo "cal goal ".($i+1)."<br>";
-        echo "desc: ".$gCal[$i]->getCalorieIntake()." calories in ".$gCal[$i]->getNumDays()." days<br>";
-        echo "progress: ".($pCal[$i]*100)."%<br><br>";
-    }
+    // for($i=0; $i<count($gCal); $i++)
+    // {
+    //     echo "cal goal ".($i+1)."<br>";
+    //     echo "desc: ".$gCal[$i]->getCalorieIntake()." calories in ".$gCal[$i]->getNumDays()." days<br>";
+    //     echo "progress: ".($pCal[$i]*100)."%<br><br>";
+    // }
 
-    for($i=0; $i<count($gWater); $i++)
-    {
-        echo "water goal ".($i+1)."<br>";
-        echo "desc: ".$gWater[$i]->getWaterIntake()." ounces in ".$gWater[$i]->getNumDays()." days<br>";
-        echo "progress: ".($pWater[$i]*100)."%<br><br>";
-    }
+    // for($i=0; $i<count($gWater); $i++)
+    // {
+    //     echo "water goal ".($i+1)."<br>";
+    //     echo "desc: ".$gWater[$i]->getWaterIntake()." ounces in ".$gWater[$i]->getNumDays()." days<br>";
+    //     echo "progress: ".($pWater[$i]*100)."%<br><br>";
+    // }
 
-    for($i=0; $i<count($entries); $i++)
-    {
-        echo "entry ".($i+1)."<br>";
-        echo "date: ".date_format($entries[$i]->getEntryDate(),"m/d/Y")."<br>";
-        echo "title/description: ".$entries[$i]->getDescription()."<br>";
-        echo "calories consumed: ".$entries[$i]->getCalories()."<br>";
-        echo "water consumed: ".$entries[$i]->getWater()."<br><br>";
-    }
+    // for($i=0; $i<count($entries); $i++)
+    // {
+    //     echo "entry ".($i+1)."<br>";
+    //     echo "date: ".date_format($entries[$i]->getEntryDate(),"m/d/Y")."<br>";
+    //     echo "title/description: ".$entries[$i]->getDescription()."<br>";
+    //     echo "calories consumed: ".$entries[$i]->getCalories()."<br>";
+    //     echo "water consumed: ".$entries[$i]->getWater()."<br><br>";
+    // }
 ?>
