@@ -40,7 +40,8 @@
        <link rel="stylesheet" href="../../css/style.css">
         <!--<link rel="stylesheet" href="../../css/reportstyle.css">-->
         
-              <script>
+              <!--Not needed since second drop down is unnecessary -->
+              <!--<script>
                     function check(that) {
                         if (that.value == "Fitness") {
                             document.getElementById("ifFitness").style.display = "block";
@@ -81,7 +82,7 @@
                             document.getElementById("ifMental").style.display = "none";
                         }
                     }
-                    </script>
+                    </script>-->
     </head>
     
     <body>
@@ -134,7 +135,8 @@
                         <option value="Screen Time">Screen Time</option>
                     </select>
                     <br>
-                    <div id="ifFitness" style="display: none;">
+                    <!--Second drop down unnecessary since entire report is generated-->
+                    <!--<div id="ifFitness" style="display: none;">
                     <br>
                     	<label for="type">Type of Fitness Report: </label>
 	                        <select if="fitness" name="fitness">
@@ -180,7 +182,7 @@
                     </div>
                     <div id="ifScreenTime" style="display: none;">
                     <br>
-                    </div>
+                    </div>-->
 					<br><br>
 				    <label for="timeRange">Time range for report:</label>
 				    <br><br>
