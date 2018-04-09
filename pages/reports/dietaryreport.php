@@ -68,7 +68,7 @@
 				Description: Fruit<br>
 				Calories Consumed: 250<br>
 				Water Consumed: 10<br>
-				<hr>
+				<hr> <!--Seperates entries with line-->
 				Entry 2<br>
 				Date: 03/14/2018<br>
 				Description: Only Liquid Consumed<br>
@@ -87,15 +87,19 @@
 				Calorie Goal 1<br>
 				Description: 3500 calories in 1 day(s)<br>
 				Progress: 30%<br>
+				<button type="submit" name="submit" id="submit" value="delete">Delete Goal</button><br>
 				<hr>
 				Calorie Goal 2<br>
 				Description: 2500 calories in 1 day(s)<br>
 				Progress: 90%<br>
+				<button type="submit" name="submit" id="submit" value="delete">Delete Goal</button><br>
 				<hr>
 				Water Goal 1<br>
 				Description: 60 ounces in 1 day(s)<br>
 				Progress: 50%<br>
+				<button type="submit" name="submit" id="submit" value="delete">Delete Goal</button><br>
 			</div>
+			
 			
 			
         </main>

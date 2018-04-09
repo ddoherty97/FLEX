@@ -59,6 +59,29 @@
         </header>
         <br>
         <main>
+        	<h1>FLEX</h1>
+        	<h2>Mental Health Report</h2><br>
+
+			<h3>Data Entries</h3>
+			<div style="display: block; width: 100%; height: 100px; margin: 15px; border: 3px solid #e03a3e; overflow:scroll">
+				Entry 1 <br>
+				<hr>
+				Entry 2<br>
+				<hr>
+				Entry 3<br>
+			</div>
+			
+			<h3>Goals & Progress</h3>
+			<div style="display: block; width: 100%; height: 100px; margin: 15px; border: 3px solid #e03a3e; overflow:scroll">
+				Goal 1<br>
+				<button type="submit" name="submit" id="submit" value="delete">Delete Goal</button><br>
+				<hr>
+				Goal 2<br>
+				<button type="submit" name="submit" id="submit" value="delete">Delete Goal</button><br>
+				<hr>
+				Goal 1<br>
+				<button type="submit" name="submit" id="submit" value="delete">Delete Goal</button><br>
+			</div>
 
         </main>
         <footer>
