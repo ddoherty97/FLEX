@@ -4,10 +4,14 @@
      * This creates the user interface of the user's social report.
 	 * Initally assigned to Sarah Kurtz
      * Author: Jaclyn Cuevas
-     * Last Updated: 4/8/18 JC
+     * Last Updated: 4/10/18 JC
      **/
 
-    //check if session is already running
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+	error_reporting(E_ALL);
+	
+	//check if session is already running
 	if(!isset($_SESSION)) 
     { 
         session_start();
@@ -18,14 +22,25 @@
     $logoutFile = $phpFolderPath."logout.php";
     require($phpFolderPath."IsLoggedIn.php");
 	
-	//get result of last report creation
-    if(isset($_GET['s']))
+	//get start and end dates of report
+    if(isset($_GET['start']) && isset($_GET['end']))
     {
-        $result = $_GET['s'];
-    }//end if
-    else
+		//flag to ensure report is run
+		$runReport = true;
+
+		//create date objects for social report module
+		$startDate = date_create($_GET['start']);
+		$endDate = date_create($_GET['end']);
+
+		//social report module dependency
+		require_once($phpFolderPath."SocialReportModule.php");
+	}//end if
+	
+	//if report dates not submitted
+	else
     {
-        $result = "none";
+		//flag to ensure error message is displayed
+		$runReport = false;
     }//end else
 ?>
 
@@ -62,26 +77,101 @@
         	<h1>FLEX</h1>
         	<h2>Social Report</h2><br>
 
-			<h3>Data Entries</h3>
-			<div style="display: block; width: 100%; height: 100px; margin: 15px; border: 3px solid #e03a3e; overflow:scroll">
-				Entry 1 <br>
-				<hr>
-				Entry 2<br>
-				<hr>
-				Entry 3<br>
-			</div>
+		<?php
+		//only show if report dates specified
+		if($runReport)
+		{
+			//create social report module and generate report
+			require_once($phpFolderPath."SocialReportModule.php");
+			$reportModule = new SocialReportModule();
+			$report = $reportModule->getSocialReport($startDate, $endDate);
+
+			//display report details
+			echo "<h3>Social Report From ".date_format($report->getStartDate(),"m/d/Y")." to ".date_format($report->getEndDate(),"m/d/Y")."</h3>";
 			
-			<h3>Goals & Progress</h3>
-			<div style="display: block; width: 100%; height: 100px; margin: 15px; border: 3px solid #e03a3e; overflow:scroll">
-				Goal 1<br>
-				<button type="submit" name="submit" id="submit" value="delete">Delete Goal</button><br>
-				<hr>
-				Goal 2<br>
-				<button type="submit" name="submit" id="submit" value="delete">Delete Goal</button><br>
-				<hr>
-				Goal 1<br>
-				<button type="submit" name="submit" id="submit" value="delete">Delete Goal</button><br>
+			//get social entries
+			$entries = $report->getSocialEntries();
+
+			//if there are entries to show
+			if(count($entries)>0)
+			{
+				echo "<h3>Data Entries</h3>";
+				echo "<div class='entries'>";
+
+				//display all entries in time frame
+				for($i=0; $i<count($entries); $i++)
+				{
+					//hide separation bar if first item
+					if($i!=0)
+					{			
+						echo "<hr>";
+					}//end if
+					
+					echo "Entry on <em>".date_format($entries[$i]->getEntryDate(),"m/d/Y")."</em><br><br>";
+					echo "<em>".$entries[$i]->getTitle()."</em><br>";
+					echo "Type of Activity: <em>".$entries[$i]->getType()."</em><br>";
+					echo "Location: <em>".$entries[$i]->getLocation()."</em><br>";
+					echo "Time Spent: <strong>".$entries[$i]->getDuration()."</strong><br>";
+					echo "Notes: <em>".$entries[$i]->getNotes()."</em><br>";
+				}//end for
+				echo "</div>";
+			}//end if
+
+			//if no data entries
+			else
+			{
+				echo "<div class='reportError'>There are no social entries between ".date_format($report->getStartDate(),"m/d/Y")." and ".date_format($report->getEndDate(),"m/d/Y")."</div>";
+			}//end if
+
+			//get social goals and progresses
+			$sGoals = $report->getSocialGoals();
+			$sProgresses = $report->getSocialProgresses();
+
+			//if there are any goals to show
+			if(count($cGoals) > 0)
+			{
+				echo "<br>";
+				echo "<h3>Current Goal Status</h3>";
+				echo "<div class='goals'>";
+
+				//display all active social goals
+				for($i=0; $i<count($cGoals); $i++)
+				{
+					//hide separation bar if first item
+					if($i!=0)
+					{			
+						echo "<hr>";
+					}//end if
+
+					echo $sGoals[$i]->getMinutes()." minutes in ".$sGoals[$i]->getNumDays()." day(s)<br>";
+					echo "<progress value=".($sProgresses[$i]*100)." max='100'></progress><br>";
+					echo ($sProgresses[$i]*100)."% Complete<br><br>";
+					
+					//remove button
+					echo "<a href='../../php/RemoveSocialGoal.php?goalID=".$sGoals[$i]->getID()."'>";
+					echo "<input type='button' value='Delete Goal'>";
+					echo "</a>";
+				}//end for				
+				echo "</div>";
+			}//end if
+
+			//if there are no goals to show
+			else
+			{
+				echo "<div class='reportError'>There are no active social goals";
+			}//end else
+		}//end if
+		
+		//if not running report
+		else
+		{
+	?>
+			<div class="reportError">
+				We're sorry, but there was an error generating your social report. We could not find a start and end date!
 			</div>
+	<?php
+		}//end else
+	?>
 
         </main>
         <footer>
