@@ -7,6 +7,10 @@
      * Last Updated: 4/8/18 JC
      **/
 
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+	error_reporting(E_ALL);
+	
     //check if session is already running
 	if(!isset($_SESSION)) 
     { 
@@ -18,14 +22,25 @@
     $logoutFile = $phpFolderPath."logout.php";
     require($phpFolderPath."IsLoggedIn.php");
 	
-	//get result of last report creation
-    if(isset($_GET['s']))
+	//get start and end dates of report
+    if(isset($_GET['start']) && isset($_GET['end']))
     {
-        $result = $_GET['s'];
-    }//end if
-    else
+		//flag to ensure report is run
+		$runReport = true;
+
+		//create date objects for dietary report module
+		$startDate = date_create($_GET['start']);
+		$endDate = date_create($_GET['end']);
+
+		//dietary report module dependency
+		require_once($phpFolderPath."FitnessReportModule.php");
+	}//end if
+	
+	//if report dates not submitted
+	else
     {
-        $result = "none";
+		//flag to ensure error message is displayed
+		$runReport = false;
     }//end else
 ?>
 <!DOCTYPE html>
@@ -61,26 +76,6 @@
         	<h1>FLEX</h1>
         	<h2>Fitness Report</h2><br>
 
-			<h3>Data Entries</h3>
-			<div style="display: block; width: 100%; height: 100px; margin: 15px; border: 3px solid #e03a3e; overflow:scroll">
-				Entry 1 <br>
-				<hr>
-				Entry 2<br>
-				<hr>
-				Entry 3<br>
-			</div>
-			
-			<h3>Goals & Progress</h3>
-			<div style="display: block; width: 100%; height: 100px; margin: 15px; border: 3px solid #e03a3e; overflow:scroll">
-				Goal 1<br>
-				<button type="submit" name="submit" id="submit" value="delete">Delete Goal</button><br>
-				<hr>
-				Goal 2<br>
-				<button type="submit" name="submit" id="submit" value="delete">Delete Goal</button><br>
-				<hr>
-				Goal 1<br>
-				<button type="submit" name="submit" id="submit" value="delete">Delete Goal</button><br>
-			</div>
 
         </main>
         <footer>
