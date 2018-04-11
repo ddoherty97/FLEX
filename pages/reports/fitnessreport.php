@@ -4,7 +4,7 @@
      * This creates the user interface of the user's fitness report.
 	 * Initally assigned to Sarah Kurtz
      * Author: Jaclyn Cuevas
-     * Last Updated: 4/11/18 JC
+     * Last Updated: 4/11/18 DD
      **/
 
     ini_set('display_errors', 1);
@@ -50,7 +50,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>FLEX</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-         <link rel="stylesheet" href="../../css/style.css">
+		<link rel="stylesheet" href="../../css/style.css">
+		<link rel="stylesheet" href="../../css/reportstyle.css">
     </head>
     
     <body>
@@ -109,41 +110,62 @@
 					echo "Entry on <em>".date_format($entries[$i]->getEntryDate(),"m/d/Y")."</em><br><br>";
 					
 					//if a cardio entry
-					if($entries[$i]->substr(getType(), 0, 5) == "CARDIO")
+					if(substr($entries[$i]->getType(), 0, 5) == "CARDIO")
 					{
-						if($entries[$i]->substr(getType(), 7) == "DISTANCE"){
+						if(substr($entries[$i]->getType(), 7) == "DISTANCE")
+						{
 							echo "<strong>".$entries[$i]->getMilestone()."</strong> Miles<br>";
-						}
-						if($entries[$i]->substr(getType(), 7) == "SPEED"){
+						}//end if
+						else if(substr($entries[$i]->getType(), 7) == "SPEED")
+						{
 							echo "<strong>".$entries[$i]->getMilsetone()."</strong> MPH<br>";
-						}
-						if($entries[$i]->substr(getType(), 7) == "TIME"){
+						}//end if
+						else if(substr($entries[$i]->getType(), 7) == "TIME")
+						{
 							echo "<strong>".$entries[$i]->getMilsetone()."</strong> Minutes<br>";
-						}
+						}//end if
+						else
+						{
+							echo "NOTICE: There was a problem displaying the cardio entry!<br>";
+						}//end else
 					}//end if
 					
 					//if a strength entry
-					if($entries[$i]->substr(getType(), 0, 7) == "DISTANCE")
+					else if(substr($entries[$i]->getType(), 0, 7) == "DISTANCE")
 					{
-						if($entries[$i]->substr(getType(), 9) == "BICEP"){
+						if(substr($entries[$i]->getType(), 9) == "BICEP")
+						{
 							echo "Bicep Curl <strong>".$entries[$i]->getMilestone()."</strong> Lbs<br>";
-						}
-						if($entries[$i]->substr(getType(), 9) == "CHEST"){
+						}//end if
+						else if(substr($entries[$i]->getType(), 9) == "CHEST")
+						{
 							echo "Chest Press <strong>".$entries[$i]->getMilestone()."</strong> Lbs<br>";
-						}
-						if($entries[$i]->substr(getType(), 9) == "DEADLIFT"){
+						}//end if
+						else if(substr($entries[$i]->getType(), 9) == "DEADLIFT")
+						{
 							echo "Deadlift <strong>".$entries[$i]->getMilestone()."</strong> Lbs<br>";
-						}
-						if($entries[$i]->substr(getType(), 9) == "SQUAT"){
+						}//end if
+						else if(substr($entries[$i]->getType(), 9) == "SQUAT")
+						{
 							echo "Squat <strong>".$entries[$i]->getMilestone()."</strong> Lbs<br>";
-						}
+						}//end if
+						else
+						{
+							echo "NOTICE: There was a problem displaying the strength entry!<br>";
+						}//end else
 					}//end if
 					
 					//if a weight entry
-					if($entries[$i]->getType() == "WEIGHT")
+					else if($entries[$i]->getType() == "WEIGHT")
 					{
 						echo "New Weight: <strong>".$entries[$i]->getMilestone()."</strong><br>";
 					}//end if
+
+					//if type not determined
+					else
+					{
+						echo "NOTICE: There was a problem determining the entry type!<br>";
+					}//end else
 				}//end for
 
 				echo "</div>";
@@ -179,15 +201,18 @@
 						echo "<hr>";
 					}//end if
 
-					if($cGoals[$i]->substr(getType(),7) == "DISTANCE"){
-						echo $cGoals[$i]->getMilestone()." Miles in ".$cGoals[$i]->getNumDays()." day(s)<br>";
-					}
-					if($cGoals[$i]->substr(getType(),7) == "SPEED"){
-						$cGoals[$i]->getMilestone()." MPH in ".$cGoals[$i]->getNumDays()." day(s)<br>";
-					}
-					if($cGoals[$i]->substr(getType(),7) == "TIME"){
-						$cGoals[$i]->getMilestone()." Minutes in ".$cGoals[$i]->getNumDays()." day(s)<br>";
-					}
+					if(substr($cGoals[$i]->getType(),7) == "DISTANCE")
+					{
+						echo "<em>Distance Goal</em>:<br>".$cGoals[$i]->getMilestone()." Miles in ".$cGoals[$i]->getNumDays()." day(s)<br>";
+					}//end if
+					else if(substr($cGoals[$i]->getType(),7) == "SPEED")
+					{
+						echo "<em>Speed Goal</em>:<br>".$cGoals[$i]->getMilestone()." MPH in ".$cGoals[$i]->getNumDays()." day(s)<br>";
+					}//end if
+					else if(substr($cGoals[$i]->getType(),7) == "TIME")
+					{
+						echo "<em>Time Goal</em>:<br>".$cGoals[$i]->getMilestone()." Minutes in ".$cGoals[$i]->getNumDays()." day(s)<br>";
+					}//end if
 					
 					echo "<progress value=".($cProgresses[$i]*100)." max='100'></progress><br>";
 					echo ($cProgresses[$i]*100)."% Complete<br><br>";
@@ -207,18 +232,23 @@
 						echo "<hr>";
 					}//end if
 					
-					if($sGoals->substr(getType(), 9) == "BICEP"){
-						echo "Bicep Curl ".$sGoals[$i]->getMilestone()." Lbs in ".$sGoals[$i]->getNumDays()." day(s)<br>";
-					}
-					if($sGoals->substr(getType(), 9) == "CHEST"){
-						echo "Chest Press ".$sGoals[$i]->getMilestone()." Lbs in ".$sGoals[$i]->getNumDays()." day(s)<br>";
-					}
-					if($sGoals->substr(getType(), 9) == "DEADLIFT"){
-						echo "Deadlift ".$sGoals[$i]->getMilestone()." Lbs in ".$sGoals[$i]->getNumDays()." day(s)<br>";
-					}
-					if($sGoals->substr(getType(), 9) == "SQUAT"){
-						echo "Squat ".$sGoals[$i]->getMilestone()." Lbs in ".$sGoals[$i]->getNumDays()." day(s)<br>";
-					}
+					if(substr($sGoals[$i]->getType(), 9) == "BICEP")
+					{
+						echo "Bicep Curl ".$sGoals[$i]->getMaxWeight()." Lbs in ".$sGoals[$i]->getNumDays()." day(s)<br>";
+					}//end if
+					else if(substr($sGoals[$i]->getType(), 9) == "CHEST")
+					{
+						echo "Chest Press ".$sGoals[$i]->getMaxWeight()." Lbs in ".$sGoals[$i]->getNumDays()." day(s)<br>";
+					}//end if
+					else if(substr($sGoals[$i]->getType(), 9) == "DEADLIFT"){
+						echo "Deadlift ".$sGoals[$i]->getMaxWeight()." Lbs in ".$sGoals[$i]->getNumDays()." day(s)<br>";
+					}//end if
+					else if(substr($sGoals[$i]->getType(), 9) == "SQUAT")
+					{
+						echo "Squat ".$sGoals[$i]->getMaxWeight()." Lbs in ".$sGoals[$i]->getNumDays()." day(s)<br>";
+					}//end if
+
+
 					echo "<progress value=".($sProgresses[$i]*100)." max='100'></progress><br>";
 					echo ($sProgresses[$i]*100)."% Complete<br><br>";
 					
@@ -237,7 +267,7 @@
 						echo "<hr>";
 					}//end if
 					
-					echo "Reach ".$wGoals[$i].getWeight()." Lbs in ".$wGoals[$i].getNumDays()." day(s)<br>";
+					echo "Reach ".$wGoals[$i]->getWeight()." Lbs in ".$wGoals[$i]->getNumDays()." day(s)<br>";
 					echo "<progress value=".($wProgresses[$i]*100)." max='100'></progress><br>";
 					echo ($wProgresses[$i]*100)."% Complete<br><br>";
 					
