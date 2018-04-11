@@ -215,7 +215,7 @@
                 $id = $currEntry['FITNESS_DATA_ID'];
                 $date = $currEntry['FITNESS_ACTIVITY_DATE'];
                 $duration = $currEntry['FITNESS_ACTIVITY_DURATION'];
-                $milestone = $currEntry['FITNESS_ACTIVITY_DURATION'];
+                $milestone = $currEntry['FITNESS_ACTIVITY_MILESTONE'];
                 $type = $currEntry['FITNESS_ACTIVITY_TYPE'];
                 $notes = $currEntry['FITNESS_ACTIVITY_NOTES'];
                 $timestamp = $currEntry['FITNESS_ACTIVITY_SUBMITTED_TIME'];         

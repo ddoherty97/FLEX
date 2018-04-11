@@ -108,62 +108,46 @@
 					}//end if
 					
 					echo "Entry on <em>".date_format($entries[$i]->getEntryDate(),"m/d/Y")."</em><br><br>";
-					
-					echo "Raw entry type: ".$entries[$i]->getType()."<br><br>";
 
-					//if a cardio entries
-					if(substr($entries[$i]->getType(), 0, 6) == "CARDIO")
+					//cardio entries
+					if($entries[$i]->getType() == "CARDIO-DISTANCE")
 					{
-						if(substr($entries[$i]->getType(), 8) == "DISTANCE")
-						{
-							echo "<strong>".$entries[$i]->getMilestone()."</strong> Miles<br>";
-						}//end if
-						else if(substr($entries[$i]->getType(), 8) == "SPEED")
-						{
-							echo "<strong>".$entries[$i]->getMilsetone()."</strong> MPH<br>";
-						}//end if
-						else if(substr($entries[$i]->getType(), 8) == "TIME")
-						{
-							echo "<strong>".$entries[$i]->getMilsetone()."</strong> Minutes<br>";
-						}//end if
-						else
-						{
-							echo "NOTICE: There was a problem displaying the cardio entry!<br>";
-						}//end else
+						echo "Distance Entry: <strong>".$entries[$i]->getMilestone()."</strong> Miles<br>";
 					}//end if
-					
-					//if a strength entry
-					else if(substr($entries[$i]->getType(), 0, 8) == "STRENGTH")
+					else if($entries[$i]->getType() == "CARDIO-SPEED")
 					{
-						if(substr($entries[$i]->getType(), 10) == "BICEP")
-						{
-							echo "Bicep Curl <strong>".$entries[$i]->getMilestone()."</strong> Lbs<br>";
-						}//end if
-						else if(substr($entries[$i]->getType(), 10) == "CHEST")
-						{
-							echo "Chest Press <strong>".$entries[$i]->getMilestone()."</strong> Lbs<br>";
-						}//end if
-						else if(substr($entries[$i]->getType(), 10) == "DEADLIFT")
-						{
-							echo "Deadlift <strong>".$entries[$i]->getMilestone()."</strong> Lbs<br>";
-						}//end if
-						else if(substr($entries[$i]->getType(), 10) == "SQUAT")
-						{
-							echo "Squat <strong>".$entries[$i]->getMilestone()."</strong> Lbs<br>";
-						}//end if
-						else
-						{
-							echo "NOTICE: There was a problem displaying the strength entry!<br>";
-						}//end else
+						echo "Speed Entry: <strong>".$entries[$i]->getMilestone()."</strong> MPH<br>";
 					}//end if
+					else if($entries[$i]->getType() == "CARDIO-TIME")
+					{
+						echo "Time Entry: <strong>".$entries[$i]->getMilestone()."</strong> Minutes<br>";
+					}//end if
+
+					//strength entries
+					else if($entries[$i]->getType() == "STRENGTH-BICEP")
+					{
+						echo "Bicep Curled <strong>".$entries[$i]->getMilestone()."</strong> Lbs<br>";
+					}//end if
+					else if($entries[$i]->getType() == "STRENGTH-CHEST")
+					{
+						echo "Chest Pressed <strong>".$entries[$i]->getMilestone()."</strong> Lbs<br>";
+					}//end if
+					else if($entries[$i]->getType() == "STRENGTH-DEADLIFT")
+					{
+						echo "Deadlifted <strong>".$entries[$i]->getMilestone()."</strong> Lbs<br>";
+					}//end if
+					else if($entries[$i]->getType() == "STRENGTH-SQUAT")
+					{
+						echo "Squatted <strong>".$entries[$i]->getMilestone()."</strong> Lbs<br>";
+					}//end if	
 					
-					//if a weight entry
+					//weight entries
 					else if($entries[$i]->getType() == "WEIGHT")
 					{
 						echo "New Weight: <strong>".$entries[$i]->getMilestone()."</strong><br>";
 					}//end if
 
-					//if type not determined
+					//if entry type not determined
 					else
 					{
 						echo "NOTICE: There was a problem determining the entry type!<br>";
