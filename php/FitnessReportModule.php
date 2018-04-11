@@ -9,6 +9,8 @@
 
     require_once("CommunicationModule.php");
     require_once("FitnessGoalModule.php");
+    require_once("FitnessEntry.php");
+    require_once("FitnessReport.php");
 	
 	class FitnessReportModule
 	{
@@ -182,6 +184,55 @@
         }//close getStrengthProgress
 
         /**
+         * getFitnessEntries()
+         * This method builds an array of all fitness entries
+         * Parameters:  $startDate->date to start selecting entries
+         *              $endDate->date to stop selecting entries
+         * Returns: array of FitnessEntry objects
+         * Exceptions: none
+         **/
+        function getFitnessEntries($startDate, $endDate)
+        {
+            //array to contain all fitness entries
+            $fitnessEntries = [];
+            $entryIndex = 0;
+            
+            //format date objects for use in SQL
+            $startDateDisplay = date_format($startDate,'Y-m-d H:i:s');
+            $endDateDisplay = date_format($endDate,'Y-m-d H:i:s');
+
+            //get all dietary data points in data range
+            $fitnessSQL = "SELECT *
+                           FROM FITNESS_DATA
+                           WHERE FITNESS_DATA_OWNER='$this->dataOwner'
+                           AND FITNESS_ACTIVITY_DATE BETWEEN '$startDateDisplay' AND '$endDateDisplay'";
+            $entries = $this->comMod->queryDatabase($fitnessSQL);
+
+            //read all fitness entries, create objects, and add to array
+            while($currEntry = mysqli_fetch_array($entries))
+            {
+                //get details from database
+                $id = $currEntry['FITNESS_DATA_ID'];
+                $date = $currEntry['FITNESS_ACTIVITY_DATE'];
+                $duration = $currEntry['FITNESS_ACTIVITY_DURATION'];
+                $milestone = $currEntry['FITNESS_ACTIVITY_DURATION'];
+                $type = $currEntry['FITNESS_ACTIVITY_TYPE'];
+                $notes = $currEntry['FITNESS_ACTIVITY_NOTES'];
+                $timestamp = $currEntry['FITNESS_ACTIVITY_SUBMITTED_TIME'];         
+
+                //create fitness object
+                $entry = new FitnessEntry($id, date_create($date), $duration, $milestone, $type, $notes, $timestamp);
+
+                //add object to array
+                $fitnessEntries[$entryIndex] = $entry;
+                $entryIndex++;
+            }//end while
+
+            //return array of entries
+            return $fitnessEntries;
+        }//close getFitnessEntries
+        
+        /**
          * getFitnessReport()
          * This method builds a report of all the fitness activities logged
          * Parameters:  $startDate->date to start selecting to add in the report
@@ -191,7 +242,30 @@
          **/
         function getFitnessReport($startDate, $endDate)
         {
+            //get all weight goals
+            $wGoals = $this->fitMod->getWeightGoals();
 
+            //get all weight goal progresses
+            $wProgress = $this->getWeightProgress();
+
+            //get all cardio goals
+            $cGoals = $this->fitMod->getCardioGoals();
+
+            //get all cardio goal progresses
+            $cProgress = $this->getCardioProgress();
+
+            //get all strength goals
+            $sGoals = $this->fitMod->getStrengthGoals();
+
+            //get all strength goal progresses
+            $sProgress = $this->getStrengthProgress();
+
+            //get all fitness entries
+            $entries = $this->getFitnessEntries($startDate, $endDate);
+
+            //build and return fitness report object
+            $report = new FitnessReport($cGoals, $sGoals, $wGoals, $cProgress, $sProgress, $wProgress, $entries, $startDate, $endDate);
+            return $report;
         }//close getFitnessReport
     }//close FitnessReportModule
 ?>
