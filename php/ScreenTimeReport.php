@@ -29,7 +29,7 @@
         {
             //assign constructor params to member variables
             $this->screenTimeGoals = $stGoalArray;
-            $this->screenTimeProgress = $calProgressArray;
+            $this->screenTimeProgress = $stProgressArray;
             $this->entries = $entryArray;
             $this->startDate = $startDate;
             $this->endDate = $endDate;
@@ -54,10 +54,10 @@
          * Returns: progress of all active screen time goals
          * Exceptions: none
          **/
-        function getScreenTimeProgress()
+        function getScreenTimeProgresses()
         {
             return $this->screenTimeProgress;
-        }//close getScreenTimeProgress
+        }//close getScreenTimeProgresses
 
         /**
          * getScreenTimeEntries()

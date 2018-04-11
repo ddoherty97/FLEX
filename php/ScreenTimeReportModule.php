@@ -9,6 +9,8 @@
 
     require_once("CommunicationModule.php");
     require_once("ScreenTimeGoalModule.php");
+    require_once("ScreenTimeEntry.php");
+    require_once("ScreenTimeReport.php");
 	
 	class ScreenTimeReportModule
 	{
@@ -89,6 +91,53 @@
         }//close getScreenTimeProgress
 
         /**
+         * getScreenTimeEntries()
+         * This method builds an array of all screen time entries
+         * Parameters:  $startDate->date to start selecting entries
+         *              $endDate->date to stop selecting entries
+         * Returns: array of ScreenTimeEntry objects
+         * Exceptions: none
+         **/
+        function getScreenTimeEntries($startDate, $endDate)
+        {
+            //array to contain all screen time entries
+            $screenEntries = [];
+            $entryIndex = 0;
+            
+            //format date objects for use in SQL
+            $startDateDisplay = date_format($startDate,'Y-m-d H:i:s');
+            $endDateDisplay = date_format($endDate,'Y-m-d H:i:s');
+
+            //get all screen time data points in data range
+            $screenSQL =  "SELECT *
+                         FROM SCREEN_TIME_DATA
+                         WHERE SCREEN_DATA_OWNER='$this->dataOwner'
+                         AND SCREEN_DATA_DATE BETWEEN '$startDateDisplay' AND '$endDateDisplay'";
+            $entries = $this->comMod->queryDatabase($screenSQL);
+
+            //read all screen time entries, create objects, and add to array
+            while($currEntry = mysqli_fetch_array($entries))
+            {
+                //get details from database
+                $id = $currEntry['SCREEN_DATA_ID'];
+                $date = $currEntry['SCREEN_DATA_DATE'];
+                $type = $currEntry['SCREEN_DATA_TYPE'];
+                $duration = $currEntry['SCREEN_DATA_DURATION'];
+                $timestamp = $currEntry['SCREEN_DATA_TIMESTAMP'];
+
+                //create screen time object
+                $entry = new ScreenTimeEntry($id, date_create($date), $type, $duration, $timestamp);
+
+                //add object to array
+                $screenEntries[$entryIndex] = $entry;
+                $entryIndex++;
+            }//end while
+
+            //return array of entries
+            return $screenEntries;
+        }//close getScreenTimeEntries
+
+        /**
          * getScreenTimeReport()
          * This method builds a report of the user’s screen time usage
          * Parameters:  $startDate->date to start selecting to add in the report
@@ -98,7 +147,18 @@
          **/
         function getScreenTimeReport($startDate, $endDate)
         {
+            //get all screen time goals
+            $goals = $this->screenMod->getScreenTimeGoals();
 
+            //get all screen time goal progresses
+            $progresses = $this->getScreenTimeProgress();
+
+            //get all screen time activity entries
+            $entries = $this->getScreenTimeEntries($startDate, $endDate);
+
+            //build and return screen time report object
+            $report = new ScreenTimeReport($goals, $progresses, $entries, $startDate, $endDate);
+            return $report;
         }//close getScreenTimeReport
     }//close ScreenTimeReportModule
 ?>

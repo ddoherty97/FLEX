@@ -51,7 +51,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>FLEX</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-         <link rel="stylesheet" href="../../css/style.css">
+		<link rel="stylesheet" href="../../css/style.css">
+		<link rel="stylesheet" href="../../css/reportstyle.css">
     </head>
     
     <body>
@@ -108,7 +109,7 @@
 					}//end if
 					
 					echo "Entry on <em>".date_format($entries[$i]->getEntryDate(),"m/d/Y")."</em><br><br>";
-					echo "<strong>".$entries[$i]->getDuration()."</strong> Spent on a <em> ".$entries[$i]->getType()."</em><br>";
+					echo "<strong>".$entries[$i]->getDuration()."</strong> minutes spent on a <em> ".$entries[$i]->getType()."</em><br>";
 				}//end for
 
 				echo "</div>";
@@ -122,7 +123,7 @@
 
 			//get screen time goals and progresses
 			$stGoals = $report->getScreenTimeGoals();
-			$stProgress = $report->getScreenTimeProgress();
+			$stProgress = $report->getScreenTimeProgresses();
 
 			//if there are any goals to show
 			if(count($stGoals) > 0)
@@ -140,7 +141,7 @@
 						echo "<hr>";
 					}//end if
 
-					echo $stGoals[$i]->getMinutes()." minutes a day<br>";
+					echo $stGoals[$i]->getMinutes()." minutes in ".$stGoals[$i]->getNumDays()." day(s)<br>";
 					echo "<progress value=".($stProgress[$i]*100)." max='100'></progress><br>";
 					echo ($stProgress[$i]*100)."% Complete<br><br>";
 					

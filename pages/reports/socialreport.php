@@ -51,8 +51,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>FLEX</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-         <link rel="stylesheet" href="../../css/style.css">
-		 <link rel="stylesheet" href="../../css/reportstyle.css">
+        <link rel="stylesheet" href="../../css/style.css">
+		<link rel="stylesheet" href="../../css/reportstyle.css">
     </head>
     
     <body>

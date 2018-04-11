@@ -4,7 +4,7 @@
      * The purpose of the Spiritual Report Module is to display the user’s social progress,
      *      as it relates to their goals, in a clean report that is easily interpreted.
      * Author: Davis Doherty
-     * Last Updated: 4/1/18 DD
+     * Last Updated: 4/11/18 DD
      **/
 
     require_once("CommunicationModule.php");
