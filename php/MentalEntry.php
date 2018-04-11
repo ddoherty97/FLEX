@@ -36,7 +36,7 @@
         function __construct($ID, $date, $duration, $type, $notes, $level, $factors, $submitted)
         {
             //if no duration provided
-            if($duraiton=="")
+            if($duration == "")
             {
                 $duration = "0";
             }//end if

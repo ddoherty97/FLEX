@@ -75,13 +75,13 @@
         function getCounselingProgresses()
         {
             return $this->counselingProgresses;
-        }//close getCcounselingProgresses
+        }//close getCounselingProgresses
 
         /**
-         * getWaterProgresses()
-         * This method gets the progress of all active water goals
+         * getStressProgresses()
+         * This method gets the progress of all active stress level goals
          * Parameters:  none
-         * Returns: progress of all active water goals
+         * Returns: progress of all active stress level goals
          * Exceptions: none
          **/
         function getStressProgresses()

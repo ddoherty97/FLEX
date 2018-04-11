@@ -17,7 +17,7 @@
 
         /**
          * __construct()
-         * This method creates a dietary report with immutable attributes
+         * This method creates a screen time report with immutable attributes
          * Parameters:  $stGoalArray->all screen time goals
          *              $stProgressArray->completion progress of all screen time goals
          *              $entryArray->all screen time entries
