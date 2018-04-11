@@ -123,16 +123,6 @@
 					<input type="date" id = "date" name="date" >
 				<br>
 				<br>
-				<div id="timeOption" style="display: none;">
-				<label for="type">Start Time</label><sup>*</sup>:
-					<input type="time" id = "sTime" name="sTime">
-				<br>
-				<br>
-				<label for="type">End Time</label><sup>*</sup>:
-					<input type="time" id = "eTime" name="eTime">
-				<br>
-				<br>
-				</div>
 				<label for="goalType">Type of Fitness<sup>*</sup>: </label>
 	 				<select id="goalType" name="goalType" onchange="check(this);">
 						<option value="-1">Select</option>  
@@ -142,6 +132,16 @@
                     </select>
                 <br>
                 <br>	
+                <div id="timeOption" style="display: none;">
+				<label for="type">Start Time</label><sup>*</sup>:
+					<input type="time" id = "sTime" name="sTime">
+				<br>
+				<br>
+				<label for="type">End Time</label><sup>*</sup>:
+					<input type="time" id = "eTime" name="eTime">
+				<br>
+				<br>
+				</div>
 					<!--Cardio Types-->
 					<div id="ifCardio" style="display: none;">
 						<label for="cardioType">Type of Cardio<sup>*</sup>: </label>
