@@ -4,7 +4,7 @@
      * This creates the user interface of the main tracking page.  
 	 * Links direct the user to a specific tracking page.
      * Author: John Wiley
-     * Last Updated: 3/28/18 JC
+     * Last Updated: 4/11/18 JC
      **/
 
     //check if session is already running
@@ -50,12 +50,13 @@
         <br>
         <main style="font-size: 20px; font-weight: bold;">
             <img src="../../images/stag.png" alt="Stag" height="100px" width="100px"><br><br>
-            <a href="fitnesstracking.php" style="text-decoration: none; ">Fitness Tracking</a><br><br>
             <a href="dietarytracking.php" style="text-decoration: none; ">Dietary Tracking</a><br><br>
-            <a href="socialtracking.php" style="text-decoration: none; ">Social Tracking</a><br><br>
+            <a href="fitnesstracking.php" style="text-decoration: none; ">Fitness Tracking</a><br><br>
             <a href="mentaltracking.php" style="text-decoration: none; ">Mental Tracking</a><br><br>
-            <a href="spiritualtracking.php" style="text-decoration: none; ">Spiritual Tracking</a><br><br>
             <a href="screentimetracking.php" style="text-decoration: none; ">Screen Time Tracking</a><br><br>
+            <a href="socialtracking.php" style="text-decoration: none; ">Social Tracking</a><br><br>
+            <a href="spiritualtracking.php" style="text-decoration: none; ">Spiritual Tracking</a><br><br>
+            
         </main>
                 <footer>
             <br>
