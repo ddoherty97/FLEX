@@ -33,7 +33,7 @@
         if(intval($_GET['goalID']) != 0)
         {
             //remove goal
-            $dietMod->removeGoal($_GET['goalID']);
+            $spiritualMod->removeGoal($_GET['goalID']);
         }//end if
 
         //redirect to report page
