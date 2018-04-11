@@ -2,6 +2,7 @@
 {
     border: 3px solid #e03a3e;
     padding: 20px;
+    line-height: 125%;
 }
 
 .entries hr, .goals hr

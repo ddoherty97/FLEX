@@ -21,6 +21,7 @@ h2
 body 
 {
     font-family: sans-serif;
+    margin: 0;
 }
 
 main 
@@ -123,5 +124,19 @@ li.dropdown
 
 footer  
 {
-    font-style: italic;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+footer, footer .div
+{
+    background-color: black;
+    color: white;
+    overflow: hidden;
+    padding-bottom: 15px;
+}
+footer div:last-of-type
+{
+    text-align: right;
 }

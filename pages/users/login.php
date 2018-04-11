@@ -1,11 +1,13 @@
-<?php require("../../php/login.php"); 
+<?php 
 	/**
      * Login Front End (reports.php)
      * This creates the user interface of the login page.
 	 * The user is able to login, create an account or change their password.  
      * Author: Jaclyn Cuevas
-     * Last Updated: 3/7/18 DD
+     * Last Updated: 4/11/18 DD
      **/
+
+    require("../../php/login.php");
  ?>
 
 <!DOCTYPE html>
@@ -16,7 +18,6 @@
         <title>FLEX</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../../css/style.css">
-        <script src="../../javascript/login.js"></script>
     </head>
     
     <body>
@@ -28,7 +29,6 @@
             FLEX    
         </h1>
 
-	 <script src="../js/scripts.js"></script>
         <form method="POST" action="">
             <label for="formUser">Username: </label>
             	<input type="text" id="formUser" name="formUser"><br><br>
@@ -48,7 +48,7 @@
             <br>
             <div style="float:left; display: block;">&copy; 2018 <br>Fairfield University <br>School of Nursing</div>
             <div style="float: right; display: block">
-            1073 North Benson Road
+            <br>1073 North Benson Road
             <br>Fairfield, CT 06824
             </div>
         </footer>
