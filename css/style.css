@@ -134,9 +134,20 @@ footer, footer .div
     background-color: black;
     color: white;
     overflow: hidden;
-    padding-bottom: 15px;
+    padding: 5px 0;
 }
-footer div:last-of-type
+footer .leftFootCol
 {
+    float: left;
+    padding-left: 5px;
+}
+footer .rightFootCol
+{
+    float: right;
     text-align: right;
+    padding-right: 5px; 
+}
+footer .clear
+{
+    clear: both;
 }
