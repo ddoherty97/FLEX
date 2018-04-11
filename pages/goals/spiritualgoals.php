@@ -110,20 +110,11 @@
         		<div id="ifDuration" style="display:none;">
 					<label for="durationGoal">Spiritual Duration Goal<sup>*</sup>: </label>
 						<input type="text" name="durationGoal" id="durationGoal" size="5"> Minutes<br>
-						<p>
-							<i>A Spiritual Duration Goal sets a goal based on spending a certain amount of time 
-							on spiritual activities. For example, a goal could be that you want to spend 3 hours 
-							a week at the chapel.</i>
-						</p>
 				</div>
 
 				<div id="ifEvents" style="display:none;">
 					<label for="eventGoal">Spiritual Events Goal<sup>*</sup>: </label>
 						<input type="text" name="eventGoal" id="eventGoal" size="5"> Events<br>
-						<p>
-							<i>A Spiritual Events Goal sets a goal based on attending a certain amount of spiritual events.
-							  For example, a goal could be that you want to attend 2 masses a week.</i>
-						</p>
 				</div>
 				
 				<label for="numDays">Number of Days to Achieve Goal<sup>*</sup>: </label>
