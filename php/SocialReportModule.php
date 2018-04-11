@@ -9,6 +9,8 @@
 
     require_once("CommunicationModule.php");
     require_once("SocialGoalModule.php");
+    require_once("SocialEntry.php");
+    require_once("SocialReport.php");
 	
 	class SocialReportModule
 	{
@@ -90,6 +92,56 @@
         }//close getSocialProgress
 
         /**
+         * getSocialEntries()
+         * This method builds an array of all social activity entries
+         * Parameters:  $startDate->date to start selecting entries
+         *              $endDate->date to stop selecting entries
+         * Returns: array of SocialEntry objects
+         * Exceptions: none
+         **/
+        function getSocialEntries($startDate, $endDate)
+        {
+            //array to contain all social entries
+            $socialEntries = [];
+            $entryIndex = 0;
+            
+            //format date objects for use in SQL
+            $startDateDisplay = date_format($startDate,'Y-m-d H:i:s');
+            $endDateDisplay = date_format($endDate,'Y-m-d H:i:s');
+
+            //get all social data points in data range
+            $socialSQL = "SELECT *
+                          FROM SOCIAL_DATA
+                          WHERE SOCIAL_DATA_OWNER='$this->dataOwner'
+                          AND SOCIAL_ACTIVITY_DATE BETWEEN '$startDateDisplay' AND '$endDateDisplay'";
+            $entries = $this->comMod->queryDatabase($socialSQL);
+
+            //read all social entries, create objects, and add to array
+            while($currEntry = mysqli_fetch_array($entries))
+            {
+                //get details from database
+                $id = $currEntry['SOCIAL_DATA_ID'];
+                $date = $currEntry['SOCIAL_ACTIVITY_DATE'];
+                $title = $currEntry['SOCIAL_ACTIVITY_TITLE'];
+                $location = $currEntry['SOCIAL_ACTIVITY_LOCATION'];
+                $duration = $currEntry['SOCIAL_ACTIVITY_DURATION'];
+                $type = $currEntry['SOCIAL_ACTIVITY_TYPE'];
+                $notes = $currEntry['SOCIAL_ACTIVITY_NOTES'];
+                $timestamp = $currEntry['SOCIAL_DATA_TIMESTAMP'];
+                
+                //create social entry
+                $entry = new SocialEntry($id, date_create($date), $title, $location, $duration, $type, $notes, $timestamp);
+
+                //add object to array
+                $socialEntries[$entryIndex] = $entry;
+                $entryIndex++;
+            }//end while
+
+            //return array of entries
+            return $socialEntries;
+        }//close getSocialEntries
+
+        /**
          * getSocialReport()
          * This method builds a report of all the social events attended
          * Parameters:  $startDate->date to start selecting to add in the report
@@ -99,7 +151,18 @@
          **/
         function getSocialReport($startDate, $endDate)
         {
+            //get all social goals
+            $goals = $this->socialMod->getSocialActivityGoals();
 
+            //get all social goal progresses
+            $progresses = $this->getSocialProgress();
+
+            //get all social activity entries
+            $entries = $this->getSocialEntries($startDate, $endDate);
+
+            //build and return social report object
+            $report = new SocialReport($goals, $progresses, $entries, $startDate, $endDate);
+            return $report;
         }//close getSocialReport
     }//close SocialReportModule
 ?>
