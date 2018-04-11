@@ -52,6 +52,7 @@
         <title>FLEX</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
          <link rel="stylesheet" href="../../css/style.css">
+		 <link rel="stylesheet" href="../../css/reportstyle.css">
     </head>
     
     <body>
@@ -109,10 +110,10 @@
 					
 					echo "Entry on <em>".date_format($entries[$i]->getEntryDate(),"m/d/Y")."</em><br><br>";
 					echo "<em>".$entries[$i]->getTitle()."</em><br>";
-					echo "Type of Activity: <em>".$entries[$i]->getType()."</em><br>";
-					echo "Location: <em>".$entries[$i]->getLocation()."</em><br>";
+					echo "Type of Activity: ".$entries[$i]->getType()."<br>";
+					echo "Location: ".$entries[$i]->getLocation()."<br>";
 					echo "Time Spent: <strong>".$entries[$i]->getDuration()."</strong> Minutes<br>";
-					echo "Notes: <em>".$entries[$i]->getNotes()."</em><br>";
+					echo "Notes: ".$entries[$i]->getNotes()."<br>";
 				}//end for
 				echo "</div>";
 			}//end if
@@ -124,18 +125,18 @@
 			}//end if
 
 			//get social goals and progresses
-			$sGoals = $report->getSocialGoals();
-			$sProgresses = $report->getSocialProgresses();
+			$goals = $report->getSocialGoals();
+			$progresses = $report->getSocialProgresses();
 
 			//if there are any goals to show
-			if(count($cGoals) > 0)
+			if(count($goals) > 0)
 			{
 				echo "<br>";
 				echo "<h3>Current Goal Status</h3>";
 				echo "<div class='goals'>";
 
 				//display all active social goals
-				for($i=0; $i<count($cGoals); $i++)
+				for($i=0; $i<count($goals); $i++)
 				{
 					//hide separation bar if first item
 					if($i!=0)
@@ -143,12 +144,13 @@
 						echo "<hr>";
 					}//end if
 
-					echo $sGoals[$i]->getMinutes()." minutes in ".$sGoals[$i]->getNumDays()." day(s)<br>";
-					echo "<progress value=".($sProgresses[$i]*100)." max='100'></progress><br>";
-					echo ($sProgresses[$i]*100)."% Complete<br><br>";
+					echo $goals[$i]->getMinutes()." minutes in ".$goals[$i]->getNumDays()." day(s)<br>";
+					echo "(of type ".$goals[$i]->getType().")<br>";
+					echo "<progress value=".($progresses[$i]*100)." max='100'></progress><br>";
+					echo ($progresses[$i]*100)."% Complete<br><br>";
 					
 					//remove button
-					echo "<a href='../../php/RemoveSocialGoal.php?goalID=".$sGoals[$i]->getID()."'>";
+					echo "<a href='../../php/RemoveSocialGoal.php?goalID=".$goals[$i]->getID()."'>";
 					echo "<input type='button' value='Delete Goal'>";
 					echo "</a>";
 				}//end for				

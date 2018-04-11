@@ -109,7 +109,7 @@
                 </div>
 	                
                 <label for="numDays">Goal Time to Spend on Activity<sup>*</sup>: </label>
-                    <input type="text" name="time" id="time" size="5"> Hours<br><br>
+                    <input type="text" name="time" id="time" size="5"> Minutes<br><br>
 	                
                 <label for="numDays">Number of Days to Achieve Goal<sup>*</sup>: </label>
                     <input type="text" name="numDays" id="numDays" size="5"> Day(s)<br><br>
