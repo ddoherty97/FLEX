@@ -54,8 +54,8 @@
             <a href="dietarygoals.php" style="text-decoration: none; ">Dietary Goals</a><br><br>
             <a href="fitnessgoals.php" style="text-decoration: none; ">Fitness Goals</a><br><br>
             <a href="mentalgoals.php" style="text-decoration: none; ">Mental Goals</a><br><br>
-            <a href="socialgoals.php" style="text-decoration: none; ">Social Goals</a><br><br>
             <a href="screentimegoals.php" style="text-decoration: none; ">Screen Time Goals</a><br><br>
+            <a href="socialgoals.php" style="text-decoration: none; ">Social Goals</a><br><br>
             <a href="spiritualgoals.php" style="text-decoration: none; ">Spiritual Goals</a><br><br>
             
         </main>
