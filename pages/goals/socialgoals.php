@@ -4,7 +4,7 @@
      * This creates the user interface to record the user's social goals
 	 * Initially assigned to Muhammad Mubasit
      * Author: Jaclyn Cuevas
-     * Last Updated: 3/28/18 JC
+     * Last Updated: 4/11/18 DD
      **/
 
     //check if session is already running

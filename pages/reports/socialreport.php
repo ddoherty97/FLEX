@@ -4,7 +4,7 @@
      * This creates the user interface of the user's social report.
 	 * Initally assigned to Sarah Kurtz
      * Author: Jaclyn Cuevas
-     * Last Updated: 4/10/18 JC
+     * Last Updated: 4/11/18 DD
      **/
 
     ini_set('display_errors', 1);
