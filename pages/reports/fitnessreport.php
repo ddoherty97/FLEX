@@ -109,18 +109,20 @@
 					
 					echo "Entry on <em>".date_format($entries[$i]->getEntryDate(),"m/d/Y")."</em><br><br>";
 					
-					//if a cardio entry
-					if(substr($entries[$i]->getType(), 0, 5) == "CARDIO")
+					echo "Raw entry type: ".$entries[$i]->getType()."<br><br>";
+
+					//if a cardio entries
+					if(substr($entries[$i]->getType(), 0, 6) == "CARDIO")
 					{
-						if(substr($entries[$i]->getType(), 7) == "DISTANCE")
+						if(substr($entries[$i]->getType(), 8) == "DISTANCE")
 						{
 							echo "<strong>".$entries[$i]->getMilestone()."</strong> Miles<br>";
 						}//end if
-						else if(substr($entries[$i]->getType(), 7) == "SPEED")
+						else if(substr($entries[$i]->getType(), 8) == "SPEED")
 						{
 							echo "<strong>".$entries[$i]->getMilsetone()."</strong> MPH<br>";
 						}//end if
-						else if(substr($entries[$i]->getType(), 7) == "TIME")
+						else if(substr($entries[$i]->getType(), 8) == "TIME")
 						{
 							echo "<strong>".$entries[$i]->getMilsetone()."</strong> Minutes<br>";
 						}//end if
@@ -131,21 +133,21 @@
 					}//end if
 					
 					//if a strength entry
-					else if(substr($entries[$i]->getType(), 0, 7) == "DISTANCE")
+					else if(substr($entries[$i]->getType(), 0, 8) == "STRENGTH")
 					{
-						if(substr($entries[$i]->getType(), 9) == "BICEP")
+						if(substr($entries[$i]->getType(), 10) == "BICEP")
 						{
 							echo "Bicep Curl <strong>".$entries[$i]->getMilestone()."</strong> Lbs<br>";
 						}//end if
-						else if(substr($entries[$i]->getType(), 9) == "CHEST")
+						else if(substr($entries[$i]->getType(), 10) == "CHEST")
 						{
 							echo "Chest Press <strong>".$entries[$i]->getMilestone()."</strong> Lbs<br>";
 						}//end if
-						else if(substr($entries[$i]->getType(), 9) == "DEADLIFT")
+						else if(substr($entries[$i]->getType(), 10) == "DEADLIFT")
 						{
 							echo "Deadlift <strong>".$entries[$i]->getMilestone()."</strong> Lbs<br>";
 						}//end if
-						else if(substr($entries[$i]->getType(), 9) == "SQUAT")
+						else if(substr($entries[$i]->getType(), 10) == "SQUAT")
 						{
 							echo "Squat <strong>".$entries[$i]->getMilestone()."</strong> Lbs<br>";
 						}//end if
