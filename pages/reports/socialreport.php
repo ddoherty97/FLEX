@@ -111,7 +111,7 @@
 					echo "<em>".$entries[$i]->getTitle()."</em><br>";
 					echo "Type of Activity: <em>".$entries[$i]->getType()."</em><br>";
 					echo "Location: <em>".$entries[$i]->getLocation()."</em><br>";
-					echo "Time Spent: <strong>".$entries[$i]->getDuration()."</strong><br>";
+					echo "Time Spent: <strong>".$entries[$i]->getDuration()."</strong> Minutes<br>";
 					echo "Notes: <em>".$entries[$i]->getNotes()."</em><br>";
 				}//end for
 				echo "</div>";
