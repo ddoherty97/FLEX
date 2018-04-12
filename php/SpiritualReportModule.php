@@ -9,6 +9,8 @@
 
     require_once("CommunicationModule.php");
     require_once("SpiritualGoalModule.php");
+    require_once("SpiritualEntry.php");
+    require_once("SpiritualReport.php");
 	
 	class SpiritualReportModule
 	{
@@ -130,6 +132,56 @@
         }//close getSpiritualDurationProgress
 
         /**
+         * getSpiritualEntries()
+         * This method builds an array of all spiritual entries
+         * Parameters:  $startDate->date to start selecting entries
+         *              $endDate->date to stop selecting entries
+         * Returns: array of SpiritualEntry objects
+         * Exceptions: none
+         **/
+        function getSpiritualEntries($startDate, $endDate)
+        {
+            //array to contain all spiritual entries
+            $spiritualEntries = [];
+            $entryIndex = 0;
+            
+            //format date objects for use in SQL
+            $startDateDisplay = date_format($startDate,'Y-m-d H:i:s');
+            $endDateDisplay = date_format($endDate,'Y-m-d H:i:s');
+
+            //get all spiritual data points in data range
+            $spiritSQL = "SELECT *
+                          FROM SPIRITUAL_DATA
+                          WHERE SPIRITUAL_DATA_OWNER='$this->dataOwner'
+                          AND SPIRITUAL_ACTIVITY_DATE BETWEEN '$startDateDisplay' AND '$endDateDisplay'";
+            $entries = $this->comMod->queryDatabase($spiritSQL);
+
+            //read all spiritual entries, create objects, and add to array
+            while($currEntry = mysqli_fetch_array($entries))
+            {
+                //get details from database
+                $id = $currEntry['SPIRITUAL_DATA_ID'];
+                $date = $currEntry['SPIRITUAL_ACTIVITY_DATE'];
+                $title = $currEntry['SPIRITUAL_ACTIVITY_TITLE'];
+                $location = $currEntry['SPIRITUAL_ACTIVITY_LOCATION'];
+                $duration = $currEntry['SPIRITUAL_ACTIVITY_DURATION'];
+                $type = $currEntry['SPIRITUAL_ACTIVITY_TYPE'];
+                $notes = $currEntry['SPIRITUAL_ACTIVITY_NOTES'];
+                $timestamp = $currEntry['SPIRITUAL_DATA_TIMESTAMP'];
+
+                //create dietary object
+                $entry = new SpiritualEntry($id, date_create($date), $title, $location, $duration, $type, $notes, $timestamp);
+
+                //add object to array
+                $spiritualEntries[$entryIndex] = $entry;
+                $entryIndex++;
+            }//end while
+
+            //return array of entries
+            return $spiritualEntries;
+        }//close getSpiritualEntries
+
+        /**
          * getSpiritualReport()
          * This method builds a report of all the spiritual events attended
          * Parameters:  $startDate->date to start selecting to add in the report
@@ -139,7 +191,24 @@
          **/
         function getSpiritualReport($startDate, $endDate)
         {
+            //get all duration goals
+            $durationGoals = $this->spiritMod->getSpiritualDurationGoals();
 
+            //get all duration goal progresses
+            $durationProgress = $this->getSpiritualDurationProgress();
+
+            //get all event goals
+            $eventGoals = $this->spiritMod->getSpiritualEventGoals();
+
+            //get all event goal progresses
+            $eventProgress = $this->getSpiritualDurationProgress();
+
+            //get all spiritual entries
+            $entries = $this->getSpiritualEntries($startDate, $endDate);
+
+            //build and return spiritual report object
+            $report = new SpiritualReport($durationGoals, $eventGoals, $durationProgress, $eventProgress, $entries, $startDate, $endDate);
+            return $report;
         }//close getSpiritualReport
     }//close SpiritualReportModule
 ?>
