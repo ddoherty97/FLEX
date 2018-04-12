@@ -41,13 +41,6 @@
                 $duration = "0";
             }//end if
 
-            //if no type provided
-            if($type == "")
-            {
-                //assign new title
-                $type = "Only Stress Level Provided";
-            }//end if
-
             //if no notes provided
             if($notes == "")
             {

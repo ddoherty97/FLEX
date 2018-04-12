@@ -51,7 +51,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>FLEX</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-         <link rel="stylesheet" href="../../css/style.css">
+		<link rel="stylesheet" href="../../css/style.css">
+		<link rel="stylesheet" href="../../css/reportstyle.css">
     </head>
     
     <body>
@@ -112,16 +113,20 @@
 					//if a counseling entry
 					if($entries[$i]->getDuration() != "0")
 					{
-						echo "<em>".$entries[$i]->getType()."</em><br>";
-						echo "<strong>".$entries[$i]->getDuration()."</strong> Minutes<br>";
-						echo "<em>Notes: ".$entires[$i]->getNotes()."</em><br>";
+						echo "<strong>".$entries[$i]->getDuration()."</strong> Minute ".$entries[$i]->getType()." Counseling Session<br>";
+						echo "<em>Session Notes:</em> ".$entries[$i]->getNotes()."<br>";
 					}//end if
 					
 					//if a stress entry
 					if($entries[$i]->getLevel() != "0")
 					{
+						if($entries[$i]->getDuration() != "0")
+						{
+							echo "<br>";
+						}//end if
+
 						echo "Stress Level: <strong>".$entries[$i]->getLevel()."</strong><br>";
-						echo "Factors: <em>".$entries[$i]->getFactors()."</em><br>";
+						echo "<em>Stress Factors:</em> ".$entries[$i]->getFactors()."<br>";
 					}//end if
 				}//end for
 
@@ -156,7 +161,7 @@
 						echo "<hr>";
 					}//end if
 
-					echo $cGoals[$i]->getMinutes()." minutes ".$cGoals[$i]->getNumDays()." day(s)<br>";
+					echo $cGoals[$i]->getMinutes()." minutes of counseling in ".$cGoals[$i]->getNumDays()." day(s)<br>";
 					echo "<progress value=".($cProgresses[$i]*100)." max='100'></progress><br>";
 					echo ($cProgresses[$i]*100)."% Complete<br><br>";
 					
