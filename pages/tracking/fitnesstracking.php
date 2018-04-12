@@ -164,13 +164,13 @@
                         </select>
 					</div>
 					<div id="ifWeightChange" style="display: none;">
-						<label for="milestone">New Weight<sup>*</sup></label>
+						<label for="milestone">New Weight<sup>*:</sup></label><br>
 						<input type="text" id="weightChange" name="weightChange"> lbs
 					</div>
 				<br>
 				<div id="milestone" style="display: none;">
 				<label for="milestone">Milestone<sup>*</sup>:</label>
-					<input type="text" id="milestone" name="milestone">
+					<input type="text" id="milestone" name="milestone" size="7">
 					<select id="milestoneType" name="milestoneType">
 						<option value="">Select</option> 
 						<option value="">Lbs</option> 

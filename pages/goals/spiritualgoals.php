@@ -108,7 +108,7 @@
 					</select> <br><br>
         	
         		<div id="ifDuration" style="display:none;">
-					<label for="durationGoal">Spiritual Duration Goal<sup>*</sup>: </label>
+					<label for="durationGoal">Spiritual Duration Goal<sup>*</sup>: </label><br>
 						<input type="text" name="durationGoal" id="durationGoal" size="5"> Minutes<br>
 				</div>
 

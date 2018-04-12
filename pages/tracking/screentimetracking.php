@@ -81,7 +81,7 @@
 					<input type="date" id = "date" name="date">
 				<br>
 				<br>
-				<label for="speed">Time Spent on Device<sup>*</sup>: </label>
+				<label for="speed">Time Spent on Device<sup>*</sup>: </label><br>
 					<input type="text" name="time" id="time" size="7"> minutes<br><br>
 				
 				<label for="type">Type of device Used: </label>

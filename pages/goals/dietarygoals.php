@@ -105,12 +105,12 @@
                 <br><br>
 					
                 <div id="ifCalories" style="display:none;">
-                    <label for="calories">Daily Calorie Intake Goal<sup>*</sup>: </label>
+                    <label for="calories">Daily Calorie Intake Goal<sup>*</sup>: </label><br>
                         <input type="text" name="calories" id="calories" size="6"> Calories<br><br>
                 </div>
 					
                 <div id="ifWater" style="display:none;">
-                    <label for="water">Daily Water Intake Goal<sup>*</sup>: </label>
+                    <label for="water">Daily Water Intake Goal<sup>*</sup>: </label><br>
                         <input type="text" name="water" id="water" size="6"> Ounces<br><br>
                 </div>
 					
