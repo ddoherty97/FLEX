@@ -51,7 +51,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>FLEX</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-         <link rel="stylesheet" href="../../css/style.css">
+		<link rel="stylesheet" href="../../css/style.css">
+		<link rel="stylesheet" href="../../css/reportstyle.css">
     </head>
     
     <body>
@@ -163,7 +164,7 @@
 						echo "<hr>";
 					}//end if
 
-					echo $eGoals[$i]->getEvents()." events in ".$eGoals[$i]->getNumDays()." day(s)<br>";
+					echo "Attend ".$eGoals[$i]->getEvents()." events in ".$eGoals[$i]->getNumDays()." day(s)<br>";
 					echo "<progress value=".($eProgresses[$i]*100)." max='100'></progress><br>";
 					echo ($eProgresses[$i]*100)."% Complete<br><br>";
 					
