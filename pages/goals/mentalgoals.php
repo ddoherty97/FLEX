@@ -132,12 +132,17 @@
 			</form>
         </main>
         <footer>
-            <br>
-            <div style="float:left; display: block;">&copy; 2018 <br>Fairfield University <br>School of Nursing</div>
-            <div style="float: right; display: block">
-            <br>1073 North Benson Road
-            <br>Fairfield, CT 06824
+            <div class="leftFootCol">
+                &copy; 2018
+                    <br>
+                Fairfield University
             </div>
-        </footer>          
+            <div class="rightFootCol">
+                1073 North Benson Road
+                    <br>
+                Fairfield, CT 06824
+            </div>
+            <div class="clear"></div>
+        </footer>         
     </body>
 </html>
