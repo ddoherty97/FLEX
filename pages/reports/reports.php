@@ -130,8 +130,9 @@
                         <option value="Spiritual">Spiritual</option>
                         <option value="Screen Time">Screen Time</option>
                     </select>
-                    <br>
                     <div class="errorMSG" id="type_error"></div>
+                    <br>
+                    
                     <!--Second drop down unnecessary since entire report is generated-->
                     <!--<div id="ifFitness" style="display: none;">
                     <br>

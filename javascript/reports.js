@@ -80,6 +80,7 @@ function validateUserSubmission()
             isValid = false;
         }//end else
     }//end else
+    return isValid;
 }//close validateUserSubmission
 
 
