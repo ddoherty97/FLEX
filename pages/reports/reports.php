@@ -37,7 +37,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>FLEX</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-       <link rel="stylesheet" href="../../css/style.css">
+       	<link rel="stylesheet" href="../../css/style.css">
+       	<script src="../../javascript/reports.js"></script>
         <!--<link rel="stylesheet" href="../../css/reportstyle.css">-->
         
               <!--Not needed since second drop down is unnecessary -->
@@ -118,7 +119,7 @@
                 }//end if
             ?>
 
-            <form method="POST" action="../../php/GenerateReport.php">
+            <form method="POST" action="../../php/GenerateReport.php" onsubmit="return validateUserSubmission();">
 				<label for="reportType">Type of report to generate:</label>
                     <select id="reportType" name="reportType" onchange="check(this);">
                         <option value="-1" selected>Select</option>
@@ -130,6 +131,7 @@
                         <option value="Screen Time">Screen Time</option>
                     </select>
                     <br>
+                    <div class="errorMSG" id="type_error"></div>
                     <!--Second drop down unnecessary since entire report is generated-->
                     <!--<div id="ifFitness" style="display: none;">
                     <br>
@@ -183,10 +185,12 @@
 				    <br><br>
                     	<label>Start Date: </label>
                     		<input type="date" id = "sDate" name="sDate">
-                    <br><br>
+                    		<div class="errorMSG" id="start_error"></div>
+                    	<br><br>
                     	<label>End Date: </label>
                     		<input type="date" id = "eDate" name="eDate">
-                    <br><br>
+                    		<div class="errorMSG" id="end_error"></div>
+                    	<br><br>
 					<button type="submit" name="submit" id="submit" value="Submit">Submit</button>
 				</form>
         </main>
