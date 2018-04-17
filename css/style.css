@@ -122,6 +122,13 @@ li.dropdown
     color: #e03a3e;
 }
 
+.errorMSG
+{
+    color: red;
+    padding: 5px;
+    font-size: .8em;
+}
+
 footer  
 {
     position: fixed;
