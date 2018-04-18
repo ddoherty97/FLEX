@@ -36,7 +36,7 @@
         <title>FLEX</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../../css/style.css">
-        
+        <script src="../../javascript/dietarytracking.js"></script>
         
         <script>
             function check(that) 
@@ -104,15 +104,15 @@
             ?>
 			<p>Lets track your Diet!<br></p>
 
-			<form action="../../php/CreateDietaryData.php" method="POST">
+			<form action="../../php/CreateDietaryData.php" method="POST" onsubmit="return validateDietaryTrackingSubmission();">
 				<label for = "date">Date</label><sup>*</sup>: 
-					<input type="date" id = "date" name="date" >
-				<br>
-				<br>
+					<input type="date" id="date" name="date" >
+				<div class="errorMSG" id="date_error"></div>
+                <br>
 				<label for="type">Time of Consumption</label><sup>*</sup>: 
-					<input type="time" id = "time" name="time">
-				<br>
-				<br>
+					<input type="time" id="time" name="time">
+                <div class="errorMSG" id="time_error"></div>
+                <br>
 				<label for="dataType">Type of Consumption<sup>*</sup>: </label>
 	 				<select id="dataType" name="dataType" onchange="check(this);">
 						<option value="-1">Select</option>  
@@ -120,24 +120,24 @@
 	  					<option value="WATER">Water</option>
 	  					<option value="BOTH">Both</option>
                     </select>
-                <br>
+                <div class="errorMSG" id="type_error"></div>
                 <br>
                 <div id="ifCalories" style="display: none;">
-					<label for="type">Item(s) Consumed: </label>
-						<input type="text" id = "type" name="type">
+					<label for="type">Item(s) Consumed<sup>*</sup>: </label>
+						<input type="text" id="type" name="type">
+                    <div class="errorMSG" id="item_error"></div>
 					<br>
-					<br>
-					<label for="calories">Calories Consumed: </label>
-						<input type="text" id = "calories" name="calories">
-					<br>
+					<label for="calories">Calories Consumed<sup>*</sup>: </label>
+						<input type="text" id="calories" name="calories">
+                    <div class="errorMSG" id="calorie_error"></div>
 					<br>
 				</div>
 				
 				<div id="ifOunces" style="display: none;">
 					<label for="ounces">Ounces of Water Consumed: </label>
-						<input type="text" id = "ounces" name="ounces">
-				</div>
-				<br>
+						<input type="text" id="ounces" name="ounces">
+                    <div class="errorMSG" id="water_error"></div>
+                </div>
 				<br>
 				<input type="submit" value="Submit">
 			</form>
