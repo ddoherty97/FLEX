@@ -4,7 +4,7 @@
      * This creates the user interface to record the user's social goals
 	 * Initially assigned to Muhammad Mubasit
      * Author: Jaclyn Cuevas
-     * Last Updated: 4/11/18 DD
+     * Last Updated: 4/18/18 JC
      **/
 
     //check if session is already running
@@ -37,6 +37,7 @@
         <title>FLEX</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../../css/style.css">
+        <script src="../../javascript/socialgoals.js"></script>
 
         <script>
             function check(that) 
@@ -92,28 +93,40 @@
                 }//end if
             ?>
         	
-        	<form method="POST" action="../../php/CreateSocialGoal.php">			
-	 			<label for="eventType">Type of Social Event<sup>*</sup>: </label>
-	 				<select id="eventType" name="eventType" onchange="check(this);">
-						<option value="-1">Select</option>  
-						<option value="CLUB MEETING">Club Meeting</option>
-	  					<option value="F@N">Fairfield at Night Event</option>
-	  					<option value="RA EVENT">RA Event</option>
-	  					<option value="SPORTS EVENT">Sports Game/Event</option>
-	  					<option value="0">Other</option>
-					</select> <br><br>
+        	<form method="POST" action="../../php/CreateSocialGoal.php" onsubmit="return validateSocialGoalSubmission();">			
+	 			<div>
+		 			<label for="eventType">Type of Social Event<sup>*</sup>: </label>
+		 				<select id="eventType" name="eventType" onchange="check(this);">
+							<option value="-1">Select</option>  
+							<option value="CLUB MEETING">Club Meeting</option>
+		  					<option value="F@N">Fairfield at Night Event</option>
+		  					<option value="RA EVENT">RA Event</option>
+		  					<option value="SPORTS EVENT">Sports Game/Event</option>
+		  					<option value="0">Other</option>
+						</select> 
+				</div>
+				<div class="errorMSG" id="type_error">You must provide a social goal type.</div><br>
 					
                 <div id="ifOther" style="display:none;">
-                    <label for="other">Event Type<sup>*</sup>: </label>
-                        <input type="text" name="other" id="other"><br><br>
+                    <div>
+                    	<label for="other">Event Type<sup>*</sup>: </label>
+                        	<input type="text" name="other" id="other">
+                    </div>
+                    <div class="errorMSG" id="other_error">You must provide an event type.</div><br>
                 </div>
 	                
-                <label for="numDays">Goal Time to Spend on Activity<sup>*</sup>: </label>
-                    <input type="text" name="time" id="time" size="5"> Minutes<br><br>
-	                
-                <label for="numDays">Number of Days to Achieve Goal<sup>*</sup>: </label>
-                    <input type="text" name="numDays" id="numDays" size="5"> Day(s)<br><br>
-                    
+	            <div>
+	                <label for="numDays">Goal Time to Spend on Activity<sup>*</sup>: </label>
+	                    <input type="text" name="time" id="time" size="5"> Minutes
+	            </div>    
+	            <div class="errorMSG" id="time_error">You must provide a social time goal.</div><br>
+	            
+	            <div>
+               		<label for="numDays">Number of Days to Achieve Goal<sup>*</sup>: </label>
+                	    <input type="text" name="numDays" id="numDays" size="5"> Day(s)
+                </div>
+                <div class="errorMSG" id="numDays_error">You must provide a number of days for the goal.</div><br>
+                
                 <input type="submit"  value="Add Goal">
 			</form>
         </main>
