@@ -140,7 +140,7 @@ function validateFitnessGoalSubmission()
     {
         document.getElementById("type_error").innerHTML = "";
 
-		if(strengthType == "-1")
+		if(weightType == "-1")
         {
         	document.getElementById("weightType_error").innerHTML = "You must select a type of weight goal.";
         	isValid = false;
