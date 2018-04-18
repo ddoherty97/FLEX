@@ -37,6 +37,7 @@
         <title>FLEX</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../../css/style.css">
+        <script src="../../javascript/screentimegoals.js"></script>
     </head>
     
     <body>
@@ -78,9 +79,12 @@
                 }//end if
             ?>
         	
-        	<form method="POST" action="../../php/CreateScreenTimeGoal.php">
-                <label for="screenTimeGoal">Daily Screen Time Goal<sup>*</sup>: </label>
-                    <input type="text" name="screenTimeGoal" id="screenTimeGoal" size="5"> Minutes<br><br>
+        	<form method="POST" action="../../php/CreateScreenTimeGoal.php" onsubmit="return validateScreenTimeGoalSubmission();">
+                <div>
+                	<label for="screenTimeGoal">Daily Screen Time Goal<sup>*</sup>: </label>
+                    	<input type="text" name="screenTimeGoal" id="screenTimeGoal" size="5"> Minutes
+                </div>
+                <div class="errorMSG" id="st_error">You must provide a screen time duration goal.</div><br>
                 
                 <input type="submit"  value="Add Goal">
 			</form>						
