@@ -15,7 +15,7 @@
  * Returns: TRUE if all form fields valid, FALSE otherwise
  * Exceptions: None
  **/
-function validateUserSubmission()
+function validateReportSubmission()
 {
     //get all form fields
     var type = document.getElementById("reportType").value.trim();  //report type
@@ -29,19 +29,19 @@ function validateUserSubmission()
     if(type=="-1")
     {
         //show error message and mark input invalid
-        document.getElementById("type_error").innerHTML = "You must select a type of report.";
+        document.getElementById("type_error").innerHTML = "block";
         isValid = false;
     }//end if
     else
     {
-        document.getElementById("type_error").innerHTML = "";
+        document.getElementById("type_error").innerHTML = "none";
     }//end else
     
     //ensure start date is submitted
     if(start==="")
     {
         //show error message and mark input invalid
-        document.getElementById("start_error").innerHTML = "You must enter a start date.";
+        document.getElementById("start_error").innerHTML = "block";
         isValid = false;
     }//end if
     else
@@ -49,12 +49,12 @@ function validateUserSubmission()
         //check to make sure valid date
         if(isValidDate(start))
         {
-            document.getElementById("start_error").innerHTML = "";
+            document.getElementById("start_error").innerHTML = "none";
         }//end if
         else
         {
             //show error message and mark input invalid
-            document.getElementById("start_error").innerHTML = "You must enter a valid date in the form yyyy-mm-dd.";
+            document.getElementById("start_error").innerHTML = "block";
             isValid = false;
         }//end else
     }//end else
@@ -63,7 +63,7 @@ function validateUserSubmission()
     if(end==="")
     {
         //show error message and mark input invalid
-        document.getElementById("end_error").innerHTML = "You must enter an end date.";
+        document.getElementById("end_error").innerHTML = "block";
         isValid = false;
     }//end if
     else
@@ -71,18 +71,18 @@ function validateUserSubmission()
         //check to make sure valid date
         if(isValidDate(end))
         {
-            document.getElementById("end_error").innerHTML = "";
+            document.getElementById("end_error").innerHTML = "none";
         }//end if
         else
         {
             //show error message and mark input invalid
-            document.getElementById("end_error").innerHTML = "You must enter a valid date in the form yyyy-mm-dd.";
+            document.getElementById("end_error").innerHTML = "block";
             isValid = false;
         }//end else
     }//end else
 
     return isValid;
-}//close validateUserSubmission
+}//close validateReportSubmission
 
 
 /**

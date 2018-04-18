@@ -39,51 +39,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
        	<link rel="stylesheet" href="../../css/style.css">
        	<script src="../../javascript/reports.js"></script>
-        <!--<link rel="stylesheet" href="../../css/reportstyle.css">-->
-        
-              <!--Not needed since second drop down is unnecessary -->
-              <!--<script>
-                    function check(that) {
-                        if (that.value == "Fitness") {
-                            document.getElementById("ifFitness").style.display = "block";
-                            document.getElementById("ifSocial").style.display = "none";
-                            document.getElementById("ifSpiritual").style.display = "none";
-                            document.getElementById("ifMental").style.display = "none";
-                            document.getElementById("ifDietary").style.display = "none";
-                        } else if (that.value == "Dietary") {
-                            document.getElementById("ifDietary").style.display = "block";
-                            document.getElementById("ifFitness").style.display = "none";
-                            document.getElementById("ifSocial").style.display = "none";
-                            document.getElementById("ifSpiritual").style.display = "none";
-                            document.getElementById("ifMental").style.display = "none";
-                        } else if (that.value == "Social") {
-                            document.getElementById("ifSocial").style.display = "block";
-                            document.getElementById("ifFitness").style.display = "none";
-                            document.getElementById("ifDietary").style.display = "none";
-                            document.getElementById("ifSpiritual").style.display = "none";
-                            document.getElementById("ifMental").style.display = "none";
-                        } else if (that.value == "Mental") {
-                            document.getElementById("ifMental").style.display = "block";
-                            document.getElementById("ifFitness").style.display = "none";
-                            document.getElementById("ifSocial").style.display = "none";
-                            document.getElementById("ifSpiritual").style.display = "none";
-                            document.getElementById("ifDietary").style.display = "none";
-                        } else if (that.value == "Spiritual") {
-                            document.getElementById("ifSpiritual").style.display = "block";
-                            document.getElementById("ifFitness").style.display = "none";
-                            document.getElementById("ifSocial").style.display = "none";
-                            document.getElementById("ifDietary").style.display = "none";
-                            document.getElementById("ifMental").style.display = "none";
-                        } else if (that.value == "Screen Time") {
-                            document.getElementById("ifScreenTime").style.display = "block";
-                            document.getElementById("ifSpiritual").style.display = "none";
-                            document.getElementById("ifFitness").style.display = "none";
-                            document.getElementById("ifSocial").style.display = "none";
-                            document.getElementById("ifDietary").style.display = "none";
-                            document.getElementById("ifMental").style.display = "none";
-                        }
-                    }
-                    </script>-->
     </head>
     
     <body>
@@ -119,19 +74,21 @@
                 }//end if
             ?>
 
-            <form method="POST" action="../../php/GenerateReport.php" onsubmit="return validateUserSubmission();">
-				<label for="reportType">Type of report to generate:</label>
-                    <select id="reportType" name="reportType" onchange="check(this);">
-                        <option value="-1" selected>Select</option>
-                        <option value="Fitness">Fitness</option>
-                        <option value="Dietary">Dietary</option>
-                        <option value="Social">Social</option>
-                        <option value="Mental">Mental</option>
-                        <option value="Spiritual">Spiritual</option>
-                        <option value="Screen Time">Screen Time</option>
-                    </select>
-                    <div class="errorMSG" id="type_error"></div>
-                    <br>
+            <form method="POST" action="../../php/GenerateReport.php" onsubmit="return validateReportSubmission();">
+				<div>
+					<label for="reportType">Type of report to generate:</label>
+	                    <select id="reportType" name="reportType" onchange="check(this);">
+	                        <option value="-1" selected>Select</option>
+	                        <option value="Fitness">Fitness</option>
+	                        <option value="Dietary">Dietary</option>
+	                        <option value="Social">Social</option>
+	                        <option value="Mental">Mental</option>
+	                        <option value="Spiritual">Spiritual</option>
+	                        <option value="Screen Time">Screen Time</option>
+	                    </select>
+                </div>
+                <div class="errorMSG" id="type_error">You must select a report type.</div><br>
+                <br>
                     
                     <!--Second drop down unnecessary since entire report is generated-->
                     <!--<div id="ifFitness" style="display: none;">
@@ -184,13 +141,18 @@
 					<br><br>
 				    <label for="timeRange">Time range for report:</label>
 				    <br><br>
-                    	<label>Start Date: </label>
-                    		<input type="date" id = "sDate" name="sDate">
-                    		<div class="errorMSG" id="start_error"></div>
+				    	<div>
+	                    	<label>Start Date: </label>
+	                    		<input type="date" id = "sDate" name="sDate">
+                    	</div>
+                    	<div class="errorMSG" id="start_error">You must enter a valid start date in the form yyyy-mm-dd.</div><br>
                     	<br><br>
-                    	<label>End Date: </label>
-                    		<input type="date" id = "eDate" name="eDate">
-                    		<div class="errorMSG" id="end_error"></div>
+                    	
+                    	<div>
+	                    	<label>End Date: </label>
+	                    		<input type="date" id = "eDate" name="eDate">
+                    	</div>
+                    	<div class="errorMSG" id="end_error">You must enter a valid end date in the form yyyy-mm-dd.</div><br>
                     	<br><br>
 					<button type="submit" name="submit" id="submit" value="Submit">Submit</button>
 				</form>
