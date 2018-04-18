@@ -150,18 +150,17 @@ function validateFitnessGoalSubmission()
         else
         {
         	document.getElementById("weightType_error").innerHTML = "";
-        	
+        }//end else
         	//if weight goal not provided
-        	if(weightGoal === "" || isNaN(weightGoal))
-        	{
-        		//show error message and mark input invalid
-        		document.getElementById("weightGoal_error").innerHTML = "You must provide a weight goal.";
-        		isValid = false;
-        	}//end if 
-        	else
-        	{
-        		document.getElementById("weightGoal_error").innerHTML = "";
-        	}//end else
+        if(weightGoal === "" || isNaN(weightGoal))
+        {
+        	//show error message and mark input invalid
+        	document.getElementById("weightGoal_error").innerHTML = "You must provide a weight goal.";
+        	isValid = false;
+        }//end if 
+        else
+        {
+        	document.getElementById("weightGoal_error").innerHTML = "";
         }//end else
         
     }//end else if
