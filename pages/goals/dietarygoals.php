@@ -101,33 +101,35 @@
             ?>
         	
         	<form method="POST" action="../../php/CreateDietaryGoal.php" onsubmit="return validateDietaryGoalSubmission();">				
-	 			<label for="goalType">Type of Goal<sup>*</sup>: </label>
-	 				<select id="goalType" name="goalType" onchange="show(this);">
-						<option value="-1">Select</option>  
-						<option value="0">Calorie Intake</option>
-	  					<option value="1">Water Intake</option>
-                    </select>
-                    <div class="errorMSG" id="type_error"></div>
-                
-                <br>
+                <div> 
+                    <label for="goalType">Type of Goal<sup>*</sup>: </label>
+                        <select id="goalType" name="goalType" onchange="show(this);">
+                            <option value="-1">Select</option>  
+                            <option value="0">Calorie Intake</option>
+                            <option value="1">Water Intake</option>
+                        </select>
+                </div>
+                <div class="errorMSG" id="type_error">You must select a type of goal.</div>
 					
                 <div id="ifCalories" style="display:none;">
-                    <label for="calories">Daily Calorie Intake Goal<sup>*</sup>: </label><br>
-                        <input type="text" name="calories" id="calories" size="6"> Calories<br>
-                        <div class="errorMSG" id="calorie_error"></div>
+                    <br>
+                    <div>
+                        <label for="calories">Daily Calorie Intake Goal<sup>*</sup>: </label><br>
+                            <input type="text" name="calories" id="calories" size="6"> Calories
+                    </div>
+                    <div class="errorMSG" id="calorie_error">You must enter the goal number of calories.</div>
                 </div>
 					
                 <div id="ifWater" style="display:none;">
-                    <label for="water">Daily Water Intake Goal<sup>*</sup>: </label><br>
-                        <input type="text" name="water" id="water" size="6"> Ounces<br>
-                        <div class="errorMSG" id="water_error"></div>
+                    <br>
+                    <div>
+                        <label for="water">Daily Water Intake Goal<sup>*</sup>: </label><br>
+                            <input type="text" name="water" id="water" size="6"> Ounces
+                    </div>
+                    <div class="errorMSG" id="water_error">You must enter the goal number of ounces of water.</div>
                 </div>
-					
-                <!-- this is unneeded since the goals are daily. So, numDays always == 1
-                    <label for="numDays">Number of Days to Achieve Goal<sup>*</sup>: </label>
-                        <input type="text" name="numDays" id="numDays" size="5"> Day(s)
-                -->
- 						
+                 
+                <br>
  				<input type="submit"  value="Add Goal">
 			</form>
         </main>

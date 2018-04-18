@@ -29,14 +29,14 @@ function validateDietaryGoalSubmission()
     if(type == "-1")
     {
         //show error message and mark input invalid
-        document.getElementById("type_error").innerHTML = "You must select a type of goal.";
+        document.getElementById("type_error").style.display = "block";
         isValid = false;
     }//end if
     
     //if calories selected 
     else if(type == "0")
     {
-        document.getElementById("type_error").innerHTML = "";
+        document.getElementById("type_error").style.display = "none";
         
         //use subfunction to determine if calories valid
         if(!validateCalories(calories, "calorie_error"))
@@ -48,7 +48,7 @@ function validateDietaryGoalSubmission()
     //if water selected 
     else if(type == "1")
     {
-        document.getElementById("type_error").innerHTML = "";
+        document.getElementById("type_error").style.display = "none";
 
         //use subfunction to determine if water valid
         if(!validateWater(water, "water_error"))
@@ -77,12 +77,12 @@ function validateCalories(calValue, calError)
     if(calValue==="" || isNaN(calValue))
     {
         //show error message and mark input invalid
-        document.getElementById(calError).innerHTML = "You must enter the goal number of calories.";
+        document.getElementById(calError).style.display = "block";
         calValid = false;
     }//end if
     else
     {
-        document.getElementById(calError).innerHTML = "";
+        document.getElementById(calError).style.display = "none";
     }//end else
 
     return calValid;
@@ -105,12 +105,12 @@ function validateWater(waterValue, errorID)
     if(waterValue==="" || isNaN(waterValue))
     {
         //show error message and mark input invalid
-        document.getElementById(errorID).innerHTML = "You must enter the goal number of ounces of water.";
+        document.getElementById(errorID).style.display = "block";
         waterValid = false;
     }//end if
     else
     {
-        document.getElementById(errorID).innerHTML = "";
+        document.getElementById(errorID).style.display = "none";
     }//end else
 
     return waterValid;
