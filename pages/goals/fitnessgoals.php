@@ -37,6 +37,7 @@
         <title>FLEX</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../../css/style.css">
+        <script src="../../javascript/fitnessgoals.js"></script>
 
         <!--This will allow certain options to be visible when specific options are chosen -->
         <script>
@@ -130,7 +131,7 @@
                 }//end if
             ?>
         	
-        	<form method="POST" action="../../php/CreateFitnessGoal.php">				
+        	<form method="POST" action="../../php/CreateFitnessGoal.php" onsubmit="return validateFitnessGoalSubmission();">				
 	 			<label for="goalType">Type of Fitness<sup>*</sup>: </label>
 	 				<select id="goalType" name="goalType" onchange="check(this);">
 						<option value="-1">Select</option>  
@@ -138,6 +139,7 @@
 	  					<option value="STRENGTH">Strength</option>
 	  					<option value="WEIGHT">Weight Gain/Loss</option>
                     </select>
+                    <div class="errorMSG" id="type_error"></div>
                 
                 <br><br>
 					
@@ -150,6 +152,7 @@
                             <option value="SPEED">Speed</option>
                             <option value="TIME">Time</option>
                         </select>
+                        <div class="errorMSG" id="cardio_error"></div>
                     </div>
                     
                 <br>
@@ -157,14 +160,17 @@
 					<div id="ifDistance" style="display:none;">
 						<label for="distance">Goal Distance<sup>*</sup>: </label>
 					    	<input type="text" name="distance" id="distance" size="5"> Miles<br><br>
+					    	<div class="errorMSG" id="distance_error"></div>
 					</div>
 					<div id="ifSpeed" style="display:none;">
 						<label for="speed">Goal Speed<sup>*</sup>: </label>
 							<input type="text" name="speed" id="speed" size="5"> MPH<br><br>
+							<div class="errorMSG" id="speed_error"></div>
 					</div>
 					<div id="ifTime" style="display:none;">
 						<label for="time">Goal Time<sup>*</sup>: </label>
 							<input type="text" name="time" id="time" size="5"> Minutes<br><br>
+							<div class="errorMSG" id="time_error"></div>
 					</div>
 					
 					<!--Strength Types-->
@@ -177,8 +183,11 @@
                             <option value="DEADLIFT">Deadlift</option>
                             <option value="SQUAT">Squat</option>
                         </select>
+                        <div class="errorMSG" id="strengthType_error"></div>
 						
-						<input type="text" name="maxWeight" id="maxWeight" size="5"> lbs<br><br><br>
+						<input type="text" name="maxWeight" id="maxWeight" size="5"> lbs
+						<div class="errorMSG" id="strengthGoal_error"></div>
+						<br><br><br>
 					</div>
 					
 					<div id="ifWeight" style="display: none;"> 
@@ -187,14 +196,19 @@
                             <option value="-1">Select</option>
                             <option value="GAIN">Weight Gain</option>
                             <option value="LOSS">Weight Loss</option>
-                        </select><br>
+                        </select>
+                        <div class="errorMSG" id="weightType_error"></div><br>
                         
                         <label for="weightDif">Weight Difference<sup>*</sup>: </label>
-						<input type="text" name="weightDif" id="weightDif" size="5"> lbs<br><br><br>
+						<input type="text" name="weightDif" id="weightDif" size="5"> lbs
+						<div class="errorMSG" id="weightGoal_error"></div>
+						<br><br><br>
 					</div>
 					
 				<label for="numDays">Number of Days to Achieve Goal<sup>*</sup>: </label>
- 					<input type="text" name="numDays" id="numDays" size="5"> Day(s)<br><br>
+ 					<input type="text" name="numDays" id="numDays" size="5"> Day(s)
+ 					<div class="errorMSG" id="numDays_error"></div>
+ 					<br><br>
  				
  				<input type="submit"  value="Add Goal">
             </form>	
