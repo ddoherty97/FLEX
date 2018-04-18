@@ -32,38 +32,38 @@ function validateDietaryTrackingSubmission()
     if(date==="" || !isValidDate(date))
     {
          //show error message and mark input invalid
-         document.getElementById("date_error").innerHTML = "You must enter a date in the format YYYY-MM-DD.";
+         document.getElementById("date_error").style.display = "block";
          isValid = false;
     }//end if
     else
     {
-        document.getElementById("date_error").innerHTML = "";
+        document.getElementById("date_error").style.display = "none";
     }//end else
 
     //ensure time in correct format
     if(time==="" || !isValidTime(time))
     {
          //show error message and mark input invalid
-         document.getElementById("time_error").innerHTML = "You must enter a valid military time.";
+         document.getElementById("time_error").style.display = "block";
          isValid = false;
     }//end if
     else
     {
-        document.getElementById("time_error").innerHTML = "";
+        document.getElementById("time_error").style.display = "none";
     }//end else
 
     //ensure consumption type picked
     if(type=="-1")
     {
         //show error message and mark input invalid
-        document.getElementById("type_error").innerHTML = "You must select a consumption type.";
+        document.getElementById("type_error").style.display = "block";
         isValid = false;
     }//end if
 
     //if calories selected
     else if(type=="CALORIES")
     {
-        document.getElementById("type_error").innerHTML = "";
+        document.getElementById("type_error").style.display = "none";
 
         //use subfunction to determine if calories valid
         if(!validateCalories(items, calories, "item_error", "calorie_error"))
@@ -75,7 +75,7 @@ function validateDietaryTrackingSubmission()
     //if water selected
     else if(type=="WATER")
     {
-        document.getElementById("type_error").innerHTML = "";
+        document.getElementById("type_error").style.display = "none";
 
         //use subfunction to determine if water valid
         if(!validateWater(water, "water_error"))
@@ -87,7 +87,7 @@ function validateDietaryTrackingSubmission()
     //if both selected
     else if(type=="BOTH")
     {
-        document.getElementById("type_error").innerHTML = "";
+        document.getElementById("type_error").style.display = "none";
         
         //use subfunction to determine if calories and water valid
         if(!validateCalories(items, calories, "item_error", "calorie_error") && !validateWater(water, "water_error"))
@@ -177,24 +177,24 @@ function validateCalories(itemValue, calValue, itemError, calError)
     if(itemValue==="")
     {
         //show error message and mark input invalid
-        document.getElementById(itemError).innerHTML = "You must enter at least one item consumed.";
+        document.getElementById(itemError).style.display = "block";
         calValid = false;
     }//end if
     else
     {
-        document.getElementById(itemError).innerHTML = "";
+        document.getElementById(itemError).style.display = "none";
     }//end else
 
     //if no calorie intake provided
     if(calValue==="" || isNaN(calValue))
     {
         //show error message and mark input invalid
-        document.getElementById(calError).innerHTML = "You must enter the number of calories consumed.";
+        document.getElementById(calError).style.display = "block";
         calValid = false;
     }//end if
     else
     {
-        document.getElementById(calError).innerHTML = "";
+        document.getElementById(calError).style.display = "none";
     }//end else
 
     return calValid;
@@ -217,12 +217,12 @@ function validateWater(waterValue, errorID)
     if(waterValue==="" || isNaN(waterValue))
     {
         //show error message and mark input invalid
-        document.getElementById(errorID).innerHTML = "You must enter the number of ounces consumed.";
+        document.getElementById(errorID).style.display = "block";
         waterValid = false;
     }//end if
     else
     {
-        document.getElementById(errorID).innerHTML = "";
+        document.getElementById(errorID).style.display = "none";
     }//end else
 
     return waterValid;

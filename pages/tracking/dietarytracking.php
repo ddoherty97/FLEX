@@ -105,43 +105,57 @@
 			<p>Lets track your Diet!<br></p>
 
 			<form action="../../php/CreateDietaryData.php" method="POST" onsubmit="return validateDietaryTrackingSubmission();">
-				<label for = "date">Date</label><sup>*</sup>: 
-					<input type="date" id="date" name="date" >
-				<div class="errorMSG" id="date_error"></div>
-                <br>
-				<label for="type">Time of Consumption</label><sup>*</sup>: 
-					<input type="time" id="time" name="time">
-                <div class="errorMSG" id="time_error"></div>
-                <br>
-				<label for="dataType">Type of Consumption<sup>*</sup>: </label>
-	 				<select id="dataType" name="dataType" onchange="check(this);">
-						<option value="-1">Select</option>  
-						<option value="CALORIES">Calories</option>
-	  					<option value="WATER">Water</option>
-	  					<option value="BOTH">Both</option>
-                    </select>
-                <div class="errorMSG" id="type_error"></div>
-                <br>
+                <div>
+                    <label for = "date">Date</label><sup>*</sup>: 
+                        <input type="date" id="date" name="date">
+                </div>
+				<div class="errorMSG" id="date_error">You must enter a date in the format YYYY-MM-DD.</div>
+                    <br>
+                <div>
+                    <label for="type">Time of Consumption</label><sup>*</sup>: 
+                        <input type="time" id="time" name="time">
+                </div>
+                <div class="errorMSG" id="time_error">You must enter a valid time.</div>
+                    <br>
+                <div>
+                    <label for="dataType">Type of Consumption<sup>*</sup>: </label>
+                        <select id="dataType" name="dataType" onchange="check(this);">
+                            <option value="-1">Select</option>  
+                            <option value="CALORIES">Calories</option>
+                            <option value="WATER">Water</option>
+                            <option value="BOTH">Both</option>
+                        </select>
+                </div>
+                <div class="errorMSG" id="type_error">You must select a consumption type.</div>
+                
+                
                 <div id="ifCalories" style="display: none;">
-					<label for="type">Item(s) Consumed<sup>*</sup>: </label>
-						<input type="text" id="type" name="type">
-                    <div class="errorMSG" id="item_error"></div>
-					<br>
-					<label for="calories">Calories Consumed<sup>*</sup>: </label>
-						<input type="text" id="calories" name="calories">
-                    <div class="errorMSG" id="calorie_error"></div>
-					<br>
+                        <br>
+                    <div>
+                        <label for="type">Item(s) Consumed<sup>*</sup>: </label>
+                            <input type="text" id="type" name="type">
+                    </div>
+                    <div class="errorMSG" id="item_error">You must enter at least one item consumed.</div>
+                        <br>
+                    <div>
+                        <label for="calories">Calories Consumed<sup>*</sup>: </label>
+                            <input type="text" id="calories" name="calories">
+                    </div>
+                    <div class="errorMSG" id="calorie_error">You must enter the number of calories consumed.</div>
 				</div>
 				
 				<div id="ifOunces" style="display: none;">
-					<label for="ounces">Ounces of Water Consumed: </label>
-						<input type="text" id="ounces" name="ounces">
-                    <div class="errorMSG" id="water_error"></div>
+                        <br>
+                    <div>
+                        <label for="ounces">Ounces of Water Consumed: </label>
+                            <input type="text" id="ounces" name="ounces">
+                    </div>
+                    <div class="errorMSG" id="water_error">You must enter the number of ounces consumed.</div>
                 </div>
-				<br>
+                
+                <br>
 				<input type="submit" value="Submit">
 			</form>
-
         </main>
         <footer>
             <div class="leftFootCol">
