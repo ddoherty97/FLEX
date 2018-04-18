@@ -3,7 +3,7 @@
      * Dietary Tracking Front End (dietarytracking.php)
      * This creates the user interface to record the user's dietary information
      * Author: John Wiley
-     * Last Updated: 4/3/18 JC
+     * Last Updated: 4/18/18 DD
      **/
      
     //check if session is already running
