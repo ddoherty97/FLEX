@@ -63,43 +63,37 @@ function validateDietaryTrackingSubmission()
     //if calories selected
     else if(type=="CALORIES")
     {
+        document.getElementById("type_error").innerHTML = "";
+
         //use subfunction to determine if calories valid
         if(!validateCalories(items, calories, "item_error", "calorie_error"))
         {
             isValid = false;
         }//end if
-        else
-        {
-            document.getElementById("type_error").innerHTML = "";
-        }//end else
     }//end if
 
     //if water selected
     else if(type=="WATER")
     {
+        document.getElementById("type_error").innerHTML = "";
+
         //use subfunction to determine if water valid
         if(!validateWater(water, "water_error"))
         {
             isValid = false;
         }//end if
-        else
-        {
-            document.getElementById("type_error").innerHTML = "";
-        }//end else
     }//end if
 
     //if both selected
     else if(type=="BOTH")
     {
+        document.getElementById("type_error").innerHTML = "";
+        
         //use subfunction to determine if calories and water valid
         if(!validateCalories(items, calories, "item_error", "calorie_error") && !validateWater(water, "water_error"))
         {
             isValid = false;
         }//end if
-        else
-        {
-            document.getElementById("type_error").innerHTML = "";
-        }//end else
     }//end if
 
     //return validity of form fields

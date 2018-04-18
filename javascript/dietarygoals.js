@@ -36,29 +36,25 @@ function validateDietaryGoalSubmission()
     //if calories selected 
     else if(type == "0")
     {
-    	//use subfunction to determine if calories valid
+        document.getElementById("type_error").innerHTML = "";
+        
+        //use subfunction to determine if calories valid
         if(!validateCalories(calories, "calorie_error"))
         {
             isValid = false;
         }//end if
-        else
-        {
-            document.getElementById("type_error").innerHTML = "";
-        }//end else
     }//end else if
     
     //if water selected 
     else if(type == "1")
     {
-    	//use subfunction to determine if water valid
+        document.getElementById("type_error").innerHTML = "";
+
+        //use subfunction to determine if water valid
         if(!validateWater(water, "water_error"))
         {
             isValid = false;
         }//end if
-        else
-        {
-            document.getElementById("type_error").innerHTML = "";
-        }//end else
     }//end else if
 
     return isValid;
