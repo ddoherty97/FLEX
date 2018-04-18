@@ -37,6 +37,7 @@
         <title>FLEX</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../../css/style.css">
+        <script src="../../javascript/mentalgoals.js"></script>
 
 		<script>
 			function check(that) 
@@ -94,38 +95,51 @@
                 }//end if
             ?>
         	
-        	<form method="POST" action="../../php/CreateMentalGoal.php">
-        	 				
-	 			<label for="goalType">Type of Goal<sup>*</sup>: </label>
-	 				<select id="goalType" name="goalType" onchange="check(this);">
-						<option value="-1">Select</option>  
-						<option value="0">Counseling</option>
-	  					<option value="1">Stress Level</option>
-					</select> <br><br>
+        	<form method="POST" action="../../php/CreateMentalGoal.php" onsubmit="return validateMentalGoalSubmission();">
+	 			<div>
+		 			<label for="goalType">Type of Goal<sup>*</sup>: </label>
+		 				<select id="goalType" name="goalType" onchange="check(this);">
+							<option value="-1">Select</option>  
+							<option value="0">Counseling</option>
+		  					<option value="1">Stress Level</option>
+						</select> 
+				</div>
+					<div class="errorMSG" id="type_error">You must select a type of mental goal.</div>
+					<br>
 					
 				<div id="ifCounseling" style="display:none;">
-					<label for="counselingTimeGoal">Counseling Time Goal<sup>*</sup>: </label>
-						<input type="text" name="counselingTimeGoal" id="counselingTimeGoal" size="5"> Hours<br><br>
-					<label for="numDays">Number of Days to Achieve Goal<sup>*</sup>: </label>
- 						<input type="text" name="numDays" id="numDays" size="5"> Day(s)<br><br>
+					<div>
+						<label for="counselingTimeGoal">Counseling Time Goal<sup>*</sup>: </label>
+							<input type="text" name="counselingTimeGoal" id="counselingTimeGoal" size="5"> Hours
+					</div>
+					<div class="errorMSG" id="counseling_error">You must provide a counseling time goal.</div><br>
+					
+					<div>
+						<label for="numDays">Number of Days to Achieve Goal<sup>*</sup>: </label>
+	 						<input type="text" name="numDays" id="numDays" size="5"> Day(s)
+ 					</div>	
+ 					<div class="errorMSG" id="numDays_error">You must provide a number of days for the goal.</div><br>
 				</div>
 					
 				<div id="ifStress" style="display:none;">
-					<label for="stressLevelGoal">Daily Goal Stress Level<sup>*</sup>: </label>
-						<select id="stressLevelGoal" name="stressLevelGoal" onchange="check(this);">
-							<option value="-1">Select</option>  
-							<option value="0">0</option>
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-							<option value="9">9</option>
-							<option value="10">10</option>
-						</select> <br><br>
+					<div>
+						<label for="stressLevelGoal">Daily Goal Stress Level<sup>*</sup>: </label>
+							<select id="stressLevelGoal" name="stressLevelGoal" onchange="check(this);">
+								<option value="-1">Select</option>  
+								<option value="0">0</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+								<option value="7">7</option>
+								<option value="8">8</option>
+								<option value="9">9</option>
+								<option value="10">10</option>
+							</select> 
+					</div>
+						<div class="errorMSG" id="stress_error">You must provide a stress level goal.</div><br>
 				</div>
  						
  				<input type="submit"  value="Add Goal">
