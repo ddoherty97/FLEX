@@ -119,6 +119,8 @@ function validateFitnessGoalSubmission()
         //if strength type selected
         else
         {
+        	document.getElementById("strengthType_error").innerHTML = "";
+        	
         	//if strength goal not provided
         	if(strengthGoal === "" || isNaN(strengthGoal))
         	{
@@ -147,6 +149,8 @@ function validateFitnessGoalSubmission()
         //if weight type selected
         else
         {
+        	document.getElementById("weightType_error").innerHTML = "";
+        	
         	//if weight goal not provided
         	if(weightGoal === "" || isNaN(weightGoal))
         	{
@@ -165,7 +169,7 @@ function validateFitnessGoalSubmission()
     if(numDays === "" || isNaN(numDays))
     {
     	//show error message and mark input invalid
-        document.getElementById("numDays_error").innerHTML = "You must provide a n goal.";
+        document.getElementById("numDays_error").innerHTML = "You must provide a number of days for the goal.";
         isValid = false;
     }
 	else
