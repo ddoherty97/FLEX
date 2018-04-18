@@ -5,7 +5,7 @@
 	 * The user specifies which report to create and is brought 
 	 * to that specific report page.  
      * Author: Sarah Kurtz
-     * Last Updated: 4/8/18 JC
+     * Last Updated: 4/18/18 JC
      **/
 
     //check if session is already running
