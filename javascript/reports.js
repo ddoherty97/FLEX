@@ -81,7 +81,6 @@ function validateUserSubmission()
         }//end else
     }//end else
 
-    alert("")
     return isValid;
 }//close validateUserSubmission
 
