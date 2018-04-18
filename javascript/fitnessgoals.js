@@ -36,70 +36,70 @@ function validateFitnessGoalSubmission()
     if(type == "-1")
     {
         //show error message and mark input invalid
-        document.getElementById("type_error").innerHTML = "You must select a type of fitness goal.";
+        document.getElementById("type_error").style.display = "block";
         isValid = false;
     }//end if
     
     //if cardio selected 
     else if(type == "CARDIO")
     {
-        document.getElementById("type_error").innerHTML = "";
+        document.getElementById("type_error").style.display = "none";
         
         //if no cardio type selected
         if(cardioType == "-1")
         {
-        	document.getElementById("cardio_error").innerHTML = "You must select a type of cardio goal.";
+        	document.getElementById("cardio_error").style.display = "block";
         	isValid = false;
         }//end if
         //if distance goal selected
         else if(cardioType == "DISTANCE")
         {
-        	document.getElementById("cardio_error").innerHTML = "";
+        	document.getElementById("cardio_error").style.display = "none";
         	
         	//if distance goal not provided
         	if(distanceGoal === "" || isNaN(distanceGoal))
         	{
         		//show error message and mark input invalid
-        		document.getElementById("distance_error").innerHTML = "You must provide a distance goal.";
+        		document.getElementById("distance_error").style.display = "block";
         		isValid = false;
         	}//end if
         	else
     		{
-        		document.getElementById("distance_error").innerHTML = "";
+        		document.getElementById("distance_error").style.display = "none";
     		}//end else
         }
         //if speed goal selected 
 		else if(cardioType == "SPEED")
     	{
-    		document.getElementById("cardio_error").innerHTML = "";
+    		document.getElementById("cardio_error").style.display = "none";
     		
     		//if speed goal not provided
         	if(speedGoal === "" || isNaN(speedGoal))
         	{
         		//show error message and mark input invalid
-        		document.getElementById("speed_error").innerHTML = "You must provide a speed goal.";
+        		document.getElementById("speed_error").style.display = "block";
         		isValid = false;
         	}//end if
         	else
     		{
-        		document.getElementById("speed_error").innerHTML = "";
+        		document.getElementById("speed_error").style.display = "none";
     		}//end else
     	}//end else if
     	//if time goal selected 
     	else if(cardioType == "TIME")
     	{
-    		document.getElementById("cardio_error").innerHTML = "";
+    		document.getElementById("cardio_error").style.display = "none";
     		
         	//if distance goal not provided
         	if(timeGoal === "" || isNaN(timeGoal))
         	{
         		//show error message and mark input invalid
-        		document.getElementById("time_error").innerHTML = "You must provide a time goal.";
+        		document.getElementById("time_error").style.display = "block";
         		isValid = false;
         	}//end if
         	else
     		{
-        		document.getElementById("time_error").innerHTML = "";
+        		document.getElementById("time_error").style.display = "none";
     		}//end else
     	}//end else if
     }//end cardio else if
@@ -107,60 +107,60 @@ function validateFitnessGoalSubmission()
     //if strength selected 
     else if(type == "STRENGTH")
     {
-        document.getElementById("type_error").innerHTML = "";
+        document.getElementById("type_error").style.display = "none";
         
 		//if no strength type selected
         if(strengthType == "-1")
         {
-        	document.getElementById("strengthType_error").innerHTML = "You must select a type of strength goal.";
+        	document.getElementById("strengthType_error").style.display = "block";
         	isValid = false;
         }//end if
         
         //if strength type selected
         else
         {
-        	document.getElementById("strengthType_error").innerHTML = "";
-        	
-        	//if strength goal not provided
-        	if(strengthGoal === "" || isNaN(strengthGoal))
-        	{
-        		//show error message and mark input invalid
-        		document.getElementById("strengthGoal_error").innerHTML = "You must provide a strength goal.";
-        		isValid = false;
-        	}//end if 
-        	else
-        	{
-        		document.getElementById("strengthGoal_error").innerHTML = "";
-        	}//end else
-        }//end else
+        	document.getElementById("strengthType_error").style.display = "none";
+		}//end else
+		
+		//if strength goal not provided
+		if(strengthGoal === "" || isNaN(strengthGoal))
+		{
+			//show error message and mark input invalid
+			document.getElementById("strengthGoal_error").style.display = "block";
+			isValid = false;
+		}//end if 
+		else
+		{
+			document.getElementById("strengthGoal_error").style.display = "none";
+		}//end else
     }//end else if
     
     //if weight selected
     else if(type == "WEIGHT")
     {
-        document.getElementById("type_error").innerHTML = "";
+        document.getElementById("type_error").style.display = "none";
 
 		if(weightType == "-1")
         {
-        	document.getElementById("weightType_error").innerHTML = "You must select a type of weight goal.";
+        	document.getElementById("weightType_error").style.display = "block";
         	isValid = false;
         }//end if
         
         //if weight type selected
         else
         {
-        	document.getElementById("weightType_error").innerHTML = "";
+        	document.getElementById("weightType_error").style.display = "none";
         }//end else
         	//if weight goal not provided
         if(weightGoal === "" || isNaN(weightGoal))
         {
         	//show error message and mark input invalid
-        	document.getElementById("weightGoal_error").innerHTML = "You must provide a weight goal.";
+        	document.getElementById("weightGoal_error").style.display = "block";
         	isValid = false;
         }//end if 
         else
         {
-        	document.getElementById("weightGoal_error").innerHTML = "";
+        	document.getElementById("weightGoal_error").style.display = "none";
         }//end else
         
     }//end else if
@@ -168,12 +168,12 @@ function validateFitnessGoalSubmission()
     if(numDays === "" || isNaN(numDays))
     {
     	//show error message and mark input invalid
-        document.getElementById("numDays_error").innerHTML = "You must provide a number of days for the goal.";
+        document.getElementById("numDays_error").style.display = "block";
         isValid = false;
     }
 	else
 	{
-		document.getElementById("numDays_error").innerHTML = "";
+		document.getElementById("numDays_error").style.display = "none";
 	}
     return isValid;
 }//close validateFitnessGoalSubmission

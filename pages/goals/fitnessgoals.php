@@ -132,19 +132,21 @@
             ?>
         	
         	<form method="POST" action="../../php/CreateFitnessGoal.php" onsubmit="return validateFitnessGoalSubmission();">				
-	 			<label for="goalType">Type of Fitness<sup>*</sup>: </label>
-	 				<select id="goalType" name="goalType" onchange="check(this);">
-						<option value="-1">Select</option>  
-						<option value="CARDIO">Cardio</option>
-	  					<option value="STRENGTH">Strength</option>
-	  					<option value="WEIGHT">Weight Gain/Loss</option>
-                    </select>
-                    <div class="errorMSG" id="type_error"></div>
-                
-                <br><br>
+                <div> 
+                    <label for="goalType">Type of Fitness<sup>*</sup>: </label>
+                        <select id="goalType" name="goalType" onchange="check(this);">
+                            <option value="-1">Select</option>  
+                            <option value="CARDIO">Cardio</option>
+                            <option value="STRENGTH">Strength</option>
+                            <option value="WEIGHT">Weight Gain/Loss</option>
+                        </select>
+                </div>
+                <div class="errorMSG" id="type_error">You must select a type of fitness goal.</div>
+                <br>
 					
-					<!--Cardio Types-->
-					<div id="ifCardio" style="display: none;">
+				<!--Cardio Types-->
+				<div id="ifCardio" style="display: none;">
+                    <div>
 						<label for="cardioType">Type of Cardio<sup>*</sup>: </label>
                         <select id="cardioType" name="cardioType" onchange="check2(this);">
                         	<option value="-1">Select</option>
@@ -152,29 +154,39 @@
                             <option value="SPEED">Speed</option>
                             <option value="TIME">Time</option>
                         </select>
-                        <div class="errorMSG" id="cardio_error"></div>
                     </div>
-                    
-                <br>
-						
-					<div id="ifDistance" style="display:none;">
+                    <div class="errorMSG" id="cardio_error">You must select a type of cardio goal.</div>
+                    <br>
+                </div>
+                		
+			    <div id="ifDistance" style="display:none;">
+                    <div>
 						<label for="distance">Goal Distance<sup>*</sup>: </label>
-					    	<input type="text" name="distance" id="distance" size="5"> Miles<br><br>
-					    	<div class="errorMSG" id="distance_error"></div>
-					</div>
-					<div id="ifSpeed" style="display:none;">
+                            <input type="text" name="distance" id="distance" size="5"> Miles
+                    </div>
+                    <div class="errorMSG" id="distance_error">You must provide a distance goal.</div>
+                    <br>
+                </div>
+                <div id="ifSpeed" style="display:none;">
+                    <div>
 						<label for="speed">Goal Speed<sup>*</sup>: </label>
-							<input type="text" name="speed" id="speed" size="5"> MPH<br><br>
-							<div class="errorMSG" id="speed_error"></div>
-					</div>
-					<div id="ifTime" style="display:none;">
+                            <input type="text" name="speed" id="speed" size="5"> MPH
+                    </div>
+                    <div class="errorMSG" id="speed_error">You must provide a speed goal.</div>
+                    <br>
+                </div>
+                <div id="ifTime" style="display:none;">
+                    <div>
 						<label for="time">Goal Time<sup>*</sup>: </label>
-							<input type="text" name="time" id="time" size="5"> Minutes<br><br>
-							<div class="errorMSG" id="time_error"></div>
-					</div>
+                            <input type="text" name="time" id="time" size="5"> Minutes
+                    </div>
+                    <div class="errorMSG" id="time_error">You must provide a time goal.</div>
+                    <br>
+                </div>
 					
-					<!--Strength Types-->
-					<div id="ifStrength" style="display: none;">
+                <!--Strength Types-->
+                <div id="ifStrength" style="display: none;">
+                    <div>
 						<label for="strengthType">Type of Weight Training<sup>*</sup>: </label>
                         <select id="strengthType" name="strengthType">
                         	<option value="-1">Select</option>
@@ -183,32 +195,40 @@
                             <option value="DEADLIFT">Deadlift</option>
                             <option value="SQUAT">Squat</option>
                         </select>
-                        <div class="errorMSG" id="strengthType_error"></div>
-						
-						<input type="text" name="maxWeight" id="maxWeight" size="5"> lbs
-						<div class="errorMSG" id="strengthGoal_error"></div>
-						<br><br><br>
-					</div>
+                    </div>
+                    <div class="errorMSG" id="strengthType_error">You must select a type of strength goal.</div>
+                    <br>
+                    <div>
+                        Goal<sup>*</sup>: <input type="text" name="maxWeight" id="maxWeight" size="5"> lbs
+                    </div>
+                    <div class="errorMSG" id="strengthGoal_error">You must provide a strength goal.</div>
+                    <br>
+                </div>
 					
-					<div id="ifWeight" style="display: none;"> 
+                <div id="ifWeight" style="display: none;"> 
+                    <div>
 						<label for="weightType">Gain or Loss<sup>*</sup>: </label>
 						<select id="weightType" name="weightType">
                             <option value="-1">Select</option>
                             <option value="GAIN">Weight Gain</option>
                             <option value="LOSS">Weight Loss</option>
                         </select>
-                        <div class="errorMSG" id="weightType_error"></div><br>
-                        
+                    </div>
+                    <div class="errorMSG" id="weightType_error">You must select a type of weight goal.</div><br>
+                    <div>    
                         <label for="weightDif">Weight Difference<sup>*</sup>: </label>
-						<input type="text" name="weightDif" id="weightDif" size="5"> lbs
-						<div class="errorMSG" id="weightGoal_error"></div>
-						<br><br><br>
-					</div>
+                        <input type="text" name="weightDif" id="weightDif" size="5"> lbs
+                    </div>
+                    <div class="errorMSG" id="weightGoal_error">You must provide a weight goal.</div>
+                    <br>
+                </div>
 					
-				<label for="numDays">Number of Days to Achieve Goal<sup>*</sup>: </label>
- 					<input type="text" name="numDays" id="numDays" size="5"> Day(s)
- 					<div class="errorMSG" id="numDays_error"></div>
- 					<br><br>
+				<div>
+                    <label for="numDays">Number of Days to Achieve Goal<sup>*</sup>: </label>
+                         <input type="text" name="numDays" id="numDays" size="5"> Day(s)
+                </div>
+                <div class="errorMSG" id="numDays_error">You must provide a number of days for the goal.</div>
+                <br>
  				
  				<input type="submit"  value="Add Goal">
             </form>	
