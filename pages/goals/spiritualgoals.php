@@ -37,6 +37,7 @@
         <title>FLEX</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../../css/style.css">
+        <script src="../../javascript/spiritualgoals.js"></script>
 
 		<script>			
 			function check(that) 
@@ -99,27 +100,38 @@
                 }//end if
             ?>
         	
-        	<form method="POST" action="../../php/CreateSpiritualGoal.php">
-				<label for="spiritualGoalType">Spiritual Goal Type<sup>*</sup>: </label>
-	 				<select id="spiritualGoalType" name="spiritualGoalType" onchange="check(this);">
-						<option value="-1">Select</option>  
-			  			<option value="0">Duration</option>
-						<option value="1">Events</option>
-					</select> <br><br>
+        	<form method="POST" action="../../php/CreateSpiritualGoal.php" onsubmit="return validateSpiritualGoalSubmission();">
+				<div>
+					<label for="spiritualGoalType">Spiritual Goal Type<sup>*</sup>: </label>
+		 				<select id="spiritualGoalType" name="spiritualGoalType" onchange="check(this);">
+							<option value="-1">Select</option>  
+				  			<option value="0">Duration</option>
+							<option value="1">Events</option>
+						</select>
+				</div> 
+				<div class="errorMSG" id="type_error">You must provide a spiritual goal type.</div><br>
         	
         		<div id="ifDuration" style="display:none;">
-					<label for="durationGoal">Spiritual Duration Goal<sup>*</sup>: </label><br>
-						<input type="text" name="durationGoal" id="durationGoal" size="5"> Minutes<br>
+					<div>
+						<label for="durationGoal">Spiritual Duration Goal<sup>*</sup>: </label><br>
+							<input type="text" name="durationGoal" id="durationGoal" size="5"> Minutes
+					</div>
+					<div class="errorMSG" id="duration_error">You must provide a duration goal.</div><br>
 				</div>
 
 				<div id="ifEvents" style="display:none;">
-					<label for="eventGoal">Spiritual Events Goal<sup>*</sup>: </label>
-						<input type="text" name="eventGoal" id="eventGoal" size="5"> Events<br>
+					<div>
+						<label for="eventGoal">Spiritual Events Goal<sup>*</sup>: </label>
+							<input type="text" name="eventGoal" id="eventGoal" size="5"> Events
+					</div>
+					<div class="errorMSG" id="events_error">You must provide an events goal.</div><br>
 				</div>
 				
-				<label for="numDays">Number of Days to Achieve Goal<sup>*</sup>: </label>
- 					<input type="text" name="numDays" id="numDays" size="5"> Day(s)<br><br>
- 						
+				<div>
+					<label for="numDays">Number of Days to Achieve Goal<sup>*</sup>: </label>
+ 						<input type="text" name="numDays" id="numDays" size="5"> Day(s)
+ 				</div>	
+ 				<div class="errorMSG" id="numDays_error">You must provide a number of days for the goal.</div><br>	
  				<input type="submit"  value="Add Goal">
  			</form>
 		</main>
