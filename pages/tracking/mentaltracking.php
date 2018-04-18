@@ -3,7 +3,7 @@
      * Mental Tracking Front End (mentaltracking.php)
      * This creates the user interface to record the user's mental health activities
      * Author: John Wiley
-     * Last Updated: 4/3/18 JC
+     * Last Updated: 4/18/18 DD
      **/
      
     //check if session is already running
@@ -36,6 +36,7 @@
         <title>FLEX</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../../css/style.css">
+        <script src="../../javascript/mentaltracking.js"></script>
         
          <script>
             function check(that) 
@@ -84,10 +85,10 @@
         </nav>
         </header>
         <main>
-        		<h1> FLEX </h1>
+        	<h1> FLEX </h1>
 			<h2>Mental Health Tracking</h2>
 			
-			 <?php
+			<?php
                 //display status of last data recording result
                 if($result=="f")
                 {
@@ -104,58 +105,76 @@
             ?>
 			<p>Lets track some of your Mental Health Activities!</p>
 
-			<form action="../../php/CreateMentalData.php" method="POST">
-				<label for = "date">Date</label><sup>*</sup>: 
-					<input type="date" id = "date" name="date" >
-				<br>
-				<br>
-				<label for="type">Start Time: </label>
-					<input type="time" id = "sTime" name="sTime">
-				<br>
-				<br>
-				<label for="type">End Time: </label>
-					<input type="time" id = "eTime" name="eTime">
-				<br>
-				<br>
-	 			<select id="dataType" name="dataType" onchange="check(this);">
-					<option value="-1">Select</option>  
-					<option value="COUNSELING">Enter Counseling Information</option>
-	  				<option value="STRESS">Enter Stress Level</option>
-	  				<option value="BOTH">Enter Both</option>
-                </select>
-                <br>
-                <br>
+			<form action="../../php/CreateMentalData.php" method="POST" onsubmit="return validateMentalTrackingSubmission();">
+                <div>
+                    <label for = "date">Date</label><sup>*</sup>: 
+                        <input type="date" id = "date" name="date">
+                </div>
+				<div class="errorMSG" id="date_error">You must enter a date in the format YYYY-MM-DD.</div>
+                    <br>
+                <div>
+                    <label for="type">Start Time<sup>*</sup>: </label>
+                        <input type="time" id="sTime" name="sTime">
+                </div>
+				<div class="errorMSG" id="sTime_error">You must enter a start valid time.</div>
+                    <br>
+                <div>
+                    <label for="type">End Time<sup>*</sup>: </label>
+                        <input type="time" id="eTime" name="eTime">
+                </div>
+				<div class="errorMSG" id="eTime_error">You must enter a end valid time.</div>
+                    <br>
+                <div>
+                    <select id="dataType" name="dataType" onchange="check(this);">
+                        <option value="-1">Select</option>  
+                        <option value="COUNSELING">Enter Counseling Information</option>
+                        <option value="STRESS">Enter Stress Level</option>
+                        <option value="BOTH">Enter Counseling &amp; Stress</option>
+                    </select>
+                </div>
+                <div class="errorMSG" id="type_error">You must select a data type to track.</div>
+                
                 <div id="ifCounseling" style="display: none;">
-					<label for="type">Type of Counseling: </label>
-						<input type="text" id="notes" name="notes">
-					<br>
-					<br>
-					<label for="textarea">Counseling Notes: </label>
-						<textarea rows="4" id="textarea" name="other" cols="20"></textarea>
-					<br>
-					<br>
-				</div>
+                    <br>
+                    <div>
+                        <label for="type">Type of Counseling<sup>*</sup>: </label>
+                            <input type="text" id="notes" name="notes">
+                    </div>
+					<div class="errorMSG" id="cNotes_error">You must enter the counseling type.</div>
+                        <br>
+                    <div>
+                        <label for="textarea">Counseling Notes: </label>
+                            <textarea rows="4" id="textarea" name="other" cols="20"></textarea>
+                    </div>
+                </div>
+                
 				<div id="ifStress" style="display: none;">
-					<label for="type">Current Stress Level: </label>
-						<select name="level">
-			  				<option value="1">1</option>
-			  				<option value="2">2</option>
-			  				<option value="3">3</option>
-			  				<option value="4">4</option>
-			  				<option value="5">5</option>
-			  				<option value="6">6</option>
-			  				<option value="7">7</option>
-			  				<option value="8">8</option>
-			  				<option value="9">9</option>
-			  				<option value="10">10</option>		
-						</select>
-					<br>
-					<br>
-					<label for="type">Factors Contributing to Stress Level: </label>
-						<textarea rows="4" id="textarea1" name="factors" cols="20"></textarea>
-					<br>
-					<br>	
-				</div>
+                    <br>
+                    <div>
+                        <label for="type">Current Stress Level<sup>*</sup>: </label>
+                            <select name="level" id="level">
+                                <option value="-1">Select</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>		
+                            </select>
+                    </div>
+					<div class="errorMSG" id="stress_error">You must select a stress level.</div>
+                        <br>
+                    <div>
+                        <label for="type">Factors Contributing to Stress Level: </label>
+                            <textarea rows="4" id="textarea1" name="factors" cols="20"></textarea>
+                    </div>	
+                </div>
+                
+                <br>
 				<input type="submit" value="Submit">
 			</form>
         </main>
