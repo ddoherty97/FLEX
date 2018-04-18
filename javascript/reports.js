@@ -4,11 +4,11 @@
  *      all required form fields on the reports page. 
  * 
  * Author: Jaclyn Cuevas
- * Last Updated: 4/17/18 JC
+ * Last Updated: 4/18/18 JC
  **/
 
 /**
- * validateUserSubmission()
+ * validateReportSubmission()
  * This method checks the required form fields to ensure they are
  *      all filled out and displays errors when they are not
  * Parameters:  None
@@ -18,7 +18,7 @@
 function validateReportSubmission()
 {
     //get all form fields
-    var type = document.getElementById("reportType").value.trim();  //report type
+    var type = document.getElementById("reportType").value;  		//report type
     var start = document.getElementById("sDate").value.trim();      //start date
     var end = document.getElementById("eDate").value.trim();      	//end date
     
@@ -26,61 +26,40 @@ function validateReportSubmission()
     var isValid = true;
     
     //ensure report type is submitted
-    if(type=="-1")
+    if(type == "-1")
     {
         //show error message and mark input invalid
-        document.getElementById("type_error").innerHTML = "block";
+        document.getElementById("type_error").style.display = "block";
         isValid = false;
     }//end if
     else
     {
-        document.getElementById("type_error").innerHTML = "none";
+        document.getElementById("type_error").style.display = "none";
     }//end else
     
     //ensure start date is submitted
-    if(start==="")
+    if(start === "" || !isValidDate(start))
     {
         //show error message and mark input invalid
-        document.getElementById("start_error").innerHTML = "block";
+        document.getElementById("start_error").style.display = "block";
         isValid = false;
     }//end if
     else
     {
-        //check to make sure valid date
-        if(isValidDate(start))
-        {
-            document.getElementById("start_error").innerHTML = "none";
-        }//end if
-        else
-        {
-            //show error message and mark input invalid
-            document.getElementById("start_error").innerHTML = "block";
-            isValid = false;
-        }//end else
+       document.getElementById("start_error").style.display = "none";
     }//end else
     
-    //ensure end date is submitted
-    if(end==="")
+     //ensure end date is submitted
+    if(end === "" || !isValidDate(end))
     {
         //show error message and mark input invalid
-        document.getElementById("end_error").innerHTML = "block";
+        document.getElementById("end_error").style.display = "block";
         isValid = false;
     }//end if
     else
     {
-        //check to make sure valid date
-        if(isValidDate(end))
-        {
-            document.getElementById("end_error").innerHTML = "none";
-        }//end if
-        else
-        {
-            //show error message and mark input invalid
-            document.getElementById("end_error").innerHTML = "block";
-            isValid = false;
-        }//end else
+       document.getElementById("end_error").style.display = "none";
     }//end else
-
     return isValid;
 }//close validateReportSubmission
 

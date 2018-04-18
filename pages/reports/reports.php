@@ -78,7 +78,7 @@
 				<div>
 					<label for="reportType">Type of report to generate:</label>
 	                    <select id="reportType" name="reportType" onchange="check(this);">
-	                        <option value="-1" selected>Select</option>
+	                        <option value="-1">Select</option>
 	                        <option value="Fitness">Fitness</option>
 	                        <option value="Dietary">Dietary</option>
 	                        <option value="Social">Social</option>
@@ -88,57 +88,8 @@
 	                    </select>
                 </div>
                 <div class="errorMSG" id="type_error">You must select a report type.</div><br>
-                <br>
-                    
-                    <!--Second drop down unnecessary since entire report is generated-->
-                    <!--<div id="ifFitness" style="display: none;">
-                    <br>
-                    	<label for="type">Type of Fitness Report: </label>
-	                        <select if="fitness" name="fitness">
-	                            <option value="CARDIO">Cardio</option>
-	                            <option value="STRENGTH">Strength</option>
-	                            <option value="WEIGHT">Weight Gain/Loss</option>
-	                        </select>
-                    </div>   
-                    <div id="ifDietary" style="display: none;">
-                    <br>
-                    	<label for="type">Type of Dietary Report: </label>
-	                        <select id="dietary" name="dietary">
-	                            <option value="CALORIES">Calorie Intake</option>
-	                            <option value="WATER">Water Intake</option>
-	                        </select>
-                    </div>
-                    <div id="ifSocial" style="display: none;">
-                    <br>
-                    	<label for="type">Type of Social Report: </label>
-	                        <select id="social" name="social">
-	                            <option value="CLUB">Club Meeting</option>
-	                            <option value="F@N">Fairfield at Night Event</option>
-	                            <option value="RA">RA Event</option>
-	                            <option value="SPROT">Sports Game/Event</option>
-	                            <option value="OTHER">Other</option>
-	                        </select>
-                    </div>
-                    <div id="ifMental" style="display: none;">
-                    <br>
-                    	<label for="type">Type of Mental Report: </label>
-	                        <select id="mental" name="mental">
-	                            <option value="COUNSELING">Counseling</option>
-	                            <option value="STRESS">Stress Level</option>
-	                        </select>
-                    </div>
-                    <div id="ifSpiritual" style="display: none;">
-                    <br>
-                    	<label for="type">Type of Spiritual Report: </label>
-	                        <select id="spiritual" name="spiritual">
-	                            <option value="DURATION">Duration</option>
-	                            <option value="EVENTS">Events</option>
-	                        </select>
-                    </div>
-                    <div id="ifScreenTime" style="display: none;">
-                    <br>
-                    </div>-->
-					<br><br>
+                
+                
 				    <label for="timeRange">Time range for report:</label>
 				    <br><br>
 				    	<div>
@@ -146,14 +97,13 @@
 	                    		<input type="date" id = "sDate" name="sDate">
                     	</div>
                     	<div class="errorMSG" id="start_error">You must enter a valid start date in the form yyyy-mm-dd.</div><br>
-                    	<br><br>
                     	
                     	<div>
 	                    	<label>End Date: </label>
 	                    		<input type="date" id = "eDate" name="eDate">
                     	</div>
                     	<div class="errorMSG" id="end_error">You must enter a valid end date in the form yyyy-mm-dd.</div><br>
-                    	<br><br>
+
 					<button type="submit" name="submit" id="submit" value="Submit">Submit</button>
 				</form>
         </main>
