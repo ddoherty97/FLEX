@@ -37,6 +37,7 @@
         <title>FLEX</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../../css/style.css">
+        <script src="../../javascript/dietarygoals.js"></script>
 
         <script>
             function show(element) 
@@ -49,6 +50,11 @@
                 else if (element.value == 1) 
                 {
                     document.getElementById("ifWater").style.display = "block";
+                    document.getElementById("ifCalories").style.display = "none";   
+                }//end else if 
+                else if (element.value == -1) 
+                {
+                    document.getElementById("ifWater").style.display = "none";
                     document.getElementById("ifCalories").style.display = "none";   
                 }//end else
             }//close check
@@ -94,24 +100,27 @@
                 }//end if
             ?>
         	
-        	<form method="POST" action="../../php/CreateDietaryGoal.php">				
+        	<form method="POST" action="../../php/CreateDietaryGoal.php" onsubmit="return validateDietaryGoalSubmission();">				
 	 			<label for="goalType">Type of Goal<sup>*</sup>: </label>
 	 				<select id="goalType" name="goalType" onchange="show(this);">
 						<option value="-1">Select</option>  
 						<option value="0">Calorie Intake</option>
 	  					<option value="1">Water Intake</option>
                     </select>
+                    <div class="errorMSG" id="type_error"></div>
                 
-                <br><br>
+                <br>
 					
                 <div id="ifCalories" style="display:none;">
                     <label for="calories">Daily Calorie Intake Goal<sup>*</sup>: </label><br>
-                        <input type="text" name="calories" id="calories" size="6"> Calories<br><br>
+                        <input type="text" name="calories" id="calories" size="6"> Calories<br>
+                        <div class="errorMSG" id="calorie_error"></div>
                 </div>
 					
                 <div id="ifWater" style="display:none;">
                     <label for="water">Daily Water Intake Goal<sup>*</sup>: </label><br>
-                        <input type="text" name="water" id="water" size="6"> Ounces<br><br>
+                        <input type="text" name="water" id="water" size="6"> Ounces<br>
+                        <div class="errorMSG" id="water_error"></div>
                 </div>
 					
                 <!-- this is unneeded since the goals are daily. So, numDays always == 1
