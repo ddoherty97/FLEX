@@ -60,9 +60,12 @@
             }//end if
             else
             {
-                echo "trying to send...<br>";
+                header("Location: ../pages/users/resetpassword.php?func=confirmation&data=".$user);
+                exit();
             }//end else       
         }//end if
+        
+        //if user dosn't exist
         else
         {
             echo "user doesn't exist<br>";
