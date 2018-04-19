@@ -98,7 +98,7 @@
         if($function=="confirmation" && $data!="")
         {
             echo "<div>";
-            echo "A message has been sent to the email address on file for <strong>$data</strong> with a link to reset your password. Click the link in your email to continue!";
+            echo "A message has been sent to the email address on file for <strong>$data</strong> with a link to reset your password. Click the link in your email to continue! Be sure to check your spam folder if you cannot find the message.";
             echo "</div>";
         }//end if
         
@@ -161,8 +161,8 @@
         else
         {
             //redirect to login page
-            //header("Location: login.php");
-            //exit();
+            header("Location: login.php");
+            exit();
         }//end else
     ?>        
         </main>

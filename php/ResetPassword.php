@@ -5,7 +5,7 @@
      * a user's password to the FLEX application. It will generate a reset token, email it
      * to the user, and then the user must click the email link to reset their password.
      * Author: Davis Doherty
-     * Last Updated: 4/7/18 DD
+     * Last Updated: 4/18/18 DD
      **/
 
     //include access to the communication module
@@ -42,34 +42,26 @@
 
             //build email to send to user
             $subject = "Reset Your FLEX Password";
-            $headers = "MIME-Version: 1.0"."\r\n";
-            $headers .= "Content-type:text/html;charset=UTF-8"."\r\n";
-            $headers .= "From: web@flex.com"."\r\n";
+            
+            $headers = "MIME-Version: 1.0"."\n";
+            $headers .= "Content-type: text/html; charset=UTF-8"."\n";
+            $headers .= "From: FLEX by Fairfield <web@flex.com>";
+           
             $message = "<html><body>";
             $message .= "Dear ".$name.",<br><br>";
             $message .= "You recently requested a new password for your FLEX user account. To reset your password, please click the link below.<br>";
-            $message .= "<a href=''>Reset Password</a> (token=".$token.")<br><br>";
+            $message .= "<a href='http://flex.byethost16.com/pages/users/resetpassword.php?func=validate&data=".$token."'>Reset Password</a><br><br>";
             $message .= "Best Regards,<br>";
             $message .= "The FLEX Team";
-            $message .= "</body></html>";
+            $message .= "<br><br><br></body></html>";
 
             //send reset email to user
-            if(!mail($email,$subject,$message,$headers))
-            {
-                echo "error sending message.<br>";
-            }//end if
-            else
-            {
-                header("Location: ../pages/users/resetpassword.php?func=confirmation&data=".$user);
-                exit();
-            }//end else       
+            mail($email,$subject,$message,$headers);
+    
+            //redirect to confirmation page
+            header("Location: ../pages/users/resetpassword.php?func=confirmation&data=".$user);
+            exit();      
         }//end if
-        
-        //if user dosn't exist
-        else
-        {
-            echo "user doesn't exist<br>";
-        }//end else
     }//end if
 
     //if no user submitted
