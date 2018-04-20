@@ -72,7 +72,7 @@
 		}//end if
 		
 		//ensure type is provided
-		if($type == "")
+		if($type == "-1")
 		{
 			$isValid = false;			
 		}//end if

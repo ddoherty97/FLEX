@@ -36,6 +36,7 @@
         <title>FLEX</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../../css/style.css">
+        <script src="../../javascript/socialtracking.js"></script>
     </head>
     
     <body>
@@ -57,7 +58,7 @@
         </nav>
         </header>
         <main>
-        	<h1> FLEX </h1>
+        	<h1>FLEX</h1>
 			<h2>Social Tracking</h2>
 			 <?php
                 //display status of last data recording result
@@ -76,39 +77,58 @@
             ?>
 			<p>Lets track your Social Activity!<br></p>
 
-			<form action="../../php/CreateSocialData.php" method="POST">
-				
-				<label for = "date">Date</label><sup>*</sup> : 
-					<input type="date" id = "date" name="date" >
-				<br><br>
-				<label for="type">Name of Event : </label>
-					<input type="text" id = "title" name="title">
-				<br><br>
-				<label for="eventType">Type of Social Event<sup>*</sup>: </label>
-	 				<select id="eventType" name="eventType">
-						<option value="-1">Select</option>  
-						<option value="CLUB MEETING">Club Meeting</option>
-	  					<option value="F@N">Fairfield at Night Event</option>
-	  					<option value="RA EVENT">RA Event</option>
-	  					<option value="SPORTS EVENT">Sports Game/Event</option>
-	  					<option value="0">Other</option>
-					</select> 
-				<br><br>
-				<label for="type">Start Time<sup>*</sup>: </label>
-					<input type="time" id = "sTime" name="sTime">
-				<br><br>
-				<label for="type">End Time<sup>*</sup>: </label>
-					<input type="time" id = "eTime" name="eTime">
-				<br><br>
-				<label for="type">Location of Event<sup>*</sup>: </label>
-					<input type="text" id = "location" name="location">
-				<br><br>
-				<label for="textarea">Other Notes: </label>
-					<textarea rows="4" id="textarea" name="notes" cols="20"></textarea>
-				<br><br>
+			<form action="../../php/CreateSocialData.php" method="POST" onsubmit="return validateSocialTrackingSubmission();">	
+                <div>
+                    <label for = "date">Date</label><sup>*</sup>: 
+                        <input type="date" id="date" name="date">
+                </div>
+                <div class="errorMSG" id="date_error">You must enter a date in the format YYYY-MM-DD.</div>
+				    <br>
+                <div>
+                    <label for="type">Name of Event<sup>*</sup>: </label>
+                        <input type="text" id="title" name="title">
+                </div>
+                <div class="errorMSG" id="title_error">You must enter the title of the event.</div>
+				    <br>
+                <div>
+                    <label for="eventType">Type of Social Event<sup>*</sup>: </label>
+                        <select id="eventType" name="eventType">
+                            <option value="-1">Select</option>  
+                            <option value="CLUB MEETING">Club Meeting</option>
+                            <option value="F@N">Fairfield at Night Event</option>
+                            <option value="RA EVENT">RA Event</option>
+                            <option value="SPORTS EVENT">Sports Game/Event</option>
+                            <option value="0">Other</option>
+                        </select> 
+                </div>
+                <div class="errorMSG" id="type_error">You must select an event type.</div>
+				    <br>
+                <div>
+                    <label for="type">Start Time<sup>*</sup>: </label>
+                        <input type="time" id="sTime" name="sTime">
+                </div>
+                <div class="errorMSG" id="start_error">You must enter a start time.</div>
+				    <br>
+                <div>
+                    <label for="type">End Time<sup>*</sup>: </label>
+                        <input type="time" id="eTime" name="eTime">
+                </div>
+                <div class="errorMSG" id="end_error">You must enter an end time.</div>
+				    <br>
+                <div>
+                    <label for="type">Location of Event<sup>*</sup>: </label>
+                        <input type="text" id="location" name="location">
+                </div>
+                <div class="errorMSG" id="location_error">You must enter the location.</div>
+				    <br>
+                <div>
+                    <label for="textarea">Other Notes: </label>
+                        <textarea rows="4" id="textarea" name="notes" cols="20"></textarea>
+                </div>
+
+				<br>
   				<input type="submit" value="Submit">
 			</form>
-
         </main>
         <footer>
             <div class="leftFootCol">
