@@ -35,6 +35,7 @@
         <title>FLEX</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../../css/style.css">
+        <script src="../../javascript/screentimetracking.js"></script>
     </head>
     
     <body>
@@ -76,23 +77,33 @@
             ?>
 			<p>Lets track your Device Usage!<br></p>
 
-			<form action="../../php/CreateScreenTimeData.php" method="POST">
-				<label for = "date">Date </label> : 
-					<input type="date" id = "date" name="date">
-				<br>
-				<br>
-				<label for="speed">Time Spent on Device<sup>*</sup>: </label><br>
-					<input type="text" name="time" id="time" size="7"> minutes<br><br>
-				
-				<label for="type">Type of device Used: </label>
-					<select name="device">
-		  				<option value="Phone">Phone</option>
-		  				<option value="Computer">Computer/Laptop</option>
-		  				<option value="Tablet">Tablet</option>
-		  				<option value="TV">TV</option>
-		  				<option value="Gaming System">Gaming System</option>
-  					</select>
-  				<br>
+			<form action="../../php/CreateScreenTimeData.php" method="POST" onsubmit="return validateScreenTrackingSubmission();">
+				<div>
+                    <label for="date">Date: </label>
+                        <input type="date" id="date" name="date">
+                </div>
+                <div class="errorMSG" id="date_error">You must enter a date in the format YYYY-MM-DD.</div>
+				    <br>
+				<div>
+                    <label for="speed">Time Spent on Device<sup>*</sup>: </label><br>
+                        <input type="text" name="time" id="time" size="7"> minutes
+                </div>
+                <div class="errorMSG" id="time_error">You must enter the time spent on a device.</div>
+                    <br>
+				<div>
+                    <label for="type">Type of Device Used<sup>*</sup>: </label>
+                        <select id="device" name="device">
+                            <option value="-1">Select</option>
+                            <option value="Phone">Phone</option>
+                            <option value="Computer">Computer/Laptop</option>
+                            <option value="Tablet">Tablet</option>
+                            <option value="TV">TV</option>
+                            <option value="Gaming System">Gaming System</option>
+                            <option value="Other">Other</option>
+                        </select>
+                </div>
+                <div class="errorMSG" id="device_error">You must select a device type.</div>
+
   				<br>
   				<input type="submit" value="Submit">
 			</form>
