@@ -3,7 +3,7 @@
      * Social Tracking Front End (socialtracking.php)
      * This creates the user interface to record the user's social activities
      * Author: John Wiley
-     * Last Updated: 4/4/18 JC
+     * Last Updated: 4/19/18 DD
      **/
 
     //check if session is already running

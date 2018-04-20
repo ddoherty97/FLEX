@@ -3,7 +3,7 @@
      * Screen Time Tracking Front End (screentimetracking.php)
      * This creates the user interface to record the user's screen time information
      * Author: John Wiley
-     * Last Updated: 4/3/18 JC
+     * Last Updated: 4/19/18 DD
      **/
     //check if session is already running
 	if(!isset($_SESSION)) 
