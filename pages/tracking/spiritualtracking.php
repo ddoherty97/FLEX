@@ -35,6 +35,7 @@
         <title>FLEX</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../../css/style.css">
+        <script src="../../javascript/spiritualtracking.js"></script>
     </head>
     
     <body>
@@ -77,38 +78,51 @@
             ?>
 			<p>Lets track your Spiritual Activity!<br></p>
 
-			<form action="../../php/CreateSpiritualData.php" method="POST">
-				<label for="type">Name of Event<sup>*</sup>: </label>
-					<input type="text" id = "title" name="title">
-				<br>
-				<br>
-				<label for = "date">Date<sup>*</sup></label> : 
-					<input type="date" id = "date" name="date" >
-				<br>
-				<br>
-				<label for="type">Start Time<sup>*</sup>: </label>
-					<input type="time" id = "sTime" name="sTime">
-				<br>
-				<br>
-				<label for="type">End Time<sup>*</sup>: </label>
-					<input type="time" id = "eTime" name="eTime">
-				<br>
-				<br>
-				<label for="type">Location of Event<sup>*</sup>: </label>
-					<input type="text" id = "location" name="location">
-				<br>
-				<br>
-				<label for="type">Type of Event<sup>*</sup>: </label>
-					<input type="text" id = "type" name="type">
-				<br>
-				<br>
-				<label for="textarea">Other Notes: </label>
-					<textarea rows="3" id="textarea" name="notes" cols="20"></textarea>
-				<br>
-				<br>
+			<form action="../../php/CreateSpiritualData.php" method="POST" onsubmit="return validateSpiritualTrackingSubmission();">
+				<div>
+                    <label for="type">Name of Event<sup>*</sup>: </label>
+                        <input type="text" id="title" name="title">
+                </div>
+                <div class="errorMSG" id="title_error">You must enter the title of the event.</div>
+				    <br>
+                <div>
+                    <label for = "date">Date<sup>*</sup>: </label>
+                        <input type="date" id="date" name="date">
+                </div>
+                <div class="errorMSG" id="date_error">You must enter a date in the format YYYY-MM-DD.</div>
+				    <br>
+                <div>
+                    <label for="type">Start Time<sup>*</sup>: </label>
+                        <input type="time" id="sTime" name="sTime">
+                </div>
+				<div class="errorMSG" id="start_error">You must enter a start time.</div>
+				    <br>
+                <div>
+                    <label for="type">End Time<sup>*</sup>: </label>
+                        <input type="time" id="eTime" name="eTime">
+                </div>
+				<div class="errorMSG" id="end_error">You must enter an end time.</div>
+				    <br>
+                <div>
+                    <label for="type">Location of Event<sup>*</sup>: </label>
+                        <input type="text" id="location" name="location">
+                </div>
+				<div class="errorMSG" id="location_error">You must enter the location.</div>
+				    <br>
+                <div>
+                    <label for="type">Type of Event<sup>*</sup>: </label>
+                        <input type="text" id="type" name="type">
+				</div>
+                <div class="errorMSG" id="type_error">You must select an event type.</div>
+				    <br>
+                <div>
+                    <label for="textarea">Other Notes: </label>
+                        <textarea rows="3" id="notes" name="notes" cols="20"></textarea>
+				</div>
+				
+                <br>
   				<input type="submit" value="Submit">
 			</form>
-
         </main>
         <footer>
             <div class="leftFootCol">
