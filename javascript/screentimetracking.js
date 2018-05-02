@@ -38,7 +38,7 @@ function validateScreenTrackingSubmission()
     }//end else
 
     //ensure time spent is provided and a number
-    if(duration==="" || isNaN(duration))
+    if(duration==="" || isNaN(duration) || duration<=0)
     {
         //show error message and mark input invalid
         document.getElementById("time_error").style.display = "block";

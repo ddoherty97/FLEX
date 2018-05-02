@@ -57,7 +57,7 @@ function validateFitnessGoalSubmission()
         	document.getElementById("cardio_error").style.display = "none";
         	
         	//if distance goal not provided
-        	if(distanceGoal === "" || isNaN(distanceGoal))
+        	if(distanceGoal === "" || isNaN(distanceGoal) || distanceGoal<=0)
         	{
         		//show error message and mark input invalid
         		document.getElementById("distance_error").style.display = "block";
@@ -74,7 +74,7 @@ function validateFitnessGoalSubmission()
     		document.getElementById("cardio_error").style.display = "none";
     		
     		//if speed goal not provided
-        	if(speedGoal === "" || isNaN(speedGoal))
+        	if(speedGoal === "" || isNaN(speedGoal) || speedGoal<=0)
         	{
         		//show error message and mark input invalid
         		document.getElementById("speed_error").style.display = "block";
@@ -91,7 +91,7 @@ function validateFitnessGoalSubmission()
     		document.getElementById("cardio_error").style.display = "none";
     		
         	//if distance goal not provided
-        	if(timeGoal === "" || isNaN(timeGoal))
+        	if(timeGoal === "" || isNaN(timeGoal) || timeGoal<=0)
         	{
         		//show error message and mark input invalid
         		document.getElementById("time_error").style.display = "block";
@@ -123,7 +123,7 @@ function validateFitnessGoalSubmission()
 		}//end else
 		
 		//if strength goal not provided
-		if(strengthGoal === "" || isNaN(strengthGoal))
+		if(strengthGoal === "" || isNaN(strengthGoal) || strengthGoal<=0)
 		{
 			//show error message and mark input invalid
 			document.getElementById("strengthGoal_error").style.display = "block";
@@ -152,7 +152,7 @@ function validateFitnessGoalSubmission()
         	document.getElementById("weightType_error").style.display = "none";
         }//end else
         	//if weight goal not provided
-        if(weightGoal === "" || isNaN(weightGoal))
+        if(weightGoal === "" || isNaN(weightGoal) || weightGoal<=0)
         {
         	//show error message and mark input invalid
         	document.getElementById("weightGoal_error").style.display = "block";
@@ -165,7 +165,7 @@ function validateFitnessGoalSubmission()
         
     }//end else if
     
-    if(numDays === "" || isNaN(numDays))
+    if(numDays === "" || isNaN(numDays) || numDays<=0)
     {
     	//show error message and mark input invalid
         document.getElementById("numDays_error").style.display = "block";

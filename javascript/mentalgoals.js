@@ -39,7 +39,7 @@ function validateMentalGoalSubmission()
     {
     	document.getElementById("type_error").style.display = "none";
     	
-  		if(counselingTime === "" || isNaN(counselingTime))
+  		if(counselingTime === "" || isNaN(counselingTime) || counselingTime<=0)
   		{
   			//show error message and mark input invalid
         	document.getElementById("counseling_error").style.display = "block";
@@ -50,7 +50,7 @@ function validateMentalGoalSubmission()
   			document.getElementById("counseling_error").style.display = "none";
   		}
   		
-  		if(numDays === "" || isNaN(numDays))
+  		if(numDays === "" || isNaN(numDays) || numDays<=0)
     	{
     		//show error message and mark input invalid
         	document.getElementById("numDays_error").style.display = "block";

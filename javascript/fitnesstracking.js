@@ -120,7 +120,7 @@ function validateFitnessTrackingSubmission()
         document.getElementById("fitType_error").style.display = "none";
 
         //ensure new weight submitted
-        if(weightChange==="" || isNaN(weightChange))
+        if(weightChange==="" || isNaN(weightChange) || weightChange<=0)
         {
             //show error message and mark input invalid
             document.getElementById("weight_error").style.display = "block";
@@ -277,7 +277,7 @@ function validateMilestone(milestoneValue, labelValue, milestoneError, labelErro
     var mileValid = true;
 
     //ensure milestone submitted
-    if(milestoneValue==="")
+    if(milestoneValue==="" || !isNaN(milestoneValue) || milestoneValue<=0)
     {
         //show error message and mark input invalid
         document.getElementById(milestoneError).style.display = "block";

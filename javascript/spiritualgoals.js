@@ -37,7 +37,7 @@ function validateSpiritualGoalSubmission()
     {
     	document.getElementById("type_error").style.display = "none";
     	
-        if(durationGoal === "" || isNaN(durationGoal)) 
+        if(durationGoal === "" || isNaN(durationGoal) || durationGoal<=0) 
         {
         	document.getElementById("duration_error").style.display = "block";
         	isValid = false;
@@ -53,7 +53,7 @@ function validateSpiritualGoalSubmission()
     {
     	document.getElementById("type_error").style.display = "none";
     	
-        if(eventsGoal === "" || isNaN(eventsGoal)) 
+        if(eventsGoal === "" || isNaN(eventsGoal) || eventsGoal<=0) 
         {
         	document.getElementById("events_error").style.display = "block";
         	isValid = false;
@@ -64,7 +64,7 @@ function validateSpiritualGoalSubmission()
         }
     }//end else if
 
-	if(numDays === "" || isNaN(numDays))
+	if(numDays === "" || isNaN(numDays) || numDays<=0)
 	{
 		document.getElementById("numDays_error").style.display = "block";
         isValid = false;

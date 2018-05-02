@@ -74,7 +74,7 @@ function validateCalories(calValue, calError)
     var calValid = true;
 
     //if no calorie intake provided
-    if(calValue==="" || isNaN(calValue))
+    if(calValue==="" || isNaN(calValue) || calValue<=0)
     {
         //show error message and mark input invalid
         document.getElementById(calError).style.display = "block";
@@ -102,7 +102,7 @@ function validateWater(waterValue, errorID)
     var waterValid = true;
 
     //if no water intake provided
-    if(waterValue==="" || isNaN(waterValue))
+    if(waterValue==="" || isNaN(waterValue) || waterValue<=0)
     {
         //show error message and mark input invalid
         document.getElementById(errorID).style.display = "block";

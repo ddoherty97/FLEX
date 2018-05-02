@@ -24,7 +24,7 @@ function validateScreenTimeGoalSubmission()
     var isValid = true;
     
     //ensure screen time goal is submitted
-    if(stGoal === "" || isNaN(stGoal))
+    if(stGoal === "" || isNaN(stGoal) || stGoal<=0)
     {
         //show error message and mark input invalid
         document.getElementById("st_error").style.display = "block";

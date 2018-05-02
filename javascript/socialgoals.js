@@ -53,7 +53,7 @@ function validateSocialGoalSubmission()
 		document.getElementById("type_error").style.display = "none";
 	}
 	
-	if(time === "" || isNaN(time))
+	if(time === "" || isNaN(time) || time<=0)
 	{
 		document.getElementById("time_error").style.display = "block";
         isValid = false;
@@ -63,7 +63,7 @@ function validateSocialGoalSubmission()
 		document.getElementById("time_error").style.display = "none";
 	}
 	
-	if(numDays === "" || isNaN(numDays))
+	if(numDays === "" || isNaN(numDays) || numDays<=0)
 	{
 		document.getElementById("numDays_error").style.display = "block";
         isValid = false;
