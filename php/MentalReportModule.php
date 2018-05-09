@@ -180,13 +180,13 @@
                 $entry = new MentalEntry($id, date_create($date), $counselingDuration, $counselingType, $counselingNotes, $stressLevel, $stressFactors, $timestamp);
 
                 //add object to array
-                $dietaryEntries[$entryIndex] = $entry;
+                $mentalEntries[$entryIndex] = $entry;
                 $entryIndex++;
             }//end while
 
             //return array of entries
-            return $dietaryEntries;
-        }//close getDietaryEntries
+            return $mentalEntries;
+        }//close getMentalEntries
 
         /**
          * getMentalReport()
