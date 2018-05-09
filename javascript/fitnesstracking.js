@@ -277,7 +277,7 @@ function validateMilestone(milestoneValue, labelValue, milestoneError, labelErro
     var mileValid = true;
 
     //ensure milestone submitted
-    if(milestoneValue==="" || !isNaN(milestoneValue) || milestoneValue<=0)
+    if(milestoneValue==="" || isNaN(milestoneValue) || milestoneValue<=0)
     {
         //show error message and mark input invalid
         document.getElementById(milestoneError).style.display = "block";
