@@ -123,7 +123,7 @@
 
 			//get screen time goals and progresses
 			$stGoals = $report->getScreenTimeGoals();
-			$stProgress = $report->getScreenTimeProgressess();
+			$stProgress = $report->getScreenTimeProgresses();
 
 			//if there are any goals to show
 			if(count($stGoals) > 0)
