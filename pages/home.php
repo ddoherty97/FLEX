@@ -58,7 +58,7 @@
             <br><br><a href="https://www.fairfield.edu/library/" style="text-decoration: none;">Library</a>
             <br><br><a href="https://www.fairfield.edu/catholic-and-jesuit/campus-ministry/liturgy-worship/" style="text-decoration: none;">Egan Chapel</a>
             <br><br><a href="https://www.fairfield.edu/museum/" style="text-decoration: none;">Bellarmine Museum</a>
-            <br><br><a href="https://www.fairfield.edu/undergraduate/student-life-and-services/student-  services/dining/" style="text-decoration: none;">Dining</a>
+            <br><br><a href="https://www.fairfield.edu/undergraduate/student-life-and-services/student-services/dining/" style="text-decoration: none;">Dining</a>
             <br><br><a href="https://www.fairfield.edu/undergraduate/student-life-and-services/health-and-wellness/counseling-and-psychological-services/" style="text-decoration: none;">Counseling</a>
         </main>
        
