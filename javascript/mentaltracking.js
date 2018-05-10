@@ -102,7 +102,7 @@ function validateMentalTrackingSubmission()
         document.getElementById("type_error").style.display = "none";
         
         //use subfunction to determine if counseling and stress input valid
-        if(!validateCounseling(counseling, "cNotes_error") && !validateStress(stress, "stress_error"))
+        if(!validateCounseling(counseling, "cNotes_error") || !validateStress(stress, "stress_error"))
         {
             isValid = false;
         }//end if
@@ -190,7 +190,7 @@ function validateCounseling(cTypeValue, cTypeError)
     else
     {
         document.getElementById(cTypeError).style.display = "none";
-        return false;
+        return true;
     }//end else
 }//close validateCounseling
 
